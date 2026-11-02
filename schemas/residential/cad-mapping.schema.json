@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Classified-to-CAD mapping report",
+  "type": "object",
+  "required": ["schema_version", "document_id", "source_entity_count", "cad_entity_count", "units"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "document_id": {"type": "string"},
+    "source_entity_count": {"type": "integer"},
+    "cad_entity_count": {"type": "integer"},
+    "layer_count": {"type": "integer"},
+    "units": {"const": "mm"},
+    "skipped": {"type": "array"},
+    "parametric_doors_windows": {"type": "integer"},
+    "runtime_cad_import": {"enum": ["verified", "unverified", "failed"]},
+    "note": {"type": "string"}
+  }
+}

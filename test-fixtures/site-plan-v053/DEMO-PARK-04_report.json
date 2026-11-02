@@ -1,0 +1,2384 @@
+{
+  "site_id": "DEMO-PARK-04",
+  "crs": "EPSG:5187",
+  "zone": "제2종일반주거지역",
+  "program": {
+    "use": "근린생활시설",
+    "floors": 5,
+    "floor_h": 3.6,
+    "target_gfa": 1200,
+    "massing": "auto",
+    "shape": "auto",
+    "parking": {
+      "count": "auto",
+      "mode": "auto",
+      "layout": "auto",
+      "stall": "일반형"
+    },
+    "entry_side": "auto"
+  },
+  "edges": [
+    {
+      "idx": 0,
+      "p0": [
+        0.0,
+        0.0
+      ],
+      "p1": [
+        24.0,
+        0.0
+      ],
+      "length": 24.0,
+      "normal": [
+        0.0,
+        -1.0
+      ],
+      "kind": "side",
+      "neighbor_pnu": "LOT-S",
+      "neighbor_jimok": "대",
+      "neighbor_centerline": null,
+      "road_source": null,
+      "road_width": null,
+      "effective_road_width": null,
+      "north": false,
+      "setback_building_line": 0.0,
+      "setback_open_space": 0.5,
+      "setback": 0.5,
+      "corner_cut_at_end": 0.0
+    },
+    {
+      "idx": 1,
+      "p0": [
+        24.0,
+        0.0
+      ],
+      "p1": [
+        25.5,
+        26.0
+      ],
+      "length": 26.043,
+      "normal": [
+        0.998,
+        -0.058
+      ],
+      "kind": "road",
+      "neighbor_pnu": "ROAD-E",
+      "neighbor_jimok": "도",
+      "neighbor_centerline": null,
+      "road_source": "jimok",
+      "road_width": 7.731,
+      "effective_road_width": 7.731,
+      "north": false,
+      "setback_building_line": 0.0,
+      "setback_open_space": 0.0,
+      "setback": 0.0,
+      "corner_cut_at_end": 0.0
+    },
+    {
+      "idx": 2,
+      "p0": [
+        25.5,
+        26.0
+      ],
+      "p1": [
+        -1.5,
+        27.0
+      ],
+      "length": 27.019,
+      "normal": [
+        0.037,
+        0.999
+      ],
+      "kind": "side",
+      "neighbor_pnu": "PARK-N",
+      "neighbor_jimok": "공",
+      "neighbor_centerline": null,
+      "road_source": null,
+      "road_width": null,
+      "effective_road_width": null,
+      "north": true,
+      "setback_building_line": 0.0,
+      "setback_open_space": 0.5,
+      "setback": 0.5,
+      "corner_cut_at_end": 0.0
+    },
+    {
+      "idx": 3,
+      "p0": [
+        -1.5,
+        27.0
+      ],
+      "p1": [
+        0.0,
+        0.0
+      ],
+      "length": 27.042,
+      "normal": [
+        -0.998,
+        -0.055
+      ],
+      "kind": "side",
+      "neighbor_pnu": "LOT-W",
+      "neighbor_jimok": "대",
+      "neighbor_centerline": null,
+      "road_source": null,
+      "road_width": null,
+      "effective_road_width": null,
+      "north": false,
+      "setback_building_line": 0.0,
+      "setback_open_space": 0.5,
+      "setback": 0.5,
+      "corner_cut_at_end": 0.0
+    }
+  ],
+  "corner_cuts": [],
+  "sunlight": {
+    "applies": true,
+    "boundary_credit_m": 19.803,
+    "_note": "north_setback = 정북 인접대지경계선(북측 도로·공원이면 그 반대편 경계) 기준 후퇴, north_setback_from_parcel = 대지경계선 기준(도로·공원 폭 공제)",
+    "by_floor": [
+      {
+        "floor": 1,
+        "top_h": 3.6,
+        "north_setback": 1.5,
+        "north_setback_from_parcel": 0.0
+      },
+      {
+        "floor": 2,
+        "top_h": 7.2,
+        "north_setback": 1.5,
+        "north_setback_from_parcel": 0.0
+      },
+      {
+        "floor": 3,
+        "top_h": 10.8,
+        "north_setback": 5.4,
+        "north_setback_from_parcel": 0.0
+      },
+      {
+        "floor": 4,
+        "top_h": 14.4,
+        "north_setback": 7.2,
+        "north_setback_from_parcel": 0.0
+      },
+      {
+        "floor": 5,
+        "top_h": 18.0,
+        "north_setback": 9.0,
+        "north_setback_from_parcel": 0.0
+      }
+    ]
+  },
+  "open_space": {
+    "from_building_line": 0.0,
+    "from_adjacent_lot": 0.5
+  },
+  "numbers": {
+    "site_area_gross": 675.75,
+    "site_area": 675.75,
+    "deducted_area": 0.0,
+    "building_area": 398.69,
+    "floor_areas": [
+      398.69,
+      398.69,
+      274.12
+    ],
+    "counted_areas": [
+      398.69,
+      398.69,
+      274.12
+    ],
+    "rentable_areas": [
+      383.69,
+      383.69,
+      259.12
+    ],
+    "terrace_areas": [
+      0.0,
+      0.0,
+      124.58
+    ],
+    "core_per_floor": 15.0,
+    "piloti_excluded": 0.0,
+    "gfa": 1071.5,
+    "bcr": 59.0,
+    "bcr_max": 60.0,
+    "bcr_target": 59.0,
+    "far": 158.56,
+    "far_max": 220.0,
+    "max_building_area": 405.45,
+    "max_gfa": 1486.65,
+    "target_gfa": 1071.5,
+    "value_1f_eq": 565.2,
+    "value_ratio": {
+      "1": 6.0,
+      "2": 2.0,
+      "3": 1.0
+    },
+    "parking_required": 8,
+    "parking_placed": 8,
+    "parking_mode": "front",
+    "parking_layout": "mixed_start",
+    "parking_label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+    "parking_tandem": 8,
+    "parking_apron": 0.0,
+    "building_shape": "follow",
+    "landscape_required": 67.58,
+    "landscape_provided": 67.62,
+    "floors": 3,
+    "floor_h": 3.6,
+    "height": 10.8
+  },
+  "massing": "max1f",
+  "primary_road_edge": 1,
+  "building_rect": [
+    [
+      25.471,
+      25.501
+    ],
+    [
+      24.703,
+      12.18
+    ],
+    [
+      14.22,
+      12.785
+    ],
+    [
+      13.511,
+      0.5
+    ],
+    [
+      3.357,
+      0.5
+    ],
+    [
+      4.843,
+      26.265
+    ]
+  ],
+  "clearances": [
+    {
+      "face_mid": [
+        19.461,
+        12.482
+      ],
+      "q": [
+        18.741,
+        0.0
+      ],
+      "distance": 12.503,
+      "edge": 0,
+      "edge_kind": "side",
+      "required": 0.5,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        25.087,
+        18.84
+      ],
+      "q": [
+        25.087,
+        18.84
+      ],
+      "distance": 0.0,
+      "edge": 1,
+      "edge_kind": "road",
+      "required": 0.0,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        15.157,
+        25.883
+      ],
+      "q": [
+        15.176,
+        26.382
+      ],
+      "distance": 0.5,
+      "edge": 2,
+      "edge_kind": "side",
+      "required": 0.5,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        4.1,
+        13.382
+      ],
+      "q": [
+        -0.759,
+        13.663
+      ],
+      "distance": 4.867,
+      "edge": 3,
+      "edge_kind": "side",
+      "required": 0.5,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        7.165,
+        0.5
+      ],
+      "q": [
+        7.165,
+        0.0
+      ],
+      "distance": 0.5,
+      "edge": 0,
+      "edge_kind": "side",
+      "required": 0.5,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        12.242,
+        0.5
+      ],
+      "q": [
+        12.242,
+        0.0
+      ],
+      "distance": 0.5,
+      "edge": 0,
+      "edge_kind": "side",
+      "required": 0.5,
+      "ok": true
+    },
+    {
+      "face_mid": [
+        13.866,
+        6.642
+      ],
+      "q": [
+        24.348,
+        6.037
+      ],
+      "distance": 10.5,
+      "edge": 1,
+      "edge_kind": "road",
+      "required": 0.0,
+      "ok": true
+    }
+  ],
+  "checks": [
+    {
+      "rule": "건폐율",
+      "ok": true,
+      "value": 59.0,
+      "limit": 60.0,
+      "note": "%",
+      "severity": "error",
+      "provisional": true
+    },
+    {
+      "rule": "1층 건폐율 목표",
+      "ok": true,
+      "value": 59.0,
+      "limit": 59.0,
+      "note": "% — 설계 원칙: 1층은 허용치−1%p까지 무조건",
+      "severity": "info",
+      "provisional": true
+    },
+    {
+      "rule": "용적률",
+      "ok": true,
+      "value": 158.56,
+      "limit": 220.0,
+      "note": "%",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "1F 건축가능영역 내",
+      "ok": true,
+      "value": 398.69,
+      "limit": null,
+      "note": "㎡",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "2F 건축가능영역 내",
+      "ok": true,
+      "value": 398.69,
+      "limit": null,
+      "note": "㎡",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "3F 건축가능영역 내",
+      "ok": true,
+      "value": 274.12,
+      "limit": null,
+      "note": "㎡",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변0(side)",
+      "ok": true,
+      "value": 12.503,
+      "limit": 0.5,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변1(road)",
+      "ok": true,
+      "value": 0.0,
+      "limit": 0.0,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변2(side)",
+      "ok": true,
+      "value": 0.5,
+      "limit": 0.5,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변3(side)",
+      "ok": true,
+      "value": 4.867,
+      "limit": 0.5,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변0(side)",
+      "ok": true,
+      "value": 0.5,
+      "limit": 0.5,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변0(side)",
+      "ok": true,
+      "value": 0.5,
+      "limit": 0.5,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "이격 변1(road)",
+      "ok": true,
+      "value": 10.5,
+      "limit": 0.0,
+      "note": "m",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "주차대수",
+      "ok": true,
+      "value": 8,
+      "limit": 8,
+      "note": "134㎡당 1대 · 전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "severity": "error",
+      "provisional": true
+    },
+    {
+      "rule": "8대 이하 특례(도로 직접 진출입)",
+      "ok": true,
+      "value": 8,
+      "limit": 8,
+      "note": "",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "차로 너비(도로 포함)",
+      "ok": true,
+      "value": 7.73,
+      "limit": 6.0,
+      "note": "m · 여유폭 0.0m (11조⑤2호)",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "연속 배치 조당 대수",
+      "ok": true,
+      "value": "4+4",
+      "limit": 5,
+      "note": "대 · 2조, 조 간격 1.5m (11조⑤4호 실무 적용)",
+      "severity": "error",
+      "provisional": true
+    },
+    {
+      "rule": "연접 구획 수(조별)",
+      "ok": true,
+      "value": 8,
+      "limit": "조당 ≤5",
+      "note": "대 · all 해석 (11조⑤4호)",
+      "severity": "error",
+      "provisional": true
+    },
+    {
+      "rule": "구획 도로 접근(건물에 막힘 없음)",
+      "ok": true,
+      "value": "OK",
+      "limit": null,
+      "note": "",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "출입구 너비",
+      "ok": true,
+      "value": 13.5,
+      "limit": 3.0,
+      "note": "m (11조⑤5호, 담장 개구부 기준)",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "주차구획 대지 내(후퇴·가각 제외)",
+      "ok": true,
+      "value": null,
+      "limit": null,
+      "note": "",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "주차구획-건물 겹침 없음",
+      "ok": true,
+      "value": null,
+      "limit": null,
+      "note": "",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "보행 통로(건물-구획)",
+      "ok": true,
+      "value": 0.5,
+      "limit": 0.5,
+      "note": "m (11조⑤6호)",
+      "severity": "error",
+      "provisional": false
+    },
+    {
+      "rule": "조경면적",
+      "ok": true,
+      "value": 67.62,
+      "limit": 67.58,
+      "note": "10% · 부족 시 옥상조경 검토",
+      "severity": "error",
+      "provisional": true
+    },
+    {
+      "rule": "옥탑(계단실 3m) 정북 일조",
+      "ok": true,
+      "value": 274.1,
+      "limit": "3×6m",
+      "note": "H=13.8m → 정북 후퇴 6.90m(도로·공원 19.80m 공제 → 경계선 0.00m), 건축면적 1/8 이하",
+      "severity": "error",
+      "provisional": false
+    }
+  ],
+  "all_ok": true,
+  "warnings": [
+    "법정 주차 9대 > 특례 8대 → 연면적 상한 1071.5㎡ (8대 이하로 계획)",
+    "용적률·주차 한도에 맞춰 상층 축소: 3F 398.7→274.1㎡(뒤쪽)"
+  ],
+  "parking": {
+    "mode": "front",
+    "layout": "mixed_start",
+    "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+    "count": 8,
+    "placed": 8,
+    "pairs": 4,
+    "singles": 0,
+    "tandem_stalls": 8,
+    "apron": 0.0,
+    "aisle_counted": 7.73,
+    "aisle_need": 6.0,
+    "entrance_width": 13.5
+  },
+  "alternatives": [
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": true
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7,
+        274.1
+      ],
+      "value_1f_eq": 565.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        353.9,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 564.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        353.9,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 564.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        353.9,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 564.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        317.5,
+        177.6,
+        177.6
+      ],
+      "value_1f_eq": 557.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        325.6,
+        173.6,
+        173.6
+      ],
+      "value_1f_eq": 558.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1007.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        263.2,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 537.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1007.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        263.2,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 537.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1007.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        263.2,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 537.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 연접 6대 (3+3 2조) · 연접 2열+단독 2열",
+      "gfa": 797.38,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7
+      ],
+      "value_1f_eq": 511.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 연접 6대 (3+3 2조) · 연접 2열+단독 2열",
+      "gfa": 797.38,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7
+      ],
+      "value_1f_eq": 511.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 1열 6대 (3+3 2조)",
+      "gfa": 797.38,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7
+      ],
+      "value_1f_eq": 511.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 1열 6대 (3+3 2조)",
+      "gfa": 797.39,
+      "building_area": 398.69,
+      "counted_areas": [
+        398.7,
+        398.7
+      ],
+      "value_1f_eq": 511.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 377.1,
+      "counted_areas": [
+        377.1,
+        173.6,
+        173.6,
+        173.6,
+        173.6
+      ],
+      "value_1f_eq": 511.2,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 352.08,
+      "counted_areas": [
+        352.1,
+        241.0,
+        159.5,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 500.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 352.08,
+      "counted_areas": [
+        352.1,
+        241.0,
+        159.5,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 500.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 352.08,
+      "counted_areas": [
+        352.1,
+        241.0,
+        159.5,
+        159.5,
+        159.5
+      ],
+      "value_1f_eq": 500.7,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 360.97,
+      "counted_areas": [
+        361.0,
+        177.6,
+        177.6,
+        177.6,
+        177.6
+      ],
+      "value_1f_eq": 496.8,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        243.2,
+        175.7
+      ],
+      "value_1f_eq": 492.4,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        243.2,
+        175.7
+      ],
+      "value_1f_eq": 492.4,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        243.2,
+        175.7
+      ],
+      "value_1f_eq": 492.4,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "필로티 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        398.7,
+        202.6,
+        171.5
+      ],
+      "value_1f_eq": 487.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "필로티 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        398.7,
+        202.6,
+        171.5
+      ],
+      "value_1f_eq": 487.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "필로티 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        398.7,
+        374.1
+      ],
+      "value_1f_eq": 473.5,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "필로티 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        398.7,
+        374.1
+      ],
+      "value_1f_eq": 473.5,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        218.1,
+        175.7,
+        175.7,
+        175.7
+      ],
+      "value_1f_eq": 471.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        218.1,
+        175.7,
+        175.7,
+        175.7
+      ],
+      "value_1f_eq": 471.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        218.1,
+        175.7,
+        175.7,
+        175.7
+      ],
+      "value_1f_eq": 471.9,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 978.9,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        326.3
+      ],
+      "value_1f_eq": 467.0,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 978.9,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        326.3
+      ],
+      "value_1f_eq": 467.0,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 978.9,
+      "building_area": 326.3,
+      "counted_areas": [
+        326.3,
+        326.3,
+        326.3
+      ],
+      "value_1f_eq": 467.0,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "필로티 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        258.3,
+        171.5,
+        171.5,
+        171.5
+      ],
+      "value_1f_eq": 462.0,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "필로티 1열 8대 (4+4 2조)",
+      "gfa": 1071.5,
+      "building_area": 398.69,
+      "counted_areas": [
+        298.7,
+        258.3,
+        171.5,
+        171.5,
+        171.5
+      ],
+      "value_1f_eq": 462.0,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 연접 5대 · 연접 2열+단독 1열",
+      "gfa": 669.5,
+      "building_area": 373.92,
+      "counted_areas": [
+        373.9,
+        295.6
+      ],
+      "value_1f_eq": 459.0,
+      "parking": "5/5",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 연접 5대 · 연접 2열+단독 1열",
+      "gfa": 669.5,
+      "building_area": 373.92,
+      "counted_areas": [
+        373.9,
+        295.6
+      ],
+      "value_1f_eq": 459.0,
+      "parking": "5/5",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 연접 5대 · 연접 2열+단독 1열",
+      "gfa": 669.5,
+      "building_area": 373.92,
+      "counted_areas": [
+        373.9,
+        295.6
+      ],
+      "value_1f_eq": 459.0,
+      "parking": "5/5",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "tandem",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "필로티 연접 6대 (3+3 2조) · 연접 2열+단독 2열",
+      "gfa": 722.38,
+      "building_area": 398.69,
+      "counted_areas": [
+        323.7,
+        398.7
+      ],
+      "value_1f_eq": 436.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "필로티 1열 6대 (3+3 2조)",
+      "gfa": 722.38,
+      "building_area": 398.69,
+      "counted_areas": [
+        323.7,
+        398.7
+      ],
+      "value_1f_eq": 436.6,
+      "parking": "6/6",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 평행 4대",
+      "gfa": 535.5,
+      "building_area": 363.3,
+      "counted_areas": [
+        363.3,
+        172.2
+      ],
+      "value_1f_eq": 416.6,
+      "parking": "4/4",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "전면 평행 4대",
+      "gfa": 535.5,
+      "building_area": 358.65,
+      "counted_areas": [
+        358.6,
+        176.9
+      ],
+      "value_1f_eq": 412.7,
+      "parking": "4/4",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_start",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 시작측",
+      "gfa": 943.5,
+      "building_area": 252.33,
+      "counted_areas": [
+        252.3,
+        172.8,
+        172.8,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 375.5,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "mixed_end",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열 · 연접블록 끝측",
+      "gfa": 943.5,
+      "building_area": 252.33,
+      "counted_areas": [
+        252.3,
+        172.8,
+        172.8,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 375.5,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "tandem",
+      "shape": "L",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 연접 8대 (4+4 2조) · 연접 4열+단독 0열",
+      "gfa": 943.5,
+      "building_area": 252.33,
+      "counted_areas": [
+        252.3,
+        172.8,
+        172.8,
+        172.8,
+        172.8
+      ],
+      "value_1f_eq": 375.5,
+      "parking": "8/8",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 평행 4대",
+      "gfa": 535.5,
+      "building_area": 191.1,
+      "counted_areas": [
+        191.1,
+        172.2,
+        172.2
+      ],
+      "value_1f_eq": 256.3,
+      "parking": "4/4",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "전면 평행 4대",
+      "gfa": 535.5,
+      "building_area": 181.79,
+      "counted_areas": [
+        181.8,
+        176.9,
+        176.9
+      ],
+      "value_1f_eq": 248.1,
+      "parking": "4/4",
+      "all_ok": true,
+      "ng": 0,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 평행 4대",
+      "gfa": 884.27,
+      "building_area": 176.85,
+      "counted_areas": [
+        176.9,
+        176.9,
+        176.9,
+        176.9,
+        176.9
+      ],
+      "value_1f_eq": 296.7,
+      "parking": "4/7",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "필로티 1열 0대",
+      "gfa": 881.02,
+      "building_area": 176.2,
+      "counted_areas": [
+        176.2,
+        176.2,
+        176.2,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 295.5,
+      "parking": "0/7",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "전면 평행 4대",
+      "gfa": 861.0,
+      "building_area": 172.2,
+      "counted_areas": [
+        172.2,
+        172.2,
+        172.2,
+        172.2,
+        172.2
+      ],
+      "value_1f_eq": 288.2,
+      "parking": "4/7",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 평행 4대",
+      "gfa": 707.42,
+      "building_area": 176.85,
+      "counted_areas": [
+        176.9,
+        176.9,
+        176.9,
+        176.9
+      ],
+      "value_1f_eq": 269.8,
+      "parking": "4/6",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "필로티 1열 0대",
+      "gfa": 704.82,
+      "building_area": 176.2,
+      "counted_areas": [
+        176.2,
+        176.2,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 268.7,
+      "parking": "0/6",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "front",
+      "layout": "parallel",
+      "shape": "rect",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "전면 평행 4대",
+      "gfa": 688.8,
+      "building_area": 172.2,
+      "counted_areas": [
+        172.2,
+        172.2,
+        172.2,
+        172.2
+      ],
+      "value_1f_eq": 262.0,
+      "parking": "4/6",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "필로티 1열 0대",
+      "gfa": 528.61,
+      "building_area": 176.2,
+      "counted_areas": [
+        176.2,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 241.8,
+      "parking": "0/4",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 2,
+      "label": "필로티 1열 0대",
+      "gfa": 352.41,
+      "building_area": 176.2,
+      "counted_areas": [
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 214.9,
+      "parking": "0/3",
+      "all_ok": false,
+      "ng": 1,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 5,
+      "label": "필로티 1열 1대",
+      "gfa": 868.52,
+      "building_area": 176.2,
+      "counted_areas": [
+        163.7,
+        176.2,
+        176.2,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 283.0,
+      "parking": "1/7",
+      "all_ok": false,
+      "ng": 2,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 4,
+      "label": "필로티 1열 1대",
+      "gfa": 692.32,
+      "building_area": 176.2,
+      "counted_areas": [
+        163.7,
+        176.2,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 256.2,
+      "parking": "1/6",
+      "all_ok": false,
+      "ng": 2,
+      "chosen": false
+    },
+    {
+      "mode": "piloti",
+      "layout": "single",
+      "shape": "follow",
+      "massing": "max1f",
+      "floors": 3,
+      "label": "필로티 1열 1대",
+      "gfa": 516.11,
+      "building_area": 176.2,
+      "counted_areas": [
+        163.7,
+        176.2,
+        176.2
+      ],
+      "value_1f_eq": 229.3,
+      "parking": "1/4",
+      "all_ok": false,
+      "ng": 2,
+      "chosen": false
+    }
+  ],
+  "buildable_L1": [
+    [
+      24.0,
+      0.5
+    ],
+    [
+      0.473,
+      0.5
+    ],
+    [
+      -0.97,
+      26.48
+    ],
+    [
+      25.471,
+      25.501
+    ],
+    [
+      24.029,
+      0.499
+    ]
+  ],
+  "mode": "generate",
+  "provisional_rules": [
+    "1층 건폐율 목표",
+    "건폐율",
+    "연속 배치 조당 대수",
+    "연접 구획 수(조별)",
+    "조경면적",
+    "주차대수"
+  ],
+  "geometry": {
+    "crs": "EPSG:5187",
+    "units": "m",
+    "footprint": [
+      [
+        14.2201,
+        12.7845
+      ],
+      [
+        13.5114,
+        0.5
+      ],
+      [
+        10.9727,
+        0.5
+      ],
+      [
+        3.3568,
+        0.5
+      ],
+      [
+        4.8432,
+        26.2647
+      ],
+      [
+        25.4712,
+        25.5007
+      ],
+      [
+        24.7027,
+        12.1797
+      ]
+    ],
+    "floors": [
+      [
+        [
+          14.2201,
+          12.7845
+        ],
+        [
+          13.5114,
+          0.5
+        ],
+        [
+          10.9727,
+          0.5
+        ],
+        [
+          3.3568,
+          0.5
+        ],
+        [
+          4.8432,
+          26.2647
+        ],
+        [
+          25.4712,
+          25.5007
+        ],
+        [
+          24.7027,
+          12.1797
+        ]
+      ],
+      [
+        [
+          14.2201,
+          12.7845
+        ],
+        [
+          13.5114,
+          0.5
+        ],
+        [
+          10.9727,
+          0.5
+        ],
+        [
+          3.3568,
+          0.5
+        ],
+        [
+          4.8432,
+          26.2647
+        ],
+        [
+          25.4712,
+          25.5007
+        ],
+        [
+          24.7027,
+          12.1797
+        ]
+      ],
+      [
+        [
+          10.9727,
+          0.5
+        ],
+        [
+          8.2088,
+          0.5
+        ],
+        [
+          9.6849,
+          26.0854
+        ],
+        [
+          25.4712,
+          25.5007
+        ],
+        [
+          24.7027,
+          12.1797
+        ],
+        [
+          14.2201,
+          12.7845
+        ],
+        [
+          13.5114,
+          0.5
+        ]
+      ]
+    ],
+    "parking_mode": "front",
+    "stalls": [
+      {
+        "rect": [
+          [
+            24.1555,
+            2.6955
+          ],
+          [
+            19.1638,
+            2.9835
+          ],
+          [
+            19.0198,
+            0.4877
+          ],
+          [
+            24.0115,
+            0.1997
+          ]
+        ],
+        "tandem": true,
+        "group": 0
+      },
+      {
+        "rect": [
+          [
+            19.1638,
+            2.9835
+          ],
+          [
+            14.1721,
+            3.2715
+          ],
+          [
+            14.0281,
+            0.7756
+          ],
+          [
+            19.0198,
+            0.4877
+          ]
+        ],
+        "tandem": true,
+        "group": 0
+      },
+      {
+        "rect": [
+          [
+            24.2995,
+            5.1914
+          ],
+          [
+            19.3078,
+            5.4794
+          ],
+          [
+            19.1638,
+            2.9835
+          ],
+          [
+            24.1555,
+            2.6955
+          ]
+        ],
+        "tandem": true,
+        "group": 0
+      },
+      {
+        "rect": [
+          [
+            19.3078,
+            5.4794
+          ],
+          [
+            14.3161,
+            5.7673
+          ],
+          [
+            14.1721,
+            3.2715
+          ],
+          [
+            19.1638,
+            2.9835
+          ]
+        ],
+        "tandem": true,
+        "group": 0
+      },
+      {
+        "rect": [
+          [
+            24.5299,
+            9.1847
+          ],
+          [
+            19.5382,
+            9.4727
+          ],
+          [
+            19.3942,
+            6.9769
+          ],
+          [
+            24.3859,
+            6.6889
+          ]
+        ],
+        "tandem": true,
+        "group": 1
+      },
+      {
+        "rect": [
+          [
+            19.5382,
+            9.4727
+          ],
+          [
+            14.5465,
+            9.7607
+          ],
+          [
+            14.4025,
+            7.2648
+          ],
+          [
+            19.3942,
+            6.9769
+          ]
+        ],
+        "tandem": true,
+        "group": 1
+      },
+      {
+        "rect": [
+          [
+            24.6739,
+            11.6806
+          ],
+          [
+            19.6822,
+            11.9686
+          ],
+          [
+            19.5382,
+            9.4727
+          ],
+          [
+            24.5299,
+            9.1847
+          ]
+        ],
+        "tandem": true,
+        "group": 1
+      },
+      {
+        "rect": [
+          [
+            19.6822,
+            11.9686
+          ],
+          [
+            14.6905,
+            12.2565
+          ],
+          [
+            14.5465,
+            9.7607
+          ],
+          [
+            19.5382,
+            9.4727
+          ]
+        ],
+        "tandem": true,
+        "group": 1
+      }
+    ],
+    "walkways": [
+      [
+        [
+          24.3859,
+          6.6889
+        ],
+        [
+          14.4025,
+          7.2648
+        ],
+        [
+          14.3161,
+          5.7673
+        ],
+        [
+          24.2995,
+          5.1914
+        ]
+      ]
+    ],
+    "rooftop_box": [
+      [
+        24.7808,
+        15.27
+      ],
+      [
+        18.7908,
+        15.6156
+      ],
+      [
+        18.618,
+        12.6206
+      ],
+      [
+        24.608,
+        12.275
+      ]
+    ],
+    "landscape": [
+      [
+        [
+          -1.497,
+          26.9452
+        ],
+        [
+          -1.4452,
+          26.998
+        ],
+        [
+          25.4873,
+          25.9817
+        ],
+        [
+          25.4735,
+          25.5448
+        ],
+        [
+          25.4222,
+          25.5025
+        ],
+        [
+          4.8432,
+          26.2647
+        ],
+        [
+          4.7884,
+          25.3151
+        ],
+        [
+          4.7463,
+          25.2686
+        ],
+        [
+          0.089,
+          25.4401
+        ],
+        [
+          1.419,
+          1.5001
+        ],
+        [
+          3.3845,
+          1.4944
+        ],
+        [
+          3.3579,
+          0.5
+        ],
+        [
+          13.5113,
+          0.5001
+        ],
+        [
+          13.5669,
+          1.4579
+        ],
+        [
+          13.7212,
+          1.4998
+        ],
+        [
+          13.7664,
+          1.4519
+        ],
+        [
+          13.7363,
+          0.7064
+        ],
+        [
+          13.805,
+          0.5752
+        ],
+        [
+          13.9539,
+          0.485
+        ],
+        [
+          20.5319,
+          0.0999
+        ],
+        [
+          20.5765,
+          0.0657
+        ],
+        [
+          20.5611,
+          0.0116
+        ],
+        [
+          0.0078,
+          0.0193
+        ]
+      ]
+    ]
+  }
+}

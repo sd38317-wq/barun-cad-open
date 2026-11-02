@@ -1,0 +1,14 @@
+{
+  "appId": "kr.barun.cad.v5",
+  "productName": "Barun CAD 5",
+  "extraMetadata": {"name":"barun-cad-5", "version":"5.0.7"},
+  "artifactName": "Barun CAD 5 Setup 5.0.7.exe",
+  "directories": {"output": "installer-5.0.7"},
+  "files": ["desktop.cjs",
+    "desktop-startup.cjs",
+    "desktop-startup.html", "desktop-http.cjs", "barun-cad-brand.png", "package.json", "desktop-preload.cjs", "desktop-lifecycle.cjs", "desktop-files.cjs", "node_modules/electron-updater/**/*", "node_modules/builder-util-runtime/**/*"],
+  "extraResources": [{"from":"desktop-backend-5.0.7/barun-cad-5-server", "to":"backend", "filter":["**/*"]}],
+  "win": {"target":"nsis", "icon":"barun-cad.ico", "signExecutable":false},
+  "nsis": {"oneClick":false, "perMachine":true, "allowToChangeInstallationDirectory":true, "include":"build/installer-official5.nsh", "shortcutName":"바른 CAD 5", "createDesktopShortcut":true, "createStartMenuShortcut":true, "artifactName":"Barun CAD 5 Setup 5.0.7.exe"},
+  "publish": null
+}

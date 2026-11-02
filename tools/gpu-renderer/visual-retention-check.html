@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8"><style>@font-face{font-family:"Barun Drawing Korean";src:url("../../fonts/NanumGothic-Regular.ttf")}body{margin:0;background:#101820;color:white}canvas{display:inline-block;width:49vw;height:auto;vertical-align:top}header{font:16px sans-serif;height:28px;display:flex}header span{width:50vw}</style><header><span>Canvas reference</span><span>GPU retained rendering</span></header><canvas id="reference" width="800" height="600"></canvas><canvas id="actual" width="800" height="600"></canvas>
+<script type="module">
+import {CadGpuRenderer} from '../../gpu-renderer.js';
+import {compileGpuScene} from '../../gpu-scene.js';
+import {drawEntity} from '../../view.js';
+import * as G from '../../geometry.js';
+try{
+ const doc=await(await fetch('./close-backups/drawing-1790474279430.json')).json();
+ await document.fonts.load('128px "Barun Drawing Korean"');await document.fonts.ready;
+ const entities=G.visibleEntities(doc,{inPlace:true,lodScale:0,viewBox:null}),gpu=new CadGpuRenderer();
+ const compiled=compileGpuScene(entities),texts=compiled.items.filter(i=>i.type==='text');
+ const target=new URLSearchParams(location.search).get('view')==='rotated'?texts.find(i=>Math.abs(i.entity.rotation||0)>1&&i.entity.text.length>3):texts.reduce((a,b)=>a.entity.text.length>b.entity.text.length?a:b);
+ const bounds=target?G.bounds([target.entity]):G.bounds(entities),s=Math.min(700/Math.max(1,bounds.maxX-bounds.minX),500/Math.max(1,bounds.maxY-bounds.minY)),origin={x:400-(bounds.minX+bounds.maxX)/2*s,y:300+(bounds.minY+bounds.maxY)/2*s};
+ const ref=document.getElementById('reference').getContext('2d'),screen=p=>({x:origin.x+p.x*s,y:origin.y-p.y*s});
+ for(const e of entities)drawEntity(ref,e,screen,s,e._displayColor||e.color,Math.max(1,Math.min(3,(e._displayLineweight??e.lineweight??.25)*4)));
+ const output=gpu.render({doc,revision:1,width:800,height:600,scale:s,origin});document.getElementById('actual').getContext('2d').drawImage(output,0,0);
+ window.result={gpu:gpu.stats,scale:s,view:target?.entity.rotation?'rotated':'long'};window.ready=true;
+}catch(error){window.failure=error.stack;}
+</script>

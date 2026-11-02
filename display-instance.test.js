@@ -1,0 +1,23 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {createDisplayInstance,getDisplayInstance,registerDisplayArtifact} from './display-instance.js';
+const context=(defs={b:{}})=>({definitions:defs,styleKey:'style'});const canonical=(id='a',x=10,y=20)=>({id,type:'block',sharedBlock:'b',position:{x,y},scale:1,rotation:0,entities:[],layer:'L',name:'N'});const artifact=(x=0,y=0)=>({...canonical('source',x,y),_displayColor:'#fff',_displayLinetype:'CONTINUOUS',_displayLineweight:1,_displayLinetypeScale:1,_renderBounds:{minX:x,minY:y,maxX:x+2,maxY:y+3}});
+test('registers and creates translated lazy instances without mutating source',()=>{const defs={b:{}};const source=artifact(10,20),before=structuredClone(source);assert.equal(registerDisplayArtifact(source,canonical('source',10,20),context(defs)),true);let calls=0;const copy=createDisplayInstance(canonical('copy',110,220),context(defs),[source],{materialize(s,dx,dy,id){calls++;assert.equal(s,source);return [{id,dx,dy}];}});assert.ok(copy);assert.deepEqual(copy._renderBounds,{minX:110,minY:220,maxX:112,maxY:223});assert.equal(calls,0);assert.deepEqual(copy.entities,[{id:'copy',dx:100,dy:200}]);assert.equal(calls,1);assert.deepEqual(source,before);assert.equal(getDisplayInstance(copy).dx,100);});
+test('rejects metadata, definition and style mismatches and flattens chains',()=>{const defs={b:{}};const source=artifact(10,20);assert.equal(registerDisplayArtifact(source,canonical('source',10,20),context(defs)),true);assert.equal(createDisplayInstance({...canonical('bad'),color:'#x'},context(defs),[source],{materialize:()=>[]}),null);assert.equal(createDisplayInstance(canonical('bad'),context({b:{}}),[source],{materialize:()=>[]}),null);assert.equal(createDisplayInstance(canonical('bad'),{definitions:defs,styleKey:'other'},[source],{materialize:()=>[]}),null);const first=createDisplayInstance(canonical('first',10,20),context(defs),[source],{materialize:()=>[]});assert.ok(first);const second=createDisplayInstance(canonical('second',30,40),context(defs),[first],{materialize:(s,dx,dy)=>[{dx,dy}]});assert.equal(getDisplayInstance(second).source,source);assert.deepEqual(second.entities,[{dx:20,dy:20}]);});
+test('rejects nonfinite bounds and invalid canonical shapes',()=>{const defs={b:{}};assert.equal(registerDisplayArtifact(artifact(),canonical(),context(defs)),true);const bad=artifact();bad._renderBounds.maxX=Infinity;assert.equal(registerDisplayArtifact(bad,canonical(),context(defs)),false);const unknown={...canonical(),extra:true};/* retention covers any key through the signature; only translated instances need the plain shape */assert.equal(registerDisplayArtifact(artifact(),unknown,context(defs)),true);assert.equal(createDisplayInstance(unknown,context(defs),[artifact()],{materialize:()=>[]}),null);});
+test('uses immutable anchor and bounds snapshots and requires materialization',()=>{const defs={b:{}};const source=artifact(10,20);assert.equal(registerDisplayArtifact(source,canonical('source',10,20),context(defs)),true);source.position.x=999;source._renderBounds.minX=999;assert.equal(createDisplayInstance(canonical('copy',110,220),context(defs),[source]),null);const copy=createDisplayInstance(canonical('copy',110,220),context(defs),[source],{materialize:()=>[]});assert.deepEqual(copy._renderBounds,{minX:110,minY:220,maxX:112,maxY:223});});
+
+test('history display lookup rejects changed identity fields and tolerates collected artifacts', async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile(new URL('./display-instance.js',import.meta.url),'utf8');
+ let live=true;
+ class TestWeakRef{constructor(value){this.value=value;}deref(){return live?this.value:undefined;}}
+ const api=new Function('WeakRef',source.replace(/export /g,'')+';return {registerDisplayArtifact,getRetainedDisplayArtifact};')(TestWeakRef);
+ const ctx=context(),entity=canonical('source',10,20),display=Object.freeze(artifact(10,20));
+ assert.equal(api.registerDisplayArtifact(display,entity,ctx),true);
+ assert.equal(api.getRetainedDisplayArtifact(entity,ctx),display);
+ entity.position.x=11;assert.equal(api.getRetainedDisplayArtifact(entity,ctx),null);entity.position.x=10;
+ entity.id='renamed';assert.equal(api.getRetainedDisplayArtifact(entity,ctx),null);entity.id='source';
+ entity.color='#f00';assert.equal(api.getRetainedDisplayArtifact(entity,ctx),null);delete entity.color;
+ assert.equal(api.getRetainedDisplayArtifact(entity,{...ctx,styleKey:'changed'}),null);
+ assert.equal(api.getRetainedDisplayArtifact(entity,{...ctx,definitions:{b:{}}}),null);
+ live=false;assert.equal(api.getRetainedDisplayArtifact(entity,ctx),null);
+});

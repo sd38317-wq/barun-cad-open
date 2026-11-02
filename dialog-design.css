@@ -1,0 +1,108 @@
+/* Shared compact dialog system. Keep native controls and existing behavior. */
+html body dialog{
+  width:min(780px,calc(100vw - 40px))!important;
+  max-width:calc(100vw - 40px)!important;
+  max-height:calc(100dvh - 48px)!important;
+  box-sizing:border-box;padding:20px 24px!important;
+  background:#25292f!important;color:#d8dce1!important;
+  border:1px solid #454b54!important;border-radius:10px!important;
+  box-shadow:0 18px 64px #0006!important;overflow:auto;
+  font:13px/1.5 'Segoe UI','Malgun Gothic',sans-serif;
+  scrollbar-width:thin;scrollbar-color:#59616a #25292f;
+}
+html body dialog::backdrop{background:#0b0e126e;}
+html body dialog :is(h2,h3){font-size:18px!important;line-height:1.4;margin:0 0 12px;font-weight:600;letter-spacing:-.3px;color:#e2e5e9;}
+html body dialog .dialog-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 14px;padding:0 0 12px;border-bottom:1px solid #3d444d;background:#25292f;}
+html body dialog .dialog-header :is(h2,h3){margin:0;}
+html body dialog p{font-size:12px!important;line-height:1.6;margin:8px 0 12px;color:#aeb5bf;overflow-wrap:anywhere;}
+html body dialog :is(input,select,textarea,button){box-sizing:border-box;font-family:inherit;font-size:13px!important;border-radius:5px;}
+html body dialog :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),select){min-height:34px;padding:6px 9px;background:#1c1f23!important;color:#e0e4e9!important;border:1px solid #4b525c;max-width:100%;}
+html body dialog textarea{display:block;width:100%;min-width:0;min-height:76px;padding:9px 11px;background:#1c1f23!important;color:#e0e4e9!important;border:1px solid #4b525c;resize:vertical;line-height:1.5;}
+html body dialog ::placeholder{color:#89939f;opacity:1;}
+html body dialog :is(input,select,textarea):focus-visible{outline:1px solid #9dcbe0;outline-offset:2px;border-color:#6b9db5;}
+html body dialog :is(input[type=checkbox],input[type=radio]){accent-color:#9dcbe0;}
+html body dialog button{min-height:32px;padding:5px 12px;background:#2b3037;color:#d8dce1;border:1px solid #48515b;line-height:1.4;}
+html body dialog button:hover:not(:disabled){background:#343b42;border-color:#75808c;}
+html body dialog button.primary{background:#9dcbe0!important;color:#25292f!important;border-color:#9dcbe0!important;font-weight:600;}
+html body dialog button:disabled{opacity:.45;cursor:default;}
+html body dialog :is(.dialog-actions,.account-actions,.plot-actions){display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px;padding-top:12px;margin-top:14px;border-top:1px solid #3d444d;background:#25292f;}
+html body dialog .dialog-actions button{margin:0;}
+html body dialog :is(label,.form-row){font-size:12px!important;line-height:1.5;color:#c5ccd4;min-width:0;}
+html body dialog .form-row{display:grid;grid-template-columns:minmax(90px,.7fr) minmax(0,1fr);align-items:center;gap:8px;margin:0;padding:3px 0;}
+html body dialog .form-row :is(input,select){width:100%;min-width:0;}
+html body #form-dialog:not(.architectural-detail) #form-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;align-items:start;}
+html body #form-dialog:not(.architectural-detail) #form-fields>:not(.form-row){grid-column:1/-1;}
+html body #form-dialog .dialog-header{top:-20px;padding-top:8px;}
+html body dialog :is(table,.settings-scroll){font-size:12px;}
+html body dialog :is(th,td){padding:6px 8px;border-color:#3d444d;}
+html body dialog th{background:#2c3239;color:#cbd2da;}
+html body dialog details{margin:10px 0;}
+html body dialog summary{cursor:pointer;color:#cbd2da;padding:5px 0;}
+html body :is(#account-dialog,#chatgpt-login-dialog,.drawing-close-dialog,.save-dialog){width:min(620px,calc(100vw - 40px))!important;}
+html body .account-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+html body .account-fields label{margin:0;}
+html body .account-fields>button{grid-column:1/-1;justify-self:end;width:auto;padding-inline:20px;background:#9dcbe0;color:#25292f;}
+html body :is(#parcel-dialog,#new-build-dialog,.plan-delivery-dialog){width:min(820px,calc(100vw - 40px))!important;}
+html body #parcel-dialog .parcel-search-row{display:flex;align-items:end;gap:10px;margin:10px 0;}
+html body #parcel-dialog .parcel-search-row>input{flex:1;min-width:0;}
+html body #parcel-dialog .parcel-search-row>label{flex:1;min-width:0;margin:0;}
+html body #parcel-dialog .parcel-search-row>button{flex:0 0 auto;min-height:34px;}
+html body #new-build-dialog .nb-start{grid-template-columns:minmax(0,1fr) 140px;gap:8px 12px;}
+html body #new-build-dialog .nb-limits{margin-bottom:12px;}
+html body #new-build-dialog{width:min(680px,calc(100vw - 40px))!important;padding:18px!important;}
+html body #new-build-dialog>p{margin-bottom:12px!important;}
+html body #new-build-dialog .nb-start{grid-template-columns:minmax(0,1fr) 128px;align-items:end;}
+html body #new-build-dialog .nb-limits{font-size:11px!important;line-height:1.4;margin:0!important;}
+html body #new-build-dialog .nb-compose{grid-template-columns:minmax(0,1fr) 100px;gap:8px 12px;padding-top:12px;}
+html body #new-build-dialog .nb-compose textarea{grid-column:1;grid-row:2;min-height:76px;}
+html body #new-build-dialog .nb-compose button{grid-column:2;grid-row:2;align-self:end;}
+html body #new-build-dialog .nb-compose:before{grid-column:1/-1;}
+html body #new-build-dialog .nb-talk,
+html body #new-build-dialog .nb-compose,
+html body #new-build-dialog .nb-proposal{display:none!important;}
+html body #new-build-dialog .nb-section-title{font-size:13px;font-weight:600;color:#dce1e7;}
+html body #new-build-dialog .nb-plan-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+html body #new-build-dialog .nb-plan-card{min-height:92px;padding:12px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:7px;background:#1c1f23;border:1px solid #414852;color:#d7dce2;}
+html body #new-build-dialog .nb-plan-card strong{font-size:14px;color:#e5e9ee;}
+html body #new-build-dialog .nb-plan-card span{font-size:12px;line-height:1.45;color:#abb3bd;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+html body #new-build-dialog .nb-plan-card.selected{border-color:#80a6b8;background:#272d22;box-shadow:inset 0 0 0 1px #80a6b8;}
+html body #new-build-dialog .nb-conditions{margin:0;padding:0;border:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+html body #new-build-dialog .nb-conditions legend{grid-column:1/-1;margin-bottom:8px;font-size:13px;font-weight:600;color:#dce1e7;}
+html body #new-build-dialog .nb-conditions select{height:38px;padding:6px 9px;}
+html body #new-build-dialog .nb-extra input{height:38px;}
+html body #new-build-dialog .nb-plan-actions{display:flex;justify-content:flex-end;gap:8px;}
+html body #new-build-dialog .nb-plan-actions button{padding:7px 16px;}
+html body #new-build-dialog{position:relative;}
+html body #new-build-dialog .nb-loading:not([hidden]){position:absolute;inset:0;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#20242af2;border-radius:10px;text-align:center;}
+html body #new-build-dialog .nb-loading span{width:28px;height:28px;border:3px solid #58616c;border-top-color:#9dcbe0;border-radius:50%;animation:nb-spin .8s linear infinite;}
+html body #new-build-dialog .nb-loading strong{font-size:16px;color:#e5e9ee;}
+html body #new-build-dialog .nb-loading p{margin:0;color:#aeb5bf;}
+html body #new-build-dialog.is-busy .dialog-header button{visibility:hidden;}
+@keyframes nb-spin{to{transform:rotate(360deg)}}
+html body :is(#lisp-dialog,#design-cases-dialog,#site-plan-dialog,#miriboda-dialog,.layer-review-dialog,.architecture-catalog,.plot-preview,.lp-editor){width:min(1080px,calc(100vw - 40px))!important;}
+html body .drafting-dialog{width:min(880px,calc(100vw - 40px))!important;}
+html body .drafting-dialog .inspector{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px;padding:0;background:transparent;}
+html body .drafting-dialog .inspector section{padding:10px 0;min-width:0;}
+html body .lp-editor textarea{height:280px;max-height:55dvh;font-family:Consolas,monospace;}
+html body :is(.lp-library,.settings-scroll){max-height:320px;}
+html body .layer-review-body{grid-template-columns:minmax(0,1fr) 260px;gap:16px;}
+html body .layer-review-list{max-height:420px;}
+html body .plot-page{padding:10px;}
+html body .plot-page svg{max-height:55dvh;}
+html body .livecheck-settings{width:min(860px,calc(100vw - 40px))!important;}
+html body dialog [hidden]{display:none!important;}
+@media(max-width:680px){
+ html body dialog{padding:16px!important;width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;}
+ html body #form-dialog:not(.architectural-detail) #form-fields,html body .account-fields,html body .drafting-dialog .inspector,html body .layer-review-body{grid-template-columns:1fr!important;}
+ html body #new-build-dialog .nb-start{grid-template-columns:1fr;}
+ html body #parcel-dialog .parcel-search-row{flex-wrap:wrap;}
+ html body #new-build-dialog .nb-compose textarea{grid-column:1/-1;}
+ html body #new-build-dialog .nb-compose button{grid-row:3;}
+ html body #new-build-dialog .nb-plan-cards,
+ html body #new-build-dialog .nb-conditions{grid-template-columns:1fr;}
+}
+html body #settings-dialog{width:min(960px,calc(100vw - 40px))!important;}
+html body #settings-dialog .settings-scroll{max-height:240px!important;}
+html body #settings-dialog td :is(input,select){min-height:28px;padding:3px 7px;}
+html body #settings-dialog :is(td,th){padding:4px 8px;}
+html body #settings-dialog>p{margin:6px 0 10px;}

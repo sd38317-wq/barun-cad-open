@@ -1,0 +1,370 @@
+{
+  "schemaVersion": "2.0.0",
+  "contractId": "barun.account-window",
+  "status": "implementation-spec-not-shipped",
+  "supersedes": "login-handoff-v1: 작은 로그인 카드 시안 전체 폐기. 기존 파일은 기록용으로만 보존.",
+  "renderer": {
+    "component": "SharedAccountWindow",
+    "rule": "동일 버전 공통 렌더러와 이 JSON을 네 앱에서 사용. 앱별 복제 CSS/문구/좌표 금지.",
+    "allowedOverrides": [
+      "appId",
+      "displayName",
+      "officialIconAsset",
+      "installedVersion"
+    ],
+    "bindingRule": "표시명과 버전은 앱 메타데이터, 상태는 검증된 런타임 응답. JSON은 코드나 권한이 아니다."
+  },
+  "theme": {
+    "background": "#101518",
+    "surface": "#1C2226",
+    "panel": "#232A30",
+    "border": "#46515B",
+    "text": "#F3F5F7",
+    "muted": "#ADB7C1",
+    "accent": "#C6E276",
+    "kakaoBackground": "#FEE500",
+    "kakaoText": "#191919",
+    "error": "#FFABA8",
+    "focus": "#C6E276",
+    "fontFamily": [
+      "Pretendard",
+      "Malgun Gothic",
+      "sans-serif"
+    ],
+    "fontAssetPolicy": "공통 배포본에 동일 라이선스 폰트 번들. 없으면 전체 앱 같은 fallback 적용.",
+    "type": {
+      "title": {
+        "size": 28,
+        "lineHeight": 38,
+        "weight": 700
+      },
+      "section": {
+        "size": 22,
+        "lineHeight": 30,
+        "weight": 700
+      },
+      "body": {
+        "size": 16,
+        "lineHeight": 24,
+        "weight": 400
+      },
+      "button": {
+        "size": 16,
+        "lineHeight": 24,
+        "weight": 600
+      },
+      "caption": {
+        "size": 13,
+        "lineHeight": 20,
+        "weight": 400
+      }
+    }
+  },
+  "layout": {
+    "unit": "DIP",
+    "reference": {
+      "width": 1200,
+      "height": 900
+    },
+    "modal": {
+      "width": 1200,
+      "maxWidth": "viewport-32",
+      "maxHeight": "viewport-32",
+      "padding": 28,
+      "gap": 16,
+      "radius": 20,
+      "border": 1,
+      "overflow": "body-scroll; header and footer reachable"
+    },
+    "header": {
+      "height": 72,
+      "brandIconSize": 48,
+      "brandGap": 16,
+      "closeSize": 44
+    },
+    "accountPanel": {
+      "minHeight": 244,
+      "padding": 28,
+      "columns": [
+        1,
+        1
+      ],
+      "divider": 1,
+      "avatarSize": 88,
+      "avatarTextGap": 20
+    },
+    "aiPanel": {
+      "minHeight": 220,
+      "padding": 28
+    },
+    "updatePanel": {
+      "minHeight": 124,
+      "padding": 28
+    },
+    "footer": {
+      "minHeight": 64,
+      "gap": 16
+    },
+    "button": {
+      "height": 48,
+      "radius": 10,
+      "paddingX": 20,
+      "gap": 12
+    },
+    "kakaoButton": {
+      "width": 212,
+      "height": 52,
+      "iconSize": 20,
+      "iconGap": 10
+    },
+    "mainHeader": {
+      "height": 64,
+      "rightInset": 24,
+      "topInset": 12,
+      "entryWidth": 160,
+      "entryHeight": 40,
+      "fontSize": 14,
+      "lineHeight": 20,
+      "fontWeight": 600
+    },
+    "responsive": {
+      "stackAccountBelowWidth": 800,
+      "outerMargin": 16,
+      "textZoom": "flow layout; no clipping at 200%",
+      "order": [
+        "header",
+        "account",
+        "ai",
+        "update",
+        "footer"
+      ]
+    }
+  },
+  "assets": {
+    "appIcon": "adapter.officialIconAsset",
+    "kakaoIcon": "shared-assets/kakao-symbol-approved.svg",
+    "status": "official-assets-to-be-verified-by-implementer",
+    "rule": "concept image is layout reference only; do not crop generated icons as official assets"
+  },
+  "sections": [
+    {
+      "id": "header",
+      "title": "계정 및 업데이트",
+      "subtitle": "계정과 AI 연결, 프로그램 상태를 한곳에서 확인하세요.",
+      "brand": "app.displayName",
+      "version": "app.installedVersion",
+      "closeAction": "window.close"
+    },
+    {
+      "id": "account",
+      "left": {
+        "nameBinding": "session.displayName",
+        "signedOutTitle": "로그인하지 않음",
+        "description": "한 번 로그인하면 바른 앱이 함께 연결됩니다.",
+        "actions": [
+          "auth.login",
+          "auth.logoutApp",
+          "account.manage"
+        ]
+      },
+      "right": {
+        "title": "보유 코인",
+        "valueBinding": "wallet.balance",
+        "unknownValue": "—",
+        "unknownDescription": "로그인 후 확인할 수 있습니다.",
+        "actions": [
+          "wallet.openTopup",
+          "wallet.openHistory"
+        ]
+      }
+    },
+    {
+      "id": "ai",
+      "title": "AI 연결",
+      "modes": [
+        {
+          "id": "managed",
+          "label": "미리 제공 AI"
+        },
+        {
+          "id": "personal",
+          "label": "내 모델 직접 연결"
+        }
+      ],
+      "fields": [
+        "providerDisplayName",
+        "actualModelId",
+        "connectionStatus",
+        "billingSource"
+      ],
+      "unknownModel": "연결 후 확인",
+      "description": "실제 사용 모델과 비용을 연결 후 표시합니다.",
+      "actions": [
+        "ai.openSettings",
+        "ai.testConnection"
+      ],
+      "policy": "선택한 모델과 실제 응답 모델을 구분. 서버 자동 선택이면 응답 후 actualModelId 기록. 개인 모델 연결을 카카오 연결과 혼동 금지."
+    },
+    {
+      "id": "update",
+      "titleTemplate": "{app.displayName} 업데이트",
+      "versionBinding": "app.installedVersion",
+      "unknownText": "업데이트를 확인해 주세요.",
+      "actions": [
+        "update.check",
+        "update.download"
+      ],
+      "policy": "검증된 새 버전이 현재보다 높을 때만 다운로드 노출. 다운로드와 설치 완료를 구분. 자동 설치하지 않음."
+    },
+    {
+      "id": "footer",
+      "actions": [
+        "repair.diagnose",
+        "window.close"
+      ],
+      "description": "연결을 진단하고 안전하게 다시 연결합니다.",
+      "preservation": "문서 · 기억 · 설정은 삭제하지 않습니다."
+    }
+  ],
+  "actions": [
+    {
+      "id": "auth.login",
+      "label": "카카오 로그인",
+      "style": "kakao",
+      "enabledWhen": "signedOutOrExpiredOrLocallyDisconnected; 명시적 사용자 로그인만 자동연결 억제 해제 가능"
+    },
+    {
+      "id": "auth.logoutApp",
+      "label": "로그아웃",
+      "style": "outline",
+      "enabledWhen": "connected"
+    },
+    {
+      "id": "account.manage",
+      "label": "계정 관리",
+      "style": "outline",
+      "enabledWhen": "connected"
+    },
+    {
+      "id": "wallet.openTopup",
+      "label": "충전하기",
+      "style": "accent",
+      "enabledWhen": "connectedAndWalletAvailable"
+    },
+    {
+      "id": "wallet.openHistory",
+      "label": "사용 내역",
+      "style": "outline",
+      "enabledWhen": "connectedAndWalletAvailable"
+    },
+    {
+      "id": "ai.openSettings",
+      "label": "연결 설정",
+      "style": "outline",
+      "enabledWhen": "always"
+    },
+    {
+      "id": "ai.testConnection",
+      "label": "연결 테스트",
+      "style": "outline",
+      "enabledWhen": "providerConfiguredAndNotBusy"
+    },
+    {
+      "id": "update.check",
+      "label": "업데이트 확인",
+      "style": "outline",
+      "enabledWhen": "notChecking"
+    },
+    {
+      "id": "update.download",
+      "label": "업데이트 받기",
+      "style": "accent",
+      "enabledWhen": "verifiedNewerVersion"
+    },
+    {
+      "id": "repair.diagnose",
+      "label": "자가 복구",
+      "style": "outline",
+      "enabledWhen": "notRepairing"
+    },
+    {
+      "id": "window.close",
+      "label": "닫기",
+      "style": "outline",
+      "enabledWhen": "always"
+    }
+  ],
+  "stateRules": {
+    "session": [
+      "signed_out",
+      "authenticating",
+      "connected",
+      "expired",
+      "offline",
+      "error",
+      "locally_disconnected"
+    ],
+    "wallet": [
+      "unknown",
+      "loading",
+      "ready",
+      "error"
+    ],
+    "ai": [
+      "unconfigured",
+      "checking",
+      "connected",
+      "offline",
+      "error"
+    ],
+    "update": [
+      "idle",
+      "checking",
+      "up_to_date",
+      "available",
+      "error"
+    ],
+    "repair": [
+      "idle",
+      "diagnosing",
+      "awaiting_consent",
+      "repairing",
+      "verifying",
+      "succeeded",
+      "partial",
+      "blocked",
+      "cancelled",
+      "failed"
+    ],
+    "rules": [
+      "unknown wallet != zero",
+      "미확인 모델은 이름 추측 금지",
+      "계정 로그인 성공 != AI/Google/제품 사용권 연결",
+      "상태 이름만으로 권한 부여 금지; adapter가 서버와 재검증",
+      "main header click always opens this integrated window; no separate login card"
+    ]
+  },
+  "excluded": [
+    "file-association",
+    "developer-mode",
+    "arbitrary-code-execution",
+    "separate-small-login-dialog"
+  ],
+  "accessibility": [
+    "focus trap and restore",
+    "aria-live status",
+    "keyboard navigation",
+    "minimum target 44 DIP",
+    "text and icon status not color only",
+    "OS reduced-motion"
+  ],
+  "acceptance": [
+    "same-renderer-version",
+    "same-contract-sha256",
+    "same-font-assets",
+    "four-app-screenshot-comparison",
+    "100-125-150-200-percent-DPI",
+    "long-name-overflow",
+    "all-session-states"
+  ]
+}

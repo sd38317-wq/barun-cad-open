@@ -1,0 +1,6675 @@
+{
+  "generatedAt": "2026-10-02T01:41:33.620Z",
+  "count": 359,
+  "commands": [
+    {
+      "number": 1,
+      "id": "REF-004-0-01",
+      "alias": "COM",
+      "commandCode": "COM",
+      "label": "단축키 참고표",
+      "manualLabel": "바른 CAD 단축키 설정",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "001-COM-REF-004-0-01.svg",
+      "visualKey": "settings|edit|COM|REF-004-0-01",
+      "descriptor": {
+        "subject": "settings",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 2,
+      "id": "REF-005-0-02",
+      "alias": "CT",
+      "commandCode": "CT",
+      "label": "객체 내용 복사",
+      "manualLabel": "객체 내용 복사",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "002-CT-REF-005-0-02.svg",
+      "visualKey": "object|copy|CT|REF-005-0-02",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 3,
+      "id": "REF-006-0-03",
+      "alias": "CV",
+      "commandCode": "CV",
+      "label": "객체선택, 현재 값을 변경",
+      "manualLabel": "객체선택, 현재 값을 변경",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "003-CV-REF-006-0-03.svg",
+      "visualKey": "selection|edit|CV|REF-006-0-03",
+      "descriptor": {
+        "subject": "selection",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 4,
+      "id": "REF-007-0-04",
+      "alias": "DTS",
+      "commandCode": "DTS",
+      "label": "날짜기록하기",
+      "manualLabel": "날짜기록하기",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "004-DTS-REF-007-0-04.svg",
+      "visualKey": "calendar|add|DTS|REF-007-0-04",
+      "descriptor": {
+        "subject": "calendar",
+        "action": "add",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 5,
+      "id": "REF-008-0-05",
+      "alias": "FLT",
+      "commandCode": "FLT",
+      "label": "높이값 0으로 변경",
+      "manualLabel": "Z값 0으로 변경",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "005-FLT-REF-008-0-05.svg",
+      "visualKey": "object|convert|FLT|REF-008-0-05",
+      "descriptor": {
+        "subject": "object",
+        "action": "convert",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 6,
+      "id": "REF-009-0-06",
+      "alias": "GEE",
+      "commandCode": "GEE",
+      "label": "그룹 수정",
+      "manualLabel": "그룹 수정",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "006-GEE-REF-009-0-06.svg",
+      "visualKey": "group|edit|GEE|REF-009-0-06",
+      "descriptor": {
+        "subject": "group",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 7,
+      "id": "REF-010-0-07",
+      "alias": "STL",
+      "commandCode": "STL",
+      "label": "다른 도면에서 가져오기",
+      "manualLabel": "다른 도면에서 훔쳐오기",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "007-STL-REF-010-0-07.svg",
+      "visualKey": "object|import|STL|REF-010-0-07",
+      "descriptor": {
+        "subject": "object",
+        "action": "import",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 8,
+      "id": "REF-011-0-08",
+      "alias": "STT",
+      "commandCode": "STT",
+      "label": "도면초기설정",
+      "manualLabel": "도면초기설정",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "008-STT-REF-011-0-08.svg",
+      "visualKey": "settings|settings|STT|REF-011-0-08",
+      "descriptor": {
+        "subject": "settings",
+        "action": "settings",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 9,
+      "id": "REF-012-0-09",
+      "alias": "(=,-,*,/)",
+      "commandCode": "CALC00",
+      "label": "도면 계산기",
+      "manualLabel": "사칙연산",
+      "releaseStatus": "official",
+      "category": "기타",
+      "filename": "009-command-REF-012-0-09.svg",
+      "visualKey": "object|calculate|CALC00|REF-012-0-09",
+      "descriptor": {
+        "subject": "object",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#77c7bd"
+      }
+    },
+    {
+      "number": 10,
+      "id": "REF-004-1-01",
+      "alias": "CUT",
+      "commandCode": "CUT",
+      "label": "닫힌 객체 안의 모든 객체 삭제",
+      "manualLabel": "닫힌 객체 안의 모든 객체 삭제",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "010-CUT-REF-004-1-01.svg",
+      "visualKey": "line|delete|CUT|REF-004-1-01",
+      "descriptor": {
+        "subject": "line",
+        "action": "delete",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 11,
+      "id": "REF-005-1-02",
+      "alias": "FE",
+      "commandCode": "FE",
+      "label": "길이 남기고 모따기",
+      "manualLabel": "길이 남기고 모따기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "011-FE-REF-005-1-02.svg",
+      "visualKey": "measure|measure|FE|REF-005-1-02",
+      "descriptor": {
+        "subject": "measure",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 12,
+      "id": "REF-006-1-03",
+      "alias": "FL",
+      "commandCode": "FL",
+      "label": "L형 벽체 정리",
+      "manualLabel": "L 형태 벽체 정리",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "012-FL-REF-006-1-03.svg",
+      "visualKey": "wall|cut|FL|REF-006-1-03",
+      "descriptor": {
+        "subject": "wall",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 13,
+      "id": "REF-007-1-04",
+      "alias": "FT",
+      "commandCode": "FT",
+      "label": "T형 벽체 정리",
+      "manualLabel": "T 형태 벽체 정리",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "013-FT-REF-007-1-04.svg",
+      "visualKey": "wall|cut|FT|REF-007-1-04",
+      "descriptor": {
+        "subject": "wall",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 14,
+      "id": "REF-008-1-05",
+      "alias": "FX",
+      "commandCode": "FX",
+      "label": "X형 벽체 정리",
+      "manualLabel": "X 형태 벽체 정리",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "014-FX-REF-008-1-05.svg",
+      "visualKey": "wall|cut|FX|REF-008-1-05",
+      "descriptor": {
+        "subject": "wall",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 15,
+      "id": "REF-010-1-07",
+      "alias": "FM",
+      "commandCode": "FM",
+      "label": "여러 선 필렛·모따기",
+      "manualLabel": "여러 모서리 정리",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "015-FM-REF-010-1-07.svg",
+      "visualKey": "line|cut|FM|REF-010-1-07",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 16,
+      "id": "REF-011-1-08",
+      "alias": "BAT",
+      "commandCode": "BAT",
+      "label": "선자르고 문자넣기",
+      "manualLabel": "선자르고 문자넣기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "016-BAT-REF-011-1-08.svg",
+      "visualKey": "line|cut|BAT|REF-011-1-08",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 17,
+      "id": "REF-012-1-09",
+      "alias": "STR",
+      "commandCode": "STR",
+      "label": "연속 잡아끌기",
+      "manualLabel": "연속 잡아끌기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "017-STR-REF-012-1-09.svg",
+      "visualKey": "line|cut|STR|REF-012-1-09",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 18,
+      "id": "REF-013-1-10",
+      "alias": "XT",
+      "commandCode": "XT",
+      "label": "자르고 늘리기",
+      "manualLabel": "끊기와 연장을 한번에..",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "018-XT-REF-013-1-10.svg",
+      "visualKey": "line|cut|XT|REF-013-1-10",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [
+          "extend"
+        ],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 19,
+      "id": "REF-114-0-11",
+      "alias": "B",
+      "commandCode": "BRK",
+      "label": "다중 끊기",
+      "manualLabel": "다중 끊기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "019-B-REF-114-0-11.svg",
+      "visualKey": "line|cut|BRK|REF-114-0-11",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 20,
+      "id": "REF-115-0-12",
+      "alias": "BB",
+      "commandCode": "BB",
+      "label": "자르고 현재 레이어로 선 넣기",
+      "manualLabel": "자르고 현재켜로 선 넣기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "020-BB-REF-115-0-12.svg",
+      "visualKey": "layer|cut|BB|REF-115-0-12",
+      "descriptor": {
+        "subject": "layer",
+        "action": "cut",
+        "modifiers": [
+          "add"
+        ],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 21,
+      "id": "REF-116-0-13",
+      "alias": "BRO",
+      "commandCode": "BRO",
+      "label": "객체위의 객체 끊기",
+      "manualLabel": "객체위의 객체 끊기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "021-BRO-REF-116-0-13.svg",
+      "visualKey": "line|cut|BRO|REF-116-0-13",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 22,
+      "id": "REF-117-0-14",
+      "alias": "DIB",
+      "commandCode": "DIB",
+      "label": "다이어그램 만들기",
+      "manualLabel": "다이아그램 만들기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "022-DIB-REF-117-0-14.svg",
+      "visualKey": "line|draw|DIB|REF-117-0-14",
+      "descriptor": {
+        "subject": "line",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 23,
+      "id": "REF-118-0-15",
+      "alias": "DTP",
+      "commandCode": "DTP",
+      "label": "곡선을 직선으로 분할",
+      "manualLabel": "곡선을 직선으로 분할",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "023-DTP-REF-118-0-15.svg",
+      "visualKey": "curve|split|DTP|REF-118-0-15",
+      "descriptor": {
+        "subject": "curve",
+        "action": "split",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 24,
+      "id": "REF-119-0-16",
+      "alias": "CB",
+      "commandCode": "CB",
+      "label": "원 절단하기",
+      "manualLabel": "원 절단하기",
+      "releaseStatus": "official",
+      "category": "자르기 및 끌기",
+      "filename": "024-CB-REF-119-0-16.svg",
+      "visualKey": "line|cut|CB|REF-119-0-16",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#ef8f73"
+      }
+    },
+    {
+      "number": 25,
+      "id": "REF-004-3-01",
+      "alias": "3TP",
+      "commandCode": "3TP",
+      "label": "3차원 폴리선을 일반 폴리선으로",
+      "manualLabel": "3D폴리->LW폴리",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "025-3TP-REF-004-3-01.svg",
+      "visualKey": "polyline|convert|3TP|REF-004-3-01",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 26,
+      "id": "REF-005-3-02",
+      "alias": "2DP",
+      "commandCode": "2DP",
+      "label": "도형안 객체 다른형태 도형에 비추기",
+      "manualLabel": "도형안 객체 다른형태 도형에 비추기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "026-2DP-REF-005-3-02.svg",
+      "visualKey": "polygon|edit|2DP|REF-005-3-02",
+      "descriptor": {
+        "subject": "polygon",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 27,
+      "id": "REF-006-3-03",
+      "alias": "BOO",
+      "commandCode": "BOO",
+      "label": "폴리도형 합치기",
+      "manualLabel": "폴리도형 합치기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "027-BOO-REF-006-3-03.svg",
+      "visualKey": "polygon|join|BOO|REF-006-3-03",
+      "descriptor": {
+        "subject": "polygon",
+        "action": "join",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 28,
+      "id": "REF-007-3-04",
+      "alias": "BS",
+      "commandCode": "BS",
+      "label": "절단선 기호 그리기",
+      "manualLabel": "절단선 기호 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "028-BS-REF-007-3-04.svg",
+      "visualKey": "line|cut|BS|REF-007-3-04",
+      "descriptor": {
+        "subject": "line",
+        "action": "cut",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 29,
+      "id": "REF-008-3-05",
+      "alias": "CBJ",
+      "commandCode": "CBJ",
+      "label": "등고선과 테두리 이어주기",
+      "manualLabel": "등고선과 테두리 이어주기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "029-CBJ-REF-008-3-05.svg",
+      "visualKey": "contour|join|CBJ|REF-008-3-05",
+      "descriptor": {
+        "subject": "contour",
+        "action": "join",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 30,
+      "id": "REF-009-3-06",
+      "alias": "DMD",
+      "commandCode": "DMD",
+      "label": "최단 거리 표시",
+      "manualLabel": "최단 거리 표시",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "030-DMD-REF-009-3-06.svg",
+      "visualKey": "measure|show|DMD|REF-009-3-06",
+      "descriptor": {
+        "subject": "measure",
+        "action": "show",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 31,
+      "id": "REF-010-3-07",
+      "alias": "DRL",
+      "commandCode": "DRL",
+      "label": "선 방향 표시·역전",
+      "manualLabel": "선 방향 및 반전",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "031-DRL-REF-010-3-07.svg",
+      "visualKey": "line|reverse|DRL|REF-010-3-07",
+      "descriptor": {
+        "subject": "line",
+        "action": "reverse",
+        "modifiers": [
+          "show"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 32,
+      "id": "REF-011-3-08",
+      "alias": "JUL",
+      "commandCode": "JUL",
+      "label": "교차된 선에 점프선 넣기",
+      "manualLabel": "교차된 선에 점프선 넣기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "032-JUL-REF-011-3-08.svg",
+      "visualKey": "line|add|JUL|REF-011-3-08",
+      "descriptor": {
+        "subject": "line",
+        "action": "add",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 33,
+      "id": "REF-012-3-09",
+      "alias": "PAA",
+      "commandCode": "PAA",
+      "label": "동선 화살표 그리기",
+      "manualLabel": "동선 화살표 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "033-PAA-REF-012-3-09.svg",
+      "visualKey": "arrow|draw|PAA|REF-012-3-09",
+      "descriptor": {
+        "subject": "arrow",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 34,
+      "id": "REF-013-3-10",
+      "alias": "PBB",
+      "commandCode": "PBB",
+      "label": "객체 경계 박스 그리기",
+      "manualLabel": "객체 경계 박스 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "034-PBB-REF-013-3-10.svg",
+      "visualKey": "rectangle|draw|PBB|REF-013-3-10",
+      "descriptor": {
+        "subject": "rectangle",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 35,
+      "id": "REF-014-3-11",
+      "alias": "PC",
+      "commandCode": "PC",
+      "label": "폴리선 닫기",
+      "manualLabel": "열린 폴리선 닫기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "035-PC-REF-014-3-11.svg",
+      "visualKey": "polyline|close|PC|REF-014-3-11",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "close",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 36,
+      "id": "REF-015-3-12",
+      "alias": "PEC",
+      "commandCode": "PEC",
+      "label": "자기 자리에서 수직선 그리기",
+      "manualLabel": "자기 자리에서 수직선 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "036-PEC-REF-015-3-12.svg",
+      "visualKey": "line|draw|PEC|REF-015-3-12",
+      "descriptor": {
+        "subject": "line",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 37,
+      "id": "REF-016-3-13",
+      "alias": "PET",
+      "commandCode": "PET",
+      "label": "평행선 끝점 잇기",
+      "manualLabel": "평행선 끝점 잇기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "037-PET-REF-016-3-13.svg",
+      "visualKey": "line|edit|PET|REF-016-3-13",
+      "descriptor": {
+        "subject": "line",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 38,
+      "id": "REF-017-3-14",
+      "alias": "PJ",
+      "commandCode": "PJ",
+      "label": "폴리선 변경후 합치기",
+      "manualLabel": "폴리선 변경후 합치기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "038-PJ-REF-017-3-14.svg",
+      "visualKey": "polyline|join|PJ|REF-017-3-14",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "join",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 39,
+      "id": "REF-018-3-15",
+      "alias": "PV",
+      "commandCode": "PED",
+      "label": "폴리선 정점 편집",
+      "manualLabel": "폴리선에 정점 넣기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "039-PV-REF-018-3-15.svg",
+      "visualKey": "polyline|add|PED|REF-018-3-15",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "add",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 40,
+      "id": "REF-019-3-16",
+      "alias": "PVL",
+      "commandCode": "PVL",
+      "label": "정점 목록 표 변환",
+      "manualLabel": "폴리선 정점을 표로 만들기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "040-PVL-REF-019-3-16.svg",
+      "visualKey": "line|convert|PVL|REF-019-3-16",
+      "descriptor": {
+        "subject": "line",
+        "action": "convert",
+        "modifiers": [
+          "list"
+        ],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 41,
+      "id": "REF-020-3-17",
+      "alias": "PVR",
+      "commandCode": "PVR",
+      "label": "폴리선 점 줄이기",
+      "manualLabel": "폴리선 정점 정리하기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "041-PVR-REF-020-3-17.svg",
+      "visualKey": "polyline|edit|PVR|REF-020-3-17",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 42,
+      "id": "REF-021-3-18",
+      "alias": "PVS",
+      "commandCode": "PVS",
+      "label": "폴리선 정점 변경",
+      "manualLabel": "폴리선 정점 변경",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "042-PVS-REF-021-3-18.svg",
+      "visualKey": "polyline|edit|PVS|REF-021-3-18",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 43,
+      "id": "REF-023-3-20",
+      "alias": "PW",
+      "commandCode": "PW",
+      "label": "폴리선 두께 수정",
+      "manualLabel": "Pline 두께 수정",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "043-PW-REF-023-3-20.svg",
+      "visualKey": "polyline|edit|PW|REF-023-3-20",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 44,
+      "id": "REF-024-3-21",
+      "alias": "PWD",
+      "commandCode": "PWD",
+      "label": "폴리선 두께 주고 외곽선 그리기",
+      "manualLabel": "Pline 두께주고 외곽선 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "044-PWD-REF-024-3-21.svg",
+      "visualKey": "polyline|draw|PWD|REF-024-3-21",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 45,
+      "id": "REF-025-3-22",
+      "alias": "UFD",
+      "commandCode": "UFD",
+      "label": "폴리선 펼치기",
+      "manualLabel": "폴리선 펼치기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "045-UFD-REF-025-3-22.svg",
+      "visualKey": "polyline|edit|UFD|REF-025-3-22",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 46,
+      "id": "REF-026-3-23",
+      "alias": "XLD",
+      "commandCode": "XLD",
+      "label": "객체에 긴 직선 그리기",
+      "manualLabel": "객체에 Xline 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "046-XLD-REF-026-3-23.svg",
+      "visualKey": "line|draw|XLD|REF-026-3-23",
+      "descriptor": {
+        "subject": "line",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 47,
+      "id": "REF-027-3-24",
+      "alias": "ZIGZAG",
+      "commandCode": "ZIGZAG",
+      "label": "지그재그 폴리선 그리기",
+      "manualLabel": "지그재그 폴리선 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 선",
+      "filename": "047-ZIGZAG-REF-027-3-24.svg",
+      "visualKey": "polyline|draw|ZIGZAG|REF-027-3-24",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#76aef7"
+      }
+    },
+    {
+      "number": 48,
+      "id": "REF-005-2-01",
+      "alias": "DEE",
+      "commandCode": "DEE",
+      "label": "에너지효율등급용 입면적도 작성",
+      "manualLabel": "에너지효율등급용 입면적도 작성",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "048-DEE-REF-005-2-01.svg",
+      "visualKey": "section|draw|DEE|REF-005-2-01",
+      "descriptor": {
+        "subject": "section",
+        "action": "draw",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 49,
+      "id": "REF-006-2-02",
+      "alias": "MRT",
+      "commandCode": "MRT",
+      "label": "폴리선 선택 실별 면적표",
+      "manualLabel": "폴리선선택 실별면적표 만들기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "049-MRT-REF-006-2-02.svg",
+      "visualKey": "table|measure|MRT|REF-006-2-02",
+      "descriptor": {
+        "subject": "table",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 50,
+      "id": "REF-010-2-05",
+      "alias": "ABC",
+      "commandCode": "ABC",
+      "label": "여러 숫자 연산",
+      "manualLabel": "여러 숫자 연산",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "050-ABC-REF-010-2-05.svg",
+      "visualKey": "number|calculate|ABC|REF-010-2-05",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 51,
+      "id": "REF-011-2-06",
+      "alias": "AE",
+      "commandCode": "AE",
+      "label": "면적 합산 기록",
+      "manualLabel": "면적표시 여러요소",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "051-AE-REF-011-2-06.svg",
+      "visualKey": "area|calculate|AE|REF-011-2-06",
+      "descriptor": {
+        "subject": "area",
+        "action": "calculate",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 52,
+      "id": "REF-012-2-07",
+      "alias": "CDB",
+      "commandCode": "CDB",
+      "label": "인동 간격 검토",
+      "manualLabel": "인동거리 검토",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "052-CDB-REF-012-2-07.svg",
+      "visualKey": "calculator|verify|CDB|REF-012-2-07",
+      "descriptor": {
+        "subject": "calculator",
+        "action": "verify",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 53,
+      "id": "REF-013-2-08",
+      "alias": "CDN",
+      "commandCode": "CDN",
+      "label": "북측 일조권 검토",
+      "manualLabel": "북측 일조권 검토",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "053-CDN-REF-013-2-08.svg",
+      "visualKey": "calculator|verify|CDN|REF-013-2-08",
+      "descriptor": {
+        "subject": "calculator",
+        "action": "verify",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 54,
+      "id": "REF-014-2-09",
+      "alias": "COI",
+      "commandCode": "COI",
+      "label": "숫자에 천단위 콤마 넣기",
+      "manualLabel": "숫자에 천단위 콤마 넣기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "054-COI-REF-014-2-09.svg",
+      "visualKey": "number|add|COI|REF-014-2-09",
+      "descriptor": {
+        "subject": "number",
+        "action": "add",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 55,
+      "id": "REF-015-2-10",
+      "alias": "COR",
+      "commandCode": "COR",
+      "label": "숫자에 천단위 콤마 빼기",
+      "manualLabel": "숫자에 천단위 콤마 빼기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "055-COR-REF-015-2-10.svg",
+      "visualKey": "number|calculate|COR|REF-015-2-10",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 56,
+      "id": "REF-016-2-11",
+      "alias": "DAR",
+      "commandCode": "DAR",
+      "label": "면적 숫자 넣기",
+      "manualLabel": "살아있는 면적 문자 넣기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "056-DAR-REF-016-2-11.svg",
+      "visualKey": "number|add|DAR|REF-016-2-11",
+      "descriptor": {
+        "subject": "number",
+        "action": "add",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 57,
+      "id": "REF-017-2-12",
+      "alias": "DM",
+      "commandCode": "DM",
+      "label": "폴리선 길이를 메모리로",
+      "manualLabel": "폴리선 길이를 메모리로",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "057-DM-REF-017-2-12.svg",
+      "visualKey": "measure|measure|DM|REF-017-2-12",
+      "descriptor": {
+        "subject": "measure",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 58,
+      "id": "REF-018-2-13",
+      "alias": "EDP",
+      "commandCode": "EDP",
+      "label": "소수점 자릿수 수정",
+      "manualLabel": "소숫점 자릿수 수정",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "058-EDP-REF-018-2-13.svg",
+      "visualKey": "number|edit|EDP|REF-018-2-13",
+      "descriptor": {
+        "subject": "number",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 59,
+      "id": "REF-020-2-15",
+      "alias": "INA",
+      "commandCode": "INA",
+      "label": "색인 숫자 더해서 목록만들기",
+      "manualLabel": "색인 숫자 더해서 목록만들기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "059-INA-REF-020-2-15.svg",
+      "visualKey": "number|list|INA|REF-020-2-15",
+      "descriptor": {
+        "subject": "number",
+        "action": "list",
+        "modifiers": [
+          "calculate",
+          "draw"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 60,
+      "id": "REF-021-2-16",
+      "alias": "LIS",
+      "commandCode": "LEN",
+      "label": "길이 합계",
+      "manualLabel": "선택한 선들의 길이 합산",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "060-LIS-REF-021-2-16.svg",
+      "visualKey": "measure|measure|LEN|REF-021-2-16",
+      "descriptor": {
+        "subject": "measure",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 61,
+      "id": "REF-022-2-17",
+      "alias": "LMA",
+      "commandCode": "LMA",
+      "label": "레벨 복사 숫자 자동 변경",
+      "manualLabel": "레벨 복사 숫자 자동 변경",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "061-LMA-REF-022-2-17.svg",
+      "visualKey": "level|copy|LMA|REF-022-2-17",
+      "descriptor": {
+        "subject": "level",
+        "action": "copy",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 62,
+      "id": "REF-023-2-18",
+      "alias": "LNA",
+      "commandCode": "LNA",
+      "label": "레벨 숫자 일괄 변경",
+      "manualLabel": "레벨 숫자 일괄 변경",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "062-LNA-REF-023-2-18.svg",
+      "visualKey": "level|edit|LNA|REF-023-2-18",
+      "descriptor": {
+        "subject": "level",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 63,
+      "id": "REF-024-2-19",
+      "alias": "M2",
+      "commandCode": "M2",
+      "label": "평을 ㎡로 변경",
+      "manualLabel": "평을 m2로 변경",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "063-M2-REF-024-2-19.svg",
+      "visualKey": "calculator|convert|M2|REF-024-2-19",
+      "descriptor": {
+        "subject": "calculator",
+        "action": "convert",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 64,
+      "id": "REF-025-2-20",
+      "alias": "MAC",
+      "commandCode": "MAC",
+      "label": "중심선선택 면적선 만들기",
+      "manualLabel": "중심선선택 면적선 만들기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "064-MAC-REF-025-2-20.svg",
+      "visualKey": "axis|draw|MAC|REF-025-2-20",
+      "descriptor": {
+        "subject": "axis",
+        "action": "draw",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 65,
+      "id": "REF-027-2-22",
+      "alias": "NUC",
+      "commandCode": "NUC",
+      "label": "숫자에 일괄 계산 적용",
+      "manualLabel": "숫자에 일괄 계산 적용",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "065-NUC-REF-027-2-22.svg",
+      "visualKey": "number|calculate|NUC|REF-027-2-22",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 66,
+      "id": "REF-028-2-23",
+      "alias": "PY",
+      "commandCode": "PY",
+      "label": "㎡를 평으로 변환",
+      "manualLabel": "m2를 평으로 변환 (전체)",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "066-PY-REF-028-2-23.svg",
+      "visualKey": "calculator|convert|PY|REF-028-2-23",
+      "descriptor": {
+        "subject": "calculator",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 67,
+      "id": "REF-029-2-24",
+      "alias": "QD",
+      "commandCode": "QD",
+      "label": "두점의 거리를 문자로 표기",
+      "manualLabel": "두점의 거리를 문자로 표기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "067-QD-REF-029-2-24.svg",
+      "visualKey": "text|measure|QD|REF-029-2-24",
+      "descriptor": {
+        "subject": "text",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 68,
+      "id": "REF-030-2-25",
+      "alias": "SPN",
+      "commandCode": "SPN",
+      "label": "기호문자별 개수 합산",
+      "manualLabel": "기호문자별 개수 합산",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "068-SPN-REF-030-2-25.svg",
+      "visualKey": "text|count|SPN|REF-030-2-25",
+      "descriptor": {
+        "subject": "text",
+        "action": "count",
+        "modifiers": [
+          "calculate"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 69,
+      "id": "REF-113-1-26",
+      "alias": "AHM",
+      "commandCode": "AHM",
+      "label": "구적 직각표시 추가 (구적표 설정 상속)",
+      "manualLabel": "구적 삼각형 그리기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "069-AHM-REF-113-1-26.svg",
+      "visualKey": "table|show|AHM|REF-113-1-26",
+      "descriptor": {
+        "subject": "table",
+        "action": "show",
+        "modifiers": [
+          "settings"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 70,
+      "id": "REF-114-1-27",
+      "alias": "BA",
+      "commandCode": "BA",
+      "label": "공유면적 배분, 합산면적 기록",
+      "manualLabel": "공유면적 배분, 합산면적 기록",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "070-BA-REF-114-1-27.svg",
+      "visualKey": "area|calculate|BA|REF-114-1-27",
+      "descriptor": {
+        "subject": "area",
+        "action": "calculate",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 71,
+      "id": "REF-115-1-28",
+      "alias": "HV",
+      "commandCode": "HV",
+      "label": "사각형 가로X세로와 면적 표기",
+      "manualLabel": "사각형 가로X세로와 면적 표기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "071-HV-REF-115-1-28.svg",
+      "visualKey": "area|measure|HV|REF-115-1-28",
+      "descriptor": {
+        "subject": "area",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 72,
+      "id": "REF-116-1-29",
+      "alias": "HW",
+      "commandCode": "HW",
+      "label": "삼각형 가로X세로와 면적 표기",
+      "manualLabel": "삼각형 가로X세로와 면적 표기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "072-HW-REF-116-1-29.svg",
+      "visualKey": "area|measure|HW|REF-116-1-29",
+      "descriptor": {
+        "subject": "area",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 73,
+      "id": "REF-117-1-30",
+      "alias": "ND",
+      "commandCode": "ND",
+      "label": "첫번째숫자 합/두번째숫자 합",
+      "manualLabel": "첫번째숫자 합/두번째숫자 합",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "073-ND-REF-117-1-30.svg",
+      "visualKey": "number|calculate|ND|REF-117-1-30",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 74,
+      "id": "REF-118-1-31",
+      "alias": "NP",
+      "commandCode": "NP",
+      "label": "N번째 숫자 * N+1번째 숫자",
+      "manualLabel": "N번째 숫자 * N+1번째 숫자",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "074-NP-REF-118-1-31.svg",
+      "visualKey": "number|calculate|NP|REF-118-1-31",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 75,
+      "id": "REF-119-1-32",
+      "alias": "NS",
+      "commandCode": "NS",
+      "label": "첫번째숫자 합-두번째숫자 합",
+      "manualLabel": "첫번째숫자 합-두번째숫자 합",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "075-NS-REF-119-1-32.svg",
+      "visualKey": "number|calculate|NS|REF-119-1-32",
+      "descriptor": {
+        "subject": "number",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 76,
+      "id": "REF-120-1-33",
+      "alias": "SAR",
+      "commandCode": "SAR",
+      "label": "부지 구적표 자동 작도",
+      "manualLabel": "부지 구적표 그리기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "076-SAR-REF-120-1-33.svg",
+      "visualKey": "table|calculate|SAR|REF-120-1-33",
+      "descriptor": {
+        "subject": "table",
+        "action": "calculate",
+        "modifiers": [],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 77,
+      "id": "REF-121-1-34",
+      "alias": "SCA",
+      "commandCode": "SCA",
+      "label": "면적 확대하기",
+      "manualLabel": "면적 확대하기",
+      "releaseStatus": "official",
+      "category": "면적 및 계산",
+      "filename": "077-SCA-REF-121-1-34.svg",
+      "visualKey": "area|scale|SCA|REF-121-1-34",
+      "descriptor": {
+        "subject": "area",
+        "action": "scale",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#c6a8ff"
+      }
+    },
+    {
+      "number": 78,
+      "id": "REF-016-0-01",
+      "alias": "EXP",
+      "commandCode": "EXP",
+      "label": "현 작업폴더 탐색기",
+      "manualLabel": "현 작업폴더 탐색기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "078-EXP-REF-016-0-01.svg",
+      "visualKey": "folder|open|EXP|REF-016-0-01",
+      "descriptor": {
+        "subject": "folder",
+        "action": "open",
+        "modifiers": [],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 79,
+      "id": "REF-018-0-03",
+      "alias": "ON",
+      "commandCode": "ON",
+      "label": "현도면 다음파일 열기",
+      "manualLabel": "현도면 다음파일 열기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "079-ON-REF-018-0-03.svg",
+      "visualKey": "file|open|ON|REF-018-0-03",
+      "descriptor": {
+        "subject": "file",
+        "action": "open",
+        "modifiers": [],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 80,
+      "id": "REF-019-0-04",
+      "alias": "OPA",
+      "commandCode": "OPA",
+      "label": "저장없이 다시열기",
+      "manualLabel": "저장없이 다시열기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "080-OPA-REF-019-0-04.svg",
+      "visualKey": "file|save|OPA|REF-019-0-04",
+      "descriptor": {
+        "subject": "file",
+        "action": "save",
+        "modifiers": [
+          "open"
+        ],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 81,
+      "id": "REF-020-0-05",
+      "alias": "QQ",
+      "commandCode": "QQ",
+      "label": "도면 일괄 닫기",
+      "manualLabel": "도면 일괄 닫기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "081-QQ-REF-020-0-05.svg",
+      "visualKey": "file|close|QQ|REF-020-0-05",
+      "descriptor": {
+        "subject": "file",
+        "action": "close",
+        "modifiers": [],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 82,
+      "id": "REF-022-0-07",
+      "alias": "xiUnintall",
+      "commandCode": "BRUNINSTALL",
+      "label": "보조명령 설정 초기화",
+      "manualLabel": "보조명령 설정 초기화",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "082-xiUnintall-REF-022-0-07.svg",
+      "visualKey": "settings|settings|BRUNINSTALL|REF-022-0-07",
+      "descriptor": {
+        "subject": "settings",
+        "action": "settings",
+        "modifiers": [],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 83,
+      "id": "REF-023-0-08",
+      "alias": "xiBackup",
+      "commandCode": "BRBACKUP",
+      "label": "사용자 설정 내보내기",
+      "manualLabel": "사용자설정 내보내기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "083-xiBackup-REF-023-0-08.svg",
+      "visualKey": "settings|export|BRBACKUP|REF-023-0-08",
+      "descriptor": {
+        "subject": "settings",
+        "action": "export",
+        "modifiers": [
+          "move",
+          "settings"
+        ],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 84,
+      "id": "REF-024-0-09",
+      "alias": "xiRestore",
+      "commandCode": "BRRESTORE",
+      "label": "사용자 설정 불러오기",
+      "manualLabel": "사용자설정 불러오기",
+      "releaseStatus": "official",
+      "category": "열기, 닫기 및 설정",
+      "filename": "084-xiRestore-REF-024-0-09.svg",
+      "visualKey": "settings|import|BRRESTORE|REF-024-0-09",
+      "descriptor": {
+        "subject": "settings",
+        "action": "import",
+        "modifiers": [
+          "settings"
+        ],
+        "color": "#e4b96a"
+      }
+    },
+    {
+      "number": 85,
+      "id": "REF-017-1-01",
+      "alias": "CIN",
+      "commandCode": "CIN",
+      "label": "교차점에 객체 복사",
+      "manualLabel": "교차점에 객체 복사",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "085-CIN-REF-017-1-01.svg",
+      "visualKey": "object|copy|CIN|REF-017-1-01",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 86,
+      "id": "REF-018-1-02",
+      "alias": "CNL",
+      "commandCode": "CNL",
+      "label": "새 레이어로 복사",
+      "manualLabel": "새 켜로 복사",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "086-CNL-REF-018-1-02.svg",
+      "visualKey": "layer|copy|CNL|REF-018-1-02",
+      "descriptor": {
+        "subject": "layer",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 87,
+      "id": "REF-019-1-03",
+      "alias": "CR",
+      "commandCode": "CR",
+      "label": "복사 후 회전",
+      "manualLabel": "복사 후 회전",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "087-CR-REF-019-1-03.svg",
+      "visualKey": "object|copy|CR|REF-019-1-03",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [
+          "rotate"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 88,
+      "id": "REF-020-1-04",
+      "alias": "CTL",
+      "commandCode": "CTL",
+      "label": "현재 레이어로 복사",
+      "manualLabel": "현재 켜로 복사",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "088-CTL-REF-020-1-04.svg",
+      "visualKey": "layer|copy|CTL|REF-020-1-04",
+      "descriptor": {
+        "subject": "layer",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 89,
+      "id": "REF-021-1-05",
+      "alias": "DAC",
+      "commandCode": "DAC",
+      "label": "원곡선 배열",
+      "manualLabel": "원형 등분 배열",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "089-DAC-REF-021-1-05.svg",
+      "visualKey": "curve|edit|DAC|REF-021-1-05",
+      "descriptor": {
+        "subject": "curve",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 90,
+      "id": "REF-022-1-06",
+      "alias": "DDE",
+      "commandCode": "DDE",
+      "label": "겹친 객체 삭제",
+      "manualLabel": "겹친 객체 삭제",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "090-DDE-REF-022-1-06.svg",
+      "visualKey": "object|delete|DDE|REF-022-1-06",
+      "descriptor": {
+        "subject": "object",
+        "action": "delete",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 91,
+      "id": "REF-023-1-07",
+      "alias": "DVC",
+      "commandCode": "DVC",
+      "label": "등분 복사",
+      "manualLabel": "등분 복사하기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "091-DVC-REF-023-1-07.svg",
+      "visualKey": "object|copy|DVC|REF-023-1-07",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 92,
+      "id": "REF-024-1-08",
+      "alias": "EXL",
+      "commandCode": "EXL",
+      "label": "길이 늘이기·줄이기",
+      "manualLabel": "선 길이 조정",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "092-EXL-REF-024-1-08.svg",
+      "visualKey": "measure|measure|EXL|REF-024-1-08",
+      "descriptor": {
+        "subject": "measure",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 93,
+      "id": "REF-025-1-09",
+      "alias": "JL",
+      "commandCode": "JL",
+      "label": "선 연결",
+      "manualLabel": "선 이어주기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "093-JL-REF-025-1-09.svg",
+      "visualKey": "object|join|JL|REF-025-1-09",
+      "descriptor": {
+        "subject": "object",
+        "action": "join",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 94,
+      "id": "REF-026-1-10",
+      "alias": "MC",
+      "commandCode": "MC",
+      "label": "연속 복사",
+      "manualLabel": "등간격 연속복사 (하위 버전을 위해)",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "094-MC-REF-026-1-10.svg",
+      "visualKey": "object|copy|MC|REF-026-1-10",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 95,
+      "id": "REF-027-1-11",
+      "alias": "MII",
+      "commandCode": "MI",
+      "label": "대칭 복사",
+      "manualLabel": "미러",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "095-MII-REF-027-1-11.svg",
+      "visualKey": "object|copy|MI|REF-027-1-11",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 96,
+      "id": "REF-029-1-13",
+      "alias": "MM",
+      "commandCode": "MM",
+      "label": "시작점에서의 길이 지정",
+      "manualLabel": "시작점에서의 길이 지정",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "096-MM-REF-029-1-13.svg",
+      "visualKey": "measure|measure|MM|REF-029-1-13",
+      "descriptor": {
+        "subject": "measure",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 97,
+      "id": "REF-030-1-14",
+      "alias": "OA",
+      "commandCode": "OA",
+      "label": "객체 정렬",
+      "manualLabel": "객체 정렬",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "097-OA-REF-030-1-14.svg",
+      "visualKey": "object|align|OA|REF-030-1-14",
+      "descriptor": {
+        "subject": "object",
+        "action": "align",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 98,
+      "id": "REF-031-1-15",
+      "alias": "OAA",
+      "commandCode": "OAA",
+      "label": "객체를 다른 객체각도에 정렬",
+      "manualLabel": "객체를 다른 객체각도에 정렬",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "098-OAA-REF-031-1-15.svg",
+      "visualKey": "object|align|OAA|REF-031-1-15",
+      "descriptor": {
+        "subject": "object",
+        "action": "align",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 99,
+      "id": "REF-032-1-16",
+      "alias": "OB",
+      "commandCode": "OB",
+      "label": "양쪽 간격띄우기",
+      "manualLabel": "양쪽으로 등간격 옵셋하기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "099-OB-REF-032-1-16.svg",
+      "visualKey": "object|offset|OB|REF-032-1-16",
+      "descriptor": {
+        "subject": "object",
+        "action": "offset",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 100,
+      "id": "REF-033-1-17",
+      "alias": "OC",
+      "commandCode": "OC",
+      "label": "폴리선 간격띄우기 후 이어주기",
+      "manualLabel": "폴리선 옵셋후 이어주기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "100-OC-REF-033-1-17.svg",
+      "visualKey": "polyline|offset|OC|REF-033-1-17",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "offset",
+        "modifiers": [
+          "join"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 101,
+      "id": "REF-034-1-18",
+      "alias": "OE",
+      "commandCode": "OE",
+      "label": "간격띄우기 후 원본 삭제",
+      "manualLabel": "옵셋 후 원본삭제",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "101-OE-REF-034-1-18.svg",
+      "visualKey": "polyline|offset|OE|REF-034-1-18",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "offset",
+        "modifiers": [
+          "delete"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 102,
+      "id": "REF-035-1-19",
+      "alias": "OI",
+      "commandCode": "OI",
+      "label": "붙어있는선까지 다 간격띄우기",
+      "manualLabel": "붙어있는선까지 다 간격띄우기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "102-OI-REF-035-1-19.svg",
+      "visualKey": "object|offset|OI|REF-035-1-19",
+      "descriptor": {
+        "subject": "object",
+        "action": "offset",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 103,
+      "id": "REF-036-1-20",
+      "alias": "OM",
+      "commandCode": "OM",
+      "label": "연속 간격띄우기",
+      "manualLabel": "치수 정하고 연속 간격 띄우기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "103-OM-REF-036-1-20.svg",
+      "visualKey": "object|offset|OM|REF-036-1-20",
+      "descriptor": {
+        "subject": "object",
+        "action": "offset",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 104,
+      "id": "REF-037-1-21",
+      "alias": "OO",
+      "commandCode": "OO",
+      "label": "현재 레이어로 간격띄우기",
+      "manualLabel": "현재 layer로 offset하기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "104-OO-REF-037-1-21.svg",
+      "visualKey": "layer|offset|OO|REF-037-1-21",
+      "descriptor": {
+        "subject": "layer",
+        "action": "offset",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 105,
+      "id": "REF-038-1-22",
+      "alias": "OT",
+      "commandCode": "OT",
+      "label": "허용공차선 띄우기",
+      "manualLabel": "허용공차선 띄우기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "105-OT-REF-038-1-22.svg",
+      "visualKey": "object|offset|OT|REF-038-1-22",
+      "descriptor": {
+        "subject": "object",
+        "action": "offset",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 106,
+      "id": "REF-039-1-23",
+      "alias": "RDC",
+      "commandCode": "RDC",
+      "label": "무작위 복사하기",
+      "manualLabel": "무작위 복사하기",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "106-RDC-REF-039-1-23.svg",
+      "visualKey": "object|copy|RDC|REF-039-1-23",
+      "descriptor": {
+        "subject": "object",
+        "action": "copy",
+        "modifiers": [
+          "random"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 107,
+      "id": "REF-040-1-24",
+      "alias": "RM",
+      "commandCode": "RM",
+      "label": "개별 회전",
+      "manualLabel": "자기 기준점에서 회전",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "107-RM-REF-040-1-24.svg",
+      "visualKey": "object|rotate|RM|REF-040-1-24",
+      "descriptor": {
+        "subject": "object",
+        "action": "rotate",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 108,
+      "id": "REF-041-1-25",
+      "alias": "RR",
+      "commandCode": "RR",
+      "label": "참조 회전",
+      "manualLabel": "참조 회전",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "108-RR-REF-041-1-25.svg",
+      "visualKey": "object|rotate|RR|REF-041-1-25",
+      "descriptor": {
+        "subject": "object",
+        "action": "rotate",
+        "modifiers": [],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 109,
+      "id": "REF-043-1-27",
+      "alias": "SM",
+      "commandCode": "SM",
+      "label": "개별 축척",
+      "manualLabel": "자기 중심에서 크기변경",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "109-SM-REF-043-1-27.svg",
+      "visualKey": "object|scale|SM|REF-043-1-27",
+      "descriptor": {
+        "subject": "object",
+        "action": "scale",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 110,
+      "id": "REF-044-1-28",
+      "alias": "SS",
+      "commandCode": "SS",
+      "label": "배율값 기억 연속 크기변경",
+      "manualLabel": "배율값 기억 연속 크기변경",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "110-SS-REF-044-1-28.svg",
+      "visualKey": "object|scale|SS|REF-044-1-28",
+      "descriptor": {
+        "subject": "object",
+        "action": "scale",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 111,
+      "id": "REF-045-1-29",
+      "alias": "WR",
+      "commandCode": "WR",
+      "label": "선복구 (중간객체 모두 삭제)",
+      "manualLabel": "선복구 (중간객체 모두 삭제)",
+      "releaseStatus": "official",
+      "category": "멀티도구",
+      "filename": "111-WR-REF-045-1-29.svg",
+      "visualKey": "object|refresh|WR|REF-045-1-29",
+      "descriptor": {
+        "subject": "object",
+        "action": "refresh",
+        "modifiers": [
+          "delete"
+        ],
+        "color": "#77d38b"
+      }
+    },
+    {
+      "number": 112,
+      "id": "REF-029-0-01",
+      "alias": "CLI",
+      "commandCode": "CLI",
+      "label": "기둥 배근도 그리기",
+      "manualLabel": "기둥 배근도그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "112-CLI-REF-029-0-01.svg",
+      "visualKey": "column|draw|CLI|REF-029-0-01",
+      "descriptor": {
+        "subject": "column",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 113,
+      "id": "REF-030-0-02",
+      "alias": "BLI",
+      "commandCode": "BLI",
+      "label": "보 배근도 그리기",
+      "manualLabel": "보 배근도그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "113-BLI-REF-030-0-02.svg",
+      "visualKey": "beam|draw|BLI|REF-030-0-02",
+      "descriptor": {
+        "subject": "beam",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 114,
+      "id": "REF-031-0-03",
+      "alias": "BLS",
+      "commandCode": "BLS",
+      "label": "보 일람표 작성",
+      "manualLabel": "보 스케쥴작성",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "114-BLS-REF-031-0-03.svg",
+      "visualKey": "beam|draw|BLS|REF-031-0-03",
+      "descriptor": {
+        "subject": "beam",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 115,
+      "id": "REF-032-0-04",
+      "alias": "COL",
+      "commandCode": "COL",
+      "label": "기둥 그리기",
+      "manualLabel": "기둥그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "115-COL-REF-032-0-04.svg",
+      "visualKey": "column|draw|COL|REF-032-0-04",
+      "descriptor": {
+        "subject": "column",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 116,
+      "id": "REF-033-0-05",
+      "alias": "TRUSS",
+      "commandCode": "TRUSS",
+      "label": "트러스 그리기",
+      "manualLabel": "트러스 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "116-TRUSS-REF-033-0-05.svg",
+      "visualKey": "truss|draw|TRUSS|REF-033-0-05",
+      "descriptor": {
+        "subject": "truss",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 117,
+      "id": "REF-034-0-06",
+      "alias": "SLP",
+      "commandCode": "SLP",
+      "label": "사면 표시",
+      "manualLabel": "사면 표시",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "117-SLP-REF-034-0-06.svg",
+      "visualKey": "contour|show|SLP|REF-034-0-06",
+      "descriptor": {
+        "subject": "contour",
+        "action": "show",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 118,
+      "id": "REF-035-0-07",
+      "alias": "STB",
+      "commandCode": "STB",
+      "label": "철골보 평면 그리기",
+      "manualLabel": "철골보 평면 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "118-STB-REF-035-0-07.svg",
+      "visualKey": "beam|draw|STB|REF-035-0-07",
+      "descriptor": {
+        "subject": "beam",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 119,
+      "id": "REF-036-0-08",
+      "alias": "BE",
+      "commandCode": "BE",
+      "label": "형강 단면 그리기",
+      "manualLabel": "H빔,C채널,L형강 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "119-BE-REF-036-0-08.svg",
+      "visualKey": "object|draw|BE|REF-036-0-08",
+      "descriptor": {
+        "subject": "object",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 120,
+      "id": "REF-038-0-09",
+      "alias": "CW",
+      "commandCode": "CW",
+      "label": "커튼월창호 그리기",
+      "manualLabel": "커튼월 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "120-CW-REF-038-0-09.svg",
+      "visualKey": "wall|draw|CW|REF-038-0-09",
+      "descriptor": {
+        "subject": "wall",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 121,
+      "id": "REF-039-0-10",
+      "alias": "D1",
+      "commandCode": "D1",
+      "label": "간단문 그리기",
+      "manualLabel": "간단문 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "121-D1-REF-039-0-10.svg",
+      "visualKey": "door|draw|D1|REF-039-0-10",
+      "descriptor": {
+        "subject": "door",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 122,
+      "id": "REF-040-0-11",
+      "alias": "D2, D3",
+      "commandCode": "D2",
+      "label": "상세문 그리기",
+      "manualLabel": "상세문 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "122-D2-D3-REF-040-0-11.svg",
+      "visualKey": "door|draw|D2|REF-040-0-11",
+      "descriptor": {
+        "subject": "door",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 123,
+      "id": "REF-041-0-12",
+      "alias": "DHR",
+      "commandCode": "DHR",
+      "label": "난간 그리기",
+      "manualLabel": "난간 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "123-DHR-REF-041-0-12.svg",
+      "visualKey": "railing|draw|DHR|REF-041-0-12",
+      "descriptor": {
+        "subject": "railing",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 124,
+      "id": "REF-042-0-13",
+      "alias": "DOR",
+      "commandCode": "DOR",
+      "label": "평면문 회전",
+      "manualLabel": "평면문 회전",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "124-DOR-REF-042-0-13.svg",
+      "visualKey": "door|rotate|DOR|REF-042-0-13",
+      "descriptor": {
+        "subject": "door",
+        "action": "rotate",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 125,
+      "id": "REF-043-0-14",
+      "alias": "W1",
+      "commandCode": "W1",
+      "label": "고정창 그리기",
+      "manualLabel": "간단창 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "125-W1-REF-043-0-14.svg",
+      "visualKey": "window|draw|W1|REF-043-0-14",
+      "descriptor": {
+        "subject": "window",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 126,
+      "id": "REF-044-0-15",
+      "alias": "W2,W3",
+      "commandCode": "W2",
+      "label": "미서기창 그리기",
+      "manualLabel": "미서기창 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "126-W2-W3-REF-044-0-15.svg",
+      "visualKey": "window|draw|W2|REF-044-0-15",
+      "descriptor": {
+        "subject": "window",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 127,
+      "id": "REF-045-0-16",
+      "alias": "WO",
+      "commandCode": "WO",
+      "label": "개구부 그리기",
+      "manualLabel": "개구부 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "127-WO-REF-045-0-16.svg",
+      "visualKey": "window|draw|WO|REF-045-0-16",
+      "descriptor": {
+        "subject": "window",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 128,
+      "id": "REF-047-0-17",
+      "alias": "CALENDAR",
+      "commandCode": "CALENDAR",
+      "label": "달력 그리기",
+      "manualLabel": "달력 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "128-CALENDAR-REF-047-0-17.svg",
+      "visualKey": "calendar|draw|CALENDAR|REF-047-0-17",
+      "descriptor": {
+        "subject": "calendar",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 129,
+      "id": "REF-048-0-18",
+      "alias": "CEN",
+      "commandCode": "CEN",
+      "label": "중심선 그리기",
+      "manualLabel": "중심선 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "129-CEN-REF-048-0-18.svg",
+      "visualKey": "axis|draw|CEN|REF-048-0-18",
+      "descriptor": {
+        "subject": "axis",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 130,
+      "id": "REF-049-0-19",
+      "alias": "CEP",
+      "commandCode": "CEP",
+      "label": "폴리선 중심 그리기",
+      "manualLabel": "폴리선 중심 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "130-CEP-REF-049-0-19.svg",
+      "visualKey": "polyline|draw|CEP|REF-049-0-19",
+      "descriptor": {
+        "subject": "polyline",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 131,
+      "id": "REF-050-0-20",
+      "alias": "CTR",
+      "commandCode": "CTR",
+      "label": "차량 궤적 그리기",
+      "manualLabel": "차량 퀘적 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "131-CTR-REF-050-0-20.svg",
+      "visualKey": "vehicle|draw|CTR|REF-050-0-20",
+      "descriptor": {
+        "subject": "vehicle",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 132,
+      "id": "REF-051-0-21",
+      "alias": "DDB",
+      "commandCode": "DDB",
+      "label": "배수판 그리기",
+      "manualLabel": "배수판 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "132-DDB-REF-051-0-21.svg",
+      "visualKey": "drainage|draw|DDB|REF-051-0-21",
+      "descriptor": {
+        "subject": "drainage",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 133,
+      "id": "REF-052-0-22",
+      "alias": "DEV",
+      "commandCode": "DEV",
+      "label": "전개도 그리기",
+      "manualLabel": "전개도 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "133-DEV-REF-052-0-22.svg",
+      "visualKey": "object|draw|DEV|REF-052-0-22",
+      "descriptor": {
+        "subject": "object",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 134,
+      "id": "REF-053-0-23",
+      "alias": "DKF",
+      "commandCode": "DKF",
+      "label": "태극기 그리기",
+      "manualLabel": "태극기 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "134-DKF-REF-053-0-23.svg",
+      "visualKey": "flag|draw|DKF|REF-053-0-23",
+      "descriptor": {
+        "subject": "flag",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 135,
+      "id": "REF-054-0-24",
+      "alias": "EED",
+      "commandCode": "EED",
+      "label": "에스컬레이터 입면 그리기",
+      "manualLabel": "에스컬레이터 입면 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "135-EED-REF-054-0-24.svg",
+      "visualKey": "escalator|draw|EED|REF-054-0-24",
+      "descriptor": {
+        "subject": "escalator",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 136,
+      "id": "REF-055-0-25",
+      "alias": "ELV",
+      "commandCode": "ELV",
+      "label": "엘리베이터 그리기",
+      "manualLabel": "엘리베이터 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "136-ELV-REF-055-0-25.svg",
+      "visualKey": "elevator|draw|ELV|REF-055-0-25",
+      "descriptor": {
+        "subject": "elevator",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 137,
+      "id": "REF-056-0-26",
+      "alias": "EPD",
+      "commandCode": "EPD",
+      "label": "에스컬레이터 평면 그리기",
+      "manualLabel": "에스컬레이터 평면 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "137-EPD-REF-056-0-26.svg",
+      "visualKey": "escalator|draw|EPD|REF-056-0-26",
+      "descriptor": {
+        "subject": "escalator",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 138,
+      "id": "REF-057-0-27",
+      "alias": "HGRID",
+      "commandCode": "HGRID",
+      "label": "바닥난방 파이프 그리기",
+      "manualLabel": "바닥난방 XL파이프 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "138-HGRID-REF-057-0-27.svg",
+      "visualKey": "insulation|draw|HGRID|REF-057-0-27",
+      "descriptor": {
+        "subject": "insulation",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 139,
+      "id": "REF-058-0-28",
+      "alias": "INS",
+      "commandCode": "INS",
+      "label": "단열재 그리기",
+      "manualLabel": "단열재 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "139-INS-REF-058-0-28.svg",
+      "visualKey": "insulation|draw|INS|REF-058-0-28",
+      "descriptor": {
+        "subject": "insulation",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 140,
+      "id": "REF-059-0-29",
+      "alias": "ISD",
+      "commandCode": "ISD",
+      "label": "아이소메트릭그리기",
+      "manualLabel": "아이소메트릭그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "140-ISD-REF-059-0-29.svg",
+      "visualKey": "object|draw|ISD|REF-059-0-29",
+      "descriptor": {
+        "subject": "object",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 141,
+      "id": "REF-060-0-30",
+      "alias": "PK",
+      "commandCode": "PK",
+      "label": "주차장 구획 그리기",
+      "manualLabel": "주차장 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "141-PK-REF-060-0-30.svg",
+      "visualKey": "parking|draw|PK|REF-060-0-30",
+      "descriptor": {
+        "subject": "parking",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 142,
+      "id": "REF-061-0-31",
+      "alias": "PZ",
+      "commandCode": "PZ",
+      "label": "부분 확대도 그리기",
+      "manualLabel": "부분 확대도 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "142-PZ-REF-061-0-31.svg",
+      "visualKey": "object|scale|PZ|REF-061-0-31",
+      "descriptor": {
+        "subject": "object",
+        "action": "scale",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 143,
+      "id": "REF-062-0-32",
+      "alias": "QRC",
+      "commandCode": "QRC",
+      "label": "큐알 코드 그리기",
+      "manualLabel": "QR 코드 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "143-QRC-REF-062-0-32.svg",
+      "visualKey": "qr|draw|QRC|REF-062-0-32",
+      "descriptor": {
+        "subject": "qr",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 144,
+      "id": "REF-063-0-33",
+      "alias": "STC",
+      "commandCode": "STC",
+      "label": "계단 입·단면 그리기",
+      "manualLabel": "계단 입면",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "144-STC-REF-063-0-33.svg",
+      "visualKey": "stair|draw|STC|REF-063-0-33",
+      "descriptor": {
+        "subject": "stair",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 145,
+      "id": "REF-064-0-34",
+      "alias": "STP",
+      "commandCode": "STP",
+      "label": "계단 평면 그리기",
+      "manualLabel": "계단 평면 그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "145-STP-REF-064-0-34.svg",
+      "visualKey": "stair|draw|STP|REF-064-0-34",
+      "descriptor": {
+        "subject": "stair",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 146,
+      "id": "REF-065-0-35",
+      "alias": "WAL",
+      "commandCode": "WAL",
+      "label": "벽 그리기 (구성 벽체)",
+      "manualLabel": "벽그리기",
+      "releaseStatus": "official",
+      "category": "그리기",
+      "filename": "146-WAL-REF-065-0-35.svg",
+      "visualKey": "wall|draw|WAL|REF-065-0-35",
+      "descriptor": {
+        "subject": "wall",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#66cbe8"
+      }
+    },
+    {
+      "number": 147,
+      "id": "REF-033-3-02",
+      "alias": "LII",
+      "commandCode": "LII",
+      "label": "블록 내부 객체 정보 표시",
+      "manualLabel": "블럭내부 객체 정보 표시",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "147-LII-REF-033-3-02.svg",
+      "visualKey": "block|show|LII|REF-033-3-02",
+      "descriptor": {
+        "subject": "block",
+        "action": "show",
+        "modifiers": [
+          "inspect"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 148,
+      "id": "REF-034-3-03",
+      "alias": "REX",
+      "commandCode": "REX",
+      "label": "외부참조 다시 읽기",
+      "manualLabel": "외부참조 다시 읽기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "148-REX-REF-034-3-03.svg",
+      "visualKey": "xref|refresh|REX|REF-034-3-03",
+      "descriptor": {
+        "subject": "xref",
+        "action": "refresh",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 149,
+      "id": "REF-036-3-05",
+      "alias": "XRL",
+      "commandCode": "XRL",
+      "label": "외부참조 목록",
+      "manualLabel": "외부참조 목록",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "149-XRL-REF-036-3-05.svg",
+      "visualKey": "xref|list|XRL|REF-036-3-05",
+      "descriptor": {
+        "subject": "xref",
+        "action": "list",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 150,
+      "id": "REF-037-3-06",
+      "alias": "XRC",
+      "commandCode": "XRC",
+      "label": "외부참조 색 일괄 변경",
+      "manualLabel": "외부참조 색 일괄 변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "150-XRC-REF-037-3-06.svg",
+      "visualKey": "xref|edit|XRC|REF-037-3-06",
+      "descriptor": {
+        "subject": "xref",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 151,
+      "id": "REF-038-3-07",
+      "alias": "XRR",
+      "commandCode": "XRR",
+      "label": "외부참조 레이어 설정 초기화",
+      "manualLabel": "외부참조 켜설정 초기화",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "151-XRR-REF-038-3-07.svg",
+      "visualKey": "xref|settings|XRR|REF-038-3-07",
+      "descriptor": {
+        "subject": "xref",
+        "action": "settings",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 152,
+      "id": "REF-040-3-08",
+      "alias": "ABX",
+      "commandCode": "ABX",
+      "label": "블록 안 중첩 블록 전부 분해",
+      "manualLabel": "내부 모든 블럭 폭파",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "152-ABX-REF-040-3-08.svg",
+      "visualKey": "block|explode|ABX|REF-040-3-08",
+      "descriptor": {
+        "subject": "block",
+        "action": "explode",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 153,
+      "id": "REF-042-3-10",
+      "alias": "BAD",
+      "commandCode": "BAD",
+      "label": "블록에 객체 포함시키기",
+      "manualLabel": "블럭에 객체 포함시키기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "153-BAD-REF-042-3-10.svg",
+      "visualKey": "block|add|BAD|REF-042-3-10",
+      "descriptor": {
+        "subject": "block",
+        "action": "add",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 154,
+      "id": "REF-043-3-11",
+      "alias": "BAM",
+      "commandCode": "BAM",
+      "label": "블록 만들기·자동 재정의",
+      "manualLabel": "자동 블럭만들기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "154-BAM-REF-043-3-11.svg",
+      "visualKey": "block|draw|BAM|REF-043-3-11",
+      "descriptor": {
+        "subject": "block",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 155,
+      "id": "REF-044-3-12",
+      "alias": "BBL",
+      "commandCode": "BBL",
+      "label": "블록의 삽입점들을 선으로 이어주기",
+      "manualLabel": "블럭의 삽입점들을 선으로 이어주기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "155-BBL-REF-044-3-12.svg",
+      "visualKey": "block|join|BBL|REF-044-3-12",
+      "descriptor": {
+        "subject": "block",
+        "action": "join",
+        "modifiers": [
+          "add"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 156,
+      "id": "REF-045-3-13",
+      "alias": "BCC",
+      "commandCode": "BCC",
+      "label": "블록 레이어",
+      "manualLabel": "블럭 켜",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "156-BCC-REF-045-3-13.svg",
+      "visualKey": "block|edit|BCC|REF-045-3-13",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 157,
+      "id": "REF-046-3-14",
+      "alias": "BCH",
+      "commandCode": "BCH",
+      "label": "블록 일괄 교체",
+      "manualLabel": "블럭을 다른 외부파일로 교체하기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "157-BCH-REF-046-3-14.svg",
+      "visualKey": "block|replace|BCH|REF-046-3-14",
+      "descriptor": {
+        "subject": "block",
+        "action": "replace",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 158,
+      "id": "REF-047-3-15",
+      "alias": "BCO",
+      "commandCode": "BCO",
+      "label": "블록 내부 객체 꺼내기",
+      "manualLabel": "블럭내부 객체 꺼내기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "158-BCO-REF-047-3-15.svg",
+      "visualKey": "block|edit|BCO|REF-047-3-15",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 159,
+      "id": "REF-048-3-16",
+      "alias": "BEX",
+      "commandCode": "BEX",
+      "label": "블록 내보내기",
+      "manualLabel": "도면내 블럭 내보내기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "159-BEX-REF-048-3-16.svg",
+      "visualKey": "block|export|BEX|REF-048-3-16",
+      "descriptor": {
+        "subject": "block",
+        "action": "export",
+        "modifiers": [
+          "move"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 160,
+      "id": "REF-049-3-17",
+      "alias": "BIN",
+      "commandCode": "BIN",
+      "label": "블록 기준점 변경",
+      "manualLabel": "블럭 삽입점 변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "160-BIN-REF-049-3-17.svg",
+      "visualKey": "block|edit|BIN|REF-049-3-17",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 161,
+      "id": "REF-050-3-18",
+      "alias": "BLA",
+      "commandCode": "BLA",
+      "label": "블록 내부 모든 레이어 변경",
+      "manualLabel": "블럭 내부 모든 켜 변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "161-BLA-REF-050-3-18.svg",
+      "visualKey": "block|edit|BLA|REF-050-3-18",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 162,
+      "id": "REF-052-3-20",
+      "alias": "BNM",
+      "commandCode": "BNM",
+      "label": "블록 이름 쓰기",
+      "manualLabel": "블럭이름 쓰기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "162-BNM-REF-052-3-20.svg",
+      "visualKey": "block|edit|BNM|REF-052-3-20",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 163,
+      "id": "REF-053-3-21",
+      "alias": "BRM",
+      "commandCode": "BRM",
+      "label": "블록 내부 객체 삭제",
+      "manualLabel": "블럭 내부 객체 삭제",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "163-BRM-REF-053-3-21.svg",
+      "visualKey": "block|delete|BRM|REF-053-3-21",
+      "descriptor": {
+        "subject": "block",
+        "action": "delete",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 164,
+      "id": "REF-054-3-22",
+      "alias": "BRN",
+      "commandCode": "BRN",
+      "label": "블록 이름 변경하기",
+      "manualLabel": "블럭 이름 변경하기",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "164-BRN-REF-054-3-22.svg",
+      "visualKey": "block|edit|BRN|REF-054-3-22",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 165,
+      "id": "REF-055-3-23",
+      "alias": "BSC",
+      "commandCode": "BSC",
+      "label": "블록 가로세로 축척",
+      "manualLabel": "블럭 축척변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "165-BSC-REF-055-3-23.svg",
+      "visualKey": "block|scale|BSC|REF-055-3-23",
+      "descriptor": {
+        "subject": "block",
+        "action": "scale",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 166,
+      "id": "REF-057-3-25",
+      "alias": "EAR",
+      "commandCode": "EAR",
+      "label": "속성 블록 문자 유지 분해",
+      "manualLabel": "특성블럭 문자 유지 폭파",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "166-EAR-REF-057-3-25.svg",
+      "visualKey": "block|explode|EAR|REF-057-3-25",
+      "descriptor": {
+        "subject": "block",
+        "action": "explode",
+        "modifiers": [],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 167,
+      "id": "REF-058-3-26",
+      "alias": "M2B",
+      "commandCode": "M2B",
+      "label": "다중 삽입된 블록을 일반 블록으로 변경",
+      "manualLabel": "다중삽입된 블럭을 일반블럭으로 변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "167-M2B-REF-058-3-26.svg",
+      "visualKey": "block|convert|M2B|REF-058-3-26",
+      "descriptor": {
+        "subject": "block",
+        "action": "convert",
+        "modifiers": [
+          "edit",
+          "add"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 168,
+      "id": "REF-059-3-27",
+      "alias": "MFB",
+      "commandCode": "MFB",
+      "label": "블록 상태 변경",
+      "manualLabel": "블록 상태 변경",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "168-MFB-REF-059-3-27.svg",
+      "visualKey": "block|inspect|MFB|REF-059-3-27",
+      "descriptor": {
+        "subject": "block",
+        "action": "inspect",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 169,
+      "id": "REF-060-3-28",
+      "alias": "MX",
+      "commandCode": "XC",
+      "label": "블록 표시 범위 자르기",
+      "manualLabel": "다중 Xclip",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "169-MX-REF-060-3-28.svg",
+      "visualKey": "block|cut|XC|REF-060-3-28",
+      "descriptor": {
+        "subject": "block",
+        "action": "cut",
+        "modifiers": [
+          "show"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 170,
+      "id": "REF-063-3-31",
+      "alias": "XCX",
+      "commandCode": "XCX",
+      "label": "외부참조 자르기 분해 후 정리",
+      "manualLabel": "Xclip 폭파 후 정리",
+      "releaseStatus": "official",
+      "category": "블럭 및 외부참조",
+      "filename": "170-XCX-REF-063-3-31.svg",
+      "visualKey": "xref|explode|XCX|REF-063-3-31",
+      "descriptor": {
+        "subject": "xref",
+        "action": "explode",
+        "modifiers": [
+          "cut"
+        ],
+        "color": "#dc96ca"
+      }
+    },
+    {
+      "number": 171,
+      "id": "REF-035-2-01",
+      "alias": "A2M",
+      "commandCode": "A2M",
+      "label": "속성문자를 다행문자로 꺼내기",
+      "manualLabel": "속성문자를 다행문자로 꺼내기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "171-A2M-REF-035-2-01.svg",
+      "visualKey": "text|convert|A2M|REF-035-2-01",
+      "descriptor": {
+        "subject": "text",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 172,
+      "id": "REF-036-2-02",
+      "alias": "ABE",
+      "commandCode": "ABE",
+      "label": "속성블록 문자 수정",
+      "manualLabel": "속성블럭 문자 수정",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "172-ABE-REF-036-2-02.svg",
+      "visualKey": "block|edit|ABE|REF-036-2-02",
+      "descriptor": {
+        "subject": "block",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 173,
+      "id": "REF-037-2-03",
+      "alias": "FTT",
+      "commandCode": "FTT",
+      "label": "필드문자를 일반문자로",
+      "manualLabel": "필드문자를 일반문자로",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "173-FTT-REF-037-2-03.svg",
+      "visualKey": "text|convert|FTT|REF-037-2-03",
+      "descriptor": {
+        "subject": "text",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 174,
+      "id": "REF-038-2-04",
+      "alias": "MDF",
+      "commandCode": "MDF",
+      "label": "다행문자 특성제거",
+      "manualLabel": "다행문자 특성제거",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "174-MDF-REF-038-2-04.svg",
+      "visualKey": "text|delete|MDF|REF-038-2-04",
+      "descriptor": {
+        "subject": "text",
+        "action": "delete",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 175,
+      "id": "REF-039-2-05",
+      "alias": "MSK",
+      "commandCode": "MSK",
+      "label": "다행문자 배경 넣기",
+      "manualLabel": "다행문자 배경넣기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "175-MSK-REF-039-2-05.svg",
+      "visualKey": "mask|mask|MSK|REF-039-2-05",
+      "descriptor": {
+        "subject": "mask",
+        "action": "mask",
+        "modifiers": [
+          "add"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 176,
+      "id": "REF-040-2-06",
+      "alias": "T2M",
+      "commandCode": "T2M",
+      "label": "문자를 다행문자로 변경",
+      "manualLabel": "문자를 다행문자로 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "176-T2M-REF-040-2-06.svg",
+      "visualKey": "text|convert|T2M|REF-040-2-06",
+      "descriptor": {
+        "subject": "text",
+        "action": "convert",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 177,
+      "id": "REF-041-2-07",
+      "alias": "TFF",
+      "commandCode": "TFF",
+      "label": "다행문자 테두리 맞춤",
+      "manualLabel": "다행문자 테두리 맞춤",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "177-TFF-REF-041-2-07.svg",
+      "visualKey": "text|edit|TFF|REF-041-2-07",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 178,
+      "id": "REF-043-2-08",
+      "alias": "CTX",
+      "commandCode": "CTX",
+      "label": "문자 하나씩 확인하며 바꾸기",
+      "manualLabel": "문자 수정",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "178-CTX-REF-043-2-08.svg",
+      "visualKey": "text|verify|CTX|REF-043-2-08",
+      "descriptor": {
+        "subject": "text",
+        "action": "verify",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 179,
+      "id": "REF-044-2-09",
+      "alias": "FAM",
+      "commandCode": "FAM",
+      "label": "문자 찾아 표시",
+      "manualLabel": "문자 찾아 표시",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "179-FAM-REF-044-2-09.svg",
+      "visualKey": "text|show|FAM|REF-044-2-09",
+      "descriptor": {
+        "subject": "text",
+        "action": "show",
+        "modifiers": [
+          "search"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 180,
+      "id": "REF-045-2-10",
+      "alias": "FAR",
+      "commandCode": "FAR",
+      "label": "문자 여러 쌍 찾아 바꾸기",
+      "manualLabel": "문자 찾아 바꾸기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "180-FAR-REF-045-2-10.svg",
+      "visualKey": "text|replace|FAR|REF-045-2-10",
+      "descriptor": {
+        "subject": "text",
+        "action": "replace",
+        "modifiers": [
+          "search"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 181,
+      "id": "REF-046-2-11",
+      "alias": "TAP",
+      "commandCode": "TAP",
+      "label": "문자 앞뒤 넣기·빼기",
+      "manualLabel": "문자에 접두어 접미어 넣기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "181-TAP-REF-046-2-11.svg",
+      "visualKey": "text|add|TAP|REF-046-2-11",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 182,
+      "id": "REF-047-2-12",
+      "alias": "TC",
+      "commandCode": "TC",
+      "label": "문자 복사 또는 표 문자 넣기",
+      "manualLabel": "문자 복사 OR cad 테이블 문자넣기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "182-TC-REF-047-2-12.svg",
+      "visualKey": "text|copy|TC|REF-047-2-12",
+      "descriptor": {
+        "subject": "text",
+        "action": "copy",
+        "modifiers": [
+          "add"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 183,
+      "id": "REF-048-2-13",
+      "alias": "TD",
+      "commandCode": "TD",
+      "label": "문자 잘라 붙이기",
+      "manualLabel": "문자열 잘라서 새로운 문자열 생성",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "183-TD-REF-048-2-13.svg",
+      "visualKey": "text|edit|TD|REF-048-2-13",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 184,
+      "id": "REF-049-2-14",
+      "alias": "TE",
+      "commandCode": "TE",
+      "label": "문자 종합 수정",
+      "manualLabel": "문자 종합수정",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "184-TE-REF-049-2-14.svg",
+      "visualKey": "text|edit|TE|REF-049-2-14",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 185,
+      "id": "REF-050-2-15",
+      "alias": "TEC",
+      "commandCode": "TEC",
+      "label": "문자의 일부 복사",
+      "manualLabel": "문자의 일부 복사",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "185-TEC-REF-050-2-15.svg",
+      "visualKey": "text|copy|TEC|REF-050-2-15",
+      "descriptor": {
+        "subject": "text",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 186,
+      "id": "REF-051-2-16",
+      "alias": "TJ",
+      "commandCode": "TJ",
+      "label": "문자정렬점 변경",
+      "manualLabel": "문자정렬점 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "186-TJ-REF-051-2-16.svg",
+      "visualKey": "text|align|TJ|REF-051-2-16",
+      "descriptor": {
+        "subject": "text",
+        "action": "align",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 187,
+      "id": "REF-052-2-17",
+      "alias": "TM",
+      "commandCode": "TM",
+      "label": "문자열 병합",
+      "manualLabel": "문자열병합",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "187-TM-REF-052-2-17.svg",
+      "visualKey": "text|join|TM|REF-052-2-17",
+      "descriptor": {
+        "subject": "text",
+        "action": "join",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 188,
+      "id": "REF-053-2-18",
+      "alias": "TO",
+      "commandCode": "TO",
+      "label": "문자열을 사각의 중심으로 보내기",
+      "manualLabel": "문자열을 사각의 중심으로 보내기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "188-TO-REF-053-2-18.svg",
+      "visualKey": "text|move|TO|REF-053-2-18",
+      "descriptor": {
+        "subject": "text",
+        "action": "move",
+        "modifiers": [
+          "align"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 189,
+      "id": "REF-054-2-19",
+      "alias": "TOA",
+      "commandCode": "TOA",
+      "label": "문자열을 도형의 중심에 일괄 정렬",
+      "manualLabel": "문자열을 도형의 중심에 일괄 정렬",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "189-TOA-REF-054-2-19.svg",
+      "visualKey": "text|align|TOA|REF-054-2-19",
+      "descriptor": {
+        "subject": "text",
+        "action": "align",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 190,
+      "id": "REF-055-2-20",
+      "alias": "TS",
+      "commandCode": "TS",
+      "label": "문자크기를 변경",
+      "manualLabel": "문자크기를 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "190-TS-REF-055-2-20.svg",
+      "visualKey": "text|edit|TS|REF-055-2-20",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 191,
+      "id": "REF-056-2-21",
+      "alias": "TSA",
+      "commandCode": "TSA",
+      "label": "문서내 모든 문자 스타일 변경",
+      "manualLabel": "문서내 모든 문자 스타일 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "191-TSA-REF-056-2-21.svg",
+      "visualKey": "text|edit|TSA|REF-056-2-21",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 192,
+      "id": "REF-057-2-22",
+      "alias": "TSE",
+      "commandCode": "TSE",
+      "label": "여러 문자 연속 편집",
+      "manualLabel": "여러 문자 연속 편집",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "192-TSE-REF-057-2-22.svg",
+      "visualKey": "text|edit|TSE|REF-057-2-22",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 193,
+      "id": "REF-058-2-23",
+      "alias": "TSH",
+      "commandCode": "TSH",
+      "label": "문자 그림자",
+      "manualLabel": "문자에 음영넣기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "193-TSH-REF-058-2-23.svg",
+      "visualKey": "text|edit|TSH|REF-058-2-23",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 194,
+      "id": "REF-059-2-24",
+      "alias": "TSM",
+      "commandCode": "TSM",
+      "label": "문자 모양 병합",
+      "manualLabel": "문자스타일 병합하기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "194-TSM-REF-059-2-24.svg",
+      "visualKey": "text|join|TSM|REF-059-2-24",
+      "descriptor": {
+        "subject": "text",
+        "action": "join",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 195,
+      "id": "REF-060-2-25",
+      "alias": "TSO",
+      "commandCode": "TSO",
+      "label": "문자열 정렬하기",
+      "manualLabel": "문자열 정렬하기",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "195-TSO-REF-060-2-25.svg",
+      "visualKey": "text|align|TSO|REF-060-2-25",
+      "descriptor": {
+        "subject": "text",
+        "action": "align",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 196,
+      "id": "REF-061-2-26",
+      "alias": "TSP",
+      "commandCode": "TSP",
+      "label": "문자열 분리",
+      "manualLabel": "문자열 분리",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "196-TSP-REF-061-2-26.svg",
+      "visualKey": "text|split|TSP|REF-061-2-26",
+      "descriptor": {
+        "subject": "text",
+        "action": "split",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 197,
+      "id": "REF-062-2-27",
+      "alias": "TST",
+      "commandCode": "TST",
+      "label": "문자 스타일 변경",
+      "manualLabel": "문자 스타일 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "197-TST-REF-062-2-27.svg",
+      "visualKey": "text|edit|TST|REF-062-2-27",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 198,
+      "id": "REF-063-2-28",
+      "alias": "TSW",
+      "commandCode": "TSW",
+      "label": "문자 서로 교체",
+      "manualLabel": "문자 서로 교체",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "198-TSW-REF-063-2-28.svg",
+      "visualKey": "text|replace|TSW|REF-063-2-28",
+      "descriptor": {
+        "subject": "text",
+        "action": "replace",
+        "modifiers": [
+          "reverse"
+        ],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 199,
+      "id": "REF-064-2-29",
+      "alias": "TW",
+      "commandCode": "TW",
+      "label": "문자 폭 변경",
+      "manualLabel": "문자 폭 변경",
+      "releaseStatus": "official",
+      "category": "문자 수정",
+      "filename": "199-TW-REF-064-2-29.svg",
+      "visualKey": "text|edit|TW|REF-064-2-29",
+      "descriptor": {
+        "subject": "text",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f0a276"
+      }
+    },
+    {
+      "number": 200,
+      "id": "REF-049-1-01",
+      "alias": "SE",
+      "commandCode": "SE",
+      "label": "유사 객체 검색·선택",
+      "manualLabel": "유사객체 선택",
+      "releaseStatus": "official",
+      "category": "선택",
+      "filename": "200-SE-REF-049-1-01.svg",
+      "visualKey": "selection|search|SE|REF-049-1-01",
+      "descriptor": {
+        "subject": "selection",
+        "action": "search",
+        "modifiers": [],
+        "color": "#83c7f4"
+      }
+    },
+    {
+      "number": 201,
+      "id": "REF-050-1-02",
+      "alias": "SEB",
+      "commandCode": "SEB",
+      "label": "경계 안 종류별 객체 선택",
+      "manualLabel": "영역으로 선택",
+      "releaseStatus": "official",
+      "category": "선택",
+      "filename": "201-SEB-REF-050-1-02.svg",
+      "visualKey": "selection|search|SEB|REF-050-1-02",
+      "descriptor": {
+        "subject": "selection",
+        "action": "search",
+        "modifiers": [],
+        "color": "#83c7f4"
+      }
+    },
+    {
+      "number": 202,
+      "id": "REF-051-1-03",
+      "alias": "SER",
+      "commandCode": "SER",
+      "label": "범위 선택",
+      "manualLabel": "범위로 선택",
+      "releaseStatus": "official",
+      "category": "선택",
+      "filename": "202-SER-REF-051-1-03.svg",
+      "visualKey": "selection|search|SER|REF-051-1-03",
+      "descriptor": {
+        "subject": "selection",
+        "action": "search",
+        "modifiers": [],
+        "color": "#83c7f4"
+      }
+    },
+    {
+      "number": 203,
+      "id": "REF-055-1-01",
+      "alias": "LF",
+      "commandCode": "LIS",
+      "label": "선택 레이어만 표시",
+      "manualLabel": "선택 켜를 제외하고 끔",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "203-LF-REF-055-1-01.svg",
+      "visualKey": "layer|show|LIS|REF-055-1-01",
+      "descriptor": {
+        "subject": "layer",
+        "action": "show",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 204,
+      "id": "REF-056-1-02",
+      "alias": "LFF",
+      "commandCode": "LFF",
+      "label": "선택 객체를 제외한 레이어 동결",
+      "manualLabel": "선택객체를 제외한 얼림",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "204-LFF-REF-056-1-02.svg",
+      "visualKey": "layer|freeze|LFF|REF-056-1-02",
+      "descriptor": {
+        "subject": "layer",
+        "action": "freeze",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 205,
+      "id": "REF-058-1-04",
+      "alias": "LFK",
+      "commandCode": "LFK",
+      "label": "선택 레이어를 제외하고 잠금",
+      "manualLabel": "선택 켜를 제외하고 잠금",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "205-LFK-REF-058-1-04.svg",
+      "visualKey": "layer|lock|LFK|REF-058-1-04",
+      "descriptor": {
+        "subject": "layer",
+        "action": "lock",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 206,
+      "id": "REF-059-1-05",
+      "alias": "LTG",
+      "commandCode": "LTG",
+      "label": "레이어 켜기/끄기 반전",
+      "manualLabel": "켜 ON/OFF 반전",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "206-LTG-REF-059-1-05.svg",
+      "visualKey": "layer|reverse|LTG|REF-059-1-05",
+      "descriptor": {
+        "subject": "layer",
+        "action": "reverse",
+        "modifiers": [
+          "mirror",
+          "hide"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 207,
+      "id": "REF-060-1-06",
+      "alias": "LL",
+      "commandCode": "LOF",
+      "label": "선택 객체 레이어 끄기",
+      "manualLabel": "선택끄기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "207-LL-REF-060-1-06.svg",
+      "visualKey": "layer|hide|LOF|REF-060-1-06",
+      "descriptor": {
+        "subject": "layer",
+        "action": "hide",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 208,
+      "id": "REF-061-1-07",
+      "alias": "LLL",
+      "commandCode": "LLL",
+      "label": "선택 객체의 레이어 동결",
+      "manualLabel": "선택 얼림",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "208-LLL-REF-061-1-07.svg",
+      "visualKey": "layer|freeze|LLL|REF-061-1-07",
+      "descriptor": {
+        "subject": "layer",
+        "action": "freeze",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 209,
+      "id": "REF-062-1-08",
+      "alias": "LK",
+      "commandCode": "LLK",
+      "label": "선택 객체 레이어 잠금",
+      "manualLabel": "선택 켜 잠금",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "209-LK-REF-062-1-08.svg",
+      "visualKey": "layer|lock|LLK|REF-062-1-08",
+      "descriptor": {
+        "subject": "layer",
+        "action": "lock",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 210,
+      "id": "REF-063-1-09",
+      "alias": "LO",
+      "commandCode": "LO",
+      "label": "꺼진 레이어 모두 켜기",
+      "manualLabel": "모든 레이어 켬",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "210-LO-REF-063-1-09.svg",
+      "visualKey": "layer|show|LO|REF-063-1-09",
+      "descriptor": {
+        "subject": "layer",
+        "action": "show",
+        "modifiers": [
+          "hide"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 211,
+      "id": "REF-064-1-10",
+      "alias": "LOO",
+      "commandCode": "LOO",
+      "label": "동결 레이어 모두 해동",
+      "manualLabel": "모든 레이어 녹임",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "211-LOO-REF-064-1-10.svg",
+      "visualKey": "layer|thaw|LOO|REF-064-1-10",
+      "descriptor": {
+        "subject": "layer",
+        "action": "thaw",
+        "modifiers": [
+          "freeze"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 212,
+      "id": "REF-065-1-11",
+      "alias": "LOS",
+      "commandCode": "LOS",
+      "label": "꺼진 레이어 중에서 선택하여 켜기",
+      "manualLabel": "꺼진 켜 중에서 선택하여 켜기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "212-LOS-REF-065-1-11.svg",
+      "visualKey": "layer|hide|LOS|REF-065-1-11",
+      "descriptor": {
+        "subject": "layer",
+        "action": "hide",
+        "modifiers": [
+          "show"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 213,
+      "id": "REF-066-1-12",
+      "alias": "LUI",
+      "commandCode": "LUI",
+      "label": "직전 레이어 상태 복구",
+      "manualLabel": "직전 켜상태 복구",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "213-LUI-REF-066-1-12.svg",
+      "visualKey": "layer|refresh|LUI|REF-066-1-12",
+      "descriptor": {
+        "subject": "layer",
+        "action": "refresh",
+        "modifiers": [
+          "inspect"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 214,
+      "id": "REF-067-1-13",
+      "alias": "LU",
+      "commandCode": "LU",
+      "label": "선택 객체의 레이어 잠금 풀기",
+      "manualLabel": "선택 켜 풀림",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "214-LU-REF-067-1-13.svg",
+      "visualKey": "layer|unlock|LU|REF-067-1-13",
+      "descriptor": {
+        "subject": "layer",
+        "action": "unlock",
+        "modifiers": [
+          "lock"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 215,
+      "id": "REF-068-1-14",
+      "alias": "LUK",
+      "commandCode": "LUL",
+      "label": "레이어 잠금 모두 해제",
+      "manualLabel": "전체 풀림",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "215-LUK-REF-068-1-14.svg",
+      "visualKey": "layer|lock|LUL|REF-068-1-14",
+      "descriptor": {
+        "subject": "layer",
+        "action": "lock",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 216,
+      "id": "REF-069-1-15",
+      "alias": "LLC",
+      "commandCode": "LLC",
+      "label": "선택 색상 레이어만 끄기",
+      "manualLabel": "선택 색상만 끄기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "216-LLC-REF-069-1-15.svg",
+      "visualKey": "layer|hide|LLC|REF-069-1-15",
+      "descriptor": {
+        "subject": "layer",
+        "action": "hide",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 217,
+      "id": "REF-070-1-16",
+      "alias": "LFC",
+      "commandCode": "LFC",
+      "label": "선택된 색상 레이어만 켜기",
+      "manualLabel": "선택된 색상 레이어만 켜기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "217-LFC-REF-070-1-16.svg",
+      "visualKey": "layer|show|LFC|REF-070-1-16",
+      "descriptor": {
+        "subject": "layer",
+        "action": "show",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 218,
+      "id": "REF-071-1-17",
+      "alias": "ECO",
+      "commandCode": "ECO",
+      "label": "선택 색 객체만 켜기",
+      "manualLabel": "선택 색 객체만 켜기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "218-ECO-REF-071-1-17.svg",
+      "visualKey": "selection|show|ECO|REF-071-1-17",
+      "descriptor": {
+        "subject": "selection",
+        "action": "show",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 219,
+      "id": "REF-072-1-18",
+      "alias": "ECF",
+      "commandCode": "ECF",
+      "label": "선택 색 객체만 끄기",
+      "manualLabel": "선택 색 객체만 끄기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "219-ECF-REF-072-1-18.svg",
+      "visualKey": "selection|hide|ECF|REF-072-1-18",
+      "descriptor": {
+        "subject": "selection",
+        "action": "hide",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 220,
+      "id": "REF-073-1-19",
+      "alias": "EOO",
+      "commandCode": "SHOWALL",
+      "label": "객체 모두 표시",
+      "manualLabel": "꺼진 객체 켬",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "220-EOO-REF-073-1-19.svg",
+      "visualKey": "layer|show|SHOWALL|REF-073-1-19",
+      "descriptor": {
+        "subject": "layer",
+        "action": "show",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 221,
+      "id": "REF-074-1-20",
+      "alias": "ESF",
+      "commandCode": "HIDE",
+      "label": "객체 숨기기",
+      "manualLabel": "선택 객체 끔",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "221-ESF-REF-074-1-20.svg",
+      "visualKey": "layer|edit|HIDE|REF-074-1-20",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 222,
+      "id": "REF-075-1-21",
+      "alias": "ESO",
+      "commandCode": "ESO",
+      "label": "선택 객체 제외 끔",
+      "manualLabel": "선택 객체 제외 끔",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "222-ESO-REF-075-1-21.svg",
+      "visualKey": "selection|edit|ESO|REF-075-1-21",
+      "descriptor": {
+        "subject": "selection",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 223,
+      "id": "REF-078-1-23",
+      "alias": "ELY",
+      "commandCode": "ELY",
+      "label": "선택 레이어 객체 모두 삭제",
+      "manualLabel": "선택켜 객체 모두 삭제",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "223-ELY-REF-078-1-23.svg",
+      "visualKey": "layer|delete|ELY|REF-078-1-23",
+      "descriptor": {
+        "subject": "layer",
+        "action": "delete",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 224,
+      "id": "REF-079-1-24",
+      "alias": "LAM",
+      "commandCode": "LAM",
+      "label": "레이어 합치기 (목록 지정)",
+      "manualLabel": "켜 병합하기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "224-LAM-REF-079-1-24.svg",
+      "visualKey": "layer|join|LAM|REF-079-1-24",
+      "descriptor": {
+        "subject": "layer",
+        "action": "join",
+        "modifiers": [
+          "list"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 225,
+      "id": "REF-080-1-25",
+      "alias": "LC",
+      "commandCode": "LC",
+      "label": "기준 객체 참조 레이어 변경",
+      "manualLabel": "선택객체 켜 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "225-LC-REF-080-1-25.svg",
+      "visualKey": "layer|edit|LC|REF-080-1-25",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 226,
+      "id": "REF-081-1-26",
+      "alias": "LCC",
+      "commandCode": "LCC",
+      "label": "선택 색상 객체 특정 레이어로 변경",
+      "manualLabel": "선택 색상 객체 특정 켜로 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "226-LCC-REF-081-1-26.svg",
+      "visualKey": "layer|convert|LCC|REF-081-1-26",
+      "descriptor": {
+        "subject": "layer",
+        "action": "convert",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 227,
+      "id": "REF-082-1-27",
+      "alias": "LCD",
+      "commandCode": "LCD",
+      "label": "색상별 레이어 목록으로 변경",
+      "manualLabel": "위명령 목록에서 선택",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "227-LCD-REF-082-1-27.svg",
+      "visualKey": "layer|convert|LCD|REF-082-1-27",
+      "descriptor": {
+        "subject": "layer",
+        "action": "convert",
+        "modifiers": [
+          "list",
+          "edit"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 228,
+      "id": "REF-083-1-28",
+      "alias": "LCO",
+      "commandCode": "LCO",
+      "label": "레이어 변경 (색·선종류 유지)",
+      "manualLabel": "켜 변경 (색, 선종류 유지)",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "228-LCO-REF-083-1-28.svg",
+      "visualKey": "layer|edit|LCO|REF-083-1-28",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 229,
+      "id": "REF-084-1-29",
+      "alias": "LCM",
+      "commandCode": "LCM",
+      "label": "색 합치기",
+      "manualLabel": "색 합치기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "229-LCM-REF-084-1-29.svg",
+      "visualKey": "layer|join|LCM|REF-084-1-29",
+      "descriptor": {
+        "subject": "layer",
+        "action": "join",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 230,
+      "id": "REF-085-1-30",
+      "alias": "LCS",
+      "commandCode": "LCS",
+      "label": "동일 객체 레이어 일괄 변경",
+      "manualLabel": "동일객체 켜 일괄변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "230-LCS-REF-085-1-30.svg",
+      "visualKey": "layer|edit|LCS|REF-085-1-30",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 231,
+      "id": "REF-086-1-31",
+      "alias": "LE",
+      "commandCode": "LE",
+      "label": "객체 선택하여 현재 값을 변경",
+      "manualLabel": "객체 선택하여 현재 값을 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "231-LE-REF-086-1-31.svg",
+      "visualKey": "selection|edit|LE|REF-086-1-31",
+      "descriptor": {
+        "subject": "selection",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 232,
+      "id": "REF-088-1-33",
+      "alias": "LP",
+      "commandCode": "LP",
+      "label": "레이어 특성 일괄 변경",
+      "manualLabel": "켜 특성 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "232-LP-REF-088-1-33.svg",
+      "visualKey": "layer|edit|LP|REF-088-1-33",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 233,
+      "id": "REF-089-1-34",
+      "alias": "LTM",
+      "commandCode": "LTM",
+      "label": "선종류 합치기",
+      "manualLabel": "선모양 합치기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "233-LTM-REF-089-1-34.svg",
+      "visualKey": "layer|join|LTM|REF-089-1-34",
+      "descriptor": {
+        "subject": "layer",
+        "action": "join",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 234,
+      "id": "REF-090-1-35",
+      "alias": "LQT",
+      "commandCode": "LQT",
+      "label": "레이어별 객체 수 세기",
+      "manualLabel": "켜 숫자 세기",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "234-LQT-REF-090-1-35.svg",
+      "visualKey": "layer|count|LQT|REF-090-1-35",
+      "descriptor": {
+        "subject": "layer",
+        "action": "count",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 235,
+      "id": "REF-091-1-36",
+      "alias": "LRN",
+      "commandCode": "LRN",
+      "label": "레이어 이름 변경",
+      "manualLabel": "켜 이름 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "235-LRN-REF-091-1-36.svg",
+      "visualKey": "layer|edit|LRN|REF-091-1-36",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 236,
+      "id": "REF-092-1-37",
+      "alias": "LRL",
+      "commandCode": "LRL",
+      "label": "레이어 이름 목록 일괄 변경",
+      "manualLabel": "켜 이름 변경(목록)",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "236-LRL-REF-092-1-37.svg",
+      "visualKey": "layer|list|LRL|REF-092-1-37",
+      "descriptor": {
+        "subject": "layer",
+        "action": "list",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 237,
+      "id": "REF-093-1-38",
+      "alias": "LST",
+      "commandCode": "LST",
+      "label": "도면의 모든 레이어 목록 작성",
+      "manualLabel": "도면의 모든 켜 리스트 작성",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "237-LST-REF-093-1-38.svg",
+      "visualKey": "layer|list|LST|REF-093-1-38",
+      "descriptor": {
+        "subject": "layer",
+        "action": "list",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 238,
+      "id": "REF-094-1-39",
+      "alias": "SLC",
+      "commandCode": "SLC",
+      "label": "객체 색으로 레이어 색 변경",
+      "manualLabel": "색 축출로 켜색 변경",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "238-SLC-REF-094-1-39.svg",
+      "visualKey": "layer|edit|SLC|REF-094-1-39",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 239,
+      "id": "REF-095-1-40",
+      "alias": "TLL",
+      "commandCode": "TLL",
+      "label": "가까운 문자 레이어를 선 레이어로",
+      "manualLabel": "가까운 문자켜를 선켜로",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "239-TLL-REF-095-1-40.svg",
+      "visualKey": "layer|edit|TLL|REF-095-1-40",
+      "descriptor": {
+        "subject": "layer",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 240,
+      "id": "REF-096-1-41",
+      "alias": "TTL",
+      "commandCode": "TTL",
+      "label": "문자 내용으로 레이어 생성",
+      "manualLabel": "문자내용으로 켜 생성",
+      "releaseStatus": "official",
+      "category": "레이어",
+      "filename": "240-TTL-REF-096-1-41.svg",
+      "visualKey": "layer|add|TTL|REF-096-1-41",
+      "descriptor": {
+        "subject": "layer",
+        "action": "add",
+        "modifiers": [],
+        "color": "#77d8b0"
+      }
+    },
+    {
+      "number": 241,
+      "id": "REF-068-2-01",
+      "alias": "TII",
+      "commandCode": "TII",
+      "label": "영문/숫자 증가 입력",
+      "manualLabel": "영문/숫자 증가 입력",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "241-TII-REF-068-2-01.svg",
+      "visualKey": "number|increase|TII|REF-068-2-01",
+      "descriptor": {
+        "subject": "number",
+        "action": "increase",
+        "modifiers": [
+          "add"
+        ],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 242,
+      "id": "REF-069-2-02",
+      "alias": "DAT",
+      "commandCode": "DAT",
+      "label": "살아있는 도면 제목 넣기",
+      "manualLabel": "살아있는 도면 제목 넣기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "242-DAT-REF-069-2-02.svg",
+      "visualKey": "text|add|DAT|REF-069-2-02",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 243,
+      "id": "REF-070-2-03",
+      "alias": "LTX",
+      "commandCode": "LTX",
+      "label": "등 간격 문자열 쓰기",
+      "manualLabel": "등 간격 문자열 쓰기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "243-LTX-REF-070-2-03.svg",
+      "visualKey": "text|add|LTX|REF-070-2-03",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 244,
+      "id": "REF-071-2-04",
+      "alias": "NUMC",
+      "commandCode": "NUMC",
+      "label": "자동 숫자 증가하여 쓰기",
+      "manualLabel": "자동 숫자 증가하여 쓰기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "244-NUMC-REF-071-2-04.svg",
+      "visualKey": "number|increase|NUMC|REF-071-2-04",
+      "descriptor": {
+        "subject": "number",
+        "action": "increase",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 245,
+      "id": "REF-072-2-05",
+      "alias": "QT",
+      "commandCode": "QT",
+      "label": "자주 사용하는 문장 골라쓰기",
+      "manualLabel": "자주 사용하는 문장 골라쓰기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "245-QT-REF-072-2-05.svg",
+      "visualKey": "text|search|QT|REF-072-2-05",
+      "descriptor": {
+        "subject": "text",
+        "action": "search",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 246,
+      "id": "REF-073-2-06",
+      "alias": "QW",
+      "commandCode": "QW",
+      "label": "특수문자입력기",
+      "manualLabel": "특수문자입력기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "246-QW-REF-073-2-06.svg",
+      "visualKey": "text|add|QW|REF-073-2-06",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 247,
+      "id": "REF-074-2-07",
+      "alias": "TIC",
+      "commandCode": "TIC",
+      "label": "문자 숫자 증가 복사",
+      "manualLabel": "숫자증가 (원본변경)",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "247-TIC-REF-074-2-07.svg",
+      "visualKey": "number|copy|TIC|REF-074-2-07",
+      "descriptor": {
+        "subject": "number",
+        "action": "copy",
+        "modifiers": [
+          "increase"
+        ],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 248,
+      "id": "REF-075-2-08",
+      "alias": "TIE",
+      "commandCode": "TIE",
+      "label": "숫자증가 (원본유지)",
+      "manualLabel": "숫자증가 (원본유지)",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "248-TIE-REF-075-2-08.svg",
+      "visualKey": "number|increase|TIE|REF-075-2-08",
+      "descriptor": {
+        "subject": "number",
+        "action": "increase",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 249,
+      "id": "REF-076-2-09",
+      "alias": "TIN",
+      "commandCode": "TIN",
+      "label": "숫자증가 (비문자 포함)",
+      "manualLabel": "숫자증가 (비문자 포함)",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "249-TIN-REF-076-2-09.svg",
+      "visualKey": "number|increase|TIN|REF-076-2-09",
+      "descriptor": {
+        "subject": "number",
+        "action": "increase",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 250,
+      "id": "REF-077-2-10",
+      "alias": "TIP",
+      "commandCode": "TIP",
+      "label": "숫자증가 (위치지정)",
+      "manualLabel": "숫자증가 (위치지정)",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "250-TIP-REF-077-2-10.svg",
+      "visualKey": "number|increase|TIP|REF-077-2-10",
+      "descriptor": {
+        "subject": "number",
+        "action": "increase",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 251,
+      "id": "REF-078-2-11",
+      "alias": "TOO",
+      "commandCode": "TOO",
+      "label": "객체에 붙는 문자 넣기",
+      "manualLabel": "객체에 붙는 문자 넣기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "251-TOO-REF-078-2-11.svg",
+      "visualKey": "text|add|TOO|REF-078-2-11",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 252,
+      "id": "REF-079-2-12",
+      "alias": "TTT",
+      "commandCode": "TTT",
+      "label": "문자를 표로 모으기",
+      "manualLabel": "문자를 표로 모으기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "252-TTT-REF-079-2-12.svg",
+      "visualKey": "table|add|TTT|REF-079-2-12",
+      "descriptor": {
+        "subject": "table",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 253,
+      "id": "REF-080-2-13",
+      "alias": "TX",
+      "commandCode": "TX",
+      "label": "문자 테두리",
+      "manualLabel": "글씨에 테두리 그리기",
+      "releaseStatus": "official",
+      "category": "문자 생성 및 증가",
+      "filename": "253-TX-REF-080-2-13.svg",
+      "visualKey": "text|add|TX|REF-080-2-13",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#f0c96e"
+      }
+    },
+    {
+      "number": 254,
+      "id": "REF-069-0-01",
+      "alias": "CM",
+      "commandCode": "CM",
+      "label": "구름 수정 기호",
+      "manualLabel": "구름형 수정 마크 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "254-CM-REF-069-0-01.svg",
+      "visualKey": "symbol|edit|CM|REF-069-0-01",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 255,
+      "id": "REF-070-0-02",
+      "alias": "CMW",
+      "commandCode": "CMW",
+      "label": "구름형 수정 기호 입체화",
+      "manualLabel": "구름형 수정 마트 입체화",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "255-CMW-REF-070-0-02.svg",
+      "visualKey": "cloud|edit|CMW|REF-070-0-02",
+      "descriptor": {
+        "subject": "cloud",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 256,
+      "id": "REF-071-0-03",
+      "alias": "CSL",
+      "commandCode": "CSL",
+      "label": "절단면 기호",
+      "manualLabel": "절단면 기호",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "256-CSL-REF-071-0-03.svg",
+      "visualKey": "section|cut|CSL|REF-071-0-03",
+      "descriptor": {
+        "subject": "section",
+        "action": "cut",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 257,
+      "id": "REF-072-0-04",
+      "alias": "DDM",
+      "commandCode": "DDM",
+      "label": "다운표시",
+      "manualLabel": "다운표시",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "257-DDM-REF-072-0-04.svg",
+      "visualKey": "symbol|show|DDM|REF-072-0-04",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "show",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 258,
+      "id": "REF-073-0-05",
+      "alias": "ELM",
+      "commandCode": "ELM",
+      "label": "입단면 레벨 기호 그리기",
+      "manualLabel": "입단면 레벨 기호 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "258-ELM-REF-073-0-05.svg",
+      "visualKey": "level|draw|ELM|REF-073-0-05",
+      "descriptor": {
+        "subject": "level",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 259,
+      "id": "REF-074-0-06",
+      "alias": "ESS",
+      "commandCode": "ESS",
+      "label": "전개도 방향",
+      "manualLabel": "전개도 방향",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "259-ESS-REF-074-0-06.svg",
+      "visualKey": "arrow|draw|ESS|REF-074-0-06",
+      "descriptor": {
+        "subject": "arrow",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 260,
+      "id": "REF-075-0-07",
+      "alias": "K",
+      "commandCode": "K",
+      "label": "케이 기호 그리기",
+      "manualLabel": "K 기호그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "260-K-REF-075-0-07.svg",
+      "visualKey": "symbol|draw|K|REF-075-0-07",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 261,
+      "id": "REF-076-0-08",
+      "alias": "PLM",
+      "commandCode": "PLM",
+      "label": "평면 레벨 기호 그리기",
+      "manualLabel": "평면 레벨 기호 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "261-PLM-REF-076-0-08.svg",
+      "visualKey": "level|draw|PLM|REF-076-0-08",
+      "descriptor": {
+        "subject": "level",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 262,
+      "id": "REF-077-0-09",
+      "alias": "PPB",
+      "commandCode": "PPB",
+      "label": "상세도 참조 기호 그리기",
+      "manualLabel": "상세도 참조 기호 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "262-PPB-REF-077-0-09.svg",
+      "visualKey": "symbol|draw|PPB|REF-077-0-09",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 263,
+      "id": "REF-078-0-10",
+      "alias": "RD",
+      "commandCode": "RD",
+      "label": "지붕배수구 기호 그리기",
+      "manualLabel": "지붕배수구 기호 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "263-RD-REF-078-0-10.svg",
+      "visualKey": "drainage|draw|RD|REF-078-0-10",
+      "descriptor": {
+        "subject": "drainage",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 264,
+      "id": "REF-079-0-11",
+      "alias": "SCB",
+      "commandCode": "SCB",
+      "label": "축척 막대",
+      "manualLabel": "축척 막대 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "264-SCB-REF-079-0-11.svg",
+      "visualKey": "symbol|scale|SCB|REF-079-0-11",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "scale",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 265,
+      "id": "REF-080-0-12",
+      "alias": "SL",
+      "commandCode": "SL",
+      "label": "경사도 표시",
+      "manualLabel": "경사도 표시",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "265-SL-REF-080-0-12.svg",
+      "visualKey": "slope|show|SL|REF-080-0-12",
+      "descriptor": {
+        "subject": "slope",
+        "action": "show",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 266,
+      "id": "REF-081-0-13",
+      "alias": "SSL",
+      "commandCode": "SSL",
+      "label": "단면 기호",
+      "manualLabel": "단면도 기호 넣기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "266-SSL-REF-081-0-13.svg",
+      "visualKey": "symbol|draw|SSL|REF-081-0-13",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 267,
+      "id": "REF-082-0-14",
+      "alias": "V",
+      "commandCode": "VSYM",
+      "label": "브이 기호 그리기",
+      "manualLabel": "V 기호그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "267-V-REF-082-0-14.svg",
+      "visualKey": "symbol|draw|VSYM|REF-082-0-14",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 268,
+      "id": "REF-083-0-15",
+      "alias": "WSL",
+      "commandCode": "WSL",
+      "label": "창호 기호 집계",
+      "manualLabel": "창호기호 목록만들기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "268-WSL-REF-083-0-15.svg",
+      "visualKey": "window|draw|WSL|REF-083-0-15",
+      "descriptor": {
+        "subject": "window",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 269,
+      "id": "REF-084-0-16",
+      "alias": "WU",
+      "commandCode": "WU",
+      "label": "우오수라인 그리기",
+      "manualLabel": "우오수라인 그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "269-WU-REF-084-0-16.svg",
+      "visualKey": "drainage|draw|WU|REF-084-0-16",
+      "descriptor": {
+        "subject": "drainage",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 270,
+      "id": "REF-085-0-17",
+      "alias": "X",
+      "commandCode": "XSYM",
+      "label": "엑스 기호 그리기",
+      "manualLabel": "X 기호그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "270-X-REF-085-0-17.svg",
+      "visualKey": "symbol|draw|XSYM|REF-085-0-17",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 271,
+      "id": "REF-086-0-18",
+      "alias": "XZ",
+      "commandCode": "XZ",
+      "label": "엑스지 기호 그리기",
+      "manualLabel": "XZ 기호그리기",
+      "releaseStatus": "official",
+      "category": "기호",
+      "filename": "271-XZ-REF-086-0-18.svg",
+      "visualKey": "symbol|draw|XZ|REF-086-0-18",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#f08da3"
+      }
+    },
+    {
+      "number": 272,
+      "id": "REF-083-3-01",
+      "alias": "BAK",
+      "commandCode": "BAK",
+      "label": "도면 백업",
+      "manualLabel": "도면 백업본 저장",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "272-BAK-REF-083-3-01.svg",
+      "visualKey": "file|backup|BAK|REF-083-3-01",
+      "descriptor": {
+        "subject": "file",
+        "action": "backup",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 273,
+      "id": "REF-084-3-02",
+      "alias": "CER",
+      "commandCode": "CER",
+      "label": "미세하게 틀어진 도면 보정하기",
+      "manualLabel": "미세한게 틀어진 도면 보정하기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "273-CER-REF-084-3-02.svg",
+      "visualKey": "file|edit|CER|REF-084-3-02",
+      "descriptor": {
+        "subject": "file",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 274,
+      "id": "REF-086-3-04",
+      "alias": "FCC",
+      "commandCode": "FCC",
+      "label": "사용 글꼴 모으기",
+      "manualLabel": "사용 글꼴 모으기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "274-FCC-REF-086-3-04.svg",
+      "visualKey": "text|save|FCC|REF-086-3-04",
+      "descriptor": {
+        "subject": "text",
+        "action": "save",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 275,
+      "id": "REF-087-3-05",
+      "alias": "MSL",
+      "commandCode": "MSL",
+      "label": "여러 파일 자동 정리",
+      "manualLabel": "여러 파일 자동 정리",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "275-MSL-REF-087-3-05.svg",
+      "visualKey": "file|purge|MSL|REF-087-3-05",
+      "descriptor": {
+        "subject": "file",
+        "action": "purge",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 276,
+      "id": "REF-088-3-06",
+      "alias": "PB",
+      "commandCode": "PB",
+      "label": "출력 범위 박스",
+      "manualLabel": "출력용 박스 그리기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "276-PB-REF-088-3-06.svg",
+      "visualKey": "rectangle|draw|PB|REF-088-3-06",
+      "descriptor": {
+        "subject": "rectangle",
+        "action": "draw",
+        "modifiers": [
+          "print"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 277,
+      "id": "REF-089-3-07",
+      "alias": "PBD",
+      "commandCode": "PBD",
+      "label": "출력용 박스 모두 지우기",
+      "manualLabel": "출력용 박스 모두 지우기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "277-PBD-REF-089-3-07.svg",
+      "visualKey": "printer|print|PBD|REF-089-3-07",
+      "descriptor": {
+        "subject": "printer",
+        "action": "print",
+        "modifiers": [
+          "delete"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 278,
+      "id": "REF-090-3-08",
+      "alias": "PBM",
+      "commandCode": "PBM",
+      "label": "일반 폴리박스에 출력용 박스 그리기",
+      "manualLabel": "일반 폴리박스에 출력용 박스 그리기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "278-PBM-REF-090-3-08.svg",
+      "visualKey": "printer|print|PBM|REF-090-3-08",
+      "descriptor": {
+        "subject": "printer",
+        "action": "print",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 279,
+      "id": "REF-091-3-09",
+      "alias": "PPP",
+      "commandCode": "PPP",
+      "label": "모형공간 다중출력",
+      "manualLabel": "모형공간 다중출력",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "279-PPP-REF-091-3-09.svg",
+      "visualKey": "printer|print|PPP|REF-091-3-09",
+      "descriptor": {
+        "subject": "printer",
+        "action": "print",
+        "modifiers": [
+          "list"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 280,
+      "id": "REF-092-3-10",
+      "alias": "PUA",
+      "commandCode": "PUA",
+      "label": "도면 정리",
+      "manualLabel": "모든 것 퍼지",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "280-PUA-REF-092-3-10.svg",
+      "visualKey": "file|save|PUA|REF-092-3-10",
+      "descriptor": {
+        "subject": "file",
+        "action": "save",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 281,
+      "id": "REF-093-3-11",
+      "alias": "RLD",
+      "commandCode": "RLD",
+      "label": "출도 도장 넣기",
+      "manualLabel": "출도 도장 넣기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "281-RLD-REF-093-3-11.svg",
+      "visualKey": "stamp|add|RLD|REF-093-3-11",
+      "descriptor": {
+        "subject": "stamp",
+        "action": "add",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 282,
+      "id": "REF-094-3-12",
+      "alias": "SVS",
+      "commandCode": "SVS",
+      "label": "도곽 자동 인식 분리",
+      "manualLabel": "여러장 도면 각 파일로 분리하기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "282-SVS-REF-094-3-12.svg",
+      "visualKey": "file|export|SVS|REF-094-3-12",
+      "descriptor": {
+        "subject": "file",
+        "action": "export",
+        "modifiers": [
+          "split"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 283,
+      "id": "REF-098-3-13",
+      "alias": "A0",
+      "commandCode": "A0",
+      "label": "작업축 각도 직각으로",
+      "manualLabel": "작업축 각도 직각으로",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "283-A0-REF-098-3-13.svg",
+      "visualKey": "axis|save|A0|REF-098-3-13",
+      "descriptor": {
+        "subject": "axis",
+        "action": "save",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 284,
+      "id": "REF-099-3-14",
+      "alias": "A1",
+      "commandCode": "A1",
+      "label": "객체 선택으로 작업축 각도 변경",
+      "manualLabel": "객체선택, 작업축 각도 변경(UCS 보다 권장)",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "284-A1-REF-099-3-14.svg",
+      "visualKey": "axis|edit|A1|REF-099-3-14",
+      "descriptor": {
+        "subject": "axis",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 285,
+      "id": "REF-100-3-15",
+      "alias": "AON",
+      "commandCode": "AON",
+      "label": "한영자동변환 작동",
+      "manualLabel": "한영자동변환 작동",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "285-AON-REF-100-3-15.svg",
+      "visualKey": "file|convert|AON|REF-100-3-15",
+      "descriptor": {
+        "subject": "file",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 286,
+      "id": "REF-101-3-16",
+      "alias": "AOFF",
+      "commandCode": "AOFF",
+      "label": "한영자동변환 중단",
+      "manualLabel": "한영자동변환 중단",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "286-AOFF-REF-101-3-16.svg",
+      "visualKey": "file|convert|AOFF|REF-101-3-16",
+      "descriptor": {
+        "subject": "file",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 287,
+      "id": "REF-102-3-17",
+      "alias": "KCI",
+      "commandCode": "KCI",
+      "label": "일자형 주방가구 그리기",
+      "manualLabel": "─형 주방가구 그리기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "287-KCI-REF-102-3-17.svg",
+      "visualKey": "furniture|draw|KCI|REF-102-3-17",
+      "descriptor": {
+        "subject": "furniture",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 288,
+      "id": "REF-103-3-18",
+      "alias": "KCL",
+      "commandCode": "KCL",
+      "label": "기역자형 주방가구 그리기",
+      "manualLabel": "ㄴ형 주방가구 그리기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "288-KCL-REF-103-3-18.svg",
+      "visualKey": "furniture|draw|KCL|REF-103-3-18",
+      "descriptor": {
+        "subject": "furniture",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 289,
+      "id": "REF-105-3-20",
+      "alias": "MK",
+      "commandCode": "MK",
+      "label": "문단에 마스크 표시",
+      "manualLabel": "문단에 마스크 표시",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "289-MK-REF-105-3-20.svg",
+      "visualKey": "mask|show|MK|REF-105-3-20",
+      "descriptor": {
+        "subject": "mask",
+        "action": "show",
+        "modifiers": [
+          "mask"
+        ],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 290,
+      "id": "REF-106-3-21",
+      "alias": "MTB1",
+      "commandCode": "MTB1",
+      "label": "칸막이 화장실 그리기 1",
+      "manualLabel": "칸막이 화장실 그리기1",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "290-MTB1-REF-106-3-21.svg",
+      "visualKey": "furniture|draw|MTB1|REF-106-3-21",
+      "descriptor": {
+        "subject": "furniture",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 291,
+      "id": "REF-107-3-22",
+      "alias": "MTB2",
+      "commandCode": "MTB2",
+      "label": "칸막이 화장실 그리기 2",
+      "manualLabel": "칸막이 화장실 그리기2",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "291-MTB2-REF-107-3-22.svg",
+      "visualKey": "furniture|draw|MTB2|REF-107-3-22",
+      "descriptor": {
+        "subject": "furniture",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 292,
+      "id": "REF-108-3-23",
+      "alias": "RUB",
+      "commandCode": "RUB",
+      "label": "잡석 그리기",
+      "manualLabel": "잡석 그리기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "292-RUB-REF-108-3-23.svg",
+      "visualKey": "hatch|draw|RUB|REF-108-3-23",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 293,
+      "id": "REF-109-3-24",
+      "alias": "SAB",
+      "commandCode": "SAB",
+      "label": "블록 파일로 저장 · 0번 레이어 · 나머지 정리",
+      "manualLabel": "블럭파일로 저장, 0번 켜, 다른 모든 것 퍼지",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "293-SAB-REF-109-3-24.svg",
+      "visualKey": "block|save|SAB|REF-109-3-24",
+      "descriptor": {
+        "subject": "block",
+        "action": "save",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 294,
+      "id": "REF-110-3-25",
+      "alias": "SOL",
+      "commandCode": "SOL",
+      "label": "솔리드 해치",
+      "manualLabel": "솔리드 해치하기",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "294-SOL-REF-110-3-25.svg",
+      "visualKey": "hatch|save|SOL|REF-110-3-25",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "save",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 295,
+      "id": "REF-111-3-26",
+      "alias": "TBC",
+      "commandCode": "TBC",
+      "label": "배경색 흑/백 전환",
+      "manualLabel": "배경색 흑/백 전환",
+      "releaseStatus": "official",
+      "category": "출력 및 저장",
+      "filename": "295-TBC-REF-111-3-26.svg",
+      "visualKey": "mask|mask|TBC|REF-111-3-26",
+      "descriptor": {
+        "subject": "mask",
+        "action": "mask",
+        "modifiers": [],
+        "color": "#9eb4c6"
+      }
+    },
+    {
+      "number": 296,
+      "id": "REF-085-2-01",
+      "alias": "LDA",
+      "commandCode": "LDA",
+      "label": "지시선 끝점 정렬",
+      "manualLabel": "지시선 끝점 정렬",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "296-LDA-REF-085-2-01.svg",
+      "visualKey": "leader|align|LDA|REF-085-2-01",
+      "descriptor": {
+        "subject": "leader",
+        "action": "align",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 297,
+      "id": "REF-086-2-02",
+      "alias": "LSE",
+      "commandCode": "LSE",
+      "label": "지시선 모양 변경",
+      "manualLabel": "지시선 모양 변경",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "297-LSE-REF-086-2-02.svg",
+      "visualKey": "leader|edit|LSE|REF-086-2-02",
+      "descriptor": {
+        "subject": "leader",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 298,
+      "id": "REF-087-2-03",
+      "alias": "LX",
+      "commandCode": "LX",
+      "label": "자동 지시선 넣기",
+      "manualLabel": "지시선 넣기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "298-LX-REF-087-2-03.svg",
+      "visualKey": "leader|add|LX|REF-087-2-03",
+      "descriptor": {
+        "subject": "leader",
+        "action": "add",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 299,
+      "id": "REF-088-2-04",
+      "alias": "TL",
+      "commandCode": "TL",
+      "label": "문자열에 지시선 넣기",
+      "manualLabel": "문자열에 지시선 넣기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "299-TL-REF-088-2-04.svg",
+      "visualKey": "leader|add|TL|REF-088-2-04",
+      "descriptor": {
+        "subject": "leader",
+        "action": "add",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 300,
+      "id": "REF-090-2-05",
+      "alias": "CC",
+      "commandCode": "CC",
+      "label": "치수 연장·만들기",
+      "manualLabel": "기존 치수에 이어서 그리기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "300-CC-REF-090-2-05.svg",
+      "visualKey": "dimension|extend|CC|REF-090-2-05",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "extend",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 301,
+      "id": "REF-091-2-06",
+      "alias": "CDE",
+      "commandCode": "CDE",
+      "label": "치수 문자 변경",
+      "manualLabel": "치수 문자 변경",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "301-CDE-REF-091-2-06.svg",
+      "visualKey": "dimension|edit|CDE|REF-091-2-06",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 302,
+      "id": "REF-092-2-07",
+      "alias": "DCV",
+      "commandCode": "DCV",
+      "label": "선형 치수로 변환",
+      "manualLabel": "선형 치수로 변환",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "302-DCV-REF-092-2-07.svg",
+      "visualKey": "dimension|convert|DCV|REF-092-2-07",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "convert",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 303,
+      "id": "REF-093-2-08",
+      "alias": "DDT",
+      "commandCode": "DDT",
+      "label": "치수보조선 감추기",
+      "manualLabel": "치수보조선 감추기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "303-DDT-REF-093-2-08.svg",
+      "visualKey": "dimension|hide|DDT|REF-093-2-08",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "hide",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 304,
+      "id": "REF-094-2-09",
+      "alias": "DG",
+      "commandCode": "DG",
+      "label": "치수 간격 조정",
+      "manualLabel": "치수선 간격 변경",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "304-DG-REF-094-2-09.svg",
+      "visualKey": "dimension|edit|DG|REF-094-2-09",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 305,
+      "id": "REF-095-2-10",
+      "alias": "DH",
+      "commandCode": "DH",
+      "label": "치수문자 원위치시키기",
+      "manualLabel": "치수문자 원위치시키기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "305-DH-REF-095-2-10.svg",
+      "visualKey": "dimension|align|DH|REF-095-2-10",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "align",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 306,
+      "id": "REF-096-2-11",
+      "alias": "DLA",
+      "commandCode": "DLA",
+      "label": "치수 보조선 정렬",
+      "manualLabel": "치수 보조선 정렬",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "306-DLA-REF-096-2-11.svg",
+      "visualKey": "dimension|align|DLA|REF-096-2-11",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "align",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 307,
+      "id": "REF-097-2-12",
+      "alias": "DLL",
+      "commandCode": "DLL",
+      "label": "치수보조선 길이 통일",
+      "manualLabel": "치수 보조선 길이",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "307-DLL-REF-097-2-12.svg",
+      "visualKey": "dimension|measure|DLL|REF-097-2-12",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "measure",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 308,
+      "id": "REF-098-2-13",
+      "alias": "DPL",
+      "commandCode": "DPL",
+      "label": "폴리선 자동 치수",
+      "manualLabel": "폴리선 도형에 자동 치수 기입",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "308-DPL-REF-098-2-13.svg",
+      "visualKey": "dimension|edit|DPL|REF-098-2-13",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 309,
+      "id": "REF-099-2-14",
+      "alias": "DQ",
+      "commandCode": "DQ",
+      "label": "여러 객체 신속 치수",
+      "manualLabel": "일괄 치수 (Qdim 과 동일)",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "309-DQ-REF-099-2-14.svg",
+      "visualKey": "dimension|edit|DQ|REF-099-2-14",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 310,
+      "id": "REF-100-2-15",
+      "alias": "DSC",
+      "commandCode": "DSC",
+      "label": "치수 축척 입력",
+      "manualLabel": "치수 축척",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "310-DSC-REF-100-2-15.svg",
+      "visualKey": "dimension|scale|DSC|REF-100-2-15",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "scale",
+        "modifiers": [
+          "add",
+          "measure"
+        ],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 311,
+      "id": "REF-101-2-16",
+      "alias": "DSE",
+      "commandCode": "DSE",
+      "label": "치수 모양 수정",
+      "manualLabel": "치수 모양 수정",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "311-DSE-REF-101-2-16.svg",
+      "visualKey": "dimension|edit|DSE|REF-101-2-16",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 312,
+      "id": "REF-102-2-17",
+      "alias": "DSM",
+      "commandCode": "DSM",
+      "label": "치수 모양 합치기",
+      "manualLabel": "치수모양 합치기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "312-DSM-REF-102-2-17.svg",
+      "visualKey": "dimension|join|DSM|REF-102-2-17",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "join",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 313,
+      "id": "REF-103-2-18",
+      "alias": "DTM",
+      "commandCode": "DTM",
+      "label": "겹친 치수문자 아래·옆으로 옮기기",
+      "manualLabel": "겹친 치수문자 아래, 옆 옮겨주기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "313-DTM-REF-103-2-18.svg",
+      "visualKey": "dimension|edit|DTM|REF-103-2-18",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 314,
+      "id": "REF-104-2-19",
+      "alias": "DTO",
+      "commandCode": "DTO",
+      "label": "치수 보조 설명글 넣기",
+      "manualLabel": "치수 보조 설명글 넣기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "314-DTO-REF-104-2-19.svg",
+      "visualKey": "dimension|add|DTO|REF-104-2-19",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "add",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 315,
+      "id": "REF-105-2-20",
+      "alias": "DTT",
+      "commandCode": "DTT",
+      "label": "치수목록을 표로",
+      "manualLabel": "치수목록을 표로",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "315-DTT-REF-105-2-20.svg",
+      "visualKey": "dimension|list|DTT|REF-105-2-20",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "list",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 316,
+      "id": "REF-106-2-21",
+      "alias": "DU",
+      "commandCode": "DU",
+      "label": "치수 업데이트",
+      "manualLabel": "치수 업데이트",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "316-DU-REF-106-2-21.svg",
+      "visualKey": "dimension|refresh|DU|REF-106-2-21",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "refresh",
+        "modifiers": [],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 317,
+      "id": "REF-107-2-22",
+      "alias": "ED",
+      "commandCode": "ED",
+      "label": "치수 축척 일괄 변경",
+      "manualLabel": "치수 축척 변경",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "317-ED-REF-107-2-22.svg",
+      "visualKey": "dimension|scale|ED|REF-107-2-22",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "scale",
+        "modifiers": [
+          "edit",
+          "measure"
+        ],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 318,
+      "id": "REF-108-2-23",
+      "alias": "IL",
+      "commandCode": "IL",
+      "label": "교차점을 찾아 길이 넣어 주기",
+      "manualLabel": "교차점을 찾아 길이 넣어 주기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "318-IL-REF-108-2-23.svg",
+      "visualKey": "measure|search|IL|REF-108-2-23",
+      "descriptor": {
+        "subject": "measure",
+        "action": "search",
+        "modifiers": [
+          "measure"
+        ],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 319,
+      "id": "REF-109-2-24",
+      "alias": "SD",
+      "commandCode": "SD",
+      "label": "치수선 나누기·합치기",
+      "manualLabel": "치수선 나누기",
+      "releaseStatus": "official",
+      "category": "치수",
+      "filename": "319-SD-REF-109-2-24.svg",
+      "visualKey": "dimension|join|SD|REF-109-2-24",
+      "descriptor": {
+        "subject": "dimension",
+        "action": "join",
+        "modifiers": [
+          "split"
+        ],
+        "color": "#b4d877"
+      }
+    },
+    {
+      "number": 320,
+      "id": "REF-090-0-01",
+      "alias": "BPT",
+      "commandCode": "BPT",
+      "label": "블록 해치 패턴 만들기",
+      "manualLabel": "블럭 해치 패턴 만들기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "320-BPT-REF-090-0-01.svg",
+      "visualKey": "block|draw|BPT|REF-090-0-01",
+      "descriptor": {
+        "subject": "block",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 321,
+      "id": "REF-091-0-02",
+      "alias": "C2E",
+      "commandCode": "C2E",
+      "label": "표를 엑셀로",
+      "manualLabel": "캐드 일반표를 엑셀로 보내기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "321-C2E-REF-091-0-02.svg",
+      "visualKey": "table|export|C2E|REF-091-0-02",
+      "descriptor": {
+        "subject": "table",
+        "action": "export",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 322,
+      "id": "REF-092-0-03",
+      "alias": "CON",
+      "commandCode": "CON",
+      "label": "콘크리트 해치",
+      "manualLabel": "콘크리트 해치",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "322-CON-REF-092-0-03.svg",
+      "visualKey": "hatch|edit|CON|REF-092-0-03",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 323,
+      "id": "REF-093-0-04",
+      "alias": "E2C",
+      "commandCode": "E2C",
+      "label": "엑셀을 표로",
+      "manualLabel": "엑셀표를 캐드일반표 보내기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "323-E2C-REF-093-0-04.svg",
+      "visualKey": "table|import|E2C|REF-093-0-04",
+      "descriptor": {
+        "subject": "table",
+        "action": "import",
+        "modifiers": [
+          "edit"
+        ],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 324,
+      "id": "REF-094-0-05",
+      "alias": "GDD",
+      "commandCode": "GDD",
+      "label": "줄눈 그리기(입면)",
+      "manualLabel": "줄눈 그리기(입면)",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "324-GDD-REF-094-0-05.svg",
+      "visualKey": "section|draw|GDD|REF-094-0-05",
+      "descriptor": {
+        "subject": "section",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 325,
+      "id": "REF-095-0-06",
+      "alias": "HB",
+      "commandCode": "HB",
+      "label": "해치 경계선 뽑기",
+      "manualLabel": "해치경계 다시 그리기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "325-HB-REF-095-0-06.svg",
+      "visualKey": "hatch|edit|HB|REF-095-0-06",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 326,
+      "id": "REF-096-0-07",
+      "alias": "HC",
+      "commandCode": "HC",
+      "label": "해치 복제",
+      "manualLabel": "해치 복제",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "326-HC-REF-096-0-07.svg",
+      "visualKey": "hatch|edit|HC|REF-096-0-07",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 327,
+      "id": "REF-097-0-08",
+      "alias": "HEX",
+      "commandCode": "HEX",
+      "label": "해치 내보내기",
+      "manualLabel": "해치 내보내기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "327-HEX-REF-097-0-08.svg",
+      "visualKey": "hatch|export|HEX|REF-097-0-08",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "export",
+        "modifiers": [
+          "move"
+        ],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 328,
+      "id": "REF-098-0-09",
+      "alias": "HM",
+      "commandCode": "HM",
+      "label": "해치 합치기",
+      "manualLabel": "해치 합치기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "328-HM-REF-098-0-09.svg",
+      "visualKey": "hatch|join|HM|REF-098-0-09",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "join",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 329,
+      "id": "REF-099-0-10",
+      "alias": "HP",
+      "commandCode": "HP",
+      "label": "해치기준점 변경",
+      "manualLabel": "해치기준점 변경",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "329-HP-REF-099-0-10.svg",
+      "visualKey": "hatch|edit|HP|REF-099-0-10",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 330,
+      "id": "REF-100-0-11",
+      "alias": "HPM",
+      "commandCode": "HPM",
+      "label": "해치 문양 그리기",
+      "manualLabel": "해치 문양 그리기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "330-HPM-REF-100-0-11.svg",
+      "visualKey": "hatch|draw|HPM|REF-100-0-11",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 331,
+      "id": "REF-101-0-12",
+      "alias": "HR",
+      "commandCode": "HR",
+      "label": "해치 꺼내 쓰기",
+      "manualLabel": "해치 꺼내 쓰기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "331-HR-REF-101-0-12.svg",
+      "visualKey": "hatch|edit|HR|REF-101-0-12",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 332,
+      "id": "REF-102-0-13",
+      "alias": "HT",
+      "commandCode": "HT",
+      "label": "두께 입력 해치",
+      "manualLabel": "두께 입력 해치",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "332-HT-REF-102-0-13.svg",
+      "visualKey": "hatch|add|HT|REF-102-0-13",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "add",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 333,
+      "id": "REF-103-0-14",
+      "alias": "RDS",
+      "commandCode": "RDS",
+      "label": "무작위 솔리드해치",
+      "manualLabel": "무작위 솔리드해치",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "333-RDS-REF-103-0-14.svg",
+      "visualKey": "hatch|random|RDS|REF-103-0-14",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "random",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 334,
+      "id": "REF-104-0-15",
+      "alias": "RDT",
+      "commandCode": "RDT",
+      "label": "표 간격 변경",
+      "manualLabel": "표 간격 변경",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "334-RDT-REF-104-0-15.svg",
+      "visualKey": "hatch|edit|RDT|REF-104-0-15",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 335,
+      "id": "REF-105-0-16",
+      "alias": "RND",
+      "commandCode": "RND",
+      "label": "곡면 표현하기",
+      "manualLabel": "곡면 표현하기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "335-RND-REF-105-0-16.svg",
+      "visualKey": "curve|draw|RND|REF-105-0-16",
+      "descriptor": {
+        "subject": "curve",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 336,
+      "id": "REF-106-0-17",
+      "alias": "SHO",
+      "commandCode": "SHO",
+      "label": "내부객체로 해치선택",
+      "manualLabel": "내부객체로 해치선택",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "336-SHO-REF-106-0-17.svg",
+      "visualKey": "hatch|edit|SHO|REF-106-0-17",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 337,
+      "id": "REF-107-0-18",
+      "alias": "TAJ",
+      "commandCode": "TAJ",
+      "label": "테이블문자에 폭 자동 변경",
+      "manualLabel": "테이블문자에 폭 자동 변경",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "337-TAJ-REF-107-0-18.svg",
+      "visualKey": "table|edit|TAJ|REF-107-0-18",
+      "descriptor": {
+        "subject": "table",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 338,
+      "id": "REF-108-0-19",
+      "alias": "TB",
+      "commandCode": "TB",
+      "label": "표 그리기",
+      "manualLabel": "테이블그리기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "338-TB-REF-108-0-19.svg",
+      "visualKey": "hatch|draw|TB|REF-108-0-19",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 339,
+      "id": "REF-109-0-20",
+      "alias": "TBM",
+      "commandCode": "TBM",
+      "label": "표 셀 합치기",
+      "manualLabel": "캐드표 셀합치기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "339-TBM-REF-109-0-20.svg",
+      "visualKey": "hatch|join|TBM|REF-109-0-20",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "join",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 340,
+      "id": "REF-110-0-21",
+      "alias": "TBT",
+      "commandCode": "TBT",
+      "label": "표 안에 문자 넣기",
+      "manualLabel": "ACAD 테이블에 문자 넣기",
+      "releaseStatus": "official",
+      "category": "해치 및 표",
+      "filename": "340-TBT-REF-110-0-21.svg",
+      "visualKey": "text|add|TBT|REF-110-0-21",
+      "descriptor": {
+        "subject": "text",
+        "action": "add",
+        "modifiers": [],
+        "color": "#d7ad75"
+      }
+    },
+    {
+      "number": 341,
+      "id": "REF-099-1-01",
+      "alias": "BMT",
+      "commandCode": "BMT",
+      "label": "도곽 복사·이동",
+      "manualLabel": "평면간 복사, 이동",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "341-BMT-REF-099-1-01.svg",
+      "visualKey": "frame|copy|BMT|REF-099-1-01",
+      "descriptor": {
+        "subject": "frame",
+        "action": "copy",
+        "modifiers": [
+          "move"
+        ],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 342,
+      "id": "REF-100-1-02",
+      "alias": "DAS",
+      "commandCode": "DAS",
+      "label": "살아있는 도면 축척 넣기",
+      "manualLabel": "살아있는 도면 축척 넣기",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "342-DAS-REF-100-1-02.svg",
+      "visualKey": "frame|scale|DAS|REF-100-1-02",
+      "descriptor": {
+        "subject": "frame",
+        "action": "scale",
+        "modifiers": [
+          "add",
+          "measure"
+        ],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 343,
+      "id": "REF-101-1-03",
+      "alias": "DBC",
+      "commandCode": "DBC",
+      "label": "도곽 자동 인식 복사",
+      "manualLabel": "도곽 자동 인식 복사",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "343-DBC-REF-101-1-03.svg",
+      "visualKey": "frame|copy|DBC|REF-101-1-03",
+      "descriptor": {
+        "subject": "frame",
+        "action": "copy",
+        "modifiers": [],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 344,
+      "id": "REF-102-1-04",
+      "alias": "DBS",
+      "commandCode": "DBS",
+      "label": "도곽 정렬",
+      "manualLabel": "도곽 정렬",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "344-DBS-REF-102-1-04.svg",
+      "visualKey": "frame|align|DBS|REF-102-1-04",
+      "descriptor": {
+        "subject": "frame",
+        "action": "align",
+        "modifiers": [],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 345,
+      "id": "REF-103-1-05",
+      "alias": "DFS",
+      "commandCode": "DFS",
+      "label": "도곽축척 확인",
+      "manualLabel": "도곽축척 확인",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "345-DFS-REF-103-1-05.svg",
+      "visualKey": "frame|verify|DFS|REF-103-1-05",
+      "descriptor": {
+        "subject": "frame",
+        "action": "verify",
+        "modifiers": [
+          "scale"
+        ],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 346,
+      "id": "REF-104-1-06",
+      "alias": "DSB",
+      "commandCode": "DSB",
+      "label": "도곽내부 치수축척 일괄변경",
+      "manualLabel": "도곽내부 치수축척 일괄변경",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "346-DSB-REF-104-1-06.svg",
+      "visualKey": "frame|scale|DSB|REF-104-1-06",
+      "descriptor": {
+        "subject": "frame",
+        "action": "scale",
+        "modifiers": [
+          "edit",
+          "measure"
+        ],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 347,
+      "id": "REF-105-1-07",
+      "alias": "MDL",
+      "commandCode": "MDL",
+      "label": "도면 목록표 만들기",
+      "manualLabel": "도곽으로 도면목록표 만들기",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "347-MDL-REF-105-1-07.svg",
+      "visualKey": "table|list|MDL|REF-105-1-07",
+      "descriptor": {
+        "subject": "table",
+        "action": "list",
+        "modifiers": [
+          "draw"
+        ],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 348,
+      "id": "REF-106-1-08",
+      "alias": "PBS",
+      "commandCode": "PBS",
+      "label": "블록 도곽 경계 확인",
+      "manualLabel": "블럭도곽 경계 확인",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "348-PBS-REF-106-1-08.svg",
+      "visualKey": "frame|verify|PBS|REF-106-1-08",
+      "descriptor": {
+        "subject": "frame",
+        "action": "verify",
+        "modifiers": [],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 349,
+      "id": "REF-107-1-09",
+      "alias": "TN",
+      "commandCode": "TN",
+      "label": "도곽 도면번호 채번",
+      "manualLabel": "도곽블럭에 도면번호 일괄넣기",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "349-TN-REF-107-1-09.svg",
+      "visualKey": "frame|edit|TN|REF-107-1-09",
+      "descriptor": {
+        "subject": "frame",
+        "action": "edit",
+        "modifiers": [],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 350,
+      "id": "REF-108-1-10",
+      "alias": "TOB",
+      "commandCode": "TOB",
+      "label": "객체를 블록으로 교체",
+      "manualLabel": "객체를 블럭으로 교체",
+      "releaseStatus": "official",
+      "category": "도곽 관련",
+      "filename": "350-TOB-REF-108-1-10.svg",
+      "visualKey": "block|replace|TOB|REF-108-1-10",
+      "descriptor": {
+        "subject": "block",
+        "action": "replace",
+        "modifiers": [],
+        "color": "#86b9e6"
+      }
+    },
+    {
+      "number": 351,
+      "id": "REF-114-2-01",
+      "alias": "ATC",
+      "commandCode": "ATC",
+      "label": "호를 선택해서 원그리기",
+      "manualLabel": "호를 선택해서 원그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "351-ATC-REF-114-2-01.svg",
+      "visualKey": "selection|draw|ATC|REF-114-2-01",
+      "descriptor": {
+        "subject": "selection",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 352,
+      "id": "REF-115-2-02",
+      "alias": "R3",
+      "commandCode": "R3",
+      "label": "3점으로 사각형 그리기",
+      "manualLabel": "3점으로 사각형 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "352-R3-REF-115-2-02.svg",
+      "visualKey": "rectangle|draw|R3|REF-115-2-02",
+      "descriptor": {
+        "subject": "rectangle",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 353,
+      "id": "REF-116-2-03",
+      "alias": "RS",
+      "commandCode": "RS",
+      "label": "사각형 솔리드 박스 그리기",
+      "manualLabel": "사각형 솔리드 박스 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "353-RS-REF-116-2-03.svg",
+      "visualKey": "hatch|draw|RS|REF-116-2-03",
+      "descriptor": {
+        "subject": "hatch",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 354,
+      "id": "REF-117-2-04",
+      "alias": "OTC",
+      "commandCode": "OTC",
+      "label": "객체 접원 그리기",
+      "manualLabel": "객체 접원 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "354-OTC-REF-117-2-04.svg",
+      "visualKey": "circle|draw|OTC|REF-117-2-04",
+      "descriptor": {
+        "subject": "circle",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 355,
+      "id": "REF-118-2-05",
+      "alias": "OOL",
+      "commandCode": "OOL",
+      "label": "객체 외곽선 그리기",
+      "manualLabel": "객체 외곽선 그리기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "355-OOL-REF-118-2-05.svg",
+      "visualKey": "symbol|draw|OOL|REF-118-2-05",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 356,
+      "id": "REF-120-2-06",
+      "alias": "MTLT",
+      "commandCode": "MTLT",
+      "label": "문자포함 선 모양 만들기",
+      "manualLabel": "문자포함 선 모양 만들기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "356-MTLT-REF-120-2-06.svg",
+      "visualKey": "text|draw|MTLT|REF-120-2-06",
+      "descriptor": {
+        "subject": "text",
+        "action": "draw",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 357,
+      "id": "REF-121-2-07",
+      "alias": "LEX",
+      "commandCode": "LEX",
+      "label": "선 모양 내보내기",
+      "manualLabel": "선 모양 내보내기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "357-LEX-REF-121-2-07.svg",
+      "visualKey": "symbol|export|LEX|REF-121-2-07",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "export",
+        "modifiers": [
+          "move"
+        ],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 358,
+      "id": "REF-122-2-08",
+      "alias": "LSC",
+      "commandCode": "LSC",
+      "label": "선종류 축척 변경",
+      "manualLabel": "선종류축척 변경",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "358-LSC-REF-122-2-08.svg",
+      "visualKey": "symbol|scale|LSC|REF-122-2-08",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "scale",
+        "modifiers": [
+          "edit",
+          "measure"
+        ],
+        "color": "#a6cf82"
+      }
+    },
+    {
+      "number": 359,
+      "id": "REF-123-2-09",
+      "alias": "LXP",
+      "commandCode": "LXP",
+      "label": "선 모양대로 폭파하기",
+      "manualLabel": "선 모양대로 폭파하기",
+      "releaseStatus": "official",
+      "category": "도형 및 기호",
+      "filename": "359-LXP-REF-123-2-09.svg",
+      "visualKey": "symbol|explode|LXP|REF-123-2-09",
+      "descriptor": {
+        "subject": "symbol",
+        "action": "explode",
+        "modifiers": [],
+        "color": "#a6cf82"
+      }
+    }
+  ],
+  "hidden": [
+    "P2M",
+    "TRN",
+    "VPP",
+    "VPS",
+    "VA",
+    "VGL",
+    "VL",
+    "VLL",
+    "VMO",
+    "VR",
+    "VSD",
+    "VU",
+    "VUU",
+    "FFO",
+    "ZAE",
+    "IB",
+    "OL",
+    "Q1",
+    "QWB",
+    "xiSetup",
+    "B2X",
+    "CX",
+    "MFX",
+    "RBP",
+    "DOL",
+    "LFD",
+    "LFG",
+    "MLC",
+    "SB"
+  ]
+}

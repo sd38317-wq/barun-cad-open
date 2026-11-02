@@ -1,0 +1,113 @@
+/* SharedAccountWindow — 공통 계정 및 업데이트 창. 색·글자·치수 값은 renderer.mjs가 contract/account-window.json에서 --aw-* 변수로 넣는다.
+   앱별로 이 파일을 고치거나 덮어쓰지 않는다(계약: 앱별 CSS 복제·override 금지). */
+.aw-dialog,.aw-dialog *{box-sizing:border-box}
+.aw-dialog{width:min(var(--aw-modal-width),calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);margin:auto;padding:0;overflow:hidden;border:1px solid var(--aw-border);border-radius:var(--aw-modal-radius);background:var(--aw-surface);color:var(--aw-text);font-family:var(--aw-font);font-size:var(--aw-body-size);line-height:var(--aw-body-line);font-weight:var(--aw-body-weight);box-shadow:0 24px 80px #0009}
+.aw-dialog::backdrop{background:color-mix(in srgb,var(--aw-background) 82%,transparent)}
+/* 앱 전역의 header·footer·section 규칙(높이·배경·테두리·여백)을 끊는다 — 어느 앱에 넣어도 같은 모양. */
+.aw-dialog :where(header,footer,section){height:auto;margin:0;padding:0;border:0;background:none;color:inherit;font-size:inherit;box-shadow:none;position:static}
+.aw-dialog h2,.aw-dialog h3,.aw-dialog p,.aw-dialog ul{margin:0;font-family:inherit}
+/* 앱 전역 글자 규칙(p·dialog 등)에 흔들리지 않도록 본문 크기를 명시한다. */
+.aw-dialog p,.aw-subtitle,.aw-body-text{font-size:var(--aw-body-size);line-height:var(--aw-body-line);font-weight:var(--aw-body-weight)}
+.aw-shell{display:flex;flex-direction:column;max-height:calc(100vh - 34px);padding:var(--aw-modal-padding);gap:var(--aw-modal-gap)}
+.aw-body{display:flex;flex-direction:column;gap:var(--aw-modal-gap);min-height:0;overflow:auto;margin:0 calc(-1 * 4px);padding:0 4px}
+
+/* 머리 */
+.aw-header{display:flex;align-items:center;gap:var(--aw-brand-gap);min-height:var(--aw-header-height);flex:none}
+.aw-heading{flex:1;min-width:0}
+.aw-heading h2{font-size:var(--aw-title-size);line-height:var(--aw-title-line);font-weight:var(--aw-title-weight)}
+.aw-subtitle{margin-top:4px!important;color:var(--aw-muted)}
+.aw-brand{display:flex;align-items:center;gap:var(--aw-brand-gap);min-width:0}
+.aw-brand-icon{display:grid;place-items:center;flex:none;width:var(--aw-brand-icon);height:var(--aw-brand-icon);overflow:hidden;border:1px solid var(--aw-border);border-radius:12px;background:var(--aw-background)}
+.aw-brand-img{width:100%;height:100%;object-fit:cover}
+.aw-brand-fallback{color:var(--aw-accent);font-weight:800;font-size:22px}
+.aw-brand-text{display:grid;min-width:0}
+.aw-brand-text strong{font-size:18px;line-height:26px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px}
+.aw-brand-text span{color:var(--aw-muted);font-size:var(--aw-caption-size);line-height:var(--aw-caption-line)}
+
+/* 버튼 */
+.aw-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:44px;min-height:var(--aw-button-height);padding:0 var(--aw-button-px);border:1px solid var(--aw-border);border-radius:var(--aw-button-radius);background:transparent;color:var(--aw-text);font:inherit;font-size:var(--aw-button-size);line-height:var(--aw-button-line);font-weight:var(--aw-button-weight);white-space:nowrap;cursor:pointer}
+.aw-button:hover:not(:disabled){border-color:var(--aw-accent);color:var(--aw-accent)}
+.aw-button:focus-visible,.aw-mode:focus-visible{outline:3px solid var(--aw-focus);outline-offset:2px}
+.aw-button:disabled{cursor:default;color:var(--aw-muted);opacity:.55}
+.aw-button[hidden]{display:none}
+.aw-accent{border-color:var(--aw-accent);background:var(--aw-accent);color:#10150f}
+.aw-accent:hover:not(:disabled){background:var(--aw-accent);color:#10150f;filter:brightness(1.08)}
+.aw-accent:disabled{color:#10150f;opacity:.4}
+.aw-kakao{min-width:var(--aw-kakao-width);min-height:var(--aw-kakao-height);gap:var(--aw-kakao-icon-gap);border-color:var(--aw-kakao-background);background:var(--aw-kakao-background);color:var(--aw-kakao-text)}
+.aw-kakao:hover:not(:disabled){border-color:var(--aw-kakao-background);color:var(--aw-kakao-text);filter:brightness(1.04)}
+.aw-kakao:disabled{color:var(--aw-kakao-text);opacity:.45}
+.aw-kakao-icon{width:var(--aw-kakao-icon);height:var(--aw-kakao-icon)}
+.aw-close{width:var(--aw-close-size);height:var(--aw-close-size);min-height:var(--aw-close-size);padding:0;flex:none}
+.aw-inline-icon{display:inline-grid}
+.aw-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--aw-button-gap)}
+
+/* 판 */
+.aw-panel{border:1px solid var(--aw-border);border-radius:14px;background:var(--aw-panel)}
+.aw-account{display:grid;grid-template-columns:1fr 1fr;min-height:var(--aw-account-min)}
+.aw-account-left,.aw-account-right{display:flex;flex-direction:column;justify-content:center;gap:20px;padding:var(--aw-panel-padding);min-width:0}
+.aw-account-right{justify-content:flex-start;gap:16px;border-left:1px solid var(--aw-border)}
+.aw-account-head{display:flex;align-items:center;gap:var(--aw-avatar-gap);min-width:0}
+.aw-avatar{display:grid;place-items:center;flex:none;width:var(--aw-avatar);height:var(--aw-avatar);border:2px solid var(--aw-accent);border-radius:50%;font-size:28px;font-weight:700}
+.aw-account-copy{display:grid;gap:6px;min-width:0}
+.aw-name{font-size:var(--aw-section-size);line-height:var(--aw-section-line);font-weight:var(--aw-section-weight);overflow-wrap:anywhere}
+.aw-body-text{color:var(--aw-muted)}
+.aw-section-title{font-size:var(--aw-section-size);line-height:var(--aw-section-line);font-weight:var(--aw-section-weight)}
+.aw-account-right .aw-section-title{font-size:20px;line-height:28px;font-weight:600}
+.aw-wallet-value{display:block;min-height:36px;color:var(--aw-accent);font-size:30px;line-height:36px;font-weight:700}
+.aw-wallet-value.aw-unknown{min-height:0;width:40px;height:4px;margin:10px 0 6px;border-radius:2px;background:var(--aw-accent)}
+.aw-panel-head{display:flex;align-items:flex-start;gap:22px}
+.aw-panel-head-copy{display:grid;gap:12px;min-width:0}
+.aw-badge{display:grid;place-items:center;flex:none;width:64px;height:64px;border-radius:50%;background:var(--aw-accent);color:#10150f}
+.aw-ai{display:flex;flex-direction:column;gap:14px;min-height:var(--aw-ai-min);padding:var(--aw-panel-padding)}
+.aw-modes{display:flex;flex-wrap:wrap;gap:18px}
+.aw-mode{min-width:190px;min-height:44px;padding:0 22px;border:1px solid var(--aw-border);border-radius:10px;background:transparent;color:var(--aw-text);font:inherit;font-size:var(--aw-button-size);font-weight:600;cursor:pointer}
+.aw-mode.aw-selected{border:2px solid var(--aw-accent);background:var(--aw-background);color:var(--aw-accent)}
+.aw-ai-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;padding-top:14px;border-top:1px solid var(--aw-border)}
+.aw-row-label{font-size:18px;line-height:26px;font-weight:600}
+.aw-row-sep,.aw-footer-sep{align-self:stretch;width:1px;min-height:28px;background:var(--aw-border)}
+.aw-model-wrap{display:grid;min-width:0}
+.aw-model{font-size:18px;line-height:26px;overflow-wrap:anywhere}
+.aw-unknown-text{color:var(--aw-text)}
+.aw-selected-model:empty{display:none}
+.aw-chip{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 20px;border-radius:999px;background:color-mix(in srgb,var(--aw-border) 55%,var(--aw-panel));color:var(--aw-text);font-size:16px}
+.aw-chip[data-state="connected"]{color:var(--aw-accent)}
+.aw-chip[data-state="error"],.aw-chip[data-state="offline"]{color:var(--aw-error)}
+.aw-grow{flex:1}
+.aw-dialog .aw-caption{color:var(--aw-muted);font-size:var(--aw-caption-size);line-height:var(--aw-caption-line)}
+.aw-update{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px 24px;min-height:var(--aw-update-min);padding:var(--aw-panel-padding)}
+.aw-update-head{align-items:center}
+.aw-update-head .aw-panel-head-copy{gap:6px}
+.aw-update-side{display:grid;justify-items:end;gap:10px}
+.aw-update-versions{display:grid;justify-items:end;color:var(--aw-muted)}
+.aw-update-current,.aw-update-next{font-size:18px;line-height:26px}
+.aw-update-current{color:var(--aw-text);font-weight:600}
+.aw-update-next:empty,.aw-extension-actions:empty{display:none}
+.aw-extension-actions{display:contents}
+.aw-progress{grid-column:1/-1;width:100%;height:10px;accent-color:var(--aw-accent)}
+.aw-progress[hidden]{display:none}
+.aw-notes{grid-column:1/-1;display:grid;gap:6px;margin:0;padding:14px 0 0 20px;border-top:1px solid var(--aw-border);color:var(--aw-text);font-size:15px;line-height:22px}
+.aw-notes[hidden]{display:none}
+
+/* 바닥 */
+.aw-footer{display:flex;flex-wrap:wrap;align-items:center;gap:var(--aw-footer-gap) 28px;min-height:var(--aw-footer-min);flex:none}
+.aw-repair{min-width:210px;min-height:60px;gap:14px;font-size:18px}
+.aw-footer-close{min-width:170px;min-height:60px;font-size:18px}
+.aw-footer-copy{display:grid;gap:2px}
+.aw-dialog .aw-footer-copy .aw-caption{font-size:15px;line-height:22px}
+.aw-live{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* 좁은 화면·큰 글자: 흐름 배치(잘림 없음) */
+@media (max-width:800px){
+  .aw-account{grid-template-columns:1fr}
+  .aw-account-right{border-left:0;border-top:1px solid var(--aw-border)}
+  .aw-update{grid-template-columns:1fr}
+  .aw-update-side{justify-items:start}
+  .aw-update-versions{justify-items:start}
+  .aw-header{flex-wrap:wrap}
+  .aw-heading{flex-basis:100%;order:2}
+  .aw-brand{order:1;flex:1}
+  .aw-close{order:1}
+  .aw-mode{min-width:0;flex:1}
+  .aw-footer-sep{display:none}
+}
+@media (prefers-reduced-motion:reduce){.aw-dialog *{transition:none!important;animation:none!important}}

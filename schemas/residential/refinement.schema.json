@@ -1,0 +1,21 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "required":["schema_version","refinement_schema_version","document_id","source_ids","status","flags","input_hashes","source_units","new_mm_approvals"],
+  "properties":{
+    "schema_version":{"type":["integer","string"]},
+    "refinement_schema_version":{"const":1},
+    "document_id":{"type":"string"},
+    "source_ids":{"type":"array","minItems":1,"uniqueItems":true,"items":{"type":"string"}},
+    "status":{"enum":["processed","failed"]},
+    "flags":{"type":"array"},
+    "input_hashes":{"type":"object"},
+    "source_units":{"enum":["px","unknown"]},
+    "new_mm_approvals":{"const":0},
+    "region_proposals":{"type":"object","required":["regions","unassigned_entity_ids"]},
+    "numeric_recheck":{"type":"object","required":["texts","verified"],"properties":{"verified":{"const":false}}},
+    "geometry_review":{"type":"object","required":["invalid_polygons","geometry_certified"],"properties":{"geometry_certified":{"const":false}}},
+    "scale_decisions":{"type":"object","required":["regions","new_mm_approvals"],"properties":{"new_mm_approvals":{"const":0}}}
+  },
+  "allOf":[{"if":{"properties":{"status":{"const":"processed"}}},"then":{"required":["source_entity_ids","region_proposals","numeric_recheck","geometry_review","scale_decisions"]}}]
+}

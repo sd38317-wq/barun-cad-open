@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "units": "mm",
+  "layers": [
+    {
+      "id": "default",
+      "name": "기본",
+      "color": "#79d4ff",
+      "visible": true
+    }
+  ],
+  "entities": [
+    {
+      "type": "rectangle",
+      "points": [
+        {
+          "x": 500,
+          "y": 250
+        },
+        {
+          "x": 6500,
+          "y": 250
+        },
+        {
+          "x": 6500,
+          "y": 4250
+        },
+        {
+          "x": 500,
+          "y": 4250
+        }
+      ],
+      "layer": "default",
+      "id": "6f5e158a-6d72-4a41-aaed-83326f3ffc41"
+    },
+    {
+      "type": "circle",
+      "center": {
+        "x": 3500,
+        "y": 2250
+      },
+      "radius": 700,
+      "layer": "default",
+      "id": "0963e415-0ce5-4f00-bcd1-7a7fb96518e5"
+    }
+  ]
+}

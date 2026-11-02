@@ -1,0 +1,14 @@
+import fs from 'node:fs';import {DrawingEngine} from './engine.js';import * as G from './geometry.js';
+import {architecture,formwork} from './architecture.js';import {structuralDetail} from './structure.js';import {tableBlock,sheetJob} from './studio.js';
+const engine=new DrawingEngine(),layer='default';const add=e=>engine.execute({type:'add',entity:e});
+const kinds=['COLUMN','DOOR','WINDOW','CURVESTAIR','ELEVATOR','INSULATION','RAMP','SECTION','LEVEL','ARROW','BREAKSYMBOL','TITLE'];
+for(let i=0;i<kinds.length;i++)add(architecture(kinds[i],{x:i%4*6500,y:Math.floor(i/4)*6500,width:1200,depth:kinds[i]==='INSULATION'?200:2000,count:10,mark:kinds[i],textHeight:150,radius:1000,sweep:120},layer));
+add({type:'text',layer,position:{x:0,y:19500},text:'건축 요소 / 입력 치수로 생성한 편집 가능한 예제',height:300});
+const detailX=35000;
+for(const [i,kind]of ['beam','column','slab','steel'].entries())add(structuralDetail(kind,{x:detailX,y:i*2200,width:400,depth:600,cover:40,diameter:22,count:4,spacing:200,span:6000,mark:['G1','C1','S1','H1'][i],textHeight:100},layer));
+add({type:'text',layer,position:{x:detailX,y:8500},text:'구조 제도 예제 / 입력값 도식화 · 내력 설계 아님',height:250});
+const r=formwork({length:10,height:3,allowance:5,rise:3,run:4,steps:10,tread:.3,riser:.15,stairWidth:1,openings:2});
+const rows=[['항목','값','단위'],['길이',10,'m'],['높이',3,'m'],['경사계수',r.slope,''],['벽면',r.wall,'㎡'],['계단',r.stair,'㎡'],['개구부 공제',r.openings,'㎡'],['순면적',r.net,'㎡'],['할증',5,'%'],['할증 포함',r.total,'㎡']];
+const tb=tableBlock(rows,{x:55000,y:19000,height:220,name:'거푸집 산출 검증',layer});tb.table.formulas=[{cell:'B5',formula:'=B2*B3*B4'},{cell:'B8',formula:'=B5+B6-B7'},{cell:'B10',formula:'=B8*(1+B9/100)'}];add(tb);
+engine.execute({type:'document.update',changes:{sheets:[{id:'a',number:'A-001',title:'건축 요소',paper:'A1',denominator:50,bounds:{minX:-2000,minY:-1000,maxX:26000,maxY:20500}},{id:'s',number:'S-001',title:'구조 제도 예제',paper:'A1',denominator:20,bounds:{minX:34000,minY:-500,maxX:44000,maxY:9000}},{id:'q',number:'Q-001',title:'거푸집 산출',paper:'A3',denominator:50,bounds:{minX:54500,minY:13000,maxX:65000,maxY:20000}}]}});
+fs.mkdirSync('examples',{recursive:true});fs.writeFileSync('examples/전체업무_예제.bcad',JSON.stringify(engine.doc,null,2));fs.writeFileSync('tmp/pdfs/workflows-job.json',JSON.stringify(sheetJob(engine.doc,engine.doc.sheets)));fs.writeFileSync('tmp/workflows-table.json',JSON.stringify({action:'export',rows:tb.table.rows,formulas:tb.table.formulas,preview:'D:/어플/캐드/tmp/전체업무_엑셀.png'}));console.log('Example',engine.doc.entities.length,'objects,',engine.doc.sheets.length,'sheets');

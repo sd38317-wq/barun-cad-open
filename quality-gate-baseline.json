@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "criteria": [
+    {
+      "id": "GPU_TEXT_VIEWPORT_BUDGET",
+      "description": "문자 1만 개 도면에서 화면 주변 문자만 준비하고 이동·확대 시 GPU 전체 재생성과 아틀라스 한도 초과를 막는다."
+    },
+    {
+      "id": "GPU_CLIPPED_BLOCK_EDIT",
+      "description": "클리핑 블록 도면에서도 GPU를 유지하고 선 하나 삭제 시 전체 GPU 도면을 재생성하지 않는다."
+    },
+    {
+      "id": "OUTPUT_PLOT_DIALOG_AUTOCAD",
+      "description": "AutoCAD 플롯 창 배치의 출력창(세 줄 묶음 · 가운데 실시간 미리보기), 빈 다중출력 차단, 출력 순서와 프린터 선택을 가상 프린터로 검증한다."
+    },
+    {
+      "id": "SELECT_CLICK_RELEASE",
+      "description": "첫 클릭을 놓은 뒤 이동하고 두 번째 클릭으로 선택한다."
+    },
+    {
+      "id": "HATCH_HOLE_SELECTION",
+      "description": "블록 안 해치의 빈 구멍에서 클릭-이동-클릭 선택을 시작하고 선 직접 선택을 유지한다."
+    },
+    {
+      "id": "OSNAP_INTERSECTION_ORTHO",
+      "description": "직교 모드에서도 객체 교차점 스냅을 정확하게 유지한다."
+    },
+    {
+      "id": "FILLET_TWO_CLICK_UNDO",
+      "description": "F 명령 반경 0 두 번 클릭 연결과 실행 취소가 동작한다."
+    },
+    {
+      "id": "FILLET_RADIUS",
+      "description": "F 명령 R 반경 설정이 실제 원호에 적용된다."
+    },
+    {
+      "id": "DRAFTING_CONTEXT_SETTINGS",
+      "description": "하단 스냅 우클릭은 상태를 바꾸지 않고 해당 설정을 연다."
+    },
+    {
+      "id": "DIALOG_THREE_QUARTER_SCALE",
+      "description": "CAD 대화상자는 요청한 75퍼센트 크기를 유지한다."
+    },
+    {
+      "id": "OVERLAP_SHIFT_LAYER_CYCLE",
+      "description": "Shift 좌클릭으로 겹친 객체를 순환하고 레이어 목록 선택과 삭제·실행 취소를 검증한다."
+    },
+    {
+      "id": "INLINE_TEXT_COMPACT_TRANSPARENT",
+      "description": "더블클릭 문자 편집의 투명 배경과 내용에 맞는 폭, 저장·취소를 검증한다."
+    },
+    {
+      "id": "OSNAP_DENSE_POLYLINE",
+      "description": "밀집 폴리선 교차점의 실제 명령 스냅 좌표가 정확한지 검증한다."
+    }
+  ]
+}

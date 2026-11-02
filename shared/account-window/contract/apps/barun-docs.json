@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "2.0.0",
+  "appId": "barun-docs",
+  "displayName": "바른문서",
+  "officialIconAsset": null,
+  "installedVersionSource": "running-app-package-metadata",
+  "assetStatus": "P0에서 기존 공식 에셋 실제 경로 확인 필요",
+  "contract": "../account-window.json",
+  "selfRepair": "../self-repair.json",
+  "sso": "../sso-contract.json",
+  "implementationInstructions": [
+    "기존 AGENTS와 dirty 상태를 읽고 변경 보존",
+    "공통 SharedAccountWindow에 이 앱의 어댑터만 연결",
+    "소형 로그인 창/파일 연결/개발자 모드 추가 금지",
+    "다른 앱 전용 CSS 복제나 레이아웃 override 금지",
+    "repair 핸들러는 등록된 main/native 구현만 허용",
+    "문서·편집 작업과 인증/복구 수명 분리",
+    "실제 연결·보안·시각 회귀 테스트 결과 제출; mock만으로 완료 선언 금지",
+    "배포·설치·실계정 키 변경 금지"
+  ]
+}

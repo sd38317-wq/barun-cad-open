@@ -1,0 +1,1532 @@
+{
+ "units": "m",
+ "crs": "EPSG:5187",
+ "scale": 200,
+ "layers": {
+  "A-SITE-BND": {
+   "color": 7,
+   "linetype": "DASHDOT",
+   "lineweight": 50,
+   "desc": "대지경계선"
+  },
+  "A-SITE-ROAD": {
+   "color": 8,
+   "linetype": "CONTINUOUS",
+   "lineweight": 13,
+   "desc": "도로경계·인접필지"
+  },
+  "A-SITE-BLINE": {
+   "color": 1,
+   "linetype": "DASHED",
+   "lineweight": 25,
+   "desc": "건축선(후퇴·가각)"
+  },
+  "A-ENV-L1": {
+   "color": 3,
+   "linetype": "DASHED2",
+   "lineweight": 13,
+   "desc": "1층 건축가능영역"
+  },
+  "A-ENV-SUN": {
+   "color": 4,
+   "linetype": "DASHED2",
+   "lineweight": 13,
+   "desc": "층별 정북일조 한계선"
+  },
+  "A-BLDG-L1": {
+   "color": 7,
+   "linetype": "CONTINUOUS",
+   "lineweight": 50,
+   "desc": "건물 1층 외곽"
+  },
+  "A-BLDG-UP": {
+   "color": 6,
+   "linetype": "DASHED",
+   "lineweight": 25,
+   "desc": "상층 외곽(사선 후퇴)"
+  },
+  "A-PARK": {
+   "color": 2,
+   "linetype": "CONTINUOUS",
+   "lineweight": 18,
+   "desc": "주차구획"
+  },
+  "A-LAND": {
+   "color": 3,
+   "linetype": "CONTINUOUS",
+   "lineweight": 13,
+   "desc": "조경"
+  },
+  "A-DIM": {
+   "color": 5,
+   "linetype": "CONTINUOUS",
+   "lineweight": 13,
+   "desc": "치수"
+  },
+  "A-TEXT": {
+   "color": 7,
+   "linetype": "CONTINUOUS",
+   "lineweight": 18,
+   "desc": "문자·면적표"
+  },
+  "A-SYM": {
+   "color": 7,
+   "linetype": "CONTINUOUS",
+   "lineweight": 25,
+   "desc": "방위·기호"
+  }
+ },
+ "entities": [
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SITE-BND",
+   "closed": true,
+   "points": [
+    [
+     6.0,
+     0.0
+    ],
+    [
+     10.0,
+     0.0
+    ],
+    [
+     10.0,
+     10.0
+    ],
+    [
+     16.0,
+     10.0
+    ],
+    [
+     16.0,
+     26.0
+    ],
+    [
+     0.0,
+     26.0
+    ],
+    [
+     0.0,
+     10.0
+    ],
+    [
+     6.0,
+     10.0
+    ]
+   ]
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SITE-ROAD",
+   "closed": true,
+   "points": [
+    [
+     -12.0,
+     -6.0
+    ],
+    [
+     -12.0,
+     0.0
+    ],
+    [
+     30.0,
+     0.0
+    ],
+    [
+     30.0,
+     -6.0
+    ]
+   ]
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SITE-ROAD",
+   "closed": true,
+   "points": [
+    [
+     -12.0,
+     0.0
+    ],
+    [
+     -12.0,
+     26.0
+    ],
+    [
+     0.0,
+     26.0
+    ],
+    [
+     0.0,
+     10.0
+    ],
+    [
+     6.0,
+     10.0
+    ],
+    [
+     6.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "인접대지 (LOT-SW, 대)",
+   "position": [
+    5.0848,
+    7.143
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SITE-ROAD",
+   "closed": true,
+   "points": [
+    [
+     10.0,
+     0.0
+    ],
+    [
+     10.0,
+     10.0
+    ],
+    [
+     16.0,
+     10.0
+    ],
+    [
+     16.0,
+     26.0
+    ],
+    [
+     30.0,
+     26.0
+    ],
+    [
+     30.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "인접대지 (LOT-SE, 대)",
+   "position": [
+    10.9152,
+    7.143
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SITE-ROAD",
+   "closed": true,
+   "points": [
+    [
+     0.0,
+     26.0
+    ],
+    [
+     0.0,
+     44.0
+    ],
+    [
+     16.0,
+     44.0
+    ],
+    [
+     16.0,
+     26.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "인접대지 (LOT-N, 대)",
+   "position": [
+    8.0,
+    29.0
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    6.48,
+    0.0
+   ],
+   "p2": [
+    6.48,
+    -6.0
+   ],
+   "offset": 1.0,
+   "text": "도로폭 6,000"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "도로 (ROAD-S) W=6.0m",
+   "position": [
+    11.5,
+    -3.0
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    6.0,
+    0.0
+   ],
+   "p2": [
+    10.0,
+    0.0
+   ],
+   "offset": -1.2,
+   "text": "4,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    10.0,
+    0.0
+   ],
+   "p2": [
+    10.0,
+    10.0
+   ],
+   "offset": -1.2,
+   "text": "10,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    10.0,
+    10.0
+   ],
+   "p2": [
+    16.0,
+    10.0
+   ],
+   "offset": -1.2,
+   "text": "6,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    16.0,
+    10.0
+   ],
+   "p2": [
+    16.0,
+    26.0
+   ],
+   "offset": -1.2,
+   "text": "16,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    16.0,
+    26.0
+   ],
+   "p2": [
+    0.0,
+    26.0
+   ],
+   "offset": -1.2,
+   "text": "16,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    0.0,
+    26.0
+   ],
+   "p2": [
+    0.0,
+    10.0
+   ],
+   "offset": -1.2,
+   "text": "16,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    0.0,
+    10.0
+   ],
+   "p2": [
+    6.0,
+    10.0
+   ],
+   "offset": -1.2,
+   "text": "6,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    6.0,
+    10.0
+   ],
+   "p2": [
+    6.0,
+    0.0
+   ],
+   "offset": -1.2,
+   "text": "10,000"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-ENV-L1",
+   "closed": true,
+   "points": [
+    [
+     6.5,
+     10.0
+    ],
+    [
+     6.4976,
+     10.049
+    ],
+    [
+     6.4904,
+     10.0975
+    ],
+    [
+     6.4785,
+     10.1451
+    ],
+    [
+     6.4619,
+     10.1913
+    ],
+    [
+     6.441,
+     10.2357
+    ],
+    [
+     6.4157,
+     10.2778
+    ],
+    [
+     6.3865,
+     10.3172
+    ],
+    [
+     6.3536,
+     10.3536
+    ],
+    [
+     6.3172,
+     10.3865
+    ],
+    [
+     6.2778,
+     10.4157
+    ],
+    [
+     6.2357,
+     10.441
+    ],
+    [
+     6.1913,
+     10.4619
+    ],
+    [
+     6.1451,
+     10.4785
+    ],
+    [
+     6.0975,
+     10.4904
+    ],
+    [
+     6.049,
+     10.4976
+    ],
+    [
+     6.0,
+     10.5
+    ],
+    [
+     0.5,
+     10.5
+    ],
+    [
+     0.5,
+     24.5
+    ],
+    [
+     15.5,
+     24.5
+    ],
+    [
+     15.5,
+     10.5
+    ],
+    [
+     10.0,
+     10.5
+    ],
+    [
+     9.951,
+     10.4976
+    ],
+    [
+     9.9025,
+     10.4904
+    ],
+    [
+     9.8549,
+     10.4785
+    ],
+    [
+     9.8087,
+     10.4619
+    ],
+    [
+     9.7643,
+     10.441
+    ],
+    [
+     9.7222,
+     10.4157
+    ],
+    [
+     9.6828,
+     10.3865
+    ],
+    [
+     9.6464,
+     10.3536
+    ],
+    [
+     9.6135,
+     10.3172
+    ],
+    [
+     9.5843,
+     10.2778
+    ],
+    [
+     9.559,
+     10.2357
+    ],
+    [
+     9.5381,
+     10.1913
+    ],
+    [
+     9.5215,
+     10.1451
+    ],
+    [
+     9.5096,
+     10.0975
+    ],
+    [
+     9.5024,
+     10.049
+    ],
+    [
+     9.5,
+     10.0
+    ],
+    [
+     9.5,
+     0.0
+    ],
+    [
+     6.5,
+     0.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "1F 건축가능영역",
+   "position": [
+    9.2,
+    5.0
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-ENV-SUN",
+   "closed": false,
+   "points": [
+    [
+     0.1,
+     24.5
+    ],
+    [
+     15.9,
+     24.5
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "1F 정북일조 한계 1.50m (h=3.6m)",
+   "position": [
+    8.0,
+    24.15
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-ENV-SUN",
+   "closed": false,
+   "points": [
+    [
+     0.1,
+     20.6
+    ],
+    [
+     15.9,
+     20.6
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "3F 정북일조 한계 5.40m (h=10.8m)",
+   "position": [
+    8.0,
+    20.95
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-BLDG-L1",
+   "closed": true,
+   "points": [
+    [
+     0.5,
+     23.6907
+    ],
+    [
+     15.5,
+     23.6907
+    ],
+    [
+     15.5,
+     12.8573
+    ],
+    [
+     0.5,
+     12.8573
+    ]
+   ]
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-BLDG-UP",
+   "closed": true,
+   "points": [
+    [
+     0.5,
+     19.8573
+    ],
+    [
+     15.5,
+     19.8573
+    ],
+    [
+     15.5,
+     12.8573
+    ],
+    [
+     0.5,
+     12.8573
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "2F 외곽 (용적률·주차 조정) 105.0㎡",
+   "position": [
+    8.0,
+    19.4073
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-BLDG-UP",
+   "closed": true,
+   "points": [
+    [
+     3.6,
+     12.9573
+    ],
+    [
+     3.6,
+     18.9573
+    ],
+    [
+     0.6,
+     18.9573
+    ],
+    [
+     0.6,
+     12.9573
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "옥탑(계단실) 가능 위치",
+   "position": [
+    2.1,
+    15.9573
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "근린생활시설",
+   "position": [
+    8.0,
+    18.724
+   ],
+   "height": 0.7,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "2F / H=7.2m / 건축면적 162.5㎡",
+   "position": [
+    8.0,
+    17.824
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    15.5,
+    24.5
+   ],
+   "p2": [
+    0.5,
+    24.5
+   ],
+   "offset": -0.9,
+   "text": "15,000"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    0.5,
+    24.5
+   ],
+   "p2": [
+    0.5,
+    12.8573
+   ],
+   "offset": -0.9,
+   "text": "11,643"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    0.5,
+    18.274
+   ],
+   "p2": [
+    0.0,
+    18.274
+   ],
+   "offset": 0.8,
+   "text": "500"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    8.0,
+    12.857
+   ],
+   "p2": [
+    8.0,
+    0.0
+   ],
+   "offset": 0.8,
+   "text": "12,857"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    15.5,
+    18.274
+   ],
+   "p2": [
+    16.0,
+    18.274
+   ],
+   "offset": 0.8,
+   "text": "500"
+  },
+  {
+   "type": "DIM_ALIGNED",
+   "layer": "A-DIM",
+   "p1": [
+    8.0,
+    23.691
+   ],
+   "p2": [
+    8.0,
+    26.0
+   ],
+   "offset": 0.8,
+   "text": "2,309"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-PARK",
+   "closed": true,
+   "points": [
+    [
+     8.7,
+     0.0
+    ],
+    [
+     8.7,
+     5.0
+    ],
+    [
+     6.2,
+     5.0
+    ],
+    [
+     6.2,
+     0.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "P1 연접",
+   "position": [
+    7.45,
+    2.5
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-PARK",
+   "closed": true,
+   "points": [
+    [
+     8.7,
+     5.0
+    ],
+    [
+     8.7,
+     10.0
+    ],
+    [
+     6.2,
+     10.0
+    ],
+    [
+     6.2,
+     5.0
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "P2 연접",
+   "position": [
+    7.45,
+    7.5
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "ARROW",
+   "layer": "A-SYM",
+   "start": [
+    7.45,
+    -1.5
+   ],
+   "end": [
+    7.45,
+    2.0
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "차량 진출입 (도로 직접 진출입, 출입구 3.6m)",
+   "position": [
+    7.45,
+    -2.3
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "HATCH",
+   "layer": "A-LAND",
+   "pattern": "ANSI31",
+   "scale": 0.3,
+   "paths": [
+    [
+     [
+      0.0,
+      25.95
+     ],
+     [
+      0.05,
+      26.0
+     ],
+     [
+      15.95,
+      26.0
+     ],
+     [
+      15.9962,
+      25.9691
+     ],
+     [
+      15.999,
+      10.0402
+     ],
+     [
+      15.95,
+      10.0
+     ],
+     [
+      10.0001,
+      9.9999
+     ],
+     [
+      10.0,
+      0.05
+     ],
+     [
+      9.9691,
+      0.0038
+     ],
+     [
+      9.05,
+      0.0
+     ],
+     [
+      9.0002,
+      0.0451
+     ],
+     [
+      9.0198,
+      10.1975
+     ],
+     [
+      9.1193,
+      10.4735
+     ],
+     [
+      9.2947,
+      10.7088
+     ],
+     [
+      9.5308,
+      10.883
+     ],
+     [
+      9.8996,
+      10.9948
+     ],
+     [
+      14.9999,
+      11.0001
+     ],
+     [
+      15.0022,
+      12.8218
+     ],
+     [
+      15.0451,
+      12.8571
+     ],
+     [
+      15.5,
+      12.8585
+     ],
+     [
+      15.5,
+      23.6895
+     ],
+     [
+      15.0038,
+      23.7216
+     ],
+     [
+      14.9999,
+      24.9999
+     ],
+     [
+      1.0001,
+      24.9999
+     ],
+     [
+      0.9962,
+      23.7216
+     ],
+     [
+      0.5,
+      23.6895
+     ],
+     [
+      0.5,
+      12.8585
+     ],
+     [
+      0.9549,
+      12.8571
+     ],
+     [
+      0.9978,
+      12.8218
+     ],
+     [
+      1.0001,
+      11.0001
+     ],
+     [
+      6.1004,
+      10.9948
+     ],
+     [
+      6.3804,
+      10.9247
+     ],
+     [
+      6.6324,
+      10.7745
+     ],
+     [
+      6.83,
+      10.5575
+     ],
+     [
+      6.9324,
+      10.348
+     ],
+     [
+      6.8872,
+      10.3002
+     ],
+     [
+      6.1118,
+      10.2867
+     ],
+     [
+      5.9689,
+      10.1912
+     ],
+     [
+      5.854,
+      10.0
+     ],
+     [
+      0.0451,
+      10.0002
+     ],
+     [
+      0.0,
+      10.05
+     ]
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "조경 56.2㎡",
+   "position": [
+    7.9981,
+    25.475
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "CIRCLE",
+   "layer": "A-SYM",
+   "center": [
+    22.0,
+    30.0
+   ],
+   "radius": 1.2
+  },
+  {
+   "type": "LWPOLYLINE",
+   "layer": "A-SYM",
+   "closed": true,
+   "points": [
+    [
+     22.0,
+     31.2
+    ],
+    [
+     21.55,
+     29.1
+    ],
+    [
+     22.0,
+     29.6
+    ],
+    [
+     22.45,
+     29.1
+    ]
+   ]
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "N (정북, EPSG:5187 도북)",
+   "position": [
+    22.0,
+    31.9
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_CENTER"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "면 적 표",
+   "position": [
+    20.0,
+    24.0
+   ],
+   "height": 0.7,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "대지면적(지적)",
+   "position": [
+    20.0,
+    23.1
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "296.00 ㎡",
+   "position": [
+    27.0,
+    23.1
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "대지면적(법정)",
+   "position": [
+    20.0,
+    22.2
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "296.00 ㎡  (후퇴·가각 0.00 제외)",
+   "position": [
+    27.0,
+    22.2
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "용도지역",
+   "position": [
+    20.0,
+    21.3
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "제2종일반주거지역",
+   "position": [
+    27.0,
+    21.3
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "건축면적",
+   "position": [
+    20.0,
+    20.4
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "162.50 ㎡",
+   "position": [
+    27.0,
+    20.4
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "연면적",
+   "position": [
+    20.0,
+    19.5
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "267.50 ㎡",
+   "position": [
+    27.0,
+    19.5
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "건폐율",
+   "position": [
+    20.0,
+    18.6
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "54.90 %  (허용 60 %)",
+   "position": [
+    27.0,
+    18.6
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "용적률",
+   "position": [
+    20.0,
+    17.7
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "90.37 %  (허용 220 %)",
+   "position": [
+    27.0,
+    17.7
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "규모",
+   "position": [
+    20.0,
+    16.8
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "지상 2층, H=7.2 m",
+   "position": [
+    27.0,
+    16.8
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "층별 면적",
+   "position": [
+    20.0,
+    15.9
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "1F 162.5 / 2F 105.0 ㎡",
+   "position": [
+    27.0,
+    15.9
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "전용 추정",
+   "position": [
+    20.0,
+    15.0
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "148 / 90 ㎡ (코어 15㎡/층 차감)",
+   "position": [
+    27.0,
+    15.0
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "1층 목표",
+   "position": [
+    20.0,
+    14.1
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "건폐율 59% (허용 −1%p) → 미달",
+   "position": [
+    27.0,
+    14.1
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "가치지수",
+   "position": [
+    20.0,
+    13.2
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "182.3 ㎡ (1F 환산, 가중 6:2)",
+   "position": [
+    27.0,
+    13.2
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "주차",
+   "position": [
+    20.0,
+    12.3
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "2 대  (법정 2 대 · 전면 연접 2대 · 연접 1열+단독 0열)",
+   "position": [
+    27.0,
+    12.3
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "조경",
+   "position": [
+    20.0,
+    11.4
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "56.22 ㎡  (법정 14.80 ㎡)",
+   "position": [
+    27.0,
+    11.4
+   ],
+   "height": 0.5,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "배치도  SCALE 1/200",
+   "position": [
+    0.0,
+    -9.0
+   ],
+   "height": 0.84,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  },
+  {
+   "type": "TEXT",
+   "layer": "A-TEXT",
+   "text": "부산광역시 사하구 (가상)  ·  DEMO-FLAG-05  ·  검토용 — 연속지적도 기반, 지적측량 성과 아님",
+   "position": [
+    0.0,
+    -10.4
+   ],
+   "height": 0.4,
+   "rotation": 0.0,
+   "align": "MIDDLE_LEFT"
+  }
+ ]
+}

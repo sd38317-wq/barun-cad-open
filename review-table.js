@@ -1,0 +1,29 @@
+import {wrappedTable} from './parcel-info.js';
+import {REVIEW_STATUS,formatReviewValue} from './review-model.js';
+const shown=v=>v==null||v===''?'—':typeof v==='object'?JSON.stringify(v):String(v);
+const statusText=s=>REVIEW_STATUS[s]?REVIEW_STATUS[s].symbol+' '+REVIEW_STATUS[s].label:'—';
+export function designerAdjustments(doc,items=[]){const rows=(doc.reviewHistory||[]).filter(h=>h.actor==='designer').map(h=>[h.at,h.targetId,shown(h.prev)+' → '+shown(h.next)].map(shown).join(' · '));for(const i of items)if(i.current.sourceKind==='designer')rows.push(i.name+': '+formatReviewValue(i.current));for(const [key,value] of Object.entries(doc.reviewSettings||{}))rows.push(key+': '+shown(value));return [...new Set(rows)];}
+export function reviewHistoryRows(doc){return (doc.reviewHistory||[]).map(h=>[shown(h.at),shown(h.targetId)+' · '+shown(h.field),statusText(h.prevStatus)+' → '+statusText(h.nextStatus),shown(h.ruleVersionId),h.actor==='designer'?shown(h.prev)+' → '+shown(h.next):''].filter(Boolean).join(' · '));}
+export function reviewTableHeader(doc,items){return [['검토 요약표',shown(doc.name||doc.fileName||doc.title)],['revision',shown(doc.revision??doc.savedAt??doc.updatedAt)],['기준 묶음', [...new Set(items.map(i=>['ruleSetId: '+shown(i.ruleSetId),'ruleVersionId: '+shown(i.ruleVersionId),'고시번호·조문: '+shown(i.statuteRef),'시행일: '+shown(i.effectiveDate)].join(' / ')))].join('\n')||'—'],['검토일 evaluatedAt',[...new Set(items.map(i=>shown(i.evaluatedAt)))].join(' / ')||'—'],['설계자 조정 내역',designerAdjustments(doc,items).join('\n')||'—']];}
+// 역할→레이어: 검토표·행·문자 A-REVIEW. 행은 별도 블록으로 선택한다.
+export function reviewTable(doc,items,{x=0,y=0,layer='A-REVIEW',tableId='review-table',id=()=>crypto.randomUUID()}={}){
+ const widths=[1800,1800,3200,2200,2600,3600,4800,4400],out=[];
+ const add=(rows,ws,key,item=null)=>{const b=wrappedTable(rows,{height:220,widths:ws,rowHeight:480,layer,name:'검토 요약표'});for(const e of b.entities){if(e.position){e.position.x+=x;e.position.y+=y;}if(e.points)e.points=e.points.map(p=>({x:p.x+x,y:p.y+y}));}b.id=id(key);b.reviewTableId=tableId;b.reviewTableKey=key;b.reviewItem=item;b.reviewItemId=item?.id??null;b.reviewObjectIds=item?.reviewObjectIds||[];b.objectIds=item?.objectIds||[];b.reviewStatus=item?.status??null;b.reviewProgress=item?.progress??null;out.push(b);y-=b.table.rowHeights.reduce((a,b)=>a+b,0);};
+ add(reviewTableHeader(doc,items),[4000,20400],'header');add([['번호','분야','항목','현재값','기준','상태','사유','다음 조치']],widths,'columns');
+ for(const i of items)add([[i.reviewObjectIds.join(', ')||i.id,({site:'대지',law:'법규',access:'편의시설',energy:'에너지'})[i.field],i.name,formatReviewValue(i.current),(i.criterion.operator||'')+' '+formatReviewValue(i.criterion),(i.progress!=='done'?'검토 전 · ':'')+statusText(i.status),i.reason||'—',i.nextAction||'—']],widths,i.id,i);
+ return out;
+}
+// 표 색인은 삽입·편집 차이만 반영한다. 전체 도면 탐색은 문서 열기 때 한 번이다.
+export function createReviewTables(engine,store,getDoc=()=>engine.doc){
+ const blocks=new Map();let writing=false;
+ function reset(){blocks.clear();if(!engine.doc.reviewHistory?.length&&!engine.doc.layers.some(l=>l.name==='A-REVIEW'))return;for(const e of engine.doc.entities)if(e.reviewTableId)blocks.set(e.id,e);}
+ function delta(change){for(const e of change?.removed||[])blocks.delete(e.id);for(const e of change?.added||[])if(e.reviewTableId)blocks.set(e.id,e);}
+ function write(commands,derived=false){const undo=engine.undoStack.slice(),redo=engine.redoStack,own=!engine.inTransaction();writing=true;if(own)engine.beginTransaction();try{for(const c of commands)engine.execute(c);if(own)engine.endTransaction();}catch(error){if(own)engine.rollbackTransaction();throw error;}finally{if(own&&derived){engine.undoStack=undo;engine.redoStack=redo;}writing=false;}}
+ function sync(){if(writing||!blocks.size)return;const groups=new Map();for(const e of blocks.values())if(e.reviewTableKey==='header')groups.set(e.reviewTableId,e);const commands=[],updated=[];
+  for(const [tableId,header] of groups){const old=new Map([...blocks.values()].filter(e=>e.reviewTableId===tableId).map(e=>[e.reviewTableKey,e])),point=header.entities[0].points[0],next=reviewTable(getDoc(),store.items,{x:point.x,y:point.y,layer:header.layer,tableId,id:key=>old.get(key)?.id||crypto.randomUUID()});updated.push(...next);const keys=new Set(next.map(e=>e.reviewTableKey));for(const e of next){const prev=old.get(e.reviewTableKey);if(!prev)commands.push({type:'add',entity:e});else if(JSON.stringify(prev)!==JSON.stringify(e))commands.push({type:'updateMany',updates:[{id:e.id,changes:Object.fromEntries(Object.entries(e).filter(([k])=>!['id','type'].includes(k)))}]});}const ids=[...old.values()].filter(e=>!keys.has(e.reviewTableKey)).map(e=>e.id);if(ids.length)commands.push({type:'delete',ids});
+  }if(commands.length){const updates=commands.filter(c=>c.type==='updateMany').flatMap(c=>c.updates),rest=commands.filter(c=>c.type!=='updateMany');write([...(updates.length?[{type:'updateMany',updates}]:[]),...rest],true);for(const c of rest)if(c.type==='delete')for(const id of c.ids)blocks.delete(id);for(const e of updated)blocks.set(e.id,e);}
+
+ }
+ function insert(x,y){const layer=engine.doc.layers.find(l=>l.name==='A-REVIEW'),layerId=layer?.id||crypto.randomUUID(),entities=reviewTable(getDoc(),store.items,{x,y,layer:layerId,tableId:crypto.randomUUID()});write([...(!layer?[{type:'layer.add',id:layerId,name:'A-REVIEW',color:'#9dcbe0',visible:true,lineweight:.18}]:[]),...entities.map(entity=>({type:'add',entity}))]);for(const e of entities)blocks.set(e.id,e);return entities;}
+ reset();return {sync,insert,reset,delta,savedItems:()=>[...new Map([...blocks.values()].filter(e=>e.reviewItem).map(e=>[e.reviewItem.id,e.reviewItem])).values()],get writing(){return writing;},activate(ids){const hit=ids.map(id=>blocks.get(id)).find(e=>e?.reviewItemId);if(hit)store.activate(hit.reviewItemId);return hit;}};
+}

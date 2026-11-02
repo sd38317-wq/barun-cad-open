@@ -1,0 +1,21 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import './area-takeoff.test.js';
+import {drawingNumber,displayedDimensionNumber,calculate,calculateSequence,calculatorOperator,formatCalculatedNumber,numericLabels,numericLabelsInBox,resultTextEntity} from './number-calculator.js';
+test('drawing numbers parse signs and thousands without guessing mixed labels',()=>{assert.equal(drawingNumber('1,200.5'),1200.5);assert.equal(drawingNumber('−25'),-25);for(const s of ['100x200','A101','12,34','Infinity',''])assert.equal(drawingNumber(s),null);});
+test('picked operands use sequential arithmetic; failed division preserves caller result',()=>{let n=calculate(100,'+',20);n=calculate(n,'-',2);n=calculate(n,'*',2);n=calculate(n,'/',2);assert.equal(n,118);assert.throws(()=>calculate(n,'/',0));assert.equal(n,118);assert.equal(calculate(.1,'+',.2),.3);});
+test('one chosen operator is applied to every clicked number in order',()=>{assert.equal(calculateSequence('+',[1,1]),2);assert.equal(calculateSequence('-',[10,2,3]),5);assert.equal(calculateSequence('*',[2,3,4]),24);assert.equal(calculateSequence('/',[20,2,5]),2);assert.throws(()=>calculateSequence(null,[1,1]),/연산자/);});
+test('command-line operator keys open the matching calculator operation',()=>{assert.equal(calculatorOperator('+'),'+');assert.equal(calculatorOperator(' - '),'-');assert.equal(calculatorOperator('×'),'*');assert.equal(calculatorOperator('÷'),'/');assert.equal(calculatorOperator('NUMCALC'),null);});
+test('dimension operands use displayed text and precision',()=>{const e={type:'dimension',points:[{x:0,y:0},{x:1234.567,y:0},{x:0,y:500}],precision:1,textHeight:100};assert.equal(drawingNumber(numericLabels(e)[0].text),1234.6);assert.equal(numericLabels({...e,text:'TYP'}).length,0);});
+test('radius, diameter and angular dimension labels remain valid operands',()=>{assert.equal(displayedDimensionNumber('R 125'),125);assert.equal(displayedDimensionNumber('Ø1,200'),1200);assert.equal(displayedDimensionNumber('45°'),45);assert.equal(displayedDimensionNumber('A101'),null);const radius={type:'dimension',mode:'radius',points:[{x:0,y:0},{x:250,y:0},{x:300,y:0}],textHeight:100};assert.equal(numericLabels(radius)[0].calculatorNumber,250);});
+test('calculation result formatting follows the selected decimal places',()=>{assert.equal(formatCalculatedNumber(2,'auto'), '2');assert.equal(formatCalculatedNumber(1/3,'auto'),'0.333333');assert.equal(formatCalculatedNumber(2,2),'2.00');assert.equal(formatCalculatedNumber(1234.567,1,true),'1,234.6');assert.throws(()=>formatCalculatedNumber(2,7));});
+test('placed result inherits the first number text appearance at a new point',()=>{const source={id:'source',type:'text',text:'1.00',position:{x:10,y:20},height:250,rotation:30,align:'center',widthFactor:.8,layer:'numbers',color:'#fff',dimensionLabel:true,calculatorNumber:1,clipMasks:[{}]};const result=resultTextEntity('2.00',{x:500,y:700},source);assert.deepEqual(result,{type:'text',text:'2.00',position:{x:500,y:700},height:250,rotation:30,align:'center',widthFactor:.8,layer:'numbers',color:'#fff',hidden:false});});
+test('selection window returns every numeric label for bulk calculation',()=>{const roots=[{id:'a',type:'text',text:'1',position:{x:10,y:10},height:10},{id:'b',type:'text',text:'2',position:{x:30,y:30},height:10},{id:'c',type:'text',text:'not a number',position:{x:20,y:20},height:10}];const selected=numericLabelsInBox(roots,{minX:0,minY:0,maxX:40,maxY:40});assert.deepEqual(selected.map(entry=>entry.label.calculatorNumber),[1,2]);assert.equal(calculateSequence('+',selected.map(entry=>entry.label.calculatorNumber)),3);});
+// 10-24: 사칙연산을 마친 뒤 빈 Space·Enter 로 같은 연산자 계산기가 다시 열려야 한다(NUMCALC 는 NO_REPEAT 라 반복이 안 됐다).
+test('계산기가 열릴 때 연산자를 알리고, 앱은 그것을 마지막 명령으로 기억해 Space 로 다시 연다',async()=>{
+ const fs=await import('node:fs'),read=f=>fs.readFileSync(new URL('./'+f,import.meta.url),'utf8');
+ const calc=read('number-calculator.js'),app=read('app.js');
+ assert.match(calc,/status=announce,started=\(\)=>\{\}\}\)\{/);
+ assert.match(calc,/operator=op\|\|'\+';started\(operator\);/);
+ assert.match(app,/started:op=>\{lastCommand='NUMCALC';run\.lastCalculatorOperator=op;\}/);
+ assert.match(app,/if\(lastCommand==='NUMCALC'\)\{studio\.numberCalculator\.open\(run\.lastCalculatorOperator\);return;\}/);
+});

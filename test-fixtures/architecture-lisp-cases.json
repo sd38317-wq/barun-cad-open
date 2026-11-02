@@ -1,0 +1,788 @@
+[
+  {
+    "command": "LAYSTD",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": ""
+  },
+  {
+    "command": "LAYCMD",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "표준"
+  },
+  {
+    "command": "PWALL",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "200\n0,0\n4000,0\n4000,3000\n<Enter>"
+  },
+  {
+    "command": "WALL2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "200\n0,0\n4000,0"
+  },
+  {
+    "command": "WALLTRIM",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "h1",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "h2",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 200
+            },
+            {
+              "x": 4000,
+              "y": 200
+            }
+          ]
+        },
+        {
+          "id": "cut",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 2000,
+              "y": -500
+            },
+            {
+              "x": 2000,
+              "y": 500
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\n1000,-500\n1000,500"
+  },
+  {
+    "command": "GRID",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "0,0\n2\n2\n3000\n4000"
+  },
+  {
+    "command": "COL2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "400\n600\n1000,1000\n중심"
+  },
+  {
+    "command": "DOOR2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "wall",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "900\n_L\n2000,0\n왼쪽"
+  },
+  {
+    "command": "WIND",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "wall",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "1800\n40\n_L\n2000,0"
+  },
+  {
+    "command": "ROOM2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "a",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 4000,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 3000
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 4000,
+              "y": 3000
+            },
+            {
+              "x": 0,
+              "y": 3000
+            }
+          ]
+        },
+        {
+          "id": "d",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 3000
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "거실\n2000,1500"
+  },
+  {
+    "command": "AREA2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "room",
+          "type": "rectangle",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 3000
+            },
+            {
+              "x": 0,
+              "y": 3000
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "객체\n거실\n_L\n5000,0"
+  },
+  {
+    "command": "AREATABLE",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "a",
+          "type": "text",
+          "layer": "default",
+          "text": "거실 12.00",
+          "height": 200,
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\n5000,0"
+  },
+  {
+    "command": "NUM",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "1\n1\nA-\n<Enter>\n0,0\n1000,0\n<Enter>"
+  },
+  {
+    "command": "TAG",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "문\nD1\n0,0"
+  },
+  {
+    "command": "PJ2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "a",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1000,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 1000,
+              "y": 0
+            },
+            {
+              "x": 1000,
+              "y": 1000
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>"
+  },
+  {
+    "command": "PC2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "poly",
+          "type": "polyline",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 1000,
+              "y": 0
+            },
+            {
+              "x": 1000,
+              "y": 1000
+            }
+          ],
+          "closed": false
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>"
+  },
+  {
+    "command": "LEN2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "wall",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\n아니오"
+  },
+  {
+    "command": "TALIGN2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "text1",
+          "type": "text",
+          "layer": "default",
+          "text": "foofoo",
+          "height": 200,
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "text2",
+          "type": "text",
+          "layer": "default",
+          "text": "barfoo",
+          "height": 200,
+          "position": {
+            "x": 1000,
+            "y": 1000
+          }
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\nX\n500,0"
+  },
+  {
+    "command": "TFIND",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "text1",
+          "type": "text",
+          "layer": "default",
+          "text": "foofoo",
+          "height": 200,
+          "position": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        {
+          "id": "text2",
+          "type": "text",
+          "layer": "default",
+          "text": "barfoo",
+          "height": 200,
+          "position": {
+            "x": 1000,
+            "y": 1000
+          }
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\nfoo\n바꿈"
+  },
+  {
+    "command": "BLKCNT",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "block0",
+          "type": "block",
+          "name": "UNIT",
+          "layer": "default",
+          "entities": [
+            {
+              "id": "child0",
+              "type": "line",
+              "layer": "default",
+              "points": [
+                {
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "x": 500,
+                  "y": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "block1",
+          "type": "block",
+          "name": "UNIT",
+          "layer": "default",
+          "entities": [
+            {
+              "id": "child1",
+              "type": "line",
+              "layer": "default",
+              "points": [
+                {
+                  "x": 1000,
+                  "y": 0
+                },
+                {
+                  "x": 1500,
+                  "y": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\n예\n0,2000"
+  },
+  {
+    "command": "DIMCLEAN2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "dim0",
+          "type": "dimension",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 500
+            }
+          ],
+          "textHeight": 150,
+          "mode": "aligned"
+        },
+        {
+          "id": "dim1",
+          "type": "dimension",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 550
+            }
+          ],
+          "textHeight": 150,
+          "mode": "aligned"
+        }
+      ]
+    },
+    "inputs": "_ALL\n<Enter>\n150"
+  },
+  {
+    "command": "TITLE2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": []
+    },
+    "inputs": "테스트 도면\n1/100\n2026-09-10\n검사자\n0,0"
+  },
+  {
+    "command": "DXFOUT2",
+    "before": {
+      "units": "mm",
+      "layers": [
+        {
+          "id": "default",
+          "name": "0",
+          "color": "#ffffff",
+          "visible": true,
+          "locked": false
+        }
+      ],
+      "entities": [
+        {
+          "id": "wall",
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 4000,
+              "y": 0
+            }
+          ]
+        }
+      ]
+    },
+    "inputs": ""
+  }
+]

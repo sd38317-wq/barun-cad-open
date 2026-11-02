@@ -1,0 +1,72 @@
+barun-dwg2dxf auxiliary DWG converter
+
+acadrust 0.6.4 is used unmodified as a Cargo dependency under MPL-2.0.
+Source code: https://github.com/hakanaktt/acadrust
+Exact published source: https://crates.io/crates/acadrust/0.6.4
+The full Mozilla Public License 2.0 is in LICENSE.
+The barun-dwg2dxf wrapper is separate project code, not an acadrust source modification.
+
+Locked dependencies
+-------------------
+The following inventory comes from converter-rs/Cargo.lock and Cargo metadata.
+It includes build-time and target-specific dependencies (some are not linked on every platform).
+License expressions are upstream declarations; OR indicates a choice of licenses, AND requires both.
+Full upstream license and copyright notices are in THIRD_PARTY_LICENSES.txt.
+
+acadrust 0.6.4 | MPL-2.0 | https://crates.io/crates/acadrust/0.6.4
+adler2 2.0.1 | 0BSD OR MIT OR Apache-2.0 | https://crates.io/crates/adler2/2.0.1
+anyhow 1.0.104 | MIT OR Apache-2.0 | https://crates.io/crates/anyhow/1.0.104
+bitflags 2.13.2 | MIT OR Apache-2.0 | https://crates.io/crates/bitflags/2.13.2
+bumpalo 3.20.3 | MIT OR Apache-2.0 | https://crates.io/crates/bumpalo/3.20.3
+byteorder 1.5.0 | Unlicense OR MIT | https://crates.io/crates/byteorder/1.5.0
+cfg-if 1.0.5 | MIT OR Apache-2.0 | https://crates.io/crates/cfg-if/1.0.5
+core_detect 1.0.0 | MIT/Apache-2.0 | https://crates.io/crates/core_detect/1.0.0
+crc32fast 1.5.2 | MIT OR Apache-2.0 | https://crates.io/crates/crc32fast/1.5.2
+crossbeam-deque 0.8.8 | MIT OR Apache-2.0 | https://crates.io/crates/crossbeam-deque/0.8.8
+crossbeam-epoch 0.9.21 | MIT OR Apache-2.0 | https://crates.io/crates/crossbeam-epoch/0.9.21
+crossbeam-utils 0.8.23 | MIT OR Apache-2.0 | https://crates.io/crates/crossbeam-utils/0.8.23
+either 1.19.0 | MIT OR Apache-2.0 | https://crates.io/crates/either/1.19.0
+encoding_rs 0.8.42 | (Apache-2.0 OR MIT) AND BSD-3-Clause | https://crates.io/crates/encoding_rs/0.8.42
+equivalent 1.0.3 | Apache-2.0 OR MIT | https://crates.io/crates/equivalent/1.0.3
+flate2 1.1.10 | MIT OR Apache-2.0 | https://crates.io/crates/flate2/1.1.10
+foldhash 0.2.0 | Zlib | https://crates.io/crates/foldhash/0.2.0
+futures-core 0.3.34 | MIT OR Apache-2.0 | https://crates.io/crates/futures-core/0.3.34
+futures-task 0.3.34 | MIT OR Apache-2.0 | https://crates.io/crates/futures-task/0.3.34
+futures-util 0.3.34 | MIT OR Apache-2.0 | https://crates.io/crates/futures-util/0.3.34
+hashbrown 0.17.1 | MIT OR Apache-2.0 | https://crates.io/crates/hashbrown/0.17.1
+indexmap 2.14.2 | Apache-2.0 OR MIT | https://crates.io/crates/indexmap/2.14.2
+itoa 1.0.18 | MIT OR Apache-2.0 | https://crates.io/crates/itoa/1.0.18
+js-sys 0.3.106 | MIT OR Apache-2.0 | https://crates.io/crates/js-sys/0.3.106
+libc 0.2.190 | MIT OR Apache-2.0 | https://crates.io/crates/libc/0.2.190
+memchr 2.8.3 | Unlicense OR MIT | https://crates.io/crates/memchr/2.8.3
+memmap2 0.9.11 | MIT OR Apache-2.0 | https://crates.io/crates/memmap2/0.9.11
+minimal-lexical 0.2.1 | MIT/Apache-2.0 | https://crates.io/crates/minimal-lexical/0.2.1
+miniz_oxide 0.9.1 | MIT OR Zlib OR Apache-2.0 | https://crates.io/crates/miniz_oxide/0.9.1
+multiversion_no_op 1.0.0 | Apache-2.0 OR MIT | https://crates.io/crates/multiversion_no_op/1.0.0
+nom 7.1.3 | MIT | https://crates.io/crates/nom/7.1.3
+oem_cp 2.1.2 | MIT | https://crates.io/crates/oem_cp/2.1.2
+once_cell 1.21.4 | MIT OR Apache-2.0 | https://crates.io/crates/once_cell/1.21.4
+phf 0.11.3 | MIT | https://crates.io/crates/phf/0.11.3
+phf_shared 0.11.3 | MIT | https://crates.io/crates/phf_shared/0.11.3
+pin-project-lite 0.2.17 | Apache-2.0 OR MIT | https://crates.io/crates/pin-project-lite/0.2.17
+proc-macro2 1.0.107 | MIT OR Apache-2.0 | https://crates.io/crates/proc-macro2/1.0.107
+quote 1.0.47 | MIT OR Apache-2.0 | https://crates.io/crates/quote/1.0.47
+rayon 1.12.0 | MIT OR Apache-2.0 | https://crates.io/crates/rayon/1.12.0
+rayon-core 1.13.0 | MIT OR Apache-2.0 | https://crates.io/crates/rayon-core/1.13.0
+rustversion 1.0.23 | MIT OR Apache-2.0 | https://crates.io/crates/rustversion/1.0.23
+ryu 1.0.23 | Apache-2.0 OR BSL-1.0 | https://crates.io/crates/ryu/1.0.23
+scopeguard 1.2.0 | MIT OR Apache-2.0 | https://crates.io/crates/scopeguard/1.2.0
+simd-adler32 0.3.10 | MIT | https://crates.io/crates/simd-adler32/0.3.10
+simdutf8 0.1.5 | MIT OR Apache-2.0 | https://crates.io/crates/simdutf8/0.1.5
+siphasher 1.0.4 | MIT OR Apache-2.0 | https://crates.io/crates/siphasher/1.0.4
+slab 0.4.12 | MIT | https://crates.io/crates/slab/0.4.12
+syn 3.0.9 | MIT OR Apache-2.0 | https://crates.io/crates/syn/3.0.9
+thiserror 2.0.21 | MIT OR Apache-2.0 | https://crates.io/crates/thiserror/2.0.21
+thiserror-impl 2.0.21 | MIT OR Apache-2.0 | https://crates.io/crates/thiserror-impl/2.0.21
+unicode-ident 1.0.27 | (MIT OR Apache-2.0) AND Unicode-3.0 | https://crates.io/crates/unicode-ident/1.0.27
+wasm-bindgen 0.2.129 | MIT OR Apache-2.0 | https://crates.io/crates/wasm-bindgen/0.2.129
+wasm-bindgen-macro 0.2.129 | MIT OR Apache-2.0 | https://crates.io/crates/wasm-bindgen-macro/0.2.129
+wasm-bindgen-macro-support 0.2.129 | MIT OR Apache-2.0 | https://crates.io/crates/wasm-bindgen-macro-support/0.2.129
+wasm-bindgen-shared 0.2.129 | MIT OR Apache-2.0 | https://crates.io/crates/wasm-bindgen-shared/0.2.129
+web-time 1.1.0 | MIT OR Apache-2.0 | https://crates.io/crates/web-time/1.1.0
+zlib-rs 0.6.8 | Zlib | https://crates.io/crates/zlib-rs/0.6.8

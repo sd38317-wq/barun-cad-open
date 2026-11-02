@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src file:; style-src 'unsafe-inline'">
+<title>바른 CAD</title>
+<style>
+/* 도면 칸마다 프로세스 탭 줄: 도면 창마다 따로 프로세스. 오른쪽 140px 은 창 단추(최소화·최대화·닫기) 자리. */
+:root{--bg:#17191e;--tab:#25292f;--line:#383f48;--ink:#d8dce1;--muted:#9ca6ae;--accent:#9dcbe0;--danger:#ff8a80}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#25292f;color:var(--ink);font:12px/1.4 "Malgun Gothic",system-ui,sans-serif}
+.strip{display:none;align-items:stretch;gap:2px;height:34px;padding:0 140px 0 8px;background:var(--bg);border-bottom:1px solid var(--line);-webkit-app-region:drag}
+html[data-platform=darwin] .strip{padding:0 8px 0 84px}
+.tab,.strip button{-webkit-app-region:no-drag}
+.tab{display:flex;align-items:center;gap:8px;max-width:220px;margin-top:4px;padding:0 6px 0 12px;border:1px solid transparent;border-bottom:0;border-radius:6px 6px 0 0;color:var(--muted);cursor:default;white-space:nowrap}
+.tab.active{background:var(--tab);border-color:var(--line);color:var(--ink)}
+.tab .name{overflow:hidden;text-overflow:ellipsis}
+.tab .dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--muted)}
+.tab[data-state=ready] .dot{background:var(--accent)}
+.tab[data-state=crashed] .dot{background:var(--danger)}
+.tab button.x{width:20px;height:20px;padding:0;border:0;border-radius:4px;background:transparent;color:var(--muted);font-size:14px;line-height:20px}
+.tab button.x:hover{background:#383f48;color:var(--ink)}
+.add{align-self:center;height:24px;margin-left:6px;padding:0 10px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink);font:inherit}
+.add:hover{border-color:var(--accent)}
+.crash{display:none;position:absolute;inset:0;place-content:center;justify-items:center;gap:14px;text-align:center}
+.crash.show{display:grid}
+.crash h1{margin:0;font-size:18px;font-weight:600}
+.crash p{margin:0;color:var(--muted)}
+.crash .actions{display:flex;gap:8px}
+.crash button{height:30px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink);font:inherit}
+.crash button.primary{border-color:transparent;background:var(--accent);color:#15171c;font-weight:600}
+.crash button:focus-visible,.add:focus-visible,.tab button.x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="strip" aria-label="열린 도면 창"><div id="tabs" style="display:contents"></div>
+<button type="button" class="add" id="new">+ 새 창</button><button type="button" class="add" id="open">+ 파일 열기</button></nav>
+<section class="crash" id="crash" role="alert">
+ <h1>이 도면 창이 멈췄어요</h1>
+ <p id="crash-note">다른 도면 창은 그대로입니다.</p>
+ <div class="actions"><button type="button" class="primary" id="crash-reload">다시 열기</button><button type="button" id="crash-close">닫기</button></div>
+</section>
+<script src="desktop-shell.js"></script>
+</body>
+</html>

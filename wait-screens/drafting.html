@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>바른 CAD · AI 단면 상세 제도</title>
+<style>
+/* 바른 CAD 화면(style.css 값) 본뜸 · 글꼴은 캐드와 같은 번들 나눔고딕(오프라인) */
+@font-face{font-family:"Barun Drawing Korean";src:url("../fonts/NanumGothic-Regular.ttf") format("truetype");font-weight:400}
+:root{--accent:#bedb71;--panel:#25292f;--border:#383f48;--bg:#1b1e23;--canvas:#1d2126;--bar:#16191d;--text:#e6e9ed;--sub:#a3abb5;--dim:#6f7782;
+  --mono:Consolas,Menlo,ui-monospace,monospace;--sans:"Barun Drawing Korean","NanumGothic","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font:12px/1.4 var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+.app{position:fixed;left:0;top:0;width:1600px;height:1000px;transform-origin:0 0;display:grid;grid-template-rows:40px 38px 30px minmax(0,1fr) 36px;background:var(--bg)}
+.top{display:flex;align-items:center;gap:14px;padding:0 14px;background:var(--bar);border-bottom:1px solid #22262c}
+.logo{display:flex;align-items:center;gap:8px;font:italic 800 17px var(--sans)}
+.logo i{width:22px;height:22px;border-radius:6px;background:var(--accent);color:#1b1e23;font:800 12px var(--sans);display:grid;place-items:center;font-style:normal}
+.logo small{font:600 11px var(--sans);letter-spacing:.1em;color:var(--sub);font-style:normal}
+.file{font-weight:700;font-size:14px;border-bottom:2px solid var(--accent);padding:2px}
+.search{margin-left:auto;width:350px;height:28px;border:1px solid var(--border);border-radius:6px;color:var(--dim);display:flex;align-items:center;padding:0 12px}
+.top .lk{color:var(--sub);margin-left:18px}
+.layerbar{display:flex;align-items:center;gap:10px;padding:0 10px;border-bottom:1px solid #22262c;color:var(--sub)}
+.layersel{display:flex;align-items:center;gap:6px;min-width:250px;padding:3px 8px;border:1px solid transparent;border-radius:4px;transition:border-color .2s}
+.layersel.on{border-color:var(--accent)}
+.layersel i{width:11px;height:11px;border:2px solid #fff;border-radius:2px;display:inline-block}
+.layersel b{color:var(--text);font:600 11px var(--mono)}
+.tabs{display:flex;align-items:center;padding:0 8px;border-bottom:1px solid #22262c}
+.tab{background:#22262c;border-radius:5px 5px 0 0;padding:4px 10px;font-weight:700}
+.tabs .pg{margin-left:auto;color:var(--dim);font-size:11px}
+.main{display:grid;grid-template-columns:94px minmax(0,1fr) 310px 38px;grid-template-rows:minmax(0,1fr);min-height:0;overflow:hidden}
+.tools{border-right:1px solid #22262c;padding:6px;display:flex;flex-direction:column;gap:2px;overflow:hidden}
+.tools .fold{color:var(--sub);font-size:11px;padding:6px 6px 8px}
+.tool{display:flex;align-items:flex-start;gap:6px;height:50px;padding:10px 8px;border-radius:7px;transition:background .15s}
+.tool svg{width:22px;height:22px;stroke:#e6e9ed;fill:none;stroke-width:1.6;flex:none}
+.tool span{font-size:10.5px;margin-top:-4px}
+.tool.on{background:#2f3a24;box-shadow:inset 0 0 0 1px #4d5e2c}.tool.on svg{stroke:var(--accent)}
+.sep{height:1px;background:#2a2f36;margin:4px 0}
+.stage{position:relative;min-width:0;display:grid;grid-template-rows:minmax(0,1fr) 128px;background:var(--canvas)}
+.cvwrap{position:relative;min-height:0}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+.view{position:absolute;left:18px;top:14px;font-weight:600}
+.view small{display:block;color:var(--sub);font-weight:400;font-size:11px;margin-top:2px}
+.badge{position:absolute;right:14px;top:12px;color:var(--sub);font:11px var(--sans);background:rgba(22,25,29,.8);border:1px solid var(--border);border-radius:6px;padding:4px 8px}
+.prog{position:absolute;left:18px;bottom:10px;right:18px;display:flex;gap:6px;align-items:center;color:var(--sub);font-size:11px}
+.prog .st{display:flex;gap:4px}
+.prog .st span{padding:2px 7px;border-radius:999px;border:1px solid var(--border);color:var(--dim);white-space:nowrap}
+.prog .st span.on{border-color:var(--accent);color:var(--accent)} .prog .st span.ok{color:var(--text)}
+.prog .now{margin-left:auto;color:var(--text)}
+.cmd{margin:0 8px 8px;border:1px solid var(--border);border-radius:8px;background:var(--panel);padding:8px 10px;display:grid;grid-template-rows:auto minmax(0,1fr) 28px;gap:4px}
+.cmd .h{display:flex;gap:10px;align-items:center}.cmd .h b{color:var(--accent)}.cmd .h .st{color:var(--sub)}
+.cmd .h .r{margin-left:auto;color:var(--sub)}
+.log{overflow:hidden;font:11px/15px var(--mono);color:var(--sub);display:flex;flex-direction:column;justify-content:flex-end}
+.log div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:none}.log .c{color:var(--accent)}
+.in{display:flex;gap:8px;align-items:center}
+.in .box{flex:1;height:26px;border:1px solid var(--border);border-radius:5px;display:flex;align-items:center;padding:0 10px;font:11px var(--mono);gap:8px}.in .box b{color:var(--accent)}
+.in .run{height:26px;padding:0 12px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);display:flex;align-items:center}
+.in .x{color:var(--dim)}
+.chat{border-left:1px solid #22262c;display:grid;grid-template-rows:34px minmax(0,1fr) 120px;min-height:0;overflow:hidden}
+.chat .t{padding:8px 12px;font-weight:700;border-bottom:1px solid #22262c}
+.msgs{overflow:hidden;min-height:0;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px}
+.m{max-width:94%;padding:8px 10px;border-radius:9px;font-size:12.5px;line-height:1.55;white-space:pre-wrap}
+.m.u{align-self:flex-end;background:#33402a;color:#e9f4cf}
+.m.a{align-self:flex-start;background:#23272d;border:1px solid #2e343c}
+.m.a b{color:var(--accent)}
+.m .pg{display:block;height:3px;background:#30363e;border-radius:2px;margin-top:6px;overflow:hidden}.m .pg i{display:block;height:100%;background:var(--accent);transition:width .15s}
+.chat .compose{border-top:1px solid #22262c;padding:10px;display:grid;grid-template-rows:1fr 30px;gap:8px}
+.chat .ta{border:1px solid var(--border);border-radius:6px;color:var(--dim);padding:6px 8px}
+.chat .row{display:flex;justify-content:space-between;align-items:center}
+.chat .row span{border:1px solid var(--border);border-radius:6px;padding:4px 10px;color:var(--sub)}
+.chat .row b{background:var(--accent);color:#1b1e23;border-radius:6px;padding:5px 12px}
+.vt{border-left:1px solid #22262c;display:flex;flex-direction:column;align-items:center;gap:22px;padding-top:14px;color:var(--sub);font-size:11px}
+.vt span{writing-mode:vertical-rl;letter-spacing:.1em}.vt .on{color:var(--text);border-right:2px solid var(--accent);padding-right:4px}
+.status{display:flex;align-items:center;gap:16px;padding:0 12px;border-top:1px solid #22262c;color:var(--sub);font-size:11px;white-space:nowrap}
+.status .on{color:var(--text);border-bottom:2px solid var(--accent);padding-bottom:2px}
+.status .dot::before{content:"●";color:var(--accent);margin-right:5px}
+.status .r{margin-left:auto;display:flex;gap:16px}.status .mono{font-family:var(--mono)}
+.again{position:absolute;right:14px;bottom:40px;display:none;border:1px solid var(--accent);color:var(--accent);background:rgba(22,25,29,.9);border-radius:6px;padding:6px 12px;cursor:pointer}
+.again.on{display:block}
+/* 캐드 안에 끼울 때(?embed=1): 캐드 껍데기 없이 도면·진행만 */
+body.embed .app{position:fixed;inset:0;width:auto;height:auto;transform:none!important;grid-template-rows:minmax(0,1fr)}
+body.embed .top,body.embed .layerbar,body.embed .tabs,body.embed .tools,body.embed .cmd,body.embed .chat,body.embed .vt,body.embed .status{display:none}
+body.embed .main{grid-template-columns:minmax(0,1fr)}
+body.embed .stage{grid-template-rows:minmax(0,1fr)}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="top"><div class="logo"><i>c.</i>Barun <small>CAD</small></div><div class="file">File ⌄</div>
+    <div class="search">⌕ 명령어·단축키 검색 후 Enter (F1)</div><div class="lk">패드 연결</div><div class="lk">● 계정 연결</div></div>
+  <div class="layerbar">레이어 <div class="layersel" id="layersel"><i id="layerColor"></i><b id="layerName">0</b><span style="margin-left:auto">⌄</span></div><span style="color:var(--accent)">✦</span> 자동정리</div>
+  <div class="tabs"><div class="tab">단면 상세 D-001 ×</div><div class="pg">1 / 10</div></div>
+  <div class="main">
+    <div class="tools" id="tools"><div class="fold">‹ 도구 접기</div></div>
+    <div class="stage">
+      <div class="cvwrap">
+        <canvas id="cv"></canvas>
+        <div class="view">단면 상세<small id="viewSub">1:20 · mm · AI 제도</small></div>
+        <div class="badge">도면 내용 = 바른 CAD 상세 생성기 결과 · 펜 이동·순서 = 연출</div>
+        <div class="prog"><div class="st" id="steps"></div><div class="now" id="now"></div></div>
+        <div class="again" id="again">다시 보기 ↺</div>
+      </div>
+      <div class="cmd"><div class="h"><b>CAD 명령</b><span class="st" id="cmdState">AI 제도 · 대기</span><div class="r">기록 지우기</div></div>
+        <div class="log" id="log"></div>
+        <div class="in"><div class="box">› <b id="cmdNow"></b><span id="cmdArg" style="color:var(--sub)"></span></div><div class="run">실행 ↵</div><div class="x">완료</div><div class="x">취소 Esc</div></div></div>
+    </div>
+    <div class="chat"><div class="t">미리 대화 기록</div><div class="msgs" id="msgs"></div>
+      <div class="compose"><div class="ta">도면 요청이나 질문을 입력하세요</div><div class="row"><span>🎙 말하기</span><b>보내기</b></div></div></div>
+    <div class="vt"><span class="on">대화</span><span>건축</span><span>속성</span><span>보내기</span></div>
+  </div>
+  <div class="status"><span>도면 맞춤</span><span>－ 100% ＋</span><span>전체화면</span><span>기존 화면</span><span>선택 맞춤</span><span>직교 F8 꺼짐</span><span class="on">객체 스냅 F3 켜짐</span><span>그리드 스냅 F9 꺼짐</span>
+    <span class="dot" id="aiState">AI 제도 중</span><span class="mono" id="xy">X 0 · Y 0 mm</span><div class="r"><span id="count">객체 0개</span><span>1 단위 = 1 mm</span><span>바른 CAD 6.0.9</span></div></div>
+</div>
+
+<script type="module" src="drafting-main.js"></script>
+</body>
+</html>

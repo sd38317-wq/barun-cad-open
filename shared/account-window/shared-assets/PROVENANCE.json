@@ -1,0 +1,19 @@
+{
+  "source": "카카오_로그인_공식_리소스.zip (사용자 제공, 2026-09-26)",
+  "sourceZipSha256": "7664a07cdd88ac5219282a4580571a169683468e2efc06c8a962dd87068b5600",
+  "files": {
+    "kakao-official/kakao_login_light.svg": "27ee345cc3b7e9a8cb569f163202e55e6dcc9779b0a18038a8b446561a085685",
+    "kakao-official/kakao_login_kr_medium.svg": "ab90ab44616f14a671844cd991b3fbb33277f42c5bb2cc5a9422344a854c9398",
+    "kakao-official/kakao_login_kr_small.svg": "aa6b674d147cc534ed6750c6b770332e5fb77964bd874b5de4c3bdfc07cbbb0e",
+    "kakao-symbol-approved.svg": "9007f6c6c8c0cb3f9b5b57d384d87c1459e11775a6c625d27c2d9f2800399d88",
+    "google-g.svg": "fcc9ab996d81dede3d37614346ae0e6acde7b562594b1aa12f2db83e9a220faf"
+  },
+  "derivation": "kakao-symbol-approved.svg = kakao_login_light.svg의 말풍선 path(d 값·색 #191919)를 바꾸지 않고, 둘레의 노란 원만 빼서 viewBox를 말풍선 크기(13 14 22 21)로 맞춤.",
+  "usage": "카카오 로그인 단추(배경 #FEE500) 안의 심볼로만 사용.",
+  "confirmedBy": "사용자가 따로 준 카카오_공식_로그인_심볼.svg(sha256 27ee345c…a085685)가 kakao-official/kakao_login_light.svg와 같은 파일임을 확인(2026-09-26).",
+  "google": {
+    "source": "D:/홈페이지/src/components/site/account/AccountShell.tsx 의 Google 로그인 SVG (읽기 전용)",
+    "guidelines": "https://developers.google.com/identity/branding-guidelines",
+    "derivation": "48x48 viewBox와 네 색상 path를 그대로 복사. 흰 배경 버튼 안에서만 사용."
+  }
+}

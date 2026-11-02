@@ -1,0 +1,25 @@
+{
+  "_comment": "테스트 대지 3 — 정면 9m 종형(자루형 아님) 대지, 남측 4m 도로(중앙선 없음 → 차로 6m 확보 위해 전면 여유폭 2m). 1열로는 법정 대수를 못 넣어 연접(세로 2대)이 필수인 케이스. 좌표 EPSG:5187 로컬 미터.",
+  "site": {
+    "id": "DEMO-NARROW-03",
+    "address": "부산광역시 사하구 (가상)",
+    "crs": "EPSG:5187",
+    "parcel": [[0.0, 0.0], [9.0, 0.0], [9.2, 27.0], [0.3, 26.8]],
+    "neighbors": [
+      { "pnu": "ROAD-S", "jimok": "도", "coords": [[-15.0, -4.0], [30.0, -4.0], [30.0, 0.0], [-15.0, 0.0]] },
+      { "pnu": "LOT-N",  "jimok": "대", "coords": [[0.3, 26.8], [9.2, 27.0], [9.4, 45.0], [0.5, 45.0]] },
+      { "pnu": "LOT-E",  "jimok": "대", "coords": [[9.0, 0.0], [25.0, 0.0], [25.0, 27.0], [9.2, 27.0]] },
+      { "pnu": "LOT-W",  "jimok": "대", "coords": [[-16.0, 0.0], [0.0, 0.0], [0.3, 26.8], [-15.7, 26.8]] }
+    ],
+    "north_neighbor_zone": "제2종일반주거지역"
+  },
+  "zoning": { "zone": "제2종일반주거지역", "bcr": null, "far": null },
+  "program": {
+    "use": "근린생활시설",
+    "floors": 4, "floor_h": 3.6, "target_gfa": 480,
+    "massing": "auto",
+    "parking": { "count": "auto", "mode": "auto", "layout": "auto", "stall": "일반형" },
+    "entry_side": "auto", "shape": "auto"
+  },
+  "output": { "dxf_units": "mm", "scale": 200, "png": true }
+}

@@ -1,0 +1,14 @@
+<!doctype html><meta charset="utf-8"><style>@font-face{font-family:"Barun Drawing Korean";src:url("../../fonts/NanumGothic-Regular.ttf")}body{margin:0;background:#101820;color:white;font:14px sans-serif}canvas{width:1000px;height:700px;display:block}#result{position:absolute;top:0;left:0;background:#222c;padding:6px}</style><canvas id="screen" width="1000" height="700"></canvas><div id="result">로딩 중</div>
+<script type="module">
+import {CadGpuRenderer} from '../../gpu-renderer.js';
+import {drawEntity} from '../../view.js';
+import * as G from '../../geometry.js';
+const doc=await(await fetch('./hospital.json')).json(),canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
+const entities=G.visibleEntities(doc,{inPlace:true,lodScale:0,viewBox:null}),bounds=G.bounds(entities),width=1000,height=700;
+const scale=Math.min(width/(bounds.maxX-bounds.minX),height/(bounds.maxY-bounds.minY))*.9;
+const origin={x:width/2-(bounds.minX+bounds.maxX)/2*scale,y:height/2+(bounds.minY+bounds.maxY)/2*scale};
+await document.fonts.load('16px "Barun Drawing Korean"');
+window.compare={doc,entities,scale,origin,width,height};
+window.drawCanvas=(s=scale,o=origin)=>{ctx.clearRect(0,0,width,height);const screen=p=>({x:o.x+p.x*s,y:o.y-p.y*s});for(const e of entities)drawEntity(ctx,e,screen,s,e._displayColor||e.color,Math.max(1,Math.min(3,(e._displayLineweight??e.lineweight??.25)*4)));};
+try{const gpu=new CadGpuRenderer();window.compare.gpu=gpu;window.drawGpu=(s=scale,o=origin)=>{const c=gpu.render({doc,revision:1,width,height,scale:s,origin:o});ctx.clearRect(0,0,width,height);ctx.drawImage(c,0,0);};window.drawGpu();document.querySelector('#result').textContent=JSON.stringify(gpu.stats);window.ready=true;}catch(e){window.failure=e.stack;document.querySelector('#result').textContent=e.stack;}
+</script>

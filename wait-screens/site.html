@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>바른 배치 연구소</title>
+<style>
+@font-face{font-family:"Barun Drawing Korean";src:url("../fonts/NanumGothic-Regular.ttf") format("truetype");font-weight:400}
+/* 바른 디자인 토큰 v5 뿌리 + 역할별 색 */
+:root{
+  --bg:#161A21; --stage:#10151D; --panel:#1C2330; --panel2:#222C3A; --edge:#344151; --line:#2A3442;
+  --text:#E8EEF5; --body:#C3CCD7; --sub:#A6B4C5; --dim:#7F8C9C; --dark:#4E5A69;
+  --mint:#A4E4CE; --teal:#70BFB8; --cyan:#75DDE8; --blue:#82AFFF; --steel:#8FB7CA;
+  --ai:#CABBF1; --green:#79AD91; --warn:#F2CA89; --err:#E9A9AA; --hot:#FF727A;
+  --sans:"Barun Drawing Korean","NanumGothic","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  --mono:Consolas,Menlo,ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font:12px/1.45 var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+.app{position:fixed;left:0;top:0;width:1600px;height:var(--H,1000px);transform-origin:0 0;display:grid;grid-template-rows:44px minmax(0,1fr) 150px;gap:8px;padding:12px 14px}
+
+/* 머리 */
+.head{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:center}
+.head h1{font:600 13px var(--mono);letter-spacing:.08em}
+.head h1 small{display:block;color:var(--dim);font-weight:400;font-size:11px;letter-spacing:.02em;margin-top:1px}
+.cnt{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.cnt div{font:10px var(--mono);color:var(--dim);letter-spacing:.05em;border-bottom:1px solid var(--edge);padding-bottom:2px;white-space:nowrap;overflow:hidden}
+.cnt b{display:block;color:var(--text);font:400 16px/1.2 var(--mono);letter-spacing:0}
+.cnt .m b{color:var(--mint)} .cnt .c b{color:var(--cyan)}
+.speed{display:flex;gap:4px;align-items:center;color:var(--dim);font:10.5px var(--mono)}
+.speed button{all:unset;cursor:pointer;font:600 10.5px var(--mono);padding:4px 9px;border-radius:999px;border:1px solid var(--edge);color:var(--dim)}
+.speed button.on{border-color:var(--cyan);color:var(--cyan)}
+
+/* 무대 */
+.hero{position:relative;border:1px solid var(--edge);border-radius:10px;overflow:hidden;background:var(--stage)}
+#hero{position:absolute;inset:0;width:100%;height:100%}
+.htag{position:absolute;left:16px;top:12px;font:10px var(--mono);color:var(--dim);letter-spacing:.1em}
+.site{position:absolute;left:16px;bottom:46px;font:11px var(--mono);color:var(--sub)}
+.site b{color:var(--text);font-weight:600}
+.res{position:absolute;right:14px;top:14px;bottom:52px;width:var(--resw,284px);padding:14px 16px;border-left:2px solid var(--edge);
+  background:linear-gradient(180deg,rgba(34,44,58,.72),rgba(28,35,48,.45));border-radius:0 6px 6px 0;font:12px/1.55 var(--sans);color:var(--body);overflow:hidden;transition:border-color .2s}
+.res.ok{border-left-color:var(--mint)} .res.ng{border-left-color:var(--err)} .res.zero{border-left-color:var(--warn)}
+.res .tag{font:10.5px var(--mono);color:var(--dim);letter-spacing:.06em}
+.res .badge{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font:600 11px var(--mono);color:var(--sub)}
+.res .badge i{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.res.ok .badge i{background:var(--mint);box-shadow:0 0 8px var(--mint)} .res.ng .badge i{background:var(--hot);box-shadow:0 0 8px var(--hot)}
+.res h3{font:700 15px/1.3 var(--sans);color:var(--text);margin-top:6px;letter-spacing:-.01em}
+.res h3.ng{color:var(--err)} .res h3.ok{color:var(--mint)}
+.res .sub{color:var(--sub);margin-top:3px}
+.res .ev{display:inline-block;margin-top:8px;padding:2px 9px;border:1px solid var(--edge);color:var(--dim);border-radius:999px;font:11px var(--mono);transition:all .15s}
+.res .ev.on{border-color:var(--warn);color:var(--warn)}
+.res .nums{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.res .nums div{color:var(--dim);font-size:10.5px;border-top:1px solid var(--edge);padding-top:5px}
+.res .nums b{display:block;font:300 26px/1.1 var(--mono);color:var(--text)}
+.res .nums b small{font-size:11px;color:var(--dim)}
+.res .nums .bad b{color:var(--hot)} .res .nums .near b{color:var(--warn)}
+.res ul{list-style:none;margin-top:10px}
+.res li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.res ul.wrap li{white-space:normal;margin-bottom:6px}
+.res li.plain::before{content:none}
+.res li::before{content:"✕ ";color:var(--hot)}
+.res .why{margin-top:10px;color:var(--sub)}
+.res .cmp{margin-top:10px;padding-top:8px;border-top:1px dashed var(--edge);font:11px var(--mono);color:var(--blue)}
+.res .next{all:unset;cursor:pointer;margin-top:12px;display:inline-block;font:600 11px var(--mono);color:var(--text);border:1px solid var(--edge);border-radius:999px;padding:5px 12px}
+.res .next small{color:var(--dim);font-weight:400}
+
+/* 아래 8칸 */
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:minmax(0,1fr);gap:6px;min-height:0}
+/* 아래는 한 줄 4칸만(10-25 대표 시안 ⑱). 나머지 4칸은 결과가 나온 뒤 계획안 화면에서 본다 */
+.grid .p.later{display:none}
+.p{background:linear-gradient(180deg,var(--panel2),var(--panel) 40%);border:1px solid var(--line);border-radius:5px;padding:7px 9px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.p h2{font:600 10.5px var(--mono);letter-spacing:.08em;color:var(--text);margin-bottom:4px;display:flex;justify-content:space-between;gap:8px;white-space:nowrap}
+.p h2 em{font-style:normal;font-weight:400;color:var(--dim);letter-spacing:.01em;overflow:hidden;text-overflow:ellipsis}
+.p canvas{flex:1;min-height:0;width:100%}
+.feed{flex:1;overflow:hidden;font:11px/15px var(--mono);color:var(--dim);display:flex;flex-direction:column;justify-content:flex-end}
+.feed div{flex:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.feed .w{color:var(--text)}.feed .m{color:var(--mint)}.feed .c{color:var(--err)}.feed .y{color:var(--warn)}.feed .b{color:var(--cyan)}
+table{width:100%;border-collapse:collapse;font:11px var(--mono);color:var(--body)}
+th{color:var(--dim);font-weight:400;text-align:right;padding:1px 4px;border-bottom:1px solid var(--line)}
+td{text-align:right;padding:1.5px 4px;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;font-family:var(--sans)}
+td.ok{color:var(--mint)} td.ng{color:var(--hot)} td.nr{color:var(--warn)} td.dim{color:var(--dim)}
+tr.hit td:first-child{color:var(--hot)}
+.lane{display:grid;grid-template-columns:minmax(0,1fr) 62px;gap:0 6px;font:11px var(--mono);color:var(--body);margin-bottom:2px}
+.lane span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--sans)}
+.lane span:nth-child(2){text-align:right;color:var(--text)}
+.lane span:nth-child(2) small{color:var(--dim)}
+.lane i{grid-column:1/3;height:3px;background:#141a22;display:block;position:relative;border-radius:2px;overflow:hidden}
+.lane i b{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--err),var(--hot));transition:width .2s}
+.lane.hit span:first-child{color:var(--hot)}
+
+/* 좁은 창(통째 축소가 큰 경우): 기준판 글자를 키워 실제로 읽히게, 줄 수는 줄어듦 */
+.compact .feed{font-size:17px;line-height:24px}
+.compact table,.compact .lane{font-size:16px}
+.compact .lane{grid-template-columns:minmax(0,1fr) 80px}
+.compact .p h2{font-size:15px}.compact .p h2 em{display:none}
+.compact .res{font-size:17px}.compact .res h3{font-size:20px}.compact .res .tag,.compact .res .badge,.compact .res .ev{font-size:15px}
+.compact .res .nums b{font-size:32px}
+.compact .cnt b{font-size:20px}.compact .cnt div{font-size:13px}
+.compact .site{font-size:15px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="head">
+    <h1>BARUN SITE ENGINE / LAYOUT LAB<small id="sub"></small></h1>
+    <div class="cnt" id="cnt"></div>
+    <div class="speed">재생 <span id="speeds" style="display:flex;gap:4px"></span></div>
+  </header>
+
+  <section class="hero">
+    <canvas id="hero"></canvas>
+    <div class="site" id="site"></div>
+    <div class="res" id="res"></div>
+  </section>
+
+  <section class="grid">
+    <div class="p"><h2>탐색 기록 <em id="feedTag"></em></h2><div class="feed" id="feed"></div></div>
+    <div class="p"><h2>후보 분포 <em>건폐 × 용적 · <span style="color:var(--blue)">― 실제 준공</span></em></h2><canvas id="cScatter"></canvas></div>
+    <div class="p later"><h2>후보 검증표 <em id="vTag"></em></h2><div id="verify"></div></div>
+    <div class="p"><h2>평면 <em id="planTag"></em></h2><canvas id="cPlan"></canvas></div>
+    <div class="p later"><h2>탈락 원인 <em>탈락 / 검사 · 재생 표본 · 중복 집계</em></h2><div id="lanes"></div></div>
+    <div class="p later"><h2>용적률 추이 <em><span style="color:var(--mint)">― 최고 통과안</span> · <span style="color:var(--blue)">― 준공</span></em></h2><canvas id="cTrace"></canvas></div>
+    <div class="p later"><h2>배치 방식 비교 <em>재생 표본</em></h2><div id="mix"></div></div>
+    <div class="p"><h2>대지 조건 <em id="siteTag"></em></h2><div id="siteInfo"></div></div>
+  </section>
+</div>
+
+<script src="site_example.js"></script>
+<script>
+// 예시 기록(site_example.js)은 설치판에 싣지 않는다. 없으면 기록 재생을 시작하지 않고 site-wait-frame.js 가 실제 값과 '계산 중'만 보인다.
+if (!window.ENGINE_RUN) {
+  // 기록 재생은 멈추되 판 크기는 맞춘다. 안 맞추면 1600px 판 그대로 왼쪽 위만 보인다(맥 설치판 빈 화면, 10-24). 아래 fitApp 과 같은 계산.
+  const fitOnly = () => { const W = Math.max(1000, Math.min(1600, innerWidth)), H = W * innerHeight / innerWidth, app = document.querySelector(".app"), s = innerWidth / W;
+    document.body.classList.toggle("compact", innerWidth < 1000); app.style.width = W + "px"; app.style.setProperty("--H", H + "px");
+    app.style.transform = `translate(${(innerWidth - W * s) / 2}px,${(innerHeight - H * s) / 2}px) scale(${s})`; };
+  fitOnly(); addEventListener("resize", fitOnly);
+  throw new Error("예시 기록 없음 · 실제 값만 표시");
+}
+const D = window.ENGINE_RUN, IT =D.items.filter(i => i.cands || i.n_cand === 0);
+const $ = id => document.getElementById(id);
+const fmt = (v, d = 1) => v == null ? "–" : (+v).toFixed(d);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const hex = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+const PAL = {mint: "#A4E4CE", teal: "#70BFB8", cyan: "#75DDE8", blue: "#82AFFF", steel: "#8FB7CA", ai: "#CABBF1", green: "#79AD91", warn: "#F2CA89", err: "#E9A9AA", hot: "#FF727A", text: "#E8EEF5", glow: "#28465A"};
+const K = Object.fromEntries(Object.entries(PAL).map(([k, v]) => [k, hex(v)]));
+const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+const pad4 = n => String(n).padStart(4, "0");
+const short = (s, n = 22) => s && s.length > n ? s.slice(0, n) + "…" : (s || "");
+function bbox(pts) { let a = [1e9, 1e9, -1e9, -1e9]; pts.forEach(([x, y]) => { a = [Math.min(a[0], x), Math.min(a[1], y), Math.max(a[2], x), Math.max(a[3], y)]; }); return a; }
+const centroid = pts => { const b = bbox(pts); return [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2]; };
+// 규칙 표시 이름(엔진 내부 이름 → 짧은 말)
+const NAMES = [[/요청 전용면적 수용\(코어 차감\)/, "전용면적 확보(코어 차감)"], [/요청 전용면적 수용\(공용 0/, "전용면적 확보(공용 0)"], [/^차로 너비/, "차로 폭"], [/구획별 앞쪽 차로/, "구획 앞 차로 연결"],
+  [/주차대수/, "주차 대수"], [/코어 배치/, "코어 배치"], [/코어 승강기/, "승강기 필요"], [/도시형 탐색 종류/, "주택 종류 일치"], [/요청 세대수/, "세대수 수용"], [/90° 미만 모서리/, "예각 모서리 없음"],
+  [/^(\d+)F 건축가능영역/, "$1층 건축선 안"], [/^건폐율/, "건폐율"], [/^용적률/, "용적률"], [/^이격 (.+)/, "이격 $1"]];
+const nm = r => { for (const [re, t] of NAMES) if (re.test(r)) return r.replace(re, t).replace(/\(.*$/, m => m.length > 12 ? "" : m); return short(r.replace(/\(.*?\)/g, "").trim(), 16); };
+
+let SPEED = 1;
+const RATE = 6;
+$("sub").textContent = `${D.started} · engine ${D.engine} · 부산 실제 준공 필지 · 후보 도형·규칙은 엔진 실행 기록 재생`;
+$("speeds").innerHTML = [1, 2, 4].map(v => `<button data-v="${v}">${v}×</button>`).join("");
+$("speeds").querySelectorAll("button").forEach(b => b.onclick = () => { SPEED = +b.dataset.v; $("speeds").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b)); });
+$("speeds").firstChild.classList.add("on");
+
+/* ---------- 대지 조건(땅 하나) ---------- */
+function paintSite() {
+  const it = S.it, sun = /주거/.test(it.zone || ""), fin = S.phase === "final", ok = it.status === "ok";
+  const row = (k, v, cls = "") => `<tr><td>${k}</td><td class="${cls}" style="text-align:right">${v}</td></tr>`;
+  $("siteInfo").innerHTML = `<table>
+    ${row("대지 면적", `${fmt(it.site)}㎡`)}
+    ${row("용도지역", it.zone || "–")}
+    ${row("허용 건폐 · 용적", `${fmt(it.bcr_max, 0)}% · ${fmt(it.far_max, 0)}%`)}
+    ${row("접도 · 붙은 도로", `${fmt(it.road)}m · ${(it.roads || []).length}곳`)}
+    ${row("정북 일조 사선", sun ? "적용(주거지역)" : "해당 없음", sun ? "nr" : "dim")}
+    ${row("엔진 결과", fin ? (ok ? `${it.floors}층 · 용적 ${fmt(it.far)}%` : "선택안 없음") : "검토 중", fin ? (ok ? "ok" : "ng") : "dim")}
+    ${row("실제 준공", `${it.built_floors ?? "—"}층 · 용적 ${fmt(it.built_far)}%`, "")}
+  </table>`;
+  $("siteTag").textContent = `${it.id} · ${it.gu || ""}`;
+}
+
+/* ---------- 단계: 법규 → 대지 분석 → 건축가능영역 → 목표 → 후보 탐색 → 선택 → 결과 ---------- */
+const PH = [["law", "법규 검토", 2.8], ["site", "대지 분석", 2.6], ["env", "건축가능영역", 2.8], ["target", "목표·주차", 1.8], ["run", "후보 탐색", 0], ["pick", "선택", 1.8], ["final", "결과", 0]];
+const PHI = Object.fromEntries(PH.map((p, i) => [p[0], i]));
+const ringArea = r => { let a = 0; for (let i = 0; i < r.length - 1; i++) a += r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1]; return Math.abs(a) / 2; };
+function drawPhaseStrip() {
+  let x = MODEL.x; const y = 50, cur = PHI[S.phase];
+  PH.forEach(([id, name], i) => {
+    const done = i < cur, on = i === cur, t = `${"①②③④⑤⑥⑦"[i]} ${name}`;
+    g.font = `${on ? 600 : 400} 12px 'Barun Drawing Korean', sans-serif`; const w = g.measureText(t).width;
+    if (on) { g.fillStyle = rgba(K.cyan, .16); g.fillRect(x - 6, y - 14, w + 12, 20); g.fillStyle = rgba(K.cyan, 1); g.fillRect(x - 6, y + 5, (w + 12) * (S.phase === "run" ? Math.max(0, S.k + 1) / Math.max(1, S.list.length) : S.phase === "final" ? 1 : clamp(S.pt / (PH[i][2] || 1), 0, 1)), 2); }
+    g.fillStyle = on ? rgba(K.text, 1) : done ? rgba(K.mint, .9) : rgba(K.steel, .45); g.fillText(t, x, y);
+    x += w + 22; if (i < PH.length - 1) { g.fillStyle = rgba(K.steel, .35); g.fillText("→", x - 16, y); }
+  });
+}
+let preAt = -1;
+function drawPre() {
+  const it = S.it, A = S.an, p = clamp(S.pt / PH[PHI[S.phase]][2], 0, 1);
+  if (S.phase === "law") {
+    const y = MODEL.y + MODEL.h * (.15 + .7 * ((S.pt * 1.3) % 1)); g.strokeStyle = rgba(K.cyan, .5); g.beginPath(); g.moveTo(MODEL.x, y); g.lineTo(MODEL.x + MODEL.w, y); g.stroke();
+    const n = Math.floor(p * S.rules.length); while (S.lawN < n) { const r = S.rules[S.lawN++]; feed(`  <span class="b">·</span> 적용 규칙 · ${r}`); }
+  } else if (S.phase === "site" || S.phase === "env" || S.phase === "target") {
+    const E = A.edges || [], n = S.phase === "site" ? Math.ceil(p * E.length) : E.length;
+    E.slice(0, n).forEach((e, i) => {
+      const col = e.kind === "road" ? K.cyan : e.north ? K.warn : K.steel, a = P(...e.p0), b = P(...e.p1);
+      g.save(); g.strokeStyle = rgba(col, 1); g.lineWidth = e.kind === "road" ? 4 : 2; g.shadowColor = rgba(col, .8); g.shadowBlur = 8; g.beginPath(); g.moveTo(...a); g.lineTo(...b); g.stroke(); g.restore();
+      if (S.phase === "site") { const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], t = e.kind === "road" ? `도로 ${fmt(e.w)}m · ${fmt(e.len)}m` : e.north ? `정북 ${fmt(e.len)}m` : `인접 ${fmt(e.len)}m`;
+        g.font = "600 11px Consolas, Menlo, monospace"; const w = g.measureText(t).width + 10; g.fillStyle = "rgba(22,26,33,.88)"; g.fillRect(m[0] - w / 2, m[1] - 22, w, 17); g.fillStyle = rgba(col, 1); g.fillText(t, m[0] - w / 2 + 5, m[1] - 9); }
+    });
+    if (A.site_eff && (S.phase !== "site" || p > .7)) { path(g, A.site_eff); g.save(); g.setLineDash([5, 4]); g.strokeStyle = rgba(K.mint, .9); g.lineWidth = 1.4; g.stroke(); g.restore(); g.fillStyle = rgba(K.mint, .05); g.fill(); }
+    if (S.phase !== "site") {
+      const F = (A.floors || []).filter(Boolean), m = S.phase === "env" ? Math.ceil(easeOut(p) * F.length) : F.length;
+      F.slice(0, m).forEach((r, i) => { const z = i * 3, a = S.phase === "target" ? .45 : 1;
+        r.forEach(v => { g.strokeStyle = rgba(K.mint, .25 * a); g.beginPath(); g.moveTo(...P(...v, z)); g.lineTo(...P(...v, z + 3)); g.stroke(); });
+        path(g, r, z + 3); g.fillStyle = rgba(K.mint, .06 * a); g.fill(); g.strokeStyle = rgba(K.mint, .8 * a); g.lineWidth = 1.1; g.stroke();
+        if (S.phase === "env") { const q = r.reduce((b, v) => { const w = P(...v, z + 3); return w[0] > b[0] ? w : b; }, [-1e9, 0]); g.font = "11px Consolas, Menlo, monospace"; g.fillStyle = rgba(K.mint, .95); g.fillText(`${i + 1}F ${fmt(ringArea(r), 1)}㎡`, q[0] + 10, q[1] + 4); } });
+      if (S.phase === "target") { const road = (A.edges || []).filter(e => e.kind === "road").sort((a, b) => (a.w || 0) - (b.w || 0))[0];
+        if (road) { const m = [(road.p0[0] + road.p1[0]) / 2, (road.p0[1] + road.p1[1]) / 2], c = centroid(it.parcel), v = [c[0] - m[0], c[1] - m[1]], L = Math.hypot(...v) || 1, a = P(m[0] - v[0] / L * 6, m[1] - v[1] / L * 6), b = P(m[0] + v[0] / L * 3, m[1] + v[1] / L * 3);
+          g.strokeStyle = rgba(K.cyan, 1); g.lineWidth = 2.5; g.beginPath(); g.moveTo(...a); g.lineTo(...b); g.stroke(); g.fillStyle = rgba(K.cyan, 1); g.beginPath(); g.arc(b[0], b[1], 4, 0, 6.29); g.fill(); g.font = "600 12px 'Barun Drawing Korean', sans-serif"; g.fillText("진입 도로", a[0] - 30, a[1] + 18); } }
+    }
+  }
+  if (RT - preAt > .1) { preAt = RT; preRes(p); }
+}
+function preRes(p) {
+  const it = S.it, A = S.an, r = $("res");
+  if (S.phase === "law") {
+    const n = Math.floor(p * S.rules.length), list = S.rules.slice(Math.max(0, n - 9), n);
+    r.className = "res"; r.innerHTML = `<div class="tag">① 법규 검토 · 엔진이 이 대지에 거는 규칙</div><div class="badge"><i></i>적용 규칙 ${n}/${S.rules.length} 불러옴 · 판정은 후보 검사에서</div>
+      <h3>${it.zone}</h3><div class="sub">건폐 ≤ ${fmt(it.bcr_max, 0)}% · 용적 ≤ ${fmt(it.far_max, 0)}% · ${it.use || ""} · 정북 일조 ${A.sun ? "적용" : "해당 없음"}</div>
+      <ul style="margin-top:10px">${list.map(x => `<li class="plain" style="list-style:none;font-size:12px"><span style="color:var(--dim)">·</span> ${nm(x)}</li>`).join("")}</ul>`;
+  } else if (S.phase === "site") {
+    const E = A.edges || [], roads = E.filter(e => e.kind === "road");
+    r.className = "res"; r.innerHTML = `<div class="tag">② 대지 분석 · 변 분류(도로·정북·인접)</div><div class="badge"><i></i>변 ${E.length}개 · 도로 ${roads.length}개</div>
+      <h3>대지 ${fmt(it.site, 1)}㎡</h3><div class="sub">접도 ${fmt(it.road)}m · ${roads.map(e => `도로 폭 ${fmt(e.w)}m`).join(" · ")}</div>
+      <ul style="margin-top:10px">${E.map(e => `<li class="plain" style="list-style:none;font-size:12px;font-family:var(--mono)"><span style="color:${e.kind === "road" ? "var(--cyan)" : e.north ? "var(--warn)" : "var(--dim)"}">●</span> ${e.kind === "road" ? "도로" : e.north ? "정북" : "인접"} ${fmt(e.len)}m${e.bl ? ` · 건축선 후퇴 ${e.bl}m` : ""}${e.os ? ` · 공지 ${e.os}m` : ""}</li>`).join("")}</ul>`;
+  } else if (S.phase === "env") {
+    const F = (A.floors || []).filter(Boolean);
+    r.className = "res"; r.innerHTML = `<div class="tag">③ 건축가능영역 · 후퇴·공지·${A.sun ? "정북 일조 사선" : "높이"} 반영</div><div class="badge"><i></i>층별 영역 ${F.length}개</div>
+      <h3>최대 연면적 ${fmt(A.max_gfa, 1)}㎡</h3><div class="sub">최대 건축면적 ${fmt(A.max_ba, 1)}㎡ · 실효 대지 ${A.site_eff ? fmt(ringArea(A.site_eff), 1) : "–"}㎡</div>
+      <div class="nums">${F.slice(0, 3).map((f, i) => `<div>${i + 1}층<b>${fmt(ringArea(f), 0)}<small>㎡</small></b></div>`).join("")}</div>`;
+  } else if (S.phase === "target") {
+    const pr = (S.list[0] || {}).pr ?? it.park_req;
+    r.className = "res"; r.innerHTML = `<div class="tag">④ 목표·주차 · 탐색 출발 조건</div><div class="badge"><i></i>요청 ${A.floors_req ?? "–"}층 · ${it.use || ""}</div>
+      <h3>목표 연면적 ≤ ${fmt(A.max_gfa, 0)}㎡</h3><div class="sub">법정 주차 ${pr ?? "–"}대 · 진입 도로 = 폭 4m 이상 도로 중 좁은 쪽</div>
+      <div class="nums"><div>건폐 상한<b>${fmt(A.bcr, 0)}<small>%</small></b></div><div>용적 상한<b>${fmt(A.far, 0)}<small>%</small></b></div><div>주차<b>${pr ?? "–"}<small>대</small></b></div></div>
+      <div class="why">이 조건으로 후보 ${it.n_cand.toLocaleString()}개를 만들어 하나씩 검사 →</div>`;
+  } else if (S.phase === "pick") {
+    const okc = S.list.filter(c => c.s === -1).sort((a, b) => (b.far || 0) - (a.far || 0)).slice(0, 4);
+    r.className = "res ok"; r.innerHTML = `<div class="tag">⑥ 선택 · 통과 후보 중 용적 최대</div><div class="badge"><i></i>엔진 통과 ${it.n_ok.toLocaleString()}/${it.n_cand.toLocaleString()}</div>
+      <h3 class="${it.n_ok ? "ok" : "ng"}">${it.n_ok ? "용적 순위(재생 표본)" : "통과 후보 없음"}</h3>
+      <ul style="margin-top:8px">${okc.map((c, i) => `<li class="plain" style="list-style:none;font-family:var(--mono);font-size:12px"><span style="color:var(--mint)">${i + 1}위</span> #${pad4(c.q)} ${c.f}F · 용적 ${fmt(c.far)}%${c.sel ? ' <span style="color:var(--mint)">← 선택</span>' : ""}</li>`).join("")}</ul>`;
+  }
+}
+
+/* ---------- 상태 ---------- */
+const S = {si: -1};
+function startSite(si) {
+  const it = IT[si], C = it.cands;
+  if (C && !C._named) { C.sample.forEach(c => { c.x = c.x.map(i => C.rn[i]); c.c = c.c.map(([i, o]) => [C.rn[i], !!o]); }); C._named = true; }
+  Object.assign(S, {si, it, list: C ? C.sample : [], k: -1, kf: 0, t: 0, phase: "run", fin: 0, ghosts: [], trail: [], tape: [], laneCnt: {}, laneChk: {}, shownOk: 0,
+    seenWhy: new Set(), best: null, pulses: [], probes: [], probeAt: 0, mix: {}, cur: null, ev: null, evAt: -9, farMax: (it.far_max || 100) * 1.25});
+  const [x0, y0, x1, y1] = bbox(it.parcel);
+  S.c = [(x0 + x1) / 2, (y0 + y1) / 2]; S.w = x1 - x0; S.h = y1 - y0; S.span = Math.max(S.w, S.h, 8);
+  const maxF = Math.ceil((it.far_max || 200) / Math.max(10, it.bcr_max || 60)) + 1;
+  const fMax = Math.max(it.floors || 0, ...(C ? C.sample.map(c => c.f || 0) : [0]));
+  S.maxH = Math.min(S.span * 1.5, (fMax || maxF) * 3);
+  S.selIdx = S.list.findIndex(c => c.sel);
+  S.an = (C && C.analysis) || null; S.rules = (C && C.rules_all) || []; S.pt = 0; S.lawN = 0;
+  if (S.an && S.an.edges) S.phase = "law";
+  $("site").innerHTML = `<b>${it.id}</b> · ${it.gu || ""} · ${it.zone || ""} · 대지 ${fmt(it.site)}㎡ · 접도 ${fmt(it.road)}m · ${it.use || ""}`;
+  $("feed").innerHTML = "";
+  feed(`<span class="w">▸ ${it.id}</span> 필지 조건 · ${fmt(it.site)}㎡ · ${it.zone} · 건폐 ≤${fmt(it.bcr_max, 0)}% · 용적 ≤${fmt(it.far_max, 0)}%`);
+  if (S.phase === "law") feed(`<span class="w">① 법규 검토</span> · ${it.zone} · 건폐 ≤${fmt(it.bcr_max, 0)}% · 용적 ≤${fmt(it.far_max, 0)}% · 규칙 ${S.rules.length}개`);
+  feed(it.n_cand ? `  <span class="b">후보 배치</span> · 엔진 후보 ${it.n_cand.toLocaleString()}개 중 ${S.list.length}개 실제 도형 재생` : `  <span class="y">후보 생성 0건</span> · 기록된 제외 사유 확인`);
+  resize(); paintSite(); showRes(); verify(null); lanes([]); drawScatter(); drawTrace(); mixTable(); drawPlan();
+}
+
+/* ---------- 투영 ---------- */
+const theta = .6, cam = {s: 1, ox: 0, oy: 0};
+function P(x, y, z = 0) {
+  const dx = x - S.c[0], dy = y - S.c[1], c = Math.cos(theta), s = Math.sin(theta);
+  return [cam.ox + (dx * c - dy * s) * cam.s, cam.oy - (dx * s + dy * c) * cam.s * .55 - z * cam.s * .8];
+}
+const depth = (x, y) => { const dx = x - S.c[0], dy = y - S.c[1]; return dx * Math.sin(theta) + dy * Math.cos(theta); };
+function path(g, pts, z = 0, ox = 0, oy = 0) { g.beginPath(); pts.forEach(([x, y], k) => { const [X, Y] = P(x, y, z); k ? g.lineTo(X + ox, Y + oy) : g.moveTo(X + ox, Y + oy); }); g.closePath(); }
+
+/* ---------- 캔버스·배치 ---------- */
+const hero = $("hero"), g = hero.getContext("2d");
+let HW = 0, HH = 0, ARCW = 330, RESW = 316, MODEL = {x: 0, y: 0, w: 0, h: 0};
+let SCALE = 1;
+function fitApp() {
+  // 창 비율에 맞춰 기준판 높이 900~1000, 그다음 통째로 맞춤(스크롤 없음)
+  const W = Math.max(1000, Math.min(1600, innerWidth)), H = W * innerHeight / innerWidth, app = document.querySelector(".app");
+  SCALE = innerWidth / W;
+  document.body.classList.toggle("compact", innerWidth < 1000);
+  app.style.width = W + "px";
+  app.style.setProperty("--H", H + "px");
+  app.style.transform = `translate(${(innerWidth - W * SCALE) / 2}px,${(innerHeight - H * SCALE) / 2}px) scale(${SCALE})`;
+}
+function fitCanvas(cv) { const r = (devicePixelRatio || 1) * Math.max(SCALE, .5), w = cv.clientWidth, h = cv.clientHeight; cv.width = Math.max(1, w * r); cv.height = Math.max(1, h * r); cv.getContext("2d").setTransform(r, 0, 0, r, 0, 0); return [w, h]; }
+let pendingResize = false;
+function resize() {
+  if(document.hidden || PAUSED){pendingResize=true;return;}pendingResize=false;
+  [HW, HH] = fitCanvas(hero); ["cScatter", "cPlan", "cTrace"].forEach(id => fitCanvas($(id)));
+  if (!S.it) return;
+  ARCW = 250; RESW = parseFloat(getComputedStyle($("res")).width) || 316;
+  MODEL = {x: ARCW + 20, y: 20, w: HW - ARCW - RESW - 48, h: HH - 20 - 52};
+  const pts = []; S.it.parcel.forEach(([x, y]) => { pts.push([x, y, 0], [x, y, S.maxH]); });
+  const c = Math.cos(theta), s = Math.sin(theta); let a = [1e9, 1e9, -1e9, -1e9];
+  pts.forEach(([x, y, z]) => { const dx = x - S.c[0], dy = y - S.c[1], X = dx * c - dy * s, Y = -(dx * s + dy * c) * .55 - z * .8; a = [Math.min(a[0], X), Math.min(a[1], Y), Math.max(a[2], X), Math.max(a[3], Y)]; });
+  cam.s = Math.min(MODEL.w * .9 / (a[2] - a[0] || 1), MODEL.h * .9 / (a[3] - a[1] || 1));
+  cam.ox = MODEL.x + MODEL.w / 2 - (a[0] + a[2]) / 2 * cam.s; cam.oy = MODEL.y + MODEL.h / 2 - (a[1] + a[3]) / 2 * cam.s;
+  drawScatter(); drawTrace(); drawPlan();
+}
+addEventListener("resize", () => { clearTimeout(resize.t); resize.t = setTimeout(() => { fitApp(); resize(); }, 100); });
+
+/* ---------- 위반 위치: 숫자로 확인되는 것만 ---------- */
+function hits(c) {
+  const it = S.it;
+  return {fp: (c.bcr != null && it.bcr_max != null && c.bcr > it.bcr_max + 1e-6) || (c.far != null && it.far_max != null && c.far > it.far_max + 1e-6),
+          stalls: c.pk != null && c.pr != null && c.pk < c.pr, clear: (c.cl || []).some(q => !q[4])};
+}
+
+/* ---------- 후보 하나 ---------- */
+function advance() {
+  S.k++;
+  const c = S.list[S.k], ok = c.s === -1;
+  if (S.cur) { S.trail.push({c: S.cur, at: T}); if (S.trail.length > 3) S.trail.shift(); }
+  S.cur = c; S.t = 0; S.revealed = false;
+  if (ok) { S.shownOk++; S.ghosts.push(c); }
+  (c.c || []).forEach(([r, o]) => { S.laneChk[r] = (S.laneChk[r] || 0) + 1; if (!o) S.laneCnt[r] = (S.laneCnt[r] || 0) + 1; });
+  const key = `${c.m || "?"}·${c.sh || "?"}`; S.mix[key] = S.mix[key] || {n: 0, ok: 0, far: 0}; S.mix[key].n++; if (ok) { S.mix[key].ok++; S.mix[key].far = Math.max(S.mix[key].far, c.far || 0); }
+  S.farMax = Math.max(S.farMax, (c.far || 0) * 1.08);
+  // 사건: 멈추지 않고 배지만 실제 시간 0.8초 남김
+  let ev = null;
+  if (ok && (!S.best || (c.far || 0) > (S.best.far || 0))) { ev = S.best ? `최고안 갱신 · 용적 ${fmt(S.best.far)} → ${fmt(c.far)}%` : "첫 통과 후보"; S.best = c; }
+  else if (!ok && c.x[0] && !S.seenWhy.has(c.x[0])) { S.seenWhy.add(c.x[0]); ev = `새 탈락 사유 · ${nm(c.x[0])}`; }
+  if (ev) { S.ev = `#${pad4(c.q)} · ${ev}`; S.evAt = RT; }
+  S.tape.push({ok, k: S.k}); if (S.tape.length > 160) S.tape.shift();
+  S.pulses.push({k: S.k, born: T, ok, strands: Array.from({length: 7}, (_, j) => ({dy: (j / 6 - .5) * 40, delay: Math.random() * .1, jit: Math.random() - .5}))});
+  if (S.pulses.length > 10) S.pulses.shift();
+  feed(`<span class="n">${pad4(c.q)}</span> ${c.f ?? "–"}F ${c.m || ""}/${c.sh || ""} · 용적 ${fmt(c.far, 0)} · ${ok ? '<span class="m">✓ 통과</span>' : `<span class="c">✕ ${nm(c.x[0])}</span>`}${ev ? ` <span class="y">· ${ev}</span>` : ""}`);
+  showRes(); drawPlan();
+}
+function finishSite() {
+  S.phase = "final"; S.fin = 0; S.finRT = RT;
+  const it = S.it;
+  paintSite();
+  feed(it.status === "ok" ? `<span class="m">■ 선택</span> · 통과 ${it.n_ok}/${it.n_cand} 중 용적률 최대 · ${it.floors}층 ${it.units}세대 · 용적 ${fmt(it.far)}%`
+    : it.n_cand === 0 ? `<span class="y">■ 후보 생성 단계에서 종료</span>` : `<span class="c">■ 조건을 모두 충족한 후보 없음</span> · 통과 0/${it.n_cand}`);
+  const sel = S.list[S.selIdx];
+  verify(sel ? Object.assign({}, sel, {_final: true}) : null); showRes(); drawPlan(); drawTrace(); drawScatter();
+}
+
+/* ---------- 결과 칸(오른쪽) ---------- */
+function showRes() {
+  const it = S.it, r = $("res"), fin = S.phase === "final";
+  const near = (v, m) => v != null && m != null && v <= m && v >= m * .95;
+  const val = (lab, v, m, ge, unit = "") => { const bad = v != null && m != null && (ge ? v < m : v > m + 1e-6);
+    return `<div class="${bad ? "bad" : near(v, m) && !ge ? "near" : ""}">${lab}<b>${v ?? "–"}<small>${ge ? "≥" : "/"}${m ?? "–"}${unit}</small></b></div>`; };
+  if (fin) {
+    const zero = it.n_cand === 0, ok = it.status === "ok";
+    r.className = `res ${zero ? "zero" : ok ? "ok" : "ng"}`;
+    r.innerHTML = `<div class="tag">${it.id} · 엔진 ${fmt(it.sec, 2)}s 기록</div>
+      <div class="badge"><i></i>${zero ? "후보 생성 단계에서 종료" : ok ? "탐색 완료 · 선택안 확보" : "탐색 완료 · 충족안 없음"}</div>
+      <h3 class="${ok ? "ok" : zero ? "" : "ng"}">${ok ? `${it.floors}층 · 연면적 ${fmt(it.gfa, 0)}㎡` : zero ? "후보 생성 0건" : "조건을 모두 충족한 후보 없음"}</h3>
+      <div class="sub">${ok ? `${it.units ?? "–"}세대 · ${it.use || ""}` : zero ? "바닥·코어·주차 자리를 만들지 못함" : `후보 ${it.n_cand.toLocaleString()}개 모두 하나 이상 규칙에 걸림`}</div>
+      ${ok ? `<div class="nums">${val("건폐", fmt(it.bcr), fmt(it.bcr_max, 0))}${val("용적", fmt(it.far, 0), fmt(it.far_max, 0))}${val("주차", it.park, it.park_req, true)}</div>
+      <div class="why">전체 ${it.n_cand.toLocaleString()}개 중 ${it.n_ok.toLocaleString()}개 통과 · 그중 용적률 최대안</div>`
+      : zero ? `<div class="why">생성 조건 확인 → 후보 생성 0 → 규칙 검사 미실행</div><ul class="wrap">${[...new Set(it.excl || [])].map(e => `<li>${e}</li>`).join("") || "<li>제외 사유 기록 없음</li>"}</ul>`
+      : `<div class="why">재생 표본에서 많이 걸린 규칙</div><ul>${Object.entries(S.laneCnt).sort((a, b) => b[1] - a[1]).slice(0, 3).map(([k, n]) => `<li>${nm(k)} · ${n}건</li>`).join("")}</ul>`}
+      <div class="cmp">실제 준공 · ${it.built_floors ?? "—"}층 · 용적 ${fmt(it.built_far)}%${ok && it.built_far != null ? ` · <b style="font-size:16px;color:var(--mint)">엔진 ${(it.far - it.built_far >= 0 ? "+" : "") + fmt(it.far - it.built_far)}%p</b>` : ""}</div>
+      <button class="next" id="nextBtn">다시 보기 ↺</button>`;
+    $("nextBtn").onclick = () => startSite(S.si);
+    return;
+  }
+  const c = S.cur;
+  r.className = "res";
+  if (!c) { r.innerHTML = `<div class="tag">${it.id}</div><div class="badge"><i></i>후보 배치 시작</div>`; return; }
+  if (!S.revealed) { r.innerHTML = `<div class="tag">후보 #${pad4(c.q)} · 재생 표본 ${S.k + 1}/${S.list.length}</div><div class="badge"><i></i>코어 → 주차 → 건물 앉히는 중</div><h3>검사 기록 확인 중</h3><div class="sub">${c.f ?? "–"}층 · ${c.m || ""}/${c.sh || ""}</div>`; return; }
+  const ok = c.s === -1, pass = c.c.filter(x => x[1]).length;
+  r.className = `res ${ok ? "ok" : "ng"}`;
+  r.innerHTML = `<div class="tag">후보 #${pad4(c.q)} · 재생 ${S.k + 1}/${S.list.length}</div>
+    <div class="badge"><i></i>${ok ? "규칙 검사 통과" : "규칙 검사 탈락"} · ${pass}/${c.c.length}</div>
+    <h3 class="${ok ? "ok" : "ng"}">${ok ? `기록된 검사 ${pass}/${c.c.length} 통과` : nm(c.x[0])}</h3>
+    <div class="sub">${c.f ?? "–"}층 · ${c.m || ""}/${c.sh || ""} · 연면적 ${fmt(c.gfa, 0)}㎡</div>
+    <div class="ev ${RT - S.evAt < 1.5 ? "on" : ""}" id="evb">최근 사건 · ${S.ev || "없음"}</div>
+    <div class="nums">${val("건폐", fmt(c.bcr), fmt(it.bcr_max, 0))}${val("용적", fmt(c.far, 0), fmt(it.far_max, 0))}${val("주차", c.pk, c.pr, true)}</div>
+    ${ok ? "" : `<ul>${c.x.slice(1, 4).map(x => `<li>${nm(x)}</li>`).join("")}</ul>`}`;
+}
+
+/* ---------- 여러 안을 동시에 훑는 모션 ---------- */
+// 실제 다음 후보들(높이가 제각각) + 형태 탐색(일자·ㄱ·ㄷ·T·두 동, 연출)을 땅 위에 잠깐씩 세움
+const FORMS = ["일자", "ㄱ자", "ㄷ자", "T자", "두 동"];
+function frameOf(fp) {
+  let best = [0, 1, 0];
+  for (let k = 0; k < fp.length - 1; k++) { const ex = fp[k + 1][0] - fp[k][0], ey = fp[k + 1][1] - fp[k][1], L = Math.hypot(ex, ey); if (L > best[2]) best = [ex / L, ey / L, L]; }
+  const u = [best[0], best[1]], v = [-u[1], u[0]], c = centroid(fp);
+  let a = [1e9, 1e9, -1e9, -1e9];
+  fp.forEach(([x, y]) => { const du = (x - c[0]) * u[0] + (y - c[1]) * u[1], dv = (x - c[0]) * v[0] + (y - c[1]) * v[1]; a = [Math.min(a[0], du), Math.min(a[1], dv), Math.max(a[2], du), Math.max(a[3], dv)]; });
+  return {u, v, c, a};
+}
+function formPolys(kind, F) {
+  const [u0, v0, u1, v1] = F.a, W = u1 - u0, Dd = v1 - v0, T = (ux, vy) => [F.c[0] + F.u[0] * ux + F.v[0] * vy, F.c[1] + F.u[1] * ux + F.v[1] * vy];
+  const R = (a, b, c, d) => [T(a, b), T(c, b), T(c, d), T(a, d), T(a, b)];
+  const L = (pts) => [...pts.map(([a, b]) => T(a, b)), T(...pts[0])];
+  const t = Math.min(W, Dd) * .42;
+  if (kind === "일자") return [R(u0, v0 + Dd * .2, u1, v1 - Dd * .2)];
+  if (kind === "ㄱ자") return [L([[u0, v0], [u1, v0], [u1, v0 + t], [u0 + t, v0 + t], [u0 + t, v1], [u0, v1]])];
+  if (kind === "ㄷ자") return [L([[u0, v0], [u1, v0], [u1, v1], [u0, v1], [u0, v1 - t * .8], [u1 - t, v1 - t * .8], [u1 - t, v0 + t * .8], [u0, v0 + t * .8]])];
+  if (kind === "T자") return [L([[u0, v1 - t], [u1, v1 - t], [u1, v1], [u0, v1]]), R(u0 + W / 2 - t / 2, v0, u0 + W / 2 + t / 2, v1 - t)];
+  return [R(u0, v0, u0 + W * .42, v1), R(u1 - W * .42, v0, u1, v1)];
+}
+function spawnProbe() {
+  const c = S.cur; if (!c || !c.fp) return;
+  const maxF = Math.max(1, Math.floor(S.maxH / 3));
+  if (Math.random() < .55) {                       // 실제 다음 후보
+    const n = S.list[S.k + 1 + ((Math.random() * 6) | 0)]; if (!n || !n.fp) return;
+    S.probes.push({polys: [n.fp], h: Math.min(S.maxH, (n.f || 1) * 3), born: RT, life: 1, col: K.steel, kind: `#${pad4(n.q)} 다음 후보 ${n.f ?? "–"}F`});
+  } else {                                          // 형태 탐색(연출)
+    const kind = FORMS[(Math.random() * FORMS.length) | 0], f = 1 + ((Math.random() * maxF) | 0);
+    S.probes.push({polys: formPolys(kind, frameOf(c.fp)), h: f * 3, born: RT, life: 1, col: K.warn, kind: `형태 예시·미검증 ${kind} ${f}F`});
+  }
+  if (S.probes.length > 2) S.probes.shift();
+}
+function drawProbes() {
+  S.probes = S.probes.filter(pr => RT - pr.born < pr.life);
+  S.probes.forEach(pr => {
+    const q = (RT - pr.born) / pr.life, a = Math.sin(q * Math.PI) * .7, h = pr.h * easeOut(clamp(q * 2.4, 0, 1));
+    pr.polys.forEach(poly => {
+      g.setLineDash([4, 4]);
+      path(g, poly, 0); g.strokeStyle = rgba(pr.col, .3 * a); g.lineWidth = .8; g.stroke();
+      poly.forEach(pt => { g.strokeStyle = rgba(pr.col, .3 * a); g.beginPath(); g.moveTo(...P(...pt, 0)); g.lineTo(...P(...pt, h)); g.stroke(); });
+      path(g, poly, h); g.fillStyle = rgba(pr.col, .04 * a); g.fill(); g.strokeStyle = rgba(pr.col, .55 * a); g.lineWidth = 1; g.stroke();
+      g.setLineDash([]);
+    });
+    if (pr.kind && q > .15 && q < .85) { const pt = pr.polys[0].reduce((b, v) => { const w = P(...v, h); return w[1] < b[1] ? w : b; }, [0, 1e9]); g.font = "11px Consolas, Menlo, monospace"; g.fillStyle = rgba(pr.col, Math.min(1, a * 1.4)); g.fillText(pr.kind, pt[0] + 6, pt[1] - 6); }
+  });
+}
+// 일조: 정북 경계에서 올라가는 사선 면 + 해 그림자 돌기. 통과·탈락은 실제 채광방향·건축가능영역 검사
+function sunCheck(c) {
+  const rs = (c.c || []).filter(([r]) => /채광방향 높이제한|건축가능영역/.test(r));
+  return rs.length ? {ok: rs.every(x => x[1]), n: rs.length, bad: rs.filter(x => !x[1]).map(x => x[0])} : null;
+}
+function drawSun(c, h, em) {
+  if (!c.fp || !/주거/.test(S.it.zone || "")) return;
+  const par = S.it.parcel, ymax = Math.max(...par.map(p => p[1]));
+  // 북쪽 경계(가장 위쪽 변들)
+  const north = []; for (let k = 0; k < par.length; k++) { const A = par[k], B = par[(k + 1) % par.length]; if ((A[1] + B[1]) / 2 > ymax - S.h * .25) north.push([A, B]); }
+  const sc = sunCheck(c), col = sc && !sc.ok ? K.hot : K.warn;
+  north.forEach(([A, B]) => {
+    const H1 = Math.min(S.maxH, 20), d1 = H1 / 2;            // 높이 h 는 경계에서 h/2 떨어져야(9m 넘는 부분)
+    g.beginPath(); g.moveTo(...P(A[0], A[1], 0)); g.lineTo(...P(B[0], B[1], 0)); g.lineTo(...P(B[0], B[1] - 1.5, 9)); g.lineTo(...P(B[0], B[1] - d1, H1)); g.lineTo(...P(A[0], A[1] - d1, H1)); g.lineTo(...P(A[0], A[1] - 1.5, 9)); g.closePath();
+    const gr = g.createLinearGradient(...P(A[0], A[1], 0), ...P(A[0], A[1] - d1, H1)); gr.addColorStop(0, rgba(K.warn, .01)); gr.addColorStop(1, rgba(K.warn, .08 * em));
+    g.fillStyle = gr; g.fill(); g.strokeStyle = rgba(K.warn, .3 * em); g.lineWidth = 1; g.setLineDash([4, 4]); g.stroke(); g.setLineDash([]);
+  });
+  if (north.length && em > .5) { const [A] = north[0], q = P(A[0], A[1] - Math.min(S.maxH, 20) / 2, Math.min(S.maxH, 20)); g.font = "11px Consolas, Menlo, monospace"; g.fillStyle = rgba(K.warn, .9); g.fillText("일조 제한 개념도 · 그림자 방향 연출", q[0] + 6, q[1] - 6); }
+  // 해 그림자: 방위각이 돌며 건물 그림자가 땅을 쓸고 지나감
+  const az = Math.PI * (.75 + .5 * ((RT / 12) % 1)), len = h * 1.1, dx = -Math.sin(az) * len, dy = -Math.cos(az) * len;
+  path(g, c.fp, 0, 0, 0);
+  const sh = c.fp.map(([x, y]) => [x + dx, y + dy]);
+  g.fillStyle = rgba(K.warn, .04 * em); path(g, sh); g.fill();
+  for (let k = 0; k < c.fp.length - 1; k++) { const A = c.fp[k], B = c.fp[k + 1]; g.beginPath(); g.moveTo(...P(...A)); g.lineTo(...P(...B)); g.lineTo(...P(B[0] + dx, B[1] + dy)); g.lineTo(...P(A[0] + dx, A[1] + dy)); g.closePath(); g.fill(); }
+}
+// 주차: 칸을 옮겨 다니며 실제 주차 규칙을 하나씩 찍음
+function parkRules(c) { return (c.c || []).filter(([r]) => /주차|구획|차로|기계식|연속 배치|연접/.test(r)); }
+function drawParkScan(c, em) {
+  const st = c.st || [];
+  if (c.strip) {                                   // 차로 동선 + 차 한 대가 오감
+    g.save(); path(g, c.strip); g.setLineDash([6, 8]); g.lineDashOffset = -RT * 40; g.strokeStyle = rgba(K.cyan, .6 * em); g.lineWidth = 1.4; g.stroke(); g.restore();
+    if (em > .5) {
+      const F = frameOf(c.strip), [u0, v0, u1, v1] = F.a, m = (v0 + v1) / 2, t = (Math.sin(RT * 1.4) + 1) / 2, cu = lerp(u0 + 2.4, u1 - 2.4, t);
+      const T = (ux, vy) => [F.c[0] + F.u[0] * ux + F.v[0] * vy, F.c[1] + F.u[1] * ux + F.v[1] * vy];
+      const car = [T(cu - 2.3, m - .95), T(cu + 2.3, m - .95), T(cu + 2.3, m + .95), T(cu - 2.3, m + .95), T(cu - 2.3, m - .95)];
+      path(g, car, .4); g.fillStyle = rgba(K.cyan, .55); g.fill(); g.strokeStyle = rgba(K.text, .9); g.lineWidth = 1; g.stroke();
+    }
+  }
+  if (!st.length || em < .5) return;
+  const i = Math.floor(RT / .6) % st.length;
+  st.forEach((p, j) => { if (j === i) return; const seen = j < i; if (!seen) return; const [X, Y] = P(...centroid(p)); g.fillStyle = rgba(K.cyan, .8); g.font = "11px Consolas, Menlo, monospace"; g.fillText("·", X - 2, Y + 3); });
+  const p = st[i], [X, Y] = P(...centroid(p));
+  path(g, p); g.fillStyle = rgba(K.cyan, .3); g.fill(); g.strokeStyle = rgba(K.cyan, 1); g.lineWidth = 2; g.stroke();
+  g.strokeStyle = rgba(K.cyan, .8); g.lineWidth = 1.2; g.beginPath(); g.arc(X, Y, 10 + 5 * Math.sin(RT * 8), 0, 6.29); g.stroke();
+  g.font = "600 11px Consolas, Menlo, monospace"; g.fillStyle = rgba(K.cyan, 1); g.fillText(`${i + 1}/${st.length}`, X + 14, Y + 4);
+}
+// 지금 강조하는 검토(2.2초마다 일조·높이 ↔ 주차) — 판정은 후보 전체 값으로 고정 자리에
+function focusCaption(c, focus) {
+  const x = MODEL.x, y = HH - 104;
+  let head, body, ok;
+  if (focus === 0) { const sc = sunCheck(c); head = /주거/.test(S.it.zone || "") ? "일조·높이 검토" : "높이·건축선 검토"; ok = sc ? sc.ok : null; body = sc ? `채광방향·건축가능영역 ${sc.n}개 검사 ${sc.ok ? "모두 통과" : sc.bad.length + "개 탈락 · " + nm(sc.bad[0])}` : "해당 검사 기록 없음"; }
+  else { const pr = parkRules(c), bad = pr.filter(x => !x[1]); head = "주차 검토"; ok = !bad.length && !(c.pk < c.pr); body = `후보 전체: 설치 ${c.pk ?? "–"} / 필요 ${c.pr ?? "–"}대 · 주차 규칙 ${pr.length - bad.length}/${pr.length}${bad.length ? " · ✕ " + nm(bad[0][0]) : ""}`; }
+  g.fillStyle = "rgba(22,26,33,.85)"; g.fillRect(x - 8, y - 18, Math.min(MODEL.w, 560), 40);
+  g.fillStyle = rgba(focus === 0 ? K.warn : K.cyan, 1); g.fillRect(x - 8, y - 18, 3, 40);
+  g.font = "600 13px 'Barun Drawing Korean', sans-serif"; g.fillText(`지금 보는 검토 · ${head}`, x + 2, y - 1);
+  g.font = "12px Consolas, Menlo, monospace"; g.fillStyle = ok === false ? rgba(K.hot, 1) : ok ? rgba(K.mint, 1) : rgba(K.text, .7); g.fillText(`${ok === false ? "✕" : ok ? "✓" : "·"} ${body}`, x + 2, y + 16);
+}
+
+/* ---------- 무대 그리기 ---------- */
+function drawSeat(c, a, h, ok, pulse, final, parkA = 1, hCore = null) {
+  // ok === null: 아직 판정 전(중립색)
+  const judged = ok !== null, hx = ok || !judged ? {} : hits(c), hot = .55 + .45 * Math.sin(pulse * 10), pa = a * parkA;
+  if (hCore == null) hCore = h;
+  (c.land || []).forEach(p => { path(g, p); g.fillStyle = rgba(K.green, .16 * pa); g.fill(); g.strokeStyle = rgba(K.green, .45 * pa); g.lineWidth = .8; g.stroke(); });
+  if (c.strip) { path(g, c.strip); g.fillStyle = rgba(K.steel, .07 * pa); g.fill(); g.strokeStyle = rgba(K.steel, .3 * pa); g.lineWidth = .8; g.stroke(); }
+  (c.st || []).forEach(p => { path(g, p); g.fillStyle = rgba(hx.stalls ? K.hot : K.cyan, .08 * pa); g.fill(); g.strokeStyle = hx.stalls ? rgba(K.hot, .95 * pa * hot) : rgba(K.cyan, .7 * pa); g.lineWidth = hx.stalls ? 2 : 1; g.stroke(); });
+  if (!c.fp) return;
+  if (h < .05) {                                   // 건물 전: 코어만 먼저 섬
+    if (c.core && hCore > .05) { path(g, c.core, 0); g.fillStyle = rgba(K.ai, .14 * a); g.fill(); c.core.forEach(pt => { g.strokeStyle = rgba(K.ai, .7 * a); g.lineWidth = .9; g.beginPath(); g.moveTo(...P(...pt, 0)); g.lineTo(...P(...pt, hCore + 1)); g.stroke(); }); path(g, c.core, hCore + 1); g.fillStyle = rgba(K.ai, .3 * a); g.fill(); g.strokeStyle = rgba(K.ai, .95 * a); g.lineWidth = 1.2; g.stroke(); }
+    path(g, c.fp); g.strokeStyle = rgba(K.steel, .35 * a); g.setLineDash([3, 3]); g.lineWidth = 1; g.stroke(); g.setLineDash([]);
+    return;
+  }
+  const side = ok ? K.teal : K.steel, top = ok ? K.mint : K.steel;
+  const fp = c.fp, n = fp.length, light = [Math.cos(theta + 2.2), Math.sin(theta + 2.2)], faces = [];
+  for (let k = 0; k < n - 1; k++) { const A = fp[k], B = fp[k + 1], ex = B[0] - A[0], ey = B[1] - A[1], L = Math.hypot(ex, ey) || 1; faces.push({A, B, d: depth((A[0] + B[0]) / 2, (A[1] + B[1]) / 2), sh: Math.max(0, (ey * light[0] - ex * light[1]) / L)}); }
+  faces.sort((p, q) => q.d - p.d);
+  faces.forEach(f => {
+    const a0 = P(...f.A, 0), a1 = P(...f.A, h);
+    g.beginPath(); g.moveTo(...a0); g.lineTo(...P(...f.B, 0)); g.lineTo(...P(...f.B, h)); g.lineTo(...a1); g.closePath();
+    const gr = g.createLinearGradient(a0[0], a0[1], a1[0], a1[1]);
+    const base = ok ? .14 + .1 * f.sh : .06 + .06 * f.sh;
+    gr.addColorStop(0, rgba(side, base * .6 * a)); gr.addColorStop(1, rgba(top, base * 1.3 * a));
+    g.fillStyle = gr; g.fill(); g.strokeStyle = rgba(side, (ok ? .5 : .45) * a); g.lineWidth = .8; g.stroke();
+  });
+  for (let z = 3; z < h - .01; z += 3) { path(g, fp, z); g.strokeStyle = rgba(top, .16 * a); g.lineWidth = .6; g.stroke(); }
+  if (c.core) {
+    path(g, c.core, 0); g.fillStyle = rgba(K.ai, .12 * a); g.fill();
+    c.core.forEach(pt => { g.strokeStyle = rgba(K.ai, .6 * a); g.lineWidth = .8; g.beginPath(); g.moveTo(...P(...pt, 0)); g.lineTo(...P(...pt, Math.max(h, hCore) + 1)); g.stroke(); });
+    path(g, c.core, Math.max(h, hCore) + 1); g.fillStyle = rgba(K.ai, .26 * a); g.fill(); g.strokeStyle = rgba(K.ai, .85 * a); g.lineWidth = 1; g.stroke();
+  }
+  path(g, fp, h); g.fillStyle = rgba(top, (ok ? .3 : .1) * a); g.fill();
+  g.save();
+  if (hx.fp) { g.setLineDash([6, 4]); g.strokeStyle = rgba(K.hot, .95 * a * hot); g.lineWidth = 2; }
+  else { if (final || ok) { g.shadowColor = rgba(top, .9); g.shadowBlur = final ? 12 : 8; } g.strokeStyle = rgba(top, (ok ? .95 : .7) * a); g.lineWidth = ok ? 1.6 : 1.1; }
+  g.stroke(); g.restore();
+  (c.cl || []).forEach(([x, y, d, r, o]) => {
+    if (x == null) return; const q = P(x, y);
+    if (o) { g.fillStyle = rgba(K.mint, .55 * a); g.beginPath(); g.arc(q[0], q[1], 1.6, 0, 6.29); g.fill(); return; }
+    g.strokeStyle = rgba(K.hot, .95 * a); g.lineWidth = 2; g.beginPath(); g.arc(q[0], q[1], 4 + 3 * hot, 0, 6.29); g.stroke();
+  });
+}
+// 모형 위 글자: 건물 투영 영역을 피해 지시선으로 붙임(최대 2개)
+function massRect(c, h) {
+  let a = [1e9, 1e9, -1e9, -1e9];
+  [...(c.fp || []), ...(c.core || [])].forEach(pt => [0, h + 1].forEach(z => { const [X, Y] = P(...pt, z); a = [Math.min(a[0], X), Math.min(a[1], Y), Math.max(a[2], X), Math.max(a[3], Y)]; }));
+  return {x: a[0] - 12, y: a[1] - 12, w: a[2] - a[0] + 24, h: a[3] - a[1] + 24};
+}
+const hitR = (A, B) => A.x < B.x + B.w && B.x < A.x + A.w && A.y < B.y + B.h && B.y < A.y + A.h;
+function labels(reqs, obstacles) {
+  const placed = [];
+  g.font = "600 12px 'Barun Drawing Korean', sans-serif";
+  reqs.slice(0, 2).forEach(q => {
+    const w = Math.max(...q.lines.map((t, j) => { g.font = j ? "11px Consolas, Menlo, monospace" : "600 12px 'Barun Drawing Korean', sans-serif"; return g.measureText(t).width; })) + 16, hgt = 18 * q.lines.length + 6;
+    const opts = [[36, -hgt - 14], [36, 14], [-w - 36, -hgt - 14], [-w - 36, 14], [-w / 2, -hgt - 46], [60, -hgt / 2], [-w - 60, -hgt / 2]];
+    let best = null;
+    for (const [dx, dy] of opts) {
+      const R = {x: q.ax + dx, y: q.ay + dy, w, h: hgt};
+      if (R.x < MODEL.x || R.x + R.w > MODEL.x + MODEL.w + 20 || R.y < 8 || R.y + R.h > HH - 52) continue;
+      if (obstacles.some(o => hitR(R, o)) || placed.some(o => hitR(R, o))) continue;
+      best = R; break;
+    }
+    if (!best) return;
+    placed.push(best);
+    const ex = best.x > q.ax ? best.x : best.x + best.w, ey = best.y + best.h / 2;
+    g.strokeStyle = rgba(q.col, .8); g.lineWidth = 1; g.beginPath(); g.moveTo(q.ax, q.ay); g.lineTo(ex + (best.x > q.ax ? -10 : 10), ey); g.lineTo(ex, ey); g.stroke();
+    g.fillStyle = rgba(q.col, 1); g.beginPath(); g.arc(q.ax, q.ay, 3, 0, 6.29); g.fill();
+    g.fillStyle = "rgba(22,26,33,.94)"; g.fillRect(best.x, best.y, best.w, best.h);
+    g.fillStyle = rgba(q.col, 1); g.fillRect(best.x, best.y, 2, best.h);
+    q.lines.forEach((t, j) => { g.font = j ? "11px Consolas, Menlo, monospace" : "600 12px 'Barun Drawing Korean', sans-serif"; g.fillStyle = j ? rgba(K.text, .8) : rgba(q.col, 1); g.fillText(t, best.x + 9, best.y + 17 + j * 18); });
+  });
+}
+function arcGeom() { const R = HH * .85, cx = ARCW - 120 - R, cy = (HH - 40) / 2, step = 62 / R; return {R, cx, cy, step}; }
+function cardPos(k) { const {R, cx, cy, step} = arcGeom(), a = (k - S.kf) * step; return {x: cx + R * Math.cos(a), y: cy + R * Math.sin(a), a}; }
+function bez(p0, p1, p2, p3, t) { const u = 1 - t; return [u * u * u * p0[0] + 3 * u * u * t * p1[0] + 3 * u * t * t * p2[0] + t * t * t * p3[0], u * u * u * p0[1] + 3 * u * u * t * p1[1] + 3 * u * t * t * p2[1] + t * t * t * p3[1]]; }
+function drawStreams() {
+  S.pulses = S.pulses.filter(p => T - p.born < .9);
+  S.pulses.forEach(p => {
+    const c = S.list[p.k]; if (!c) return;
+    const cp = cardPos(p.k), age = T - p.born, cur = p.k === S.k, fade = 1 - age / .9;
+    const base = c.fp ? c.fp.reduce((b, v) => { const w = P(...v, 0); return w[0] < b[0] ? w : b; }, [1e9, 0]) : P(...S.c), tgt = [base[0] - 20, base[1] - 40];
+    const head = p.ok ? K.mint : K.hot;
+    p.strands.forEach(s => {
+      const p0 = [cp.x + 40, cp.y + s.dy * .4], p3 = [tgt[0] + s.jit * 40, tgt[1] + s.dy * 1.6], p1 = [p0[0] + 180, p0[1] + s.dy], p2 = [p3[0] - 200, p3[1] - s.dy * .5];
+      const gr = g.createLinearGradient(p0[0], 0, p3[0], 0); gr.addColorStop(0, rgba(K.cyan, (cur ? .14 : .06) * fade)); gr.addColorStop(1, rgba(head, (cur ? .14 : .05) * fade));
+      g.strokeStyle = gr; g.lineWidth = .7; g.beginPath(); g.moveTo(...p0); g.bezierCurveTo(...p1, ...p2, ...p3); g.stroke();
+      const t = clamp((age - s.delay) / .24, 0, 1); if (t <= 0 || t >= 1) return;
+      g.strokeStyle = rgba(t < .6 ? K.cyan : head, .85 * fade); g.lineWidth = 1.4; g.beginPath();
+      for (let q = 0; q <= 8; q++) { const pt = bez(p0, p1, p2, p3, clamp(t - .14 + q * .0175, 0, 1)); q ? g.lineTo(...pt) : g.moveTo(...pt); }
+      g.stroke();
+      const hd = bez(p0, p1, p2, p3, t); g.save(); g.shadowColor = rgba(head, 1); g.shadowBlur = 6; g.fillStyle = rgba(head, fade); g.beginPath(); g.arc(hd[0], hd[1], 2, 0, 6.29); g.fill(); g.restore();
+    });
+  });
+}
+function drawArc() {
+  const {R, cx, cy} = arcGeom(), it = S.it, list = S.list;
+  g.strokeStyle = rgba(K.cyan, .16); g.lineWidth = 1; g.beginPath(); g.arc(cx, cy, R - 34, -1.4, 1.4); g.stroke();
+  g.setLineDash([2, 7]); g.strokeStyle = rgba(K.steel, .2); g.beginPath(); g.arc(cx, cy, R - 46, -1.4, 1.4); g.stroke(); g.setLineDash([]);
+  for (let k = -40; k <= 40; k++) { const a = (k - (S.kf % 1)) * .02, r1 = R - 40, r2 = R - (k % 5 ? 36 : 30); g.strokeStyle = rgba(K.steel, .18); g.beginPath(); g.moveTo(cx + r1 * Math.cos(a), cy + r1 * Math.sin(a)); g.lineTo(cx + r2 * Math.cos(a), cy + r2 * Math.sin(a)); g.stroke(); }
+  for (let k = Math.floor(S.kf) - 9; k <= Math.floor(S.kf) + 10; k++) {
+    const {x, y, a} = cardPos(k); if (Math.abs(y - cy) > HH / 2 + 40) continue;
+    const c = list[k], done = k >= 0 && k < list.length && k <= S.k, cur = k === S.k && S.phase === "run";
+    const fade = Math.max(.3, 1 - Math.abs(k - S.kf) * .08), sz = cur ? 66 : 50;
+    g.save(); g.translate(x, y); g.rotate(a * .45);
+    g.fillStyle = "#141a22"; g.fillRect(-sz / 2, -sz / 2, sz, sz);
+    if (!done) { g.strokeStyle = rgba(K.steel, .22 * fade); g.lineWidth = 1; g.strokeRect(-sz / 2, -sz / 2, sz, sz); g.fillStyle = rgba(K.steel, .35 * fade); g.font = "10px Consolas, Menlo, monospace"; g.fillText("···", -7, 4); g.restore(); continue; }
+    const ok = c.s === -1, ring = ok ? K.mint : K.hot;
+    g.strokeStyle = cur ? rgba(K.text, .95) : rgba(ring, .55 * fade); g.lineWidth = cur ? 1.5 : 1; g.strokeRect(-sz / 2, -sz / 2, sz, sz);
+    const [x0, y0, x1, y1] = bbox(it.parcel), s = (sz - 10) / Math.max(x1 - x0, y1 - y0, 1), mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    const Tp = pts => { g.beginPath(); pts.forEach(([px, py], q) => { const X = (px - mx) * s, Y = -(py - my) * s; q ? g.lineTo(X, Y) : g.moveTo(X, Y); }); g.closePath(); };
+    Tp(it.parcel); g.strokeStyle = rgba(K.steel, .45 * fade); g.lineWidth = .8; g.stroke();
+    (c.land || []).forEach(p => { Tp(p); g.fillStyle = rgba(K.green, .4 * fade); g.fill(); });
+    (c.st || []).forEach(p => { Tp(p); g.strokeStyle = rgba(K.cyan, .7 * fade); g.lineWidth = .6; g.stroke(); });
+    if (c.fp) { Tp(c.fp); g.fillStyle = rgba(ok ? K.mint : K.steel, (ok ? .7 : .4) * fade); g.fill(); }
+    if (c.core) { Tp(c.core); g.fillStyle = rgba(K.ai, .85 * fade); g.fill(); }
+    g.font = `${cur ? 600 : 400} ${cur ? 12 : 10.5}px Consolas, Menlo, monospace`; g.fillStyle = rgba(K.text, (cur ? 1 : .75) * fade);
+    g.fillText(`#${pad4(c.q)} ${c.f ?? "–"}F`, sz / 2 + 8, -sz / 2 + 11);
+    g.fillStyle = rgba(ok ? K.mint : K.hot, fade); g.fillText(ok ? "PASS" : "FAIL", sz / 2 + 8, -sz / 2 + 25);
+    g.font = "10.5px 'Barun Drawing Korean', sans-serif"; g.fillStyle = rgba(ok ? K.steel : K.err, .85 * fade);
+    g.fillText(ok ? `용적 ${fmt(c.far, 0)}%` : nm(c.x[0]), sz / 2 + 8, -sz / 2 + 39);
+    g.restore();
+  }
+}
+// 무대 아래 통과·탈락 띠(계속 흘러감)
+function drawTape() {
+  const y = HH - 34, x0 = 14, x1 = HW - 14, w = 5, gap = 2;
+  g.fillStyle = "rgba(20,26,34,.9)"; g.fillRect(0, y - 8, HW, 42);
+  g.strokeStyle = rgba(K.steel, .2); g.beginPath(); g.moveTo(0, y - 8); g.lineTo(HW, y - 8); g.stroke();
+  g.font = "10px Consolas, Menlo, monospace"; g.fillStyle = rgba(K.steel, .8); g.fillText("PASS / FAIL STREAM", x0, y + 3);
+  const n = Math.floor((x1 - x0 - 150) / (w + gap)), list = S.tape.slice(-n), slide = clamp(S.t * RATE, 0, 1) * (w + gap);
+  list.forEach((t, j) => {
+    const x = x1 - (list.length - j) * (w + gap) + slide - (w + gap), cur = j === list.length - 1;
+    const hgt = t.ok ? 18 : 9, col = t.ok ? K.mint : K.hot;
+    g.fillStyle = rgba(col, cur ? 1 : t.ok ? .8 : .55); g.fillRect(x, y + 20 - hgt, w, hgt);
+    if (cur && S.t < .18) { g.save(); g.shadowColor = rgba(col, 1); g.shadowBlur = 10; g.fillRect(x - 1, y + 18 - hgt, w + 2, hgt + 2); g.restore(); }
+  });
+  const pass = S.tape.filter(t => t.ok).length;
+  g.fillStyle = rgba(K.mint, .9); g.fillText(`재생 표본 ${pass}/${S.tape.length} 통과`, x0 + 132, y + 3); g.fillStyle = rgba(K.text, .55); g.fillText(`엔진 전체 ${S.it.n_ok}/${S.it.n_cand}`, x0 + 132, y + 17);
+}
+function drawGround() {
+  const [X, Y] = P(...S.c), r = Math.max(MODEL.w, MODEL.h) * .6, gl = g.createRadialGradient(X, Y, 0, X, Y, r);
+  gl.addColorStop(0, rgba(K.glow, .35)); gl.addColorStop(1, rgba(K.glow, 0)); g.fillStyle = gl; g.fillRect(X - r, Y - r, r * 2, r * 2);
+  const R = S.span * 1.9, step = S.span > 20 ? 4 : 2;
+  g.strokeStyle = rgba(K.steel, .05); g.lineWidth = 1; g.beginPath();
+  for (let v = -R; v <= R; v += step) { let a = P(S.c[0] + v, S.c[1] - R), b = P(S.c[0] + v, S.c[1] + R); g.moveTo(...a); g.lineTo(...b); a = P(S.c[0] - R, S.c[1] + v); b = P(S.c[0] + R, S.c[1] + v); g.moveTo(...a); g.lineTo(...b); }
+  g.stroke();
+  (S.it.roads || []).forEach(r => { path(g, r); g.fillStyle = rgba(K.blue, .05); g.fill(); g.strokeStyle = rgba(K.blue, .18); g.lineWidth = 1; g.stroke(); });
+  path(g, S.it.parcel); g.save(); g.strokeStyle = rgba(K.text, .9); g.lineWidth = 1.5; g.shadowColor = rgba(K.cyan, .6); g.shadowBlur = 10; g.stroke(); g.restore();
+  S.it.parcel.forEach(pt => { const [px, py] = P(...pt); g.fillStyle = rgba(K.cyan, .9); g.fillRect(px - 1.5, py - 1.5, 3, 3); });
+}
+
+let frameId = 0;
+function scheduleFrame(){if(!frameId && !document.hidden && !PAUSED) frameId=requestAnimationFrame(at=>{frameId=0;frame(at);});}
+function stopFrame(){if(frameId)cancelAnimationFrame(frameId);frameId=0;last=0;}
+let last = 0, T = 0, RT = 0;
+function frame(now) {
+  const rdt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+  if (document.hidden || PAUSED) { last = 0; return; }   // 숨거나 멈춤이면 그리지 않음
+  const dt = rdt * SPEED; T += dt; RT += rdt;
+  if (HH < 80 || HW < 200) { resize(); return scheduleFrame(); }   // 창이 숨거나 아주 작을 때는 건너뜀
+  g.clearRect(0, 0, HW, HH);
+  if (!S.it) return scheduleFrame();
+  const slot = 1 / RATE;
+  const pre = ["law", "site", "env", "target"].includes(S.phase);
+  if (pre) { S.pt += dt; if (S.pt >= PH[PHI[S.phase]][2]) { const nx = PH[PHI[S.phase] + 1][0]; S.phase = nx; S.pt = 0;
+      if (nx === "site") feed(`<span class="w">② 대지 분석</span> · 변 ${(S.an.edges || []).length}개 · 도로 ${(S.an.edges || []).filter(e => e.kind === "road").length}개 · 정북 ${(S.an.edges || []).some(e => e.north) ? "있음" : "없음"}`);
+      if (nx === "env") feed(`<span class="w">③ 건축가능영역</span> · 층별 ${(S.an.floors || []).length}개 · 최대 연면적 ${fmt(S.an.max_gfa, 1)}㎡`);
+      if (nx === "target") feed(`<span class="w">④ 목표·주차</span> · 법정 주차 ${(S.list[0] || {}).pr ?? S.it.park_req ?? "–"}대 · 요청 ${S.an.floors_req ?? "–"}층`);
+      if (nx === "run") { feed(`<span class="w">⑤ 후보 탐색</span> · 후보 ${S.it.n_cand.toLocaleString()}개`); showRes(); } } }
+  if (S.phase === "pick") { S.pt += dt; if (RT - preAt > .1) { preAt = RT; preRes(S.pt / PH[PHI.pick][2]); } if (S.pt >= PH[PHI.pick][2]) finishSite(); }
+  if (S.phase === "run") {
+    S.t += dt;
+    if (S.k < 0 || S.t >= slot) { if (S.k + 1 < S.list.length) advance(); else { S.phase = "pick"; S.pt = 0; S.cur = null; feed(`<span class="w">⑥ 선택</span> · 통과 ${S.it.n_ok}/${S.it.n_cand} 중 용적 최대`); } }
+    S.kf = lerp(S.kf, Math.max(0, S.k), 1 - Math.pow(.002, rdt));
+    const eb = $("evb"); if (eb) eb.classList.toggle("on", RT - S.evAt < 1.5);
+  } else if (S.phase === "final") S.fin += rdt;
+
+  drawGround();
+  if (pre) drawPre();
+  const dim = S.phase === "final" ? .3 : 1;
+  S.ghosts.forEach(c => { if (c.fp) { path(g, c.fp); g.strokeStyle = rgba(K.mint, dim * Math.min(.35, 3 / (S.ghosts.length + 4))); g.lineWidth = 1; g.stroke(); } });
+  // 지나간 후보 잔상: 통과는 민트로 가라앉고, 탈락은 산호 조각으로 밀려남
+  S.trail = S.trail.filter(tr => T - tr.at < .35);
+  S.trail.forEach(tr => { const c = tr.c, q = (T - tr.at) / .35, ok = c.s === -1; if (!c.fp) return; const off = ok ? 0 : q * 40;
+    path(g, c.fp, Math.min(S.maxH, (c.f || 1) * 3) * (1 - q), off, -off * .3); g.strokeStyle = rgba(ok ? K.mint : K.hot, .6 * (1 - q)); g.lineWidth = 1; g.stroke(); });
+  if (S.phase !== "final") drawStreams();
+  drawArc();
+  g.font = "12px Consolas, Menlo, monospace"; g.fillStyle = rgba(K.text, .55); g.fillText("엔진 실행 기록 재생 · 법규·대지 분석·건축가능영역·후보 도형은 실제 · 형태 예시·그림자·주차 스캔 모션은 연출", MODEL.x, 22);
+  drawPhaseStrip();
+  if (S.phase === "pick") S.ghosts.slice().sort((a, b) => (b.far || 0) - (a.far || 0)).slice(0, 3).forEach((c, i) => { if (!c.fp) return; const h = Math.min(S.maxH, (c.f || 1) * 3) * easeOut(clamp(S.pt * 2 - i * .3, 0, 1)); path(g, c.fp, h); g.strokeStyle = rgba(K.mint, i ? .45 : .95); g.lineWidth = i ? 1 : 2; g.stroke(); const q = P(...c.fp[0], h); g.font = "600 12px 'Barun Drawing Korean', sans-serif"; g.fillStyle = rgba(K.mint, i ? .6 : 1); g.fillText(`${i + 1}위 용적 ${fmt(c.far)}%`, q[0] + 6, q[1] - 6); });
+  const reqs = [];
+  let obstacles = [];
+  if (S.phase === "run" && S.cur) {
+    const c = S.cur, ok = c.s === -1, p = clamp(S.t / slot, 0, 1);
+    // 엔진 순서: 코어(0~.2) → 주차·차로·조경(.2~.4) → 건물(.4~.8) → 판정(.8~)
+    const hFull = Math.min(S.maxH, (c.f || 1) * 3), hCore = hFull * easeOut(clamp(p / .2, 0, 1)), parkA = clamp((p - .2) / .2, 0, 1), h = hFull * easeOut(clamp((p - .4) / .4, 0, 1));
+    const focus = Math.floor(RT / 2.2) % 2;
+    if (RT - S.probeAt > .35) { S.probeAt = RT; spawnProbe(); }
+    drawSun(c, h, focus === 0 ? 1 : .35);
+    drawProbes();
+    if (p > .8 && !S.revealed) { S.revealed = true; showRes(); verify(c); lanes(c.x || []); drawScatter(); drawTrace(); mixTable(); drawPlan(); }
+    drawSeat(c, 1, h, p > .8 ? ok : null, RT, false, parkA, hCore);
+    drawParkScan(c, focus === 1 && parkA > .5 ? 1 : .3);
+    focusCaption(c, focus);
+    if (c.fp) {
+      obstacles = [massRect(c, hFull)];
+      const badCl = (c.cl || []).find(q => !q[4] && q[0] != null);
+      if (badCl) { const q = P(badCl[0], badCl[1]); reqs.push({ax: q[0], ay: q[1], col: K.hot, lines: ["이격 부족", `${fmt(badCl[2], 2)}m < ${fmt(badCl[3], 1)}m`]}); }
+      const tr = c.fp.reduce((b, pt) => { const q = P(...pt, hFull); return q[0] > b[0] ? q : b; }, [-1e9, 0]);
+      if (p > .8) reqs.push({ax: tr[0], ay: tr[1], col: ok ? K.mint : K.hot, lines: [ok ? `✓ 기록된 검사 ${c.c.length}/${c.c.length} 통과` : "✕ " + nm(c.x[0]), `${c.f ?? "–"}F · 용적 ${fmt(c.far, 0)}%`]});
+      else reqs.push({ax: tr[0], ay: tr[1], col: p < .2 ? K.ai : p < .4 ? K.cyan : K.steel, lines: [p < .2 ? "① 코어 자리" : p < .4 ? "② 주차·차로" : "③ 건물 세움", `#${pad4(c.q)} · ${c.f ?? "–"}F`]});
+    }
+  }
+  if (S.phase === "final" && S.it.fp) {
+    const it = S.it, ok = it.status === "ok", p = clamp(S.fin / .7, 0, 1);
+    const sel = S.list[S.selIdx] || {};
+    const c = Object.assign({}, sel, {fp: it.fp});
+    const hFull = Math.min(S.maxH * 1.2, (it.floors || 1) * 3), h = hFull * easeOut(p);
+    drawSeat(c, 1, h, ok, RT, true);
+    if (ok && p < 1) { const [X, Y] = P(...S.c, h / 2), r = 40 + p * 380; const gr = g.createRadialGradient(X, Y, 0, X, Y, r); gr.addColorStop(0, rgba(K.mint, .22 * (1 - p))); gr.addColorStop(1, rgba(K.mint, 0)); g.fillStyle = gr; g.fillRect(X - r, Y - r, r * 2, r * 2); }
+    obstacles = [massRect(c, hFull)];
+    const tr = it.fp.reduce((b, pt) => { const q = P(...pt, hFull); return q[0] > b[0] ? q : b; }, [-1e9, 0]);
+    if (p >= 1) reqs.push({ax: tr[0], ay: tr[1], col: ok ? K.mint : K.err, lines: [ok ? "엔진 선택안" : `미충족 기록안 #${pad4(sel.q || 0)}`, `${it.floors ?? "–"}F · 높이 ${((it.floors || 0) * 3).toFixed(0)}m(층고 3m 가정)`]});
+  }
+  labels(reqs, obstacles);
+  drawTape();
+  counters();
+  if (S.phase !== "final" || S.fin < 1) scheduleFrame();
+}
+
+/* ---------- 아래 칸 ---------- */
+let lastCnt = "";
+function counters() {
+  const it = S.it, shown = Math.max(0, S.k + 1);
+  const h = [["필지", it.id], ["엔진 후보(전체)", it.n_cand.toLocaleString()], ["엔진 통과(전체)", it.n_ok.toLocaleString(), "m"], ["재생", `${shown}/${S.list.length}`, "c"], ["재생 표본 통과", `${S.shownOk}/${Math.max(0, S.k + 1)}`, "m"], ["엔진 시간", `${fmt(it.sec, 2)}s`]]
+    .map(([k, v, c]) => `<div class="${c || ""}">${k}<b>${v}</b></div>`).join("");
+  if (h !== lastCnt) { $("cnt").innerHTML = h; lastCnt = h; }
+}
+function feed(html) {
+  const f = $("feed"), d = document.createElement("div"); d.innerHTML = html; f.appendChild(d);
+  while (f.children.length > 20) f.removeChild(f.firstChild);
+  $("feedTag").textContent = S.it ? "필지 조건 → 후보 배치 → 규칙 검사 → 선택" : "";
+}
+function verify(c) {
+  const it = S.it;
+  if (!c) { $("verify").innerHTML = `<div style="color:var(--sub);font:12px/1.9 var(--mono)">${it.n_cand ? "후보를 기다리는 중" : "① 생성 조건 확인 ✓<br>② 후보 생성 <span style=\"color:var(--warn)\">0건</span><br>③ 규칙 검사 미실행"}</div>`; $("vTag").textContent = ""; return; }
+  const row = (k, v, m, ge, unit) => { if (v == null || m == null) return `<tr><td>${k}</td><td>${v ?? "–"}</td><td class="dim">${m ?? "–"}</td><td></td><td class="dim">–</td></tr>`;
+    const d = ge ? v - m : m - v, bad = d < -1e-6, near = !bad && d <= Math.abs(m) * .05;
+    return `<tr class="${bad ? "hit" : ""}"><td>${k}</td><td>${fmt(v, unit === "대" ? 0 : 1)}</td><td class="dim">${ge ? "≥" : "≤"}${fmt(m, unit === "대" ? 0 : 1)}</td><td class="${bad ? "ng" : near ? "nr" : "ok"}">${bad ? "" : "+"}${fmt(d, unit === "대" ? 0 : 1)}${unit}</td><td class="${bad ? "ng" : "ok"}">${bad ? "✕" : "✓"}</td></tr>`; };
+  const cl = (c.cl || []).filter(q => q[2] != null).sort((a, b) => (a[2] - a[3]) - (b[2] - b[3]))[0];
+  let rows = row("건폐율", c.bcr, it.bcr_max, false, "%p") + row("용적률", c.far, it.far_max, false, "%p") + row("주차", c.pk, c.pr, true, "대") + (cl ? row("최소 이격", cl[2], cl[3], true, "m") : "");
+  const sun = sunCheck(c), pk = parkRules(c), pkBad = pk.filter(x => !x[1]);
+  if (sun) rows += `<tr class="${sun.ok ? "" : "hit"}"><td>일조·건축가능영역</td><td class="dim">${sun.n}개 층·면</td><td class="dim">사선</td><td></td><td class="${sun.ok ? "ok" : "ng"}">${sun.ok ? "✓" : "✕"}</td></tr>`;
+  if (pk.length) rows += `<tr class="${pkBad.length ? "hit" : ""}"><td>주차 구획·차로</td><td class="dim">${c.st ? c.st.length : 0}칸</td><td class="dim">${pk.length}규칙</td><td></td><td class="${pkBad.length ? "ng" : "ok"}">${pk.length - pkBad.length}/${pk.length}</td></tr>`;
+  const other = (c.c || []).filter(([r]) => !/^건폐율|^용적률|주차대수/.test(r) && !/^이격/.test(r) && !/채광방향 높이제한|건축가능영역/.test(r) && !/주차|구획|차로|기계식|연속 배치|연접/.test(r));
+  const bad = other.filter(x => !x[1]);
+  rows += bad.slice(0, 3).map(([r]) => `<tr class="hit"><td>${nm(r)}</td><td class="dim">–</td><td class="dim">–</td><td></td><td class="ng">✕</td></tr>`).join("");
+  rows += `<tr><td class="dim">그 밖의 규칙</td><td></td><td></td><td></td><td class="ok">${other.length - bad.length}/${other.length}✓</td></tr>`;
+  $("verify").innerHTML = `<table><tr><th>항목</th><th>실제</th><th>기준</th><th>여유</th><th></th></tr>${rows}</table>`;
+  $("vTag").textContent = c._final ? (S.it.status === "ok" ? "엔진 선택안" : `미충족 기록안 #${pad4(c.q)}`) : `#${pad4(c.q)}`;
+}
+function lanes(hit) {
+  const top = Object.entries(S.laneCnt).sort((a, b) => b[1] - a[1]).slice(0, 6), mx = top.length ? top[0][1] : 1;
+  $("lanes").innerHTML = top.map(([r, v]) => `<div class="lane ${hit.includes(r) ? "hit" : ""}"><span title="${r}">${nm(r)}</span><span>${v}<small>/${S.laneChk[r] || 0}</small></span><i><b style="width:${v / mx * 100}%"></b></i></div>`).join("")
+    || `<div class="lane"><span style="color:var(--dim)">${S.it && S.it.n_cand === 0 ? "후보가 없어 규칙 검사 없음" : "아직 탈락 없음"}</span><span></span></div>`;
+}
+function sub(id) { const cv = $(id), w = cv.clientWidth, h = cv.clientHeight, c = cv.getContext("2d"); c.clearRect(0, 0, w, h); return [w, h, c]; }
+function zeroNote(c, w, h) { c.fillStyle = "#A6B4C5"; c.font = "12px Consolas, Menlo, monospace"; c.fillText("후보 생성 0건 → 분포 없음", 10, h / 2); }
+function drawScatter() {
+  if (!S.it) return; const [w, h, c] = sub("cScatter"), it = S.it;
+  if (!it.n_cand) return zeroNote(c, w, h);
+  const bm = (it.bcr_max || 60) * 1.4, fm = Math.max((it.far_max || 200) * 1.4, (it.built_far || 0) * 1.1), pad = 26;
+  const X = v => pad + clamp(v / bm, 0, 1) * (w - pad - 6), Y = v => h - 14 - clamp(v / fm, 0, 1) * (h - 20);
+  const gr = c.createLinearGradient(0, Y(it.far_max), 0, Y(0)); gr.addColorStop(0, rgba(K.mint, .1)); gr.addColorStop(1, rgba(K.cyan, .03));
+  c.fillStyle = gr; c.fillRect(X(0), Y(it.far_max), X(it.bcr_max) - X(0), Y(0) - Y(it.far_max));
+  c.strokeStyle = "#344151"; c.beginPath(); c.moveTo(pad, 4); c.lineTo(pad, h - 14); c.lineTo(w - 4, h - 14); c.stroke();
+  c.fillStyle = "#7F8C9C"; c.font = "10px Consolas, Menlo, monospace";
+  c.fillText(`${fmt(it.bcr_max, 0)}%`, X(it.bcr_max) - 12, h - 3); c.fillText(`${fmt(it.far_max, 0)}`, 0, Y(it.far_max) + 3);
+  if (it.built_far != null) { c.strokeStyle = rgba(K.blue, .8); c.setLineDash([4, 3]); c.beginPath(); c.moveTo(pad, Y(it.built_far)); c.lineTo(w - 4, Y(it.built_far)); c.stroke(); c.setLineDash([]); }
+  const agg = {};
+  S.list.forEach((q, k) => { if (k > S.k) return; const key = `${Math.round(q.bcr || 0)}|${Math.round(q.far || 0)}|${q.s === -1}`; agg[key] = agg[key] || {q, n: 0}; agg[key].n++; });
+  Object.values(agg).forEach(({q, n}) => { const ok = q.s === -1; c.fillStyle = rgba(ok ? K.mint : K.hot, .6); c.beginPath(); c.arc(X(q.bcr || 0), Y(q.far || 0), 1.6 + Math.sqrt(n), 0, 6.29); c.fill(); });
+  const mark = S.phase === "final" ? S.list[S.selIdx] : S.cur;
+  if (mark) { const x = X(mark.bcr || 0), y = Y(mark.far || 0); c.strokeStyle = rgba(K.text, .95); c.lineWidth = 1.3; c.beginPath();
+    if (S.phase === "final") { c.moveTo(x, y - 6); c.lineTo(x + 6, y); c.lineTo(x, y + 6); c.lineTo(x - 6, y); c.closePath(); } else c.arc(x, y, 5, 0, 6.29); c.stroke(); }
+}
+function drawTrace() {
+  if (!S.it) return; if (!S.it.n_cand) { const [w, h, c] = sub("cTrace"); return zeroNote(c, w, h); } const [w, h, c] = sub("cTrace"), L = S.list, it = S.it, n = Math.max(1, L.length - 1), fm = Math.max(S.farMax, (it.built_far || 0) * 1.1);
+  const X = k => 26 + k / n * (w - 30), Y = v => h - 6 - clamp(v / fm, 0, 1) * (h - 14);
+  c.fillStyle = "#7F8C9C"; c.font = "10px Consolas, Menlo, monospace"; c.fillText(`${fmt(it.far_max, 0)}`, 0, Y(it.far_max) + 3);
+  c.strokeStyle = "#344151"; c.setLineDash([2, 3]); c.beginPath(); c.moveTo(26, Y(it.far_max)); c.lineTo(w, Y(it.far_max)); c.stroke(); c.setLineDash([]);
+  if (it.built_far != null) { c.strokeStyle = rgba(K.blue, .8); c.setLineDash([4, 3]); c.beginPath(); c.moveTo(26, Y(it.built_far)); c.lineTo(w, Y(it.built_far)); c.stroke(); c.setLineDash([]); }
+  L.forEach((q, k) => { if (k > S.k) return; const ok = q.s === -1; c.fillStyle = rgba(ok ? K.mint : K.hot, ok ? .9 : .45); c.fillRect(X(k) - 1, Y(q.far || 0) - 1, 2, 2); });
+  // 지금까지 통과안 최고 용적(계단선)
+  let best = null; c.strokeStyle = rgba(K.mint, .95); c.lineWidth = 1.4; c.beginPath(); let started = false;
+  L.forEach((q, k) => { if (k > S.k) return; if (q.s === -1 && (!best || q.far > best)) best = q.far; if (best == null) return; const x = X(k), y = Y(best); if (!started) { c.moveTo(x, y); started = true; } else c.lineTo(x, y); });
+  c.stroke(); c.lineWidth = 1;
+  if (best != null) { c.fillStyle = rgba(K.mint, 1); c.fillText(`${fmt(best)}%`, Math.min(w - 40, X(Math.max(0, S.k)) + 4), Y(best) - 4); }
+}
+function mixTable() {
+  if (!S.it) return;
+  const e = Object.entries(S.mix).sort((a, b) => b[1].n - a[1].n);
+  const top = e.slice(0, 5), rest = e.slice(5).reduce((s, [, v]) => ({n: s.n + v.n, ok: s.ok + v.ok}), {n: 0, ok: 0});
+  $("mix").innerHTML = `<table><tr><th>방식</th><th>검토</th><th>통과율</th><th>최고 용적</th></tr>${top.map(([k, v]) => `<tr><td>${k}</td><td>${v.n}</td><td class="${v.ok ? "ok" : "dim"}">${Math.round(v.ok / v.n * 100)}%</td><td class="${v.ok ? "ok" : "dim"}">${v.ok ? fmt(v.far) + "%" : "–"}</td></tr>`).join("")}${rest.n ? `<tr><td class="dim">그 밖</td><td>${rest.n}</td><td class="dim">${Math.round(rest.ok / rest.n * 100)}%</td><td></td></tr>` : ""}</table>`
+    + (e.length ? "" : `<div style="color:var(--dim);font:11px var(--mono)">${S.it.n_cand ? "후보를 기다리는 중" : "후보 없음"}</div>`);
+}
+function drawPlan() {
+  if (!S.it) return; const [w, h, c] = sub("cPlan"), it = S.it, fin = S.phase === "final";
+  const q = fin ? (it.fp ? Object.assign({}, S.list[S.selIdx] || {}, {fp: it.fp}) : null) : S.cur;
+  const [x0, y0, x1, y1] = bbox(it.parcel), s = Math.min((w - 20) / (x1 - x0 || 1), (h - 16) / (y1 - y0 || 1)), ox = (w - (x1 - x0) * s) / 2, oy = (h - (y1 - y0) * s) / 2;
+  const Tp = pts => { c.beginPath(); pts.forEach(([x, y], k) => { const X = ox + (x - x0) * s, Y = oy + (y1 - y) * s; k ? c.lineTo(X, Y) : c.moveTo(X, Y); }); c.closePath(); };
+  const TP = ([x, y]) => [ox + (x - x0) * s, oy + (y1 - y) * s];
+  (it.roads || []).forEach(r => { Tp(r); c.fillStyle = rgba(K.blue, .06); c.fill(); });
+  Tp(it.parcel); c.strokeStyle = rgba(K.text, .8); c.lineWidth = 1; c.setLineDash([4, 2]); c.stroke(); c.setLineDash([]);
+  if (!q) { $("planTag").textContent = ""; return; }
+  const ok = fin ? it.status === "ok" : q.s === -1, hx = ok ? {} : hits(q);
+  (q.land || []).forEach(p => { Tp(p); c.fillStyle = rgba(K.green, .25); c.fill(); });
+  if (q.strip) { Tp(q.strip); c.fillStyle = rgba(K.steel, .1); c.fill(); }
+  (q.st || []).forEach(p => { Tp(p); c.strokeStyle = hx.stalls ? rgba(K.hot, .95) : rgba(K.cyan, .8); c.lineWidth = hx.stalls ? 1.6 : .8; c.stroke(); });
+  if (q.fp) { Tp(q.fp); c.fillStyle = rgba(ok ? K.mint : K.steel, ok ? .22 : .12); c.fill(); c.strokeStyle = hx.fp ? rgba(K.hot, .95) : rgba(ok ? K.mint : K.steel, .95); c.lineWidth = 1.3; c.stroke(); }
+  if (q.hall) { Tp(q.hall); c.fillStyle = rgba(K.ai, .2); c.fill(); }
+  if (q.stair) { Tp(q.stair); c.fillStyle = rgba(K.ai, .55); c.fill(); }
+  if (q.core) { Tp(q.core); c.strokeStyle = rgba(K.ai, .9); c.lineWidth = 1; c.stroke(); }
+  // 위반 번호 표식(검증표와 같은 순서: 이격)
+  let no = 1;
+  (q.cl || []).forEach(([x, y, d, r, o]) => { if (o || x == null) return; const [X, Y] = TP([x, y]); c.fillStyle = rgba(K.hot, 1); c.beginPath(); c.arc(X, Y, 6, 0, 6.29); c.fill(); c.fillStyle = "#161A21"; c.font = "600 9px Consolas, Menlo, monospace"; c.fillText(String(no++), X - 3, Y + 3); });
+  $("planTag").textContent = (fin ? (ok ? "엔진 선택안" : `미충족 기록안 #${pad4(q.q || 0)}`) : `#${pad4(q.q)}`) + " · 건물 · 코어 · 주차 · 차로 · 조경";
+}
+
+// 장면 바로 가기(점검·화면 캡처용): ?site=BR-0032&k=60 · ?site=BR-0032&fin=1
+const Q = new URLSearchParams(location.search);
+document.fonts.ready.then(() => {
+  fitApp();
+  const si = Math.max(0, IT.findIndex(i => i.id === Q.get("site")));
+  startSite(si);
+  const ph = Q.get("ph"); if (ph && PHI[ph] != null && ph !== "final") { S.phase = ph; S.pt = +Q.get("t") || 0; }
+  const k = +Q.get("k") || 0; if (k) S.phase = "run";
+  for (let j = 0; j < Math.min(k, S.list.length); j++) { advance(); S.kf = S.k; }
+  if (S.cur) S.t = .5 / RATE;
+  if (Q.get("fin")) S.phase = "run";
+  if (Q.get("fin") && S.phase === "run") { while (S.k + 1 < S.list.length) advance(); S.kf = S.k; finishSite(); }
+  if (Q.get("fin")) { S.fin = 2; S.finRT = -2; }
+  if (S.phase !== "final" || S.fin < 1) scheduleFrame();
+});
+
+/* ---------- 캐드에서 끼워 쓰기: 조종 메시지 · 진행 알림 ----------
+   iframe.contentWindow.postMessage({target: "barun-wait", cmd: "pause"|"resume"|"restart"|"speed", value}, "*")
+   알림: window.parent 로 {source: "barun-wait", kind: "site", event: "phase"|"done", ...} */
+let PAUSED = false, _lastPhase = "";
+function post(ev, extra = {}) { try { if (parent !== window) parent.postMessage({source: "barun-wait", kind: "site", event: ev, ...extra}, "*"); } catch (e) {} }
+addEventListener("visibilitychange",()=>{if(document.hidden)stopFrame();else {if(pendingResize){fitApp();resize();}scheduleFrame();}});
+addEventListener("message", ev => {
+ if(ev.source!==parent || ev.origin!==location.origin)return;
+ const m=ev.data||{};if(m.target!=="barun-wait")return;
+ if(m.cmd==="pause"){PAUSED=true;stopFrame();}
+ if(m.cmd==="resume"){PAUSED=false;if(pendingResize){fitApp();resize();}scheduleFrame();}
+ if(m.cmd==="speed" && [1,2,4].includes(m.value))SPEED=m.value;
+ if(m.cmd==="restart"){startSite(S.si);scheduleFrame();}
+});
+if (new URLSearchParams(location.search).get("embed") === "1") document.documentElement.classList.add("embed");
+</script>
+<script type="module" src="site-wait-frame.js"></script>
+</body>
+</html>

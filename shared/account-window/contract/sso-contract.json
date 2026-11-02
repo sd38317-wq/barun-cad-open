@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "2.0.0",
+  "apps": [
+    "barun-docs",
+    "barun-cad",
+    "barun-design",
+    "miri-agent"
+  ],
+  "brokerLifetime": "independent-of-miri-ui",
+  "sharedIdentity": "server-verified miriboda account",
+  "tokens": "app-scoped audience/scope; not shared bearer copies",
+  "rules": [
+    "한 앱 로그인 시 실행 중 앱은 이벤트 후 재조회",
+    "나중 실행한 앱은 기존 공유 세션으로 앱별 세션 발급",
+    "앱별 로그아웃 후 해당 앱 자동 재연결 억제 유지",
+    "전체 로그아웃은 서버 폐기 및 상태 전파; 실패를 완료로 표시하지 않음",
+    "계정 전환 확인과 세션 버전 변경; 옛 응답 무시",
+    "인증 서버 지원 조사 필수. mock만으로 완료 선언 금지",
+    "사용자별 IPC ACL 및 실제 호출 앱 신뢰 검증",
+    "토큰은 OS 보안 저장소; renderer/JSON/Vault/로그에 기록 금지",
+    "외부 브라우저 인증, 콜백 1회성 및 요청 결합 검증",
+    "동시 인증/갱신 single-flight",
+    "카카오 제공자 공식 인증 흐름은 구현 시 확인; 앱 내 비밀키 금지"
+  ],
+  "manualReconnect": "locally_disconnected에서도 로그인 버튼 활성. 사용자 로그인 클릭으로만 이 앱 자동연결 억제를 해제하고 검증된 앱 세션을 발급한다. 실패 시 억제를 유지한다. 앱별 로그아웃 → 재실행 시 연결 억제 → 수동 로그인 성공을 반드시 테스트한다.",
+  "repairInteraction": "locally_disconnected 또는 revoked 세션은 자가 복구로 우회하지 않는다.",
+  "serverScope": "서버 개발은 필요 여부 조사 후 별도 명시; 배포/인증 설정 변경 권한 없음"
+}

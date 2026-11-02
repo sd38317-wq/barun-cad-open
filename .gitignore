@@ -1,0 +1,34 @@
+.firecrawl/
+__pycache__/
+backups/
+node_modules/
+
+tmp/
+installer/
+desktop-backend/
+.artifact-runtime/node_modules/
+*.spec
+
+# 빌드 산출물(버전별 설치 파일·엔진 폴더)은 최종본 폴더에 보관하고 저장소에는 넣지 않는다.
+installer-*/
+vendor/electron-updater.cjs
+desktop-backend-*/
+release-*/
+# 학습·분류 자료(8만여 파일)와 렌더러 연구용 의존성
+data/
+tools/gpu-renderer/node_modules/
+.claude/
+*.log
+
+# 통합 검증·개별 상세 내보내기 임시 결과와 원본 백업
+scratchpad/
+.reticle/
+tools/quality/runs/
+# 맥용 DWG 변환기 실행 파일(build_mac_runtimes.py 가 만듦, MAC-BUILD.md: git 에 넣지 않음)
+dwg-runtime-mac-*/
+acadrust-runtime-mac-*/
+dwg-runtime-osx-*/
+acadrust-runtime-osx-*/
+
+# Rust 보조 엔진 실행 파일은 빌드 산출물; 라이선스 고지는 버전 관리
+acadrust-runtime/barun-dwg2dxf*

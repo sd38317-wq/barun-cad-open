@@ -1,0 +1,115 @@
+{
+  "appId": "kr.barun.cad.v6",
+  "productName": "Barun CAD 6",
+  "extraMetadata": {
+    "name": "barun-cad-6",
+    "version": "7.0.41"
+  },
+  "directories": {
+    "output": "installer-7.0.41-mac"
+  },
+  "files": [
+    "desktop.cjs",
+    "desktop-startup.cjs",
+    "desktop-startup.html",
+    "desktop-http.cjs",
+    "barun-cad-brand.png",
+    "package.json",
+    "desktop-preload.cjs",
+    "desktop-lifecycle.cjs",
+    "desktop-files.cjs",
+    "vendor/electron-updater.cjs",
+    "quality-gate-baseline.json",
+    "quality-probe.js",
+    "quality-gate.cjs",
+    "quality-install.cjs",
+    "quality-verifier.cjs",
+    "quality-policy.cjs",
+    "desktop-print.cjs",
+    "desktop-print-windows.cjs",
+    "desktop-print-windows.ps1",
+    "desktop-docs.cjs",
+    "desktop-shared-settings.cjs",
+    "desktop-shell-preload.cjs",
+    "desktop-shell.html",
+    "desktop-shell.js",
+    "build/release-notes.md"
+  ],
+  "extraResources": [
+    {
+      "from": "desktop-backend-7.0.41-mac/barun-cad-6-server",
+      "to": "backend",
+      "filter": [
+        "**/*"
+      ]
+    },
+    {
+      "from": "AI-CONNECT.md",
+      "to": "AI-CONNECT.md"
+    }
+  ],
+  "fileAssociations": [
+    {
+      "ext": "dwg",
+      "name": "DWG 도면",
+      "description": "바른 CAD DWG 도면",
+      "role": "Editor",
+      "rank": "Alternate",
+      "icon": "build/file-dwg.icns"
+    },
+    {
+      "ext": "dxf",
+      "name": "DXF 도면",
+      "description": "바른 CAD DXF 도면",
+      "role": "Editor",
+      "rank": "Alternate",
+      "icon": "build/file-dxf.icns"
+    },
+    {
+      "ext": "bcad",
+      "name": "바른 CAD 도면",
+      "description": "바른 CAD 작업 도면",
+      "role": "Editor",
+      "rank": "Owner",
+      "icon": "build/file-bcad.icns"
+    }
+  ],
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "icon": "build/barun-cad.icns",
+    "category": "public.app-category.graphics-design",
+    "minimumSystemVersion": "12.0",
+    "hardenedRuntime": true,
+    "entitlements": "build/entitlements.mac.plist",
+    "entitlementsInherit": "build/entitlements.mac.plist",
+    "notarize": true,
+    "gatekeeperAssess": false,
+    "artifactName": "Barun CAD 6 ${version} Mac ${arch}.${ext}"
+  },
+  "dmg": {
+    "title": "바른 CAD 6 ${version}"
+  },
+  "publish": [
+    {
+      "provider": "generic",
+      "url": "https://barunarc.co.kr/downloads/barun-cad-6/"
+    }
+  ],
+  "afterPack": "build/verify-packaged.cjs",
+  "electronFuses": {
+    "runAsNode": false,
+    "enableCookieEncryption": true,
+    "enableNodeOptionsEnvironmentVariable": false,
+    "enableNodeCliInspectArguments": false,
+    "enableEmbeddedAsarIntegrityValidation": true,
+    "onlyLoadAppFromAsar": true
+  },
+  "afterSign": "build/verify-signed.cjs",
+  "electronLanguages": [
+    "ko",
+    "en-US"
+  ]
+}

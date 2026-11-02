@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "suiteId": "barun-required-ui-v1",
+  "runId": "57144cbc-ffeb-43da-812a-3a6734c01a76",
+  "appVersion": "6.0.2",
+  "startedAt": "2026-09-27T04:52:27.331Z",
+  "status": "failed",
+  "checks": [
+    {
+      "id": "SELECT_CLICK_RELEASE",
+      "status": "failed",
+      "durationMs": 31.400000005960464,
+      "probeIds": [
+        "current",
+        "retained",
+        "intentional-failure"
+      ],
+      "detail": "intentional gate negative control"
+    },
+    {
+      "id": "DRAFTING_CONTEXT_SETTINGS",
+      "status": "passed",
+      "durationMs": 25.099999994039536,
+      "probeIds": [
+        "current",
+        "retained"
+      ]
+    },
+    {
+      "id": "DIALOG_HALF_SCALE",
+      "status": "passed",
+      "durationMs": 2.2999999970197678,
+      "probeIds": [
+        "current",
+        "retained"
+      ]
+    },
+    {
+      "id": "FILLET_TWO_CLICK_UNDO",
+      "status": "passed",
+      "durationMs": 14.600000008940697,
+      "probeIds": [
+        "current",
+        "retained"
+      ]
+    },
+    {
+      "id": "FILLET_RADIUS",
+      "status": "passed",
+      "durationMs": 9.400000005960464,
+      "probeIds": [
+        "current",
+        "retained"
+      ]
+    },
+    {
+      "id": "OSNAP_INTERSECTION_ORTHO",
+      "status": "passed",
+      "durationMs": 18.200000002980232,
+      "probeIds": [
+        "current",
+        "retained"
+      ]
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-09-27T04:52:34.706Z",
+  "durationMs": 7374
+}

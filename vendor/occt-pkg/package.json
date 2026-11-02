@@ -1,0 +1,9 @@
+{
+  "name": "barun-occt-spike-dependency",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "replicad-opencascadejs": "1.1.0"
+  }
+}

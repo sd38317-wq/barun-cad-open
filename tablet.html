@@ -1,0 +1,93 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>바른 CAD 패드</title>
+<style>
+/* 사무실 패드(같은 Wi-Fi) — 밖에서 보기(현장 패드 2)와 같은 바른 에어 모양: 떠 있는 위 캡슐 · 아래 지시 캡슐 · 아래 도구 캡슐.
+   값은 pad.css(barun-air.css) 와 같다. 뒤 흐림·요청 없는 움직임은 쓰지 않는다. 동작(tablet-input.js)이 찾는 id·data 는 그대로. */
+:root{color-scheme:dark;--air-top:#2c313b;--air-bottom:#1a1d23;--chrome:#17191e;
+ --edge:linear-gradient(135deg,rgba(154,161,171,.42),rgba(92,99,109,.22));--edge-accent:linear-gradient(135deg,#9dcbe0,#5f9fbf);
+ --glow:radial-gradient(120% 90% at 50% 125%,rgba(154,161,171,.09),rgba(154,161,171,0) 62%);--glow-accent:radial-gradient(120% 90% at 50% 125%,rgba(157,203,224,.14),rgba(157,203,224,0) 62%);
+ --text:#eef0f3;--text-2:#a3a9b2;--accent:#9dcbe0;--on-accent:#15171c;--accent-text:#c0e0ef;--hair:rgba(255,255,255,.07);--hover:rgba(255,255,255,.06);
+ --r2:12px;--r3:18px;--shadow:0 18px 48px rgba(0,0,0,.42),0 2px 8px rgba(0,0,0,.24);
+ --font:Pretendard,"Pretendard Variable","Apple SD Gothic Neo","Segoe UI Variable Text","Malgun Gothic",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--chrome);color:var(--text);font:15px/1.4 var(--font);overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
+button,input{font:inherit;color:inherit}button{cursor:pointer;-webkit-user-select:none;user-select:none}
+button:focus-visible,input:focus-visible{outline:2px solid rgba(157,203,224,.55);outline-offset:1px}
+[hidden]{display:none!important}
+svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+/* 판·버튼 재료 */
+.air{background:var(--glow) padding-box,linear-gradient(180deg,rgba(44,49,59,.96),rgba(26,29,35,.97)) padding-box,var(--edge) border-box;border:1px solid transparent;box-shadow:var(--shadow)}
+.well{background:linear-gradient(180deg,#1d2027,#171a1f) padding-box,var(--edge) border-box;border:1px solid transparent;color:var(--text)}
+.b,.tool,.icon{background:transparent;border:1px solid transparent;color:var(--text-2);border-radius:var(--r2)}
+.b:hover,.tool:hover,.icon:hover{background:var(--hover);color:var(--text)}
+button:active:not(:disabled){transform:scale(.97)}
+.b{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;font-size:14px;font-weight:500;white-space:nowrap}
+.icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px}
+.on,.tool[aria-pressed=true]{background:var(--glow-accent) padding-box,linear-gradient(180deg,var(--air-top),var(--air-bottom)) padding-box,var(--edge-accent) border-box!important;border:1px solid transparent;color:var(--accent-text)!important}
+.primary{background:var(--accent)!important;color:var(--on-accent)!important;border:0;font-weight:600}
+.sep{width:1px;align-self:stretch;margin:8px 4px;background:var(--hair)}
+.grow{flex:1;min-width:0}
+/* 위 캡슐 */
+#top{position:fixed;left:max(16px,env(safe-area-inset-left));right:max(16px,env(safe-area-inset-right));top:max(14px,env(safe-area-inset-top));height:56px;padding:0 8px 0 14px;border-radius:var(--r3);display:flex;align-items:center;gap:10px;z-index:4}
+.title{display:flex;flex-direction:column;min-width:0}.title strong{font-size:15px;font-weight:600;white-space:nowrap}
+#status{font-size:12px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#status::before{content:'';display:inline-block;width:8px;height:8px;border-radius:50%;background:#e0a050;margin-right:6px;vertical-align:1px}#status.live::before{background:#7fd19b}
+/* 아래: 지시 캡슐 + 도구 캡슐 */
+#bottom{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(980px,calc(100% - 32px));display:flex;flex-direction:column;align-items:center;gap:10px;z-index:4;margin:0}
+.ask-bar{width:100%;display:flex;align-items:center;gap:6px;padding:6px;border-radius:var(--r3)}
+#chips{display:flex;gap:4px}
+#ask{flex:1;min-width:180px;height:44px;padding:0 14px;border-radius:var(--r2)}#ask::placeholder{color:var(--text-2)}
+#pending{font-size:13px;color:var(--on-accent);background:var(--accent);border-radius:9px;padding:6px 10px;white-space:nowrap}
+.tools{display:flex;align-items:center;gap:2px;padding:6px;border-radius:var(--r3)}
+.tool{width:68px;height:56px;white-space:nowrap;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11.5px;font-weight:500}
+/* 도면 */
+#pad{position:fixed;left:0;right:0;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;background:var(--chrome)}
+#drawing{position:absolute;max-width:none;pointer-events:none}#ink{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#ruler{position:absolute;left:0;top:0;width:420px;height:64px;border:1.5px solid var(--accent);border-radius:8px;background:rgba(157,203,224,.16);transform-origin:0 0;touch-action:none}
+#ruler-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:14px;color:var(--text);white-space:nowrap}
+#ruler .tick{position:absolute;top:0;width:1.5px;height:10px;background:var(--accent)}#ruler .tick.long{height:16px}
+#measure{position:absolute;font-size:13px;color:var(--on-accent);background:var(--accent);border-radius:6px;padding:2px 8px;pointer-events:none}
+#textbox{position:absolute;width:300px;border-radius:var(--r3);padding:10px;display:grid;gap:8px;z-index:3}
+#textbox .seg{display:flex;padding:3px;gap:2px;border-radius:var(--r2)}#textbox .seg button{flex:1;height:34px;border-radius:9px;border:0;background:transparent;color:var(--text-2);font-size:13px;font-weight:600}
+#textbox .seg button[aria-pressed=true]{background:var(--accent);color:var(--on-accent)}
+#textbox-input{height:44px;padding:0 12px;border-radius:var(--r2)}
+#textbox .row{display:flex;gap:8px;align-items:center}
+#waiting{position:absolute;inset:38% 20px auto;text-align:center;font-size:17px;color:var(--text-2)}
+/* 연결 화면 */
+#login{position:fixed;inset:0;display:grid;place-content:center;padding:24px;background:var(--chrome);z-index:5}
+#login .card{width:min(420px,calc(100vw - 32px));display:grid;gap:16px;padding:28px;border-radius:var(--r3)}
+#login h2{font-size:22px;margin:0;font-weight:600}#login label{display:grid;gap:8px;font-size:13px;color:var(--text-2)}
+#code{font-size:30px;letter-spacing:10px;text-align:center;height:60px;padding:0 12px;border-radius:var(--r2)}
+#error{font-size:13px;color:var(--text-2)}
+@media(max-width:700px){.tool{width:52px;font-size:10.5px}#top{left:10px;right:10px}.label-wide{display:none}.ask-bar{flex-wrap:wrap}}
+</style>
+<div id="pad" aria-label="도면"><img id="drawing" alt="PC 도면 화면" draggable="false"><svg id="ink"></svg>
+ <div id="ruler" hidden aria-label="자"><span id="ruler-label">0°</span></div><span id="measure" hidden></span>
+ <form id="textbox" class="air" hidden><div class="seg well" role="group" aria-label="글 종류"><button type="button" data-as="memo" aria-pressed="true">메모</button><button type="button" data-as="text" aria-pressed="false">도면 글자</button></div>
+  <input id="textbox-input" class="well" autocomplete="off" placeholder="키보드로 치거나 펜으로 쓰기"><div class="row"><span class="grow"></span><button type="button" class="b" id="textbox-close">닫기</button><button class="b primary">넣기</button></div></form>
+ <span id="waiting">PC 도면을 받는 중…</span></div>
+<nav id="top" class="air" aria-label="패드 상태">
+ <div class="title"><strong>사무실 패드</strong><span id="status" role="status">연결 전</span></div>
+ <span class="grow"></span>
+ <button type="button" class="icon" id="voice" aria-label="PC 음성 대화"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+ <button type="button" class="icon" id="full" aria-label="전체화면"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+</nav>
+<form id="bottom" aria-label="지시와 도구">
+ <div class="ask-bar air">
+  <div id="chips" hidden><button type="button" class="b" data-command="MOVE">이동</button><button type="button" class="b" data-command="COPY">복사</button><button type="button" class="b" data-command="ERASE">지우기</button><button type="button" class="b" data-command="TEXTEDIT">문자 고치기</button></div>
+  <input id="ask" class="well" autocomplete="off" enterkeyhint="send" placeholder="여기에 펜으로 쓰기 · 문 300 아래로 · MOVE · 300" aria-label="지시">
+  <span id="pending" hidden></span>
+  <button type="button" class="b" id="keep"><span class="label-wide">메모로 </span>남기기</button>
+  <button type="button" class="b pending-only" id="cancel" hidden>취소</button><button type="button" class="b primary pending-only" id="confirm" hidden>확인</button>
+  <button class="b primary" id="send">보내기</button>
+ </div>
+ <div class="tools air" role="group" aria-label="패드 모드">
+  <button type="button" class="tool" data-mode="mark" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4zM14 6l3 3"/></svg>표시</button>
+  <button type="button" class="tool" data-mode="draw" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M4 18L14 8M4 6h6M4 6v6"/><circle cx="17" cy="17" r="4"/></svg>그리기</button>
+  <button type="button" class="tool" data-mode="select" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z"/></svg>고르기</button>
+  <button type="button" class="tool" data-mode="text" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M5 5h14M12 5v14M9 19h6"/></svg>글</button>
+  <span class="sep"></span>
+  <button type="button" class="tool" id="ruler-toggle" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M3 16L16 3l5 5L8 21z"/><path d="M7 12l2 2M10 9l2 2M13 6l2 2"/></svg>자</button>
+  <button type="button" class="tool" id="clear"><svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg>지우기</button>
+  <button type="button" class="tool" id="undo" aria-label="되돌리기"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/></svg>되돌리기</button>
+ </div>
+</form>
+<form id="login"><div class="card air"><h2>바른 CAD 패드 연결</h2><label>PC에 나온 6자리 코드<input id="code" class="well" inputmode="numeric" maxlength="6" autocomplete="off" required></label><button class="b primary">도면 열기</button><div id="error">같은 Wi-Fi에서 연결하세요. 사무실 패드는 PC에서 하는 일을 모두 할 수 있습니다.</div></div></form><script src="/tablet-input.js"></script></html>

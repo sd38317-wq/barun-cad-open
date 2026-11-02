@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "2.0.0",
+  "title": "네 앱 공통 계정 및 업데이트 창 구현",
+  "deliverableStatus": "handoff-only",
+  "authoritativeFiles": [
+    "account-window.json",
+    "self-repair.json",
+    "sso-contract.json",
+    "apps/*.json"
+  ],
+  "precedence": "현재 v2 JSON > 참고 PNG > 이전 v1 문서. 기존 작은 로그인 창 규격 사용 금지.",
+  "phases": [
+    {
+      "id": "P0",
+      "work": "네 앱 기존 계정 창/공식 아이콘/인증·서버·복구 핸들러 조사",
+      "evidence": "경로·현재 동작·공유 가능 모듈·미구현 기능표"
+    },
+    {
+      "id": "P1",
+      "work": "공통 JSON loader/schema validation + 공통 renderer + 네 앱 adapter",
+      "evidence": "같은 JSON hash/renderer version과 동일 DPI 스크린샷"
+    },
+    {
+      "id": "P2",
+      "work": "SSO broker 및 앱별 세션 연결",
+      "evidence": "미리 완전 종료·순차/동시 앱 실행·로그아웃·계정 전환 시험"
+    },
+    {
+      "id": "P3",
+      "work": "자가 복구 read-only 진단 → 계획 표시 → 승인 → allowlist 실행 → 검증",
+      "evidence": "실패/취소/만료/작업중/중복 요청 시험 및 데이터 변경 없음"
+    },
+    {
+      "id": "P4",
+      "work": "모델 실제 표시·과금 출처·업데이트 버전 비교·접근성",
+      "evidence": "전체 상태 회귀 및 실제 테스트 결과"
+    }
+  ],
+  "sameDesignRequirements": [
+    "JSON만 복사해서 각자 UI 재작성하면 동일성 보장 불가",
+    "공통 컴포넌트/폰트/아이콘 규격도 함께 버전 고정",
+    "서로 다른 UI 기술은 동일 계약 conformance suite와 좌표/font 검증으로 증명",
+    "각 패키지의 공통 JSON을 임의 수정하지 말고 중앙 버전을 갱신 후 모두 반영"
+  ],
+  "runtimeValidation": "스키마는 파일 형식만 검증. 인증/승인/핸들러/동적 enabledWhen은 코드에서 검증. JSON 문자열 eval 금지.",
+  "outOfScope": [
+    "앱 실제 구현 완료",
+    "배포",
+    "설치",
+    "기존 문서 데이터 변경",
+    "코드 자가수정"
+  ]
+}

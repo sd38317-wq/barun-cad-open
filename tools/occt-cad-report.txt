@@ -1,0 +1,62 @@
+OCCT → 바른 CAD 명령 연결 결과 (2026-10-13 KST)
+
+완료: 동일층 벽 fuse 후 문·창 절단, 제한 miter로 사리로 네 코너 홈 제거. 원본 모델 중심선·개구부 좌표 보존.
+명령: 평면도 만들기(OCCTPLAN): 층 선택 / 바닥 위 절단높이 기본1.2m / 삽입점. 단면도 만들기(OCCTSECTION): 기준 평면 선택 / 절단 두 점 / 바라볼 쪽 / 삽입점. 입면도 만들기(OCCTELEVATION): 동서남북 또는 관찰자로 향하는 각도(동0도,북90도) / 삽입점.
+입력은 drawingSets[].model의 barun-building-model(mm). 기존 손 편집은 drawing-sync.pendingEdits를 따름. 모델 없으면 한국어 안내.
+결과: cut A-WALL-CONC, visible A-ELEV-VIEW, AR-CONC pattern hatch A-HATCH. 지문을 기록해 이동한 OCCT 평면의 단면 좌표를 추적. 회전·부분편집·복사한 평면은 재생성 안내. 옛 도면 한 벌의 검증되지 않은 배치 원점은 사용하지 않음(먼저 OCCT 평면 만들기). 삽입·레이어 모두 lisp.apply 한 번/undo 한 단계.
+Worker: 명령의 입력 완료 뒤 처음 로드, 같은 모델 캐시, 실패 후 재시도,60초유휴/화면전환/pagehide 때 종료. 앱 시작과 일반 편집에 OCCT imports/Workers 없음.
+
+변경 파일(18):
+ - occt-building.js
+ - occt-section.js
+ - occt-contract.test.js
+ - occt-spike.test.js
+ - occt-commands.js
+ - occt-commands.test.js
+ - app.js
+ - card-registry.js
+ - commands.js
+ - command-runner.js
+ - menu-catalog.js
+ - package.json
+ - server.py
+ - build_desktop.py
+ - test_browser_assets.py
+ - tools/occt-cad-assets.md
+ - tools/occt-cad-smoke.mjs
+ - tools/occt-cad-render.py
+이 보고서 tools/occt-cad-report.txt도 새로 저장.
+
+시험:
+ - 최종 핵심 node --test (OCCT 계약/실커널/명령, command-runner, menu-shell):84/84 통과. 이 중 OCCT30+명령19=49.
+ - npm test:8343통과/2실패/2건너뜀(총8347),126.47초,exit1. 최종 추가 교차 접합 계약시험은 위84개에서 확인.
+ - 실패2개:design-cases.test.js의 git 밖 engine-test-editable.json, engine-test-reference.json 누락(ENOENT). 예제자료를 만들거나 시험을 무력화하지 않음.
+ - python -m pytest test_browser_assets.py -q:6/6 통과. actual HTTP allowlist/import graph, WASM MIME, NOTICE/LICENSE, split chunk 이름 확인.
+ - JS/Python 구문 확인 통과. actual installer/browser bundle build는 사용자 금지로 수행하지 않음.
+ - reviewer 최종 검토:추가 결함 없음; through-wall 제외/height/story 회귀2/2 독립 확인.
+
+사리로 실제 Node CAD 명령 검증:
+ - OCCTPLAN: 74객체, 5해치, DXF읽기 74개 일치, 957.5ms (각 명령 fresh Worker; PNG/DXF 출력시간 제외), undo/redo1단계.
+ - OCCTSECTION: 69객체, 1해치, DXF읽기 69개 일치, 889.0ms (각 명령 fresh Worker; PNG/DXF 출력시간 제외), undo/redo1단계.
+ - OCCTELEVATION: 41객체, 0해치, DXF읽기 41개 일치, 1076.5ms (각 명령 fresh Worker; PNG/DXF 출력시간 제외), undo/redo1단계.
+PNG(브라우저 화면 캡처가 아닌 실제 명령 결과의 렌더):
+ - tmp/occt-spike/cad-plan.png
+ - tmp/occt-spike/cad-section.png
+ - tmp/occt-spike/cad-elevation.png
+같은 이름 DXF/JSON, 전체 문서 cad-all.bcad도 생성. 실제 콘크리트 HATCH 이름과 구멍 수 재읽기 검증. 세 PNG 육안 확인, 네 코너100mm홈/중복선 제거.
+브라우저: Chrome 개발앱 시작 확인은 완료. 로컬파일 chooser.setFiles 권한이 브라우저 보안 정책에서 거부되어 실제 사리로 UI3명령·브라우저Worker 첫 WASM로드는 검증하지 못함. 요청한 대로 Node 명령/결과DXF PNG로 대체. 업로드 우회 안함.
+
+시작 비교: 같은 서버/환경에서 전후각3회, 시작측정 임시코드 사용 후 제거. 중앙값672.6→703.1ms(+30.5ms). 앞서 별도 측정583.2→694.3ms는 조건변화로 참조만. 같은환경각분포658.6~2770.2ms/695.7~2422.8ms. 변동 커서0ms차이를 보장하지 않음. 전후 OCCT JS/WASM 요청은 모두0회. 측정 원자료 tmp/occt-spike/cad-startup.json.
+
+자산: server.py허용목록+build_desktop.py설치assets에 single WASM(22,980,267B=21.9MiB;기존gzip6.9MiB), JS,NOTICE,LGPL-2.1-only LICENSE 포함 경로 등록. multi미포함. 고지는 vendor/occt-pkg/NOTICE.md와 vendor/occt-pkg/node_modules/replicad-opencascadejs/LICENSE;자세한 위치는 tools/occt-cad-assets.md. 배포 전 기존NOTICE의소스제공안내 처리 필요.
+남은 범위:직선벽/다각슬래브 지원. 곡선벽·경사지붕·계단·난간·문짝/창틀·복합마감은 미지원 요소 안내. miter는 center동일층높이2벽만;기타 접합은 원솔리드fuse로 유지.
+
+정리: 개발서버임시포트18763 종료·포트닫힘 확인, 테스트프로세스 종료, 검증Chrome탭 닫음, 생성연결파일PID확인후정리, 앱 임시측정코드 제거. git쓰기/공유node_modules설치/엔진다시받기/제품빌드/설치/배포 안함.
+
+실행 기록:
+주 담당 GPT-6 기반 Codex(세부모델ID확인불가). 도구 Node REPL/fs/child_process, rg, git읽기diff, node --test/npm test/pytest, Chrome cua. exec_command setup refresh오류로 Node우회.
+LM Studio로컬모델:실제호출없음.
+하위에이전트3개:
+ - wall_fuse:architect/gpt-6-astra;층벽fuse·miter·회귀;최종OCCT30/30통과.
+ - occt_assets:implementer/gpt-5.6-luna;server/build assets·고지위치;pytest6통과,primary가bundle경계/MIME회귀보완.
+ - occt_cad_review:reviewer/gpt-6-astra;독립correctness/자산/좌표/수명/기하검토;발견사항수정후추가결함없음.

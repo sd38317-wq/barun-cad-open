@@ -1,0 +1,139 @@
+/* SharedAccountWindow 팝오버 — 제목줄 계정 단추 아래 작은 창(약 410px). popover.mjs가 스스로 불러온다.
+   색은 앱 테마 변수에서 가져온다: 클래식 = --surface·--ink·--muted·--line·--accent(그래파이트·스위스·블루프린트 모두),
+   바른 에어 = 유리(흐림) + 효과 줄이기(body[data-air-effects=reduced])면 흐림 없이 짙은 단색. */
+.ap,.ap *{box-sizing:border-box}
+.ap{
+  --ap-bg:var(--surface,#25292f);--ap-blur:none;--ap-edge:color-mix(in srgb,var(--ink,#dce0e4) 16%,transparent);
+  --ap-ink:var(--ink,#dce0e4);--ap-muted:var(--muted,#a0a9b5);--ap-faint:color-mix(in srgb,var(--muted,#a0a9b5) 72%,transparent);
+  --ap-group:color-mix(in srgb,var(--ink,#dce0e4) 5%,transparent);--ap-hair:color-mix(in srgb,var(--ink,#dce0e4) 8%,transparent);
+  --ap-hover:color-mix(in srgb,var(--ink,#dce0e4) 6%,transparent);--ap-seg:color-mix(in srgb,var(--ink,#dce0e4) 8%,transparent);
+  --ap-seg-on:color-mix(in srgb,var(--ink,#dce0e4) 17%,transparent);--ap-accent:var(--accent,#e2c17c);--ap-on-accent:var(--accent-ink,#211a10);
+  --ap-ok:var(--accent,#e2c17c);--ap-shadow:0 22px 56px rgba(0,0,0,.34),0 2px 8px rgba(0,0,0,.16);--ap-ease:cubic-bezier(.2,.8,.2,1)
+}
+body[data-view="air"] .ap{
+  --ap-bg:var(--air-pop,rgba(38,41,48,.78));--ap-blur:var(--air-blur,saturate(180%) blur(20px));--ap-edge:rgba(255,255,255,.13);
+  --ap-ink:#eef0f3;--ap-muted:#9aa1ab;--ap-faint:#6f7680;--ap-group:rgba(255,255,255,.045);--ap-hair:rgba(255,255,255,.06);
+  --ap-hover:rgba(255,255,255,.05);--ap-seg:rgba(255,255,255,.07);--ap-seg-on:rgba(255,255,255,.16);
+  --ap-accent:var(--barun-accent,#e2c17c);--ap-on-accent:var(--barun-on-accent,#15171c);--ap-ok:var(--barun-accent,#e2c17c);
+  --ap-shadow:var(--air-float,0 24px 64px rgba(0,0,0,.42),0 2px 10px rgba(0,0,0,.22));font-family:var(--barun-ui-font,inherit)
+}
+body[data-view="air"][data-air-effects="reduced"] .ap{--ap-bg:rgba(38,41,48,.97);--ap-blur:none;--ap-shadow:0 6px 16px rgba(0,0,0,.4)}
+/* 밝은 클래식(스위스·블루프린트)은 그림자를 옅게 */
+body:is([data-view="swiss"],[data-view="blueprint"]) .ap{--ap-shadow:0 18px 44px rgba(20,30,50,.18),0 1px 4px rgba(20,30,50,.1);--ap-ok:#3f8a3a}
+
+/* 자리는 popover.mjs가 단추 기준으로 계산한다. 배율·창 크기가 바뀌는 순간에도 화면 밖으로 나가지 않도록 CSS로 한 번 더 조인다. */
+.ap[popover]{position:fixed;inset:auto;left:clamp(8px,var(--ap-left,8px),calc(100vw - min(var(--ap-width,410px),100vw - 16px) - 8px));top:var(--ap-top,48px);width:min(var(--ap-width,410px),calc(100vw - 16px));height:auto;max-height:min(var(--ap-max-h,80vh),calc(100vh - var(--ap-top,48px) - 8px));margin:0;padding:0;overflow:visible;
+  border:1px solid var(--ap-edge);border-radius:18px;background:var(--ap-bg);-webkit-backdrop-filter:var(--ap-blur);backdrop-filter:var(--ap-blur);color:var(--ap-ink);box-shadow:var(--ap-shadow);
+  font-size:13.5px;line-height:1.4;text-align:left;transform-origin:var(--ap-caret,340px) 0}
+.ap[popover]:focus{outline:none}
+.ap[popover]:popover-open{display:block;animation:ap-in .16s var(--ap-ease)}
+@keyframes ap-in{from{opacity:0;transform:translateY(-4px) scale(.98)}}
+/* 꼬리: 단추 가운데를 가리킨다. 위쪽 삼각형만 보이게 잘라 창 안쪽과 겹치지 않는다. */
+.ap[popover]::before{content:"";position:absolute;top:-8px;left:calc(var(--ap-caret,340px) - 7px);width:14px;height:14px;border-left:1px solid var(--ap-edge);border-top:1px solid var(--ap-edge);border-radius:3px 0 0 0;
+  background:var(--ap-bg);-webkit-backdrop-filter:var(--ap-blur);backdrop-filter:var(--ap-blur);transform:rotate(45deg);clip-path:polygon(0 100%,0 0,100% 0)}
+.ap-scroll{position:relative;max-height:calc(min(var(--ap-max-h,80vh),100vh - var(--ap-top,48px) - 8px) - 2px);overflow:auto;padding:10px;border-radius:17px;scrollbar-width:thin}
+
+/* 앱 전역 header·footer·p·button 규칙을 끊는다 */
+.ap :is(header,footer){height:auto;margin:0;padding:0;border:0;background:none;box-shadow:none;position:static;color:inherit;font-size:inherit}
+.ap :is(p,ul){margin:0}
+.ap button{font:inherit;color:inherit;cursor:pointer;transition:background-color .12s,color .12s,opacity .12s}
+.ap button:disabled{cursor:default}
+
+/* 머리 */
+.ap .ap-head{height:auto;border:0;background:none;display:flex;align-items:center;gap:12px;padding:8px 8px 12px 8px}
+.ap-avatar{display:grid;place-items:center;flex:none;width:44px;height:44px;border:2px solid var(--ap-accent);border-radius:50%;color:var(--ap-accent);font-size:16px;font-weight:700;line-height:1}
+.ap-avatar.ap-on{background:var(--ap-accent);color:var(--ap-on-accent)}
+.ap-who{display:flex;flex-direction:column;flex:1;min-width:0}
+.ap-name{overflow:hidden;font-size:15px;font-weight:700;white-space:nowrap;text-overflow:ellipsis}
+.ap-sub{overflow:hidden;margin-top:2px;color:var(--ap-muted);font-size:12px;white-space:nowrap;text-overflow:ellipsis}
+.ap .ap-btn.ap-kakao{display:inline-flex;align-items:center;gap:6px;flex:none;height:32px;padding:0 12px;border:0;border-radius:9px;background:#fee500;color:rgba(0,0,0,.85);font-size:12.5px;font-weight:700;white-space:nowrap}
+.ap .ap-btn.ap-kakao:hover:not(:disabled){background:#f5dc00;color:rgba(0,0,0,.85);border-color:transparent}
+.ap .ap-btn.ap-kakao:disabled{opacity:1;background:#fff3a3;color:rgba(0,0,0,.85)}
+.ap-kakao-icon{width:15px;height:15px;filter:brightness(0);opacity:.85}
+/* 두 32px 버튼 + 4px 간격은 68px. 머리 여백에서 4px를 회수해 기존 64px 공간을 유지한다. */
+.ap .ap-head:has(.ap-logins:not([hidden])){min-height:68px;padding-block:0;margin-block:-2px}
+.ap-logins{display:grid;grid-template-columns:max-content;gap:4px;flex:none;padding:0}
+.ap-logins[hidden]{display:none}
+.ap-login-option{position:relative;min-width:0}
+.ap .ap-logins .ap-btn{width:100%;height:32px;gap:6px;transition:none}
+/* 각 버튼의 접근성 설명. 같은 설명은 왼쪽 계정 상태 한 줄에서 보여 준다. */
+.ap-login-reason{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ap-login-reason[hidden]{display:none}
+.ap .ap-btn.ap-google{background:#fff;border:1px solid #747775;border-radius:4px;color:#1f1f1f;font-family:"Google Sans",Arial,"Malgun Gothic",sans-serif;font-size:12.5px;font-weight:500;padding-inline:5px}
+.ap .ap-btn.ap-google:hover:not(:disabled){background:#f8faff;border-color:#747775;color:#1f1f1f}
+.ap .ap-btn.ap-google:disabled{opacity:1;background:#fff;color:#1f1f1f}
+.ap-google-icon{width:18px;height:18px;flex:none;background:#fff}
+
+/* 묶음·줄 */
+.ap-group{margin:6px 0 0;overflow:hidden;border-radius:12px;background:var(--ap-group)}
+.ap-row+.ap-row{border-top:1px solid var(--ap-hair)}
+.ap-row-head{display:flex;align-items:center;gap:10px;min-height:44px;padding:0 6px 0 12px;cursor:pointer}
+.ap-row-head:hover,.ap-row.ap-open .ap-row-head{background:var(--ap-hover)}
+.ap-ic{display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:7px}
+.ap-ic svg{width:15px;height:15px}
+.ap-ic-coin{background:color-mix(in srgb,#f5c542 20%,transparent);color:#f5c542}
+.ap-ic-ai{background:color-mix(in srgb,var(--ap-accent) 20%,transparent);color:var(--ap-accent)}
+.ap-ic-update{background:color-mix(in srgb,#5aa9ff 20%,transparent);color:#5aa9ff}
+.ap-ic-repair{background:var(--ap-seg);color:var(--ap-ink)}
+body:is([data-view="swiss"],[data-view="blueprint"]) .ap-ic-coin{color:#b98400}
+.ap-row-label{flex:none;white-space:nowrap}
+.ap-row[data-row="ai"] .ap-row-label{flex:1}
+.ap .ap-disclose{display:flex;align-items:center;gap:8px;flex:1;min-width:0;height:44px;padding:0 6px 0 0;border:0;border-radius:0;background:transparent;color:inherit;font-size:13.5px;text-align:left}
+.ap-row[data-row="ai"] .ap-disclose{flex:none;padding-left:4px}
+.ap .ap-disclose:hover{background:transparent;color:inherit;border-color:transparent}
+.ap-val{display:flex;align-items:center;gap:6px;min-width:0;margin-left:auto;overflow:hidden;color:var(--ap-muted);font-size:12.5px;white-space:nowrap;text-overflow:ellipsis}
+.ap-val.ap-strong{color:var(--ap-ink);font-weight:600}
+.ap-val.ap-attn{color:var(--ap-accent);font-weight:600}
+.ap-chev{display:grid;place-items:center;flex:none;width:14px;height:14px;color:var(--ap-faint);transition:transform .16s var(--ap-ease)}
+.ap-chev svg{width:12px;height:12px}
+.ap-row.ap-open .ap-chev{transform:rotate(90deg);color:var(--ap-muted)}
+
+/* AI 방식 고르기 */
+.ap-seg{display:flex;flex:none;gap:2px;padding:2px;border-radius:8px;background:var(--ap-seg)}
+.ap .ap-seg-btn{height:22px;padding:0 8px;border:0;border-radius:6px;background:transparent;color:var(--ap-muted);font-size:11.5px;line-height:22px;white-space:nowrap}
+.ap .ap-seg-btn:hover{background:var(--ap-hover);color:var(--ap-ink);border-color:transparent}
+.ap .ap-seg-btn.ap-on{background:var(--ap-seg-on);color:var(--ap-ink);font-weight:600}
+.ap-status{margin-left:0}
+.ap-dot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--ap-faint)}
+.ap-status[data-state="connected"]{color:var(--ap-ok)}
+.ap-status[data-state="connected"] .ap-dot{background:var(--ap-ok)}
+.ap-status[data-state="checking"] .ap-dot{background:#f5c542}
+.ap-status:is([data-state="error"],[data-state="offline"]) .ap-dot{background:#ff8a80}
+
+/* 펼친 칸 */
+.ap-detail{padding:2px 12px 12px 48px;color:var(--ap-muted);font-size:12.5px;line-height:1.55;animation:ap-open .16s var(--ap-ease)}
+.ap-detail[hidden]{display:none}
+@keyframes ap-open{from{opacity:0;transform:translateY(-3px)}}
+.ap-note+.ap-note{margin-top:4px}
+.ap-note[hidden]{display:none}
+.ap-model .ap-k{margin-right:6px;color:var(--ap-faint)}
+.ap-model [data-aw-field="model"]{color:var(--ap-ink)}
+.ap-model .ap-unknown{color:var(--ap-muted)}
+.ap-caption,.ap-keep{color:var(--ap-faint);font-size:12px}
+.ap-versions{color:var(--ap-ink)}
+.ap-progress{display:block;width:100%;height:6px;margin-top:8px;accent-color:var(--ap-accent)}
+.ap-progress[hidden]{display:none}
+.ap-notes{margin-top:6px;padding-left:16px;color:var(--ap-ink)}
+.ap-notes[hidden]{display:none}
+.ap-actions{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
+.ap-ext{display:contents}
+.ap .ap-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:28px;padding:0 12px;border:1px solid var(--ap-edge);border-radius:8px;background:transparent;color:var(--ap-ink);font-size:12.5px;font-weight:500;line-height:26px;white-space:nowrap}
+.ap .ap-btn:hover:not(:disabled){background:var(--ap-hover);border-color:var(--ap-muted);color:var(--ap-ink)}
+.ap .ap-btn.ap-accent{border-color:transparent;background:var(--ap-accent);color:var(--ap-on-accent);font-weight:600}
+.ap .ap-btn.ap-accent:hover:not(:disabled){background:color-mix(in srgb,var(--ap-accent) 88%,#fff);color:var(--ap-on-accent)}
+.ap .ap-btn:disabled{opacity:.45}
+.ap .ap-btn[hidden],.ap .ap-kakao[hidden]{display:none}
+
+/* 바닥 링크 */
+.ap .ap-foot{height:auto;border:0;background:none;color:inherit;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 4px 0}
+.ap .ap-link{height:auto;min-height:24px;padding:2px 4px;border:0;border-radius:6px;background:transparent;color:var(--ap-muted);font-size:12px}
+.ap .ap-link:hover:not(:disabled){background:transparent;color:var(--ap-ink);text-decoration:underline;text-underline-offset:3px}
+.ap .ap-link:disabled{opacity:.45}
+.ap .ap-link[hidden]{display:none}
+.ap-live{margin:8px 4px 0;color:var(--ap-muted);font-size:12px;line-height:1.5}
+.ap-live[hidden]{display:none}
+
+.ap :focus-visible{outline:2px solid var(--ap-accent);outline-offset:2px}
+.ap .ap-disclose:focus-visible{outline-offset:-2px;border-radius:8px}
+@media (prefers-reduced-motion:reduce){.ap[popover]:popover-open,.ap-detail{animation:none}.ap-chev{transition:none}}
+@media (max-width:440px){.ap-detail{padding-left:12px}.ap .ap-seg-btn{padding:0 6px}}

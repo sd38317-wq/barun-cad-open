@@ -1,0 +1,2301 @@
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Barun Drawing Korean";
+  src: url("./fonts/NanumGothic-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+:root {
+  font-family: "Barun Drawing Korean", "Segoe UI", sans-serif;
+  color: #d8dce1;
+  background: #1c1f23;
+  font-size: 13px;
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  border: 1px solid #383f48;
+  background: #292e34;
+  color: #d8dce1;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+button:hover {
+  background: #304454;
+  border-color: #5d809a;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #9dcbe0;
+  outline-offset: 2px;
+}
+button.primary {
+  background: #9dcbe0;
+  color: #25292f;
+  border-color: #9dcbe0;
+  font-weight: 600;
+}
+button.primary:hover:not(:disabled) {
+  background: #afd6e9;
+  border-color: #afd6e9;
+}
+header {
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid #383f48;
+  background: #25292f;
+}
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+}
+.logo {
+  width: 34px;
+  height: 38px;
+  background: #9dcbe0;
+  color: #25292f;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 26px;
+}
+.brand small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 2.4px;
+  color: #96a8b6;
+  margin-top: 4px;
+}
+.badge {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #7d9caa;
+  border: 1px solid #3b4d59;
+  border-radius: 4px;
+  padding: 5px 7px;
+  margin-left: 14px;
+}
+.file-actions {
+  display: flex;
+  gap: 8px;
+}
+.file-actions .primary {
+  margin-left: 8px;
+  min-width: 130px;
+}
+.file-actions span {
+  margin-left: 15px;
+}
+.workspace {
+  height: calc(100vh - 105px);
+  display: grid;
+  grid-template-columns: 146px minmax(350px, 1fr) 248px;
+}
+.tools {
+  padding: 23px 12px;
+  background: #25292f;
+  border-right: 1px solid #383f48;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #78909f;
+  font-weight: 700;
+}
+.tools > .eyebrow {
+  padding: 0 9px 8px;
+}
+.tools button {
+  border-color: transparent;
+  background: transparent;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+}
+.tools b {
+  font-size: 23px;
+  width: 24px;
+  line-height: 23px;
+  font-weight: 400;
+}
+.tools button.active {
+  background: #2c3a42;
+  color: #b3edd6;
+  border-color: #4c7265;
+}
+.tools button:hover {
+  background: #293844;
+}
+kbd {
+  font-family: inherit;
+  font-size: 10px;
+  color: #8ca1af;
+}
+.tools kbd {
+  margin-left: auto;
+}
+.divider {
+  border-top: 1px solid #2e3b48;
+  margin: 10px 0;
+}
+.tools-bottom {
+  margin-top: auto;
+  color: #657c8c;
+  font-size: 10px;
+  line-height: 1.8;
+  padding: 12px 8px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.canvas-toolbar {
+  height: 49px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: #19232d;
+  border-bottom: 1px solid #383f48;
+}
+.canvas-toolbar > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #9dcbe0;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.canvas-toolbar strong {
+  font-size: 12px;
+  font-weight: 500;
+}
+.canvas-toolbar button {
+  padding: 5px 9px;
+  background: transparent;
+  border-color: #36434e;
+}
+.canvas-toolbar #zoom {
+  font-size: 10px;
+  min-width: 38px;
+  text-align: center;
+}
+.viewport {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  background: #1c1f23;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  touch-action: none;
+}
+.canvas-label {
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  color: #a5bbc9;
+  font-size: 11px;
+  letter-spacing: 1px;
+  pointer-events: none;
+}
+.canvas-label span {
+  display: block;
+  font-size: 10px;
+  margin-top: 6px;
+  color: #57717f;
+  letter-spacing: 0;
+}
+.navigation {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  color: #667f8d;
+  font-size: 10px;
+  pointer-events: none;
+}
+.navigation span {
+  margin: 0 9px;
+}
+.command {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: #1b2732;
+  border-top: 1px solid #354653;
+  min-height: 88px;
+}
+.command > span {
+  color: #9dcbe0;
+  font-size: 11px;
+}
+.command strong {
+  font-weight: 400;
+  font-size: 12px;
+  flex: 1;
+  min-width: 220px;
+}
+.command input {
+  width: 230px;
+}
+.command button {
+  padding: 7px 10px;
+}
+.inspector {
+  background: #25292f;
+  border-left: 1px solid #383f48;
+  overflow-y: auto;
+}
+section {
+  padding: 20px 18px;
+  border-bottom: 1px solid #2b3945;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.section-title > span {
+  font-size: 10px;
+  color: #6e899a;
+}
+.section-title button {
+  padding: 0 7px;
+  font-size: 18px;
+  background: transparent;
+}
+.setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 13px 0;
+  color: #aebfcb;
+  font-size: 12px;
+}
+input[type="checkbox"] {
+  accent-color: #9dcbe0;
+  cursor: pointer;
+}
+.field {
+  font-size: 11px;
+  color: #91a8b7;
+  display: block;
+  margin-top: 19px;
+}
+.field > span {
+  float: right;
+  color: #607b8c;
+}
+input:not([type="checkbox"]):not([type="color"]) {
+  border: 1px solid #3a4d5c;
+  background: #101a23;
+  color: #d5e1ea;
+  border-radius: 4px;
+  padding: 8px;
+  min-width: 0;
+}
+.field input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+.layer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid transparent;
+  padding: 7px 5px;
+  border-radius: 5px;
+  margin: 3px 0;
+}
+.layer.active {
+  background: #263943;
+  border-color: #3d5b65;
+}
+.layer input[type="color"] {
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.layer button {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+}
+.properties {
+  color: #8ea5b5;
+  font-size: 12px;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+}
+.properties strong {
+  color: #d2e0e8;
+}
+.properties .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.guide {
+  border: 0;
+}
+.guide p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #7892a3;
+}
+.guide strong {
+  color: #a2b9c6;
+  font-weight: 500;
+}
+code {
+  font-family: Consolas, monospace;
+  color: #a0c5d4;
+  font-size: 11px;
+}
+footer {
+  height: 31px;
+  border-top: 1px solid #304351;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #1d2c37;
+  padding: 0 20px;
+  font-size: 10px;
+  color: #90a8b7;
+}
+footer > span:first-child {
+  margin-right: auto;
+}
+#dirty {
+  color: #9dcbe0;
+  font-size: 10px;
+}
+#toast {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 18px;
+  background: #30453f;
+  color: #d4f4e7;
+  border: 1px solid #5a806f;
+  border-radius: 6px;
+  display: none;
+  max-width: 85%;
+  z-index: 2;
+}
+/* 알림 안 단추(멀리 떨어진 객체: 골라 보기 · 모두 보기) */
+#toast .toast-actions { display: inline-flex; gap: 6px; margin-left: 12px; vertical-align: middle; }
+#toast .toast-actions button { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid currentColor; background: transparent; color: inherit; cursor: pointer; }
+@media (max-width: 1000px) {
+  .workspace {
+    grid-template-columns: 116px minmax(300px, 1fr) 210px;
+  }
+  .tools {
+    padding: 18px 6px;
+  }
+  .tools kbd {
+    display: none;
+  }
+  section {
+    padding: 16px 12px;
+  }
+  .navigation {
+    font-size: 9px;
+  }
+  .command input {
+    width: 170px;
+  }
+}
+@media (max-width: 760px) {
+  .workspace {
+    grid-template-columns: 85px minmax(250px, 1fr);
+  }
+  .inspector {
+    display: none;
+  }
+  .tools b {
+    display: none;
+  }
+  .badge {
+    display: none;
+  }
+  header {
+    padding: 0 12px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .file-actions button {
+    padding: 7px;
+  }
+  .file-actions .primary {
+    min-width: 90px;
+    margin: 0;
+  }
+  footer {
+    gap: 10px;
+    padding: 0 8px;
+  }
+  footer > span:first-child {
+    display: none;
+  }
+  .navigation {
+    display: none;
+  }
+}
+/* Keep the drawing and command bar inside short desktop windows. */
+.workspace {
+  grid-template-rows: minmax(0, 1fr);
+}
+main {
+  min-height: 0;
+}
+.tools {
+  min-height: 0;
+  overflow-y: auto;
+}
+.tools-bottom {
+  flex-shrink: 0;
+}
+.tools button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 12px;
+  gap: 7px;
+}
+.tools b {
+  flex-shrink: 0;
+}
+.tools kbd {
+  font-size: 9px;
+}
+@media (max-height: 800px) {
+  .tools {
+    padding-top: 14px;
+    gap: 3px;
+  }
+  .tools button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+  .tools .divider {
+    margin: 7px 0;
+  }
+  .tools-bottom {
+    display: none;
+  }
+}
+/* V2: persistent command line and compact tool groups */
+.workspace {
+  grid-template-columns: 164px minmax(360px, 1fr) 260px;
+}
+.tools {
+  padding: 12px 8px;
+  gap: 4px;
+}
+.tools #tool-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tools button {
+  padding: 8px;
+  min-height: 30px;
+}
+.tool-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.tool-tabs button {
+  display: block;
+  text-align: center;
+  padding: 6px;
+}
+.tools-bottom {
+  font-size: 10px;
+  margin-top: auto;
+  padding: 10px 3px;
+}
+.tools-bottom strong {
+  font-size: 9px;
+  color: #94b9ab;
+}
+.tools button kbd {
+  font-size: 9px;
+}
+.tool-tabs .active {
+  background: #2c3a42;
+  color: #b3edd6;
+}
+.command-panel {
+  flex-shrink: 0;
+  height: 166px;
+  border-top: 1px solid #3b5261;
+  padding: 8px 14px;
+  background: #1b2934;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.command-title {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 10px;
+  color: #91aab9;
+}
+.command-title strong {
+  color: #9dcbe0;
+  font-size: 11px;
+}
+.command-title button {
+  margin-left: auto;
+  padding: 1px 6px;
+  font-size: 9px;
+  background: transparent;
+}
+.command-title #active-command {
+  font-family: Consolas, monospace;
+  color: #c5deeb;
+}
+#history {
+  height: 58px;
+  overflow: auto;
+  font-family: Consolas, "Malgun Gothic", monospace;
+  color: #819dad;
+  font-size: 11px;
+  line-height: 1.6;
+}
+#history .err {
+  color: #ffc08b;
+}
+#history .result {
+  color: #b0dfca;
+}
+#prompt {
+  color: #d8e6ed;
+  font-size: 12px;
+  min-height: 18px;
+}
+.command-input {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.command-input label {
+  color: #9dcbe0;
+}
+.command-input input {
+  flex: 1;
+  width: 120px;
+  min-width: 60px;
+}
+.command-input button {
+  padding: 7px 9px;
+  font-size: 11px;
+}
+.toggles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 11px;
+  color: #a9bfcc;
+}
+.toggles label {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.minor {
+  margin-top: 12px;
+  font-size: 10px;
+  color: #7e9aad;
+}
+.drawing-load-overlay{position:absolute;inset:0;z-index:18;display:grid;place-items:center;background:rgba(6,12,17,.68);backdrop-filter:blur(2px)}
+.drawing-load-overlay[hidden]{display:none}
+.drawing-load-card{width:min(520px,calc(100% - 40px));padding:22px 24px;border:1px solid #63717b;border-radius:12px;background:#20272e;box-shadow:0 18px 60px rgba(0,0,0,.45);color:#edf2f5}
+.drawing-load-card strong,.drawing-load-card span{display:block}.drawing-load-card strong{font-size:18px;margin-bottom:8px}.drawing-load-card>span{color:#cbd5dc;margin-bottom:13px}
+.drawing-load-card progress{width:100%;height:12px;accent-color:#9dcbe0}.drawing-load-card small{display:flex;justify-content:space-between;gap:12px;margin-top:8px;color:#aeb9c1}.drawing-load-card small span{display:inline}#drawing-load-elapsed{white-space:nowrap;flex:none}.drawing-load-card p{margin:13px 0 0;color:#8f9ca5;font-size:12px}
+.snap-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  color: #70d6bd;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+.inspector section#object-properties-panel.has-selection {
+  border-color: rgba(112, 214, 189, .55);
+  box-shadow: inset 0 0 0 1px rgba(112, 214, 189, .12);
+}
+.compact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+.field.compact input,
+.field.compact select {
+  width: 94px;
+  margin: 0;
+  padding: 5px;
+}
+.layer {
+  padding: 4px 2px;
+  gap: 4px;
+}
+.layer .lock {
+  font-size: 9px;
+}
+.layer input[type="color"] {
+  width: 18px;
+  height: 20px;
+}
+.inspector section {
+  padding: 14px;
+}
+.section-title {
+  margin-bottom: 12px;
+}
+.section-title button {
+  font-size: 11px;
+  padding: 3px 6px;
+}
+.properties {
+  font-size: 11px;
+}
+#edit-properties {
+  font-size: 11px;
+  width: 100%;
+  margin-top: 10px;
+}
+.muted {
+  font-size: 11px;
+  color: #8099a9;
+  line-height: 1.7;
+}
+.inspector .muted {
+  font-size: 10px;
+}
+.navigation {
+  font-size: 9px;
+  left: 15px;
+  bottom: 10px;
+}
+dialog {
+  background: #1b2934;
+  color: #d5e1e9;
+  border: 1px solid #4d6a7b;
+  border-radius: 10px;
+  width: min(900px, 94vw);
+  max-height: 90vh;
+  padding: 22px;
+  box-shadow: 0 30px 100px #0009;
+}
+dialog::backdrop {
+  background: #071018bb;
+}
+dialog h2 {
+  font-size: 19px;
+  margin: 0;
+}
+dialog p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.dialog-header button {
+  font-size: 11px;
+}
+.dialog-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.settings-scroll {
+  max-height: 48vh;
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+}
+td,
+th {
+  text-align: left;
+  border-bottom: 1px solid #354753;
+  padding: 7px;
+}
+th {
+  background: #263a46;
+  position: sticky;
+  top: 0;
+}
+td input {
+  width: 100%;
+}
+.error {
+  color: #ffc09b;
+  min-height: 20px;
+}
+.help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 18px 0;
+}
+.help-grid button {
+  text-align: left;
+  font-size: 11px;
+}
+.help-grid code {
+  display: block;
+  color: #9dcbe0;
+  margin-bottom: 4px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 12px 0;
+}
+.form-row input,
+.form-row textarea,
+.form-row select {
+  width: 100%;
+  padding: 8px;
+  background: #101a23;
+  border: 1px solid #40596a;
+  border-radius: 4px;
+}
+.form-row textarea {
+  min-height: 90px;
+}
+#form-fields table input {
+  min-width: 50px;
+}
+.report-list {
+  max-height: 40vh;
+  overflow: auto;
+  padding: 12px;
+  background: #101b24;
+  border-radius: 5px;
+  line-height: 1.8;
+  font-size: 12px;
+}
+.canvas-toolbar #doc-name {
+  max-width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+footer {
+  gap: 18px;
+}
+@media (max-height: 800px) {
+  .command-panel {
+    height: 151px;
+  }
+  .tools button {
+    padding: 6px;
+  }
+  .tools .tools-bottom {
+    display: none;
+  }
+  #history {
+    height: 48px;
+  }
+}
+@media (max-width: 1100px) {
+  .workspace {
+    grid-template-columns: 138px minmax(360px, 1fr) 220px;
+  }
+  .tools kbd {
+    display: none;
+  }
+  .inspector section {
+    padding: 11px;
+  }
+  .file-actions {
+    gap: 4px;
+  }
+  .file-actions button {
+    padding: 7px;
+  }
+  .badge {
+    display: none;
+  }
+  .canvas-toolbar #doc-name {
+    max-width: 160px;
+  }
+}
+@media (max-width: 800px) {
+  .workspace {
+    grid-template-columns: 110px minmax(280px, 1fr);
+  }
+  .inspector {
+    display: none;
+  }
+  header {
+    padding: 0 10px;
+  }
+  .brand {
+    font-size: 15px;
+  }
+  .brand small {
+    font-size: 6px;
+  }
+  .file-actions button[data-command="BACKUP"],
+  .file-actions button[data-command="NEW"] {
+    display: none;
+  }
+  .file-actions .primary {
+    min-width: 90px;
+  }
+  .help-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .command-panel {
+    padding: 8px;
+    height: 165px;
+  }
+  .navigation {
+    display: none;
+  }
+  .canvas-toolbar {
+    padding: 0 10px;
+  }
+  .command-input button {
+    padding: 7px 5px;
+  }
+  footer > span:first-child {
+    display: none;
+  }
+}
+[hidden] {
+  display: none !important;
+}
+#ai-dialog{width:min(760px,92vw);max-height:90vh;}
+#ai-history{height:42vh;overflow:auto;background:#0e171d;border:1px solid #30434e;border-radius:8px;padding:14px;margin:12px 0;}
+.ai-message{padding:10px 0;border-bottom:1px solid #24343d;white-space:pre-wrap;line-height:1.6;}
+.ai-message strong{color:#a9ddcb;}.ai-message.user strong{color:#8abfe4;}.ai-message.tool{font-size:12px;color:#a8b9c2;}
+#ai-message{width:100%;min-height:75px;margin-top:10px;box-sizing:border-box;}
+.tools{overflow-y:auto;}.tools-bottom{position:static;margin-top:16px;}
+
+/* Persistent, independent CAD and AI input lanes. */
+.input-dock{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);flex-shrink:0;gap:0;background:#1b2934;border-top:1px solid #3b5261;position:relative;z-index:3;}
+.input-dock .command-panel{height:154px;min-width:0;border-top:0;padding:8px 10px;box-sizing:border-box;}
+.input-dock #history{height:42px;}
+.input-dock .command-input{gap:4px;}
+.input-dock .command-input button{padding:7px 5px;}
+#ai-dock{min-width:0;padding:8px 10px;border-left:1px solid #3b5261;display:flex;flex-direction:column;gap:8px;position:relative;box-sizing:border-box;}
+.ai-dock-title,.ai-controls,.ai-compose{display:flex;align-items:center;gap:7px;min-width:0;}
+.ai-dock-title strong{font-size:12px;color:#9dcbe0;white-space:nowrap;}
+#ai-status{font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
+#ai-close{font-size:10px;padding:4px;white-space:nowrap;}
+.ai-controls{font-size:10px;color:#91aab9;}.ai-controls select{padding:3px;font-size:11px;}.ai-controls #ai-stop{margin-left:auto;padding:3px 6px;}
+.ai-compose{flex:1;align-items:stretch;}
+#ai-dock #ai-message{margin:0;min-height:52px;max-height:100px;resize:vertical;flex:1;min-width:0;font:12px/1.5 'Malgun Gothic',sans-serif;}
+#ai-dock #ai-history{position:absolute;bottom:100%;left:0;right:0;height:min(350px,45vh);overflow:auto;padding:12px;background:#25292f;border:1px solid #4b6979;box-shadow:0 -8px 22px #0004;box-sizing:border-box;}
+#ai-dock #ai-history[hidden]{display:none;}
+#ai-dock #ai-send{padding:8px;font-size:12px;}
+
+.ai-controls{flex-wrap:wrap;gap:4px 7px;} .ai-controls label{white-space:nowrap;} .ai-controls>span{font-size:9px;}
+
+/* Work area remains usable in focus mode: inputs below, conversation on right. */
+.drawing-row{display:flex;flex:1;min-height:0;min-width:0;overflow:hidden;position:relative;}
+.drawing-row .viewport{flex:1;min-width:0;min-height:0;}
+#ai-history-panel{width:clamp(230px,24vw,350px);flex-shrink:0;background:#25292f;border-left:1px solid #3b5261;display:flex;flex-direction:column;min-height:0;}
+#ai-history-panel>strong{padding:12px;border-bottom:1px solid #3b5261;color:#9dcbe0;font-size:12px;}
+#ai-history-panel #ai-history{position:static;width:100%;height:auto;flex:1;min-height:0;overflow:auto;padding:12px;box-sizing:border-box;}
+#ai-history-panel[hidden]{display:none;}
+#ai-history-panel .ai-message{overflow-wrap:anywhere;font-size:12px;}
+/* 미리 답 아래 그림 칸(2026-10-30 시안-미리그림보기): 3칸씩, 이름은 아래 작게, 누르면 크게 */
+.ai-images{white-space:normal;margin-top:8px;}
+.ai-image-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+.ai-image{display:flex;flex-direction:column;gap:2px;margin:0;padding:0;border:0;background:none;color:#a8b9c2;font-size:11px;text-align:center;cursor:zoom-in;min-width:0;}
+.ai-image img,.ai-image-missing{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid #30434e;background:#cfe0ea;box-sizing:border-box;}
+.ai-image-missing{display:flex;align-items:center;justify-content:center;background:#1b2934;color:#91aab9;}
+.ai-image:disabled{cursor:default;}.ai-image:focus-visible{outline:2px solid #79baff;outline-offset:1px;border-radius:6px;}
+.ai-image>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.ai-image-actions{display:flex;gap:6px;margin-top:8px;}
+.ai-image-actions>*{font-size:11px;border:1px solid #4a525c;border-radius:6px;padding:3px 8px;color:#a8b9c2;background:none;}
+.ai-image-viewer{width:min(1100px,94vw);max-height:94vh;box-sizing:border-box;}
+.ai-image-viewer .dialog-header h2{flex:1;}
+.ai-image-viewer img{display:block;max-width:100%;max-height:calc(94vh - 110px);margin:0 auto;cursor:zoom-out;}
+#canvas{cursor:none;position:relative;}
+.basemap-layer{position:absolute;inset:0;pointer-events:none;opacity:.55;}
+.drawing-text-editor{position:absolute;z-index:30;box-sizing:border-box;min-height:1.35em;padding:0 3px;overflow:hidden;resize:none;transform-origin:left bottom;background:rgba(16,24,32,.92);color:#fff;border:1px solid #79baff;outline:2px solid rgba(7,135,255,.25);font-family:"Barun Drawing Korean",sans-serif;line-height:1.35;white-space:pre;}
+body.workspace-focus>header,body.workspace-focus>footer,body.workspace-focus .tools,body.workspace-focus .inspector,body.workspace-focus .canvas-toolbar,body.workspace-focus .canvas-label,body.workspace-focus .navigation{display:none!important;}
+body.workspace-focus .workspace{position:fixed;inset:0;width:100vw;height:100dvh;display:block;}
+body.workspace-focus main{width:100%;height:100%;min-width:0;}
+body.workspace-focus .drawing-row{flex:1;min-height:0;}
+body.workspace-focus .input-dock{display:grid!important;flex-shrink:0;}
+#workspace-fullscreen-exit{position:absolute;right:12px;top:12px;z-index:10;opacity:.8;font-size:11px;padding:6px 9px;}
+#workspace-fullscreen-exit:hover,#workspace-fullscreen-exit:focus{opacity:1;}
+#workspace-fullscreen-exit[hidden]{display:none;}
+
+/* Top ribbon replaces both permanent tool sidebars. */
+body{display:flex;flex-direction:column;}
+body>header,body>footer{flex-shrink:0;}
+body>.workspace{flex:1;min-height:0;height:auto;display:block;}
+body>.workspace>main{height:100%;min-height:0;}
+#top-ribbon{flex-shrink:0;display:flex;flex-direction:column;gap:0;padding:0 12px;background:#25292f;border:0;border-bottom:1px solid #344857;overflow:visible;position:relative;z-index:20;width:100%;}
+.ribbon-tabs{display:flex;align-items:center;gap:14px;min-height:38px;}
+#top-ribbon .tool-tabs{display:flex;gap:4px;border:0;margin:0;padding:0;}
+#top-ribbon .tool-tabs button{padding:7px 16px;font-size:13px;white-space:nowrap;width:auto;}
+/* 옆 창은 모두 '건축 요소' 창과 같은 너비로 맞춘다. 창마다 폭이 달라 화면이 들쭉날쭉했다. */
+#ai-history-panel,.livecheck-panel,.aux-panel{width:290px!important;max-width:290px!important;flex:0 0 290px!important;box-sizing:border-box;}
+/* 위쪽 줄이 도면을 너무 많이 잡아먹었다. 도면이 더 보이도록 위아래를 바싹 줄인다. */
+body>header{height:22px!important;min-height:22px!important;padding:0 8px!important;}
+header .brand{font-size:12px!important;gap:4px!important;}
+header .logo{width:17px!important;height:17px!important;font-size:13px!important;border-radius:3px!important;}
+header .file-actions button{font-size:10px;padding:1px 5px;}
+.ribbon-tabs{min-height:21px!important;gap:7px;}
+#top-ribbon .tool-tabs button{padding:2px 9px;font-size:11px;}
+#top-ribbon .current-layer-control{font-size:10px;}
+#top-ribbon .current-layer-control select{padding:0 3px;font-size:10px;height:18px;}
+#top-ribbon .ribbon-tabs button{font-size:10px;padding:2px 6px;}
+.drawing-tabs-bar{flex:0 0 21px!important;min-height:21px!important;padding:0 6px!important;gap:4px!important;}
+
+/* 재서 맞춘 값 — 제목 16 + 기록 34 + 입력 35 + 여백 = 96. 이보다 줄이면 입력칸이 잘린다. */
+.input-dock .command-panel{height:98px!important;padding:3px 8px!important;}
+.input-dock .command-panel .history{overflow:auto;}
+.input-dock .command-panel #log{font-size:11px;line-height:1.4;}
+/* 설계 시작 묶음 — 그리는 도구에서 한 칸 떨어뜨린다. 여기에 증축설계 같은 것이 나란히 붙는다. */
+.tool-tabs .ribbon-design-group{display:flex;gap:4px;margin-left:22px;padding-left:22px;border-left:1px solid #2b3b47;}
+#top-ribbon #tool-buttons{display:flex;flex-direction:row;align-items:center;gap:5px;overflow-x:auto;padding:6px 0;min-height:43px;}
+#top-ribbon #tool-buttons button{flex:0 0 auto;width:auto;min-width:62px;padding:6px 10px;display:flex;gap:5px;align-items:center;white-space:nowrap;font-size:12px;}
+#top-ribbon .ribbon-quick{display:flex;gap:5px;margin-left:auto;}
+#top-ribbon .ribbon-quick button{padding:5px 8px;width:auto;font-size:11px;white-space:nowrap;}
+.ribbon-menu{position:relative;font-size:12px;}
+.ribbon-menu>summary{cursor:pointer;padding:8px;white-space:nowrap;}
+.ribbon-popover{position:absolute;top:100%;left:0;width:290px;max-height:65vh;overflow:auto;padding:12px!important;background:#1b2934;border:1px solid #496170;box-shadow:0 8px 24px #0008;display:flex!important;flex-direction:column;gap:6px;z-index:30;}
+.ribbon-menu:not([open])>.ribbon-popover{display:none!important;}
+#top-ribbon .ribbon-popover button{font-size:12px;padding:7px;width:auto;}
+#top-ribbon .inspector{height:auto;min-height:0;}
+@media(max-width:800px){.ribbon-tabs{gap:3px;flex-wrap:wrap;}#top-ribbon .tool-tabs button{padding:6px 10px;}#top-ribbon .ribbon-quick{margin-left:0;}#top-ribbon{padding:0 7px;}}
+body.workspace-focus #top-ribbon{display:none!important;}
+#mass-view{position:absolute;inset:0;z-index:9;background:#111d26;display:flex;flex-direction:column;}
+#mass-view[hidden]{display:none;}
+.mass-controls{display:flex;align-items:center;gap:12px;padding:10px;flex-wrap:wrap;}
+.mass-controls input{width:75px;}
+#mass-view canvas{flex:1;min-height:0;width:100%;cursor:grab;}
+#mass-view p{padding:8px;font-size:11px;color:#acc1cc;}
+
+#mass-view canvas{height:0;flex:1 1 0;min-height:60px;} .mass-controls,#mass-view p{flex-shrink:0;}
+
+.mass-layer-options{padding:6px 12px;font-size:12px;flex-shrink:0;} .mass-layer-options>div{max-height:130px;overflow:auto;} .mass-layer-options label{display:block;} .mass-layer-options input{width:auto;margin-right:8px;} .mass-layer-options span{display:block;color:#afc8d7;}
+.mass-layer-options{position:relative;padding:0;}
+.mass-layer-options>summary{cursor:pointer;padding:8px;border:1px solid #425c6c;border-radius:5px;}
+.mass-layer-options>.mass-layer-popover{position:absolute;right:0;top:100%;z-index:12;width:min(330px,75vw);max-height:none;overflow:visible;background:#1b2934;border:1px solid #526c7b;border-radius:6px;padding:12px;box-shadow:0 8px 24px #0008;}
+.mass-layer-list{max-height:min(220px,35vh);overflow:auto;}
+.mass-layer-list label{padding:4px 0;}
+.mass-layer-popover>button{margin-top:10px;width:100%;}
+#mass-view>p{margin:0;padding:5px 10px;}
+.mass-auto-status{display:block;flex-shrink:0;padding:0 12px 6px;color:#a6c8d6;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#parcel-dialog{width:min(680px,92vw);max-height:88vh;overflow:auto;padding:18px;}
+#parcel-dialog label{display:block;margin:8px 0;}#parcel-dialog label>input:not([type=checkbox]),#parcel-dialog select{width:100%;box-sizing:border-box;}
+.parcel-search-row{display:flex;gap:8px;margin:12px 0;}.parcel-search-row>input,.parcel-search-row>label{flex:1;min-width:0;}
+.parcel-preview svg{display:block;width:100%;height:190px;background:#1c1f23;}.parcel-status{font-size:12px;color:#c4d5dd;}
+.corner-review{margin-top:10px;padding:10px 12px;border:1px solid #3b4650;border-radius:8px;background:#20252b}.corner-review>p{margin:4px 0 8px;color:#aab5bd;font-size:12px}.corner-list{display:grid;gap:7px}.corner-row{display:grid;grid-template-columns:auto auto minmax(120px,1fr) minmax(120px,1fr) minmax(155px,auto);align-items:end;gap:8px;padding-top:7px;border-top:1px solid #353e47}.corner-row:first-child{border-top:0}.corner-row label{margin:0!important;font-size:12px}.corner-row input[type=number]{height:30px!important}.corner-row output{padding-bottom:6px;color:#9dcbe0;font-size:12px}.corner-preview{filter:drop-shadow(0 0 2px #9dcbe0)}
+.parcel-pick-row{justify-content:flex-start}.parcel-picked{display:flex;flex-wrap:wrap;gap:6px;margin:5px 0 10px}.parcel-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 5px 4px 9px;border:1px solid #46515b;border-radius:15px;background:#20252b;font-size:12px}.parcel-chip button{min-height:22px!important;padding:0 6px!important;border:0!important}.parcel-picked-count{color:#9dcbe0;font-size:12px}.parcel-legal-review{margin-top:10px;padding:10px 12px;border:1px solid #3b4650;border-radius:8px;background:#20252b}.parcel-legal-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}.parcel-legal-list span{padding:4px 8px;border-radius:5px;font-size:11px;background:#292f35}.parcel-legal-list .ok{color:#b9d9c7}.parcel-legal-list .warn{color:#e2c68e}
+#account-dialog{width:min(460px,90vw);padding:22px;max-height:85vh;overflow:auto;}
+#account-dialog p{font-size:13px;line-height:1.6;color:#bccdd7;}
+.account-fields label{display:block;margin:12px 0;font-size:12px;}.account-fields input{display:block;width:100%;box-sizing:border-box;margin-top:6px;}
+.account-fields>button{width:100%;margin-top:8px;background:#ade3ce;color:#10251e;}
+.account-actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;}.account-actions a{color:#a9d5ed;}.account-note{font-size:11px!important;}
+/* Compact chrome leaves more vertical space for the drawing. */
+body>header{height:40px;padding:0 10px;gap:12px;}
+header .brand{font-size:15px;gap:7px;white-space:nowrap;}
+header .logo{width:25px;height:27px;font-size:20px;border-radius:5px;}
+header .brand small,header .badge{display:none;}
+header .file-actions{gap:5px;overflow-x:auto;overflow-y:hidden;min-width:0;}
+header .file-actions button{font-size:11px;padding:5px 8px;white-space:nowrap;flex-shrink:0;}
+header .file-actions .primary{min-width:0;margin-left:0;}
+#top-ribbon{padding:0 8px;}
+#top-ribbon .ribbon-tabs{min-height:28px;gap:7px;}
+#top-ribbon .tool-tabs button{padding:4px 11px;font-size:11px;}
+#top-ribbon .ribbon-menu>summary{padding:4px;font-size:11px;}
+#top-ribbon #tool-buttons{padding:2px 0;min-height:32px;gap:3px;}
+#top-ribbon #tool-buttons button{padding:3px 8px;font-size:11px;min-width:0;}
+#top-ribbon #tool-buttons button svg{width:21px;height:21px;}
+.canvas-toolbar{height:34px;min-height:34px;padding:0 10px;}
+.canvas-toolbar button{padding:4px 8px;font-size:11px;}
+#chatgpt-login-dialog{width:min(460px,90vw);padding:22px;}
+#chatgpt-login-dialog p{font-size:13px;line-height:1.6;color:#bccdd7;}
+.current-layer-control{display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:11px;color:#adc7d4;}
+#current-layer-select{width:160px;max-width:20vw;height:25px;padding:2px 5px;background:#101c25;color:#d7e9f2;border:1px solid #496373;border-radius:4px;font-size:11px;}
+/* Category tabs share the title bar; layers and drawing tools share the next row. */
+body>header{justify-content:flex-start;}
+header>.tool-tabs{display:flex;flex-shrink:0;gap:3px;margin:0;padding:0;border:0;}
+header>.tool-tabs button{width:auto;padding:6px 12px;font-size:12px;white-space:nowrap;}
+header>.file-actions{margin-left:auto;}
+#top-ribbon>.ribbon-tabs{flex-wrap:nowrap;min-width:0;gap:8px;}
+#top-ribbon #tool-buttons{flex:1;min-width:0;}
+#top-ribbon .current-layer-control{flex-shrink:0;}
+#top-ribbon .ribbon-quick{margin-left:0;}
+@media(max-width:1000px){header>.tool-tabs button{padding:5px 7px;}#top-ribbon .ribbon-quick{display:none;}#current-layer-select{width:130px;max-width:26vw;}}
+@media(max-width:600px){header .brand{display:none;}body>header{gap:5px;}header>.tool-tabs button{font-size:11px;padding:5px;}#top-ribbon .current-layer-control{font-size:0;}#current-layer-select{font-size:11px;}#top-ribbon .ribbon-menu>summary{font-size:10px;}}
+header{position:relative;z-index:40;}
+header>.tool-tabs{position:relative;align-self:stretch;align-items:center;}
+header #tool-buttons.tool-dropdown{position:absolute;top:100%;z-index:50;width:225px;max-width:75vw;max-height:65vh;overflow-y:auto;display:flex;flex-direction:column;gap:2px;padding:6px;background:#1b2934;border:1px solid #496373;border-radius:0 0 6px 6px;box-shadow:0 8px 24px #0007;}
+header #tool-buttons.tool-dropdown button{display:flex;align-items:center;gap:9px;width:100%;padding:8px 10px;text-align:left;font-size:12px;}
+header #tool-buttons.tool-dropdown button b{width:24px;text-align:center;}
+header #tool-buttons.tool-dropdown button kbd{margin-left:auto;font-size:10px;color:#91aab9;}
+#top-ribbon>.ribbon-tabs{min-height:32px;}
+#batch-converter{width:min(800px,94vw);max-height:88vh;overflow:auto;padding:20px;}
+#batch-converter label{display:block;margin:12px 0;}#batch-converter .bc-folder{width:100%;margin-top:6px;}
+.bc-actions{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0;}.bc-list{max-height:35vh;overflow:auto;padding-left:24px;}.bc-list li{padding:7px 0;overflow-wrap:anywhere;border-bottom:1px solid #354750;}
+
+.input-dock.cad-only{grid-template-columns:minmax(0,1fr);}
+.drawing-column{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;overflow:hidden;}
+#ai-sidebar-toggle{flex-shrink:0;align-self:flex-start;writing-mode:vertical-rl;padding:12px 6px;}
+#ai-history-panel #ai-dock{flex-shrink:0;border-top:1px solid #3b5261;border-left:0;}
+#ai-history-panel .ai-controls{flex-wrap:wrap;}
+#ai-history-panel{width:clamp(260px,21vw,320px);}
+#ai-history-panel>strong{padding:6px 9px;font-size:11px;}
+#ai-history-panel #ai-dock{padding:6px;gap:5px;}
+#ai-history-panel .ai-controls{gap:4px;font-size:10px;}
+#ai-history-panel .ai-controls>span{display:none;}
+#ai-history-panel .ai-controls select{padding:3px;max-width:100px;font-size:11px;}
+#ai-history-panel #ai-message{min-height:34px;height:38px;max-height:72px;font-size:12px;}
+#ai-history-panel #ai-mic,#ai-history-panel #ai-send{height:30px;min-height:0;padding:4px 6px;font-size:11px;align-self:center;}
+#ai-history-panel #ai-conversation,#ai-history-panel #ai-stop,#ai-history-panel #ai-close{padding:3px 5px;font-size:10px;min-height:0;}
+#ai-history-panel .voice-status{font-size:10px;max-height:28px;overflow:auto;}
+#ai-history-panel .ai-dock-title{gap:4px;flex-wrap:wrap;}
+
+
+.voice-status{font-size:11px;color:#adc1ce;line-height:1.4;} #ai-mic{white-space:nowrap;padding:8px;} #ai-mic[aria-pressed="true"]{background:#a63333;color:white;}
+
+
+/* Toolbar groups wrap as units instead of clipping the zoom controls. */
+.canvas-toolbar{height:auto;min-height:36px;padding:4px 8px;gap:6px 12px;flex-wrap:wrap;}
+.canvas-toolbar>div:first-child{min-width:0;flex:0 1 180px;gap:4px;}
+.canvas-toolbar #doc-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.canvas-toolbar>.canvas-toolbar-actions{flex:1 1 auto;min-width:0;display:flex;justify-content:flex-end;gap:6px 12px;flex-wrap:wrap;}
+.canvas-tools,.canvas-view-tools,.canvas-zoom{display:flex;align-items:center;gap:4px;}
+.canvas-tools{flex-wrap:wrap;}
+.canvas-view-tools{flex-shrink:0;border-left:1px solid #383f48;padding-left:10px;}
+.canvas-toolbar button{height:26px;min-height:0;padding:3px 7px;font-size:11px;line-height:18px;white-space:nowrap;border-radius:5px;}
+.canvas-zoom{gap:0;border:1px solid #383f48;border-radius:5px;}
+.canvas-zoom button{width:25px;border:0;background:transparent;padding:0;}
+.canvas-toolbar .canvas-zoom #zoom{min-width:38px;font-variant-numeric:tabular-nums;}
+@media(max-width:600px){.canvas-toolbar>div:first-child{flex-basis:100%;}.canvas-toolbar>.canvas-toolbar-actions{justify-content:flex-start;}.canvas-view-tools{border-left:0;padding-left:0;}}
+
+/* Compact voice actions sit together above the message input. */
+#ai-dock .ai-controls #ai-mic{height:24px;min-height:0;padding:3px 5px;font-size:10px;flex-shrink:0;}
+#ai-dock .ai-compose #ai-send{height:24px;min-height:0;width:36px;min-width:36px;padding:2px 4px;font-size:10px;flex:0 0 36px;align-self:center;white-space:nowrap;}
+
+.canvas-toolbar{height:30px;min-height:30px;padding:0 10px;}
+.canvas-toolbar>div:first-child{flex:1;}
+.viewport>.canvas-view-tools{position:absolute;right:10px;bottom:10px;z-index:8;display:flex;gap:5px;align-items:center;padding:4px;border:1px solid rgba(103,135,152,.22);border-radius:7px;background:rgba(18,32,42,.65);}
+.viewport>.canvas-view-tools button{height:25px;min-height:0;padding:2px 7px;font-size:11px;white-space:nowrap;background:transparent;border-color:rgba(103,135,152,.25);border-radius:4px;}
+.viewport>.canvas-view-tools .canvas-zoom{gap:0;border-color:rgba(103,135,152,.25);}
+.viewport>.canvas-view-tools .canvas-zoom button{padding:0;width:23px;border:0;}
+.viewport>.canvas-view-tools #zoom{font-size:10px;min-width:36px;text-align:center;font-variant-numeric:tabular-nums;}
+#tool-buttons #canvas-tools{display:flex;flex-direction:column;align-items:stretch;gap:3px;padding-bottom:7px;margin-bottom:5px;border-bottom:1px solid #383f48;}
+#tool-buttons #canvas-tools button{width:100%;text-align:left;}
+/* Paper Atelier appearance; the original dark palette remains available. */
+:root[data-theme=ivory]{color-scheme:light;color:#403c36;background:#f0ece5;}
+.theme-switch{display:flex;gap:2px;flex:0 0 auto;padding:2px;border-radius:7px;background:rgba(128,128,128,.1);}
+.canvas-toolbar .theme-switch button{height:22px;line-height:16px;padding:2px 9px;border:0;background:transparent;font-size:10px;}
+.canvas-toolbar .theme-switch button[aria-pressed=true]{background:#36434e;color:#eff4f6;box-shadow:0 1px 3px #0002;}
+:root[data-theme=ivory] .theme-switch button[aria-pressed=true]{background:#fffdf9;color:#514237;}
+:root[data-theme=ivory] .viewport{background:#f8f5ef;}
+:root[data-theme=ivory] :is(header,footer,aside,dialog,.canvas-toolbar,.command-panel,.input-dock,.ribbon-tabs,.ribbon-popover,.inspector,.report-list,#top-ribbon,#ai-history-panel,#ai-dock,#tool-buttons.tool-dropdown):not(.aw-dialog):not(.aw-dialog *){background:#f1ede6;color:#403c36;border-color:#dad4ca;}
+:root[data-theme=ivory] :is(button,summary):not(.aw-dialog):not(.aw-dialog *){background:transparent;color:#514b43;border-color:#d8d1c7;}
+:root[data-theme=ivory] :is(button,summary):hover:not(.aw-dialog):not(.aw-dialog *){background:#e5dfd5;border-color:#b6aa99;}
+:root[data-theme=ivory] :is(input,textarea,select,#current-layer-select,#ai-message){color:#403c36;background:#fcfaf6;border-color:#d8d1c7;}
+:root[data-theme=ivory] :is(input,textarea)::placeholder{color:#968c7f;}
+:root[data-theme=ivory] :is(.primary,.logo,button.active){background:#a9654c;color:#fffaf4;border-color:#a9654c;}
+:root[data-theme=ivory] :is(.ai-dock-title,strong,h2,h3,.help-grid code):not(.aw-dialog):not(.aw-dialog *){color:#655144;}
+:root[data-theme=ivory] :is(small,label,kbd,.voice-status,.current-layer-control,#history,#coords,#zoom){color:#807568;}
+:root[data-theme=ivory] .viewport>.canvas-view-tools{background:rgba(250,247,241,.82);border-color:#d8d1c7;box-shadow:0 3px 15px #55442a0a;}
+:root[data-theme=ivory] :is(.ribbon-popover,#tool-buttons.tool-dropdown,dialog):not(.aw-dialog):not(.aw-dialog *){box-shadow:0 12px 36px #55442a18;border-radius:9px;}
+:root[data-theme=ivory] :focus-visible{outline-color:#a9654c;}
+:root[data-theme=ivory] ::selection{background:#e8c7b5;}
+:root[data-theme=ivory] #ai-history-panel #ai-history{background:#f8f5ef;border-color:#ddd5c9;color:#484139;}
+:root[data-theme=ivory] #ai-history-panel>strong,:root[data-theme=ivory] #history .result{color:#76604e;}
+:root[data-theme=ivory] #active-command,:root[data-theme=ivory] #prompt{color:#807568;}
+:root[data-theme=ivory] #history .err{color:#a54b35;}
+:root[data-theme=ivory] .ai-message{border-color:#ded6ca;}
+:root[data-theme=ivory] .ai-message strong{color:#76604e;}
+:root[data-theme=ivory] .ai-image,:root[data-theme=ivory] .ai-image-actions>*{color:#76604e;}:root[data-theme=ivory] .ai-image img,:root[data-theme=ivory] .ai-image-missing,:root[data-theme=ivory] .ai-image-actions>*{border-color:#ddd5c9;}:root[data-theme=ivory] .ai-image-missing{background:#f1ece3;}
+
+.plot-preview{width:min(1000px,95vw);max-height:94vh;overflow:auto;padding:20px;} .plot-page{background:#c8c5bf;padding:18px;text-align:center;} .plot-page svg{display:block;width:100%;height:auto;max-height:65vh;margin:auto;} .plot-actions{display:flex;justify-content:flex-end;gap:8px;} .plot-preview p{font-size:12px;}
+
+:root[data-theme=ivory] #account-dialog p{color:#655c51;} :root[data-theme=ivory] #account-dialog a{color:#785341;}
+
+/* Requested: remove redundant assistant close and stop controls. */
+#ai-dock #ai-close { display: none !important; }
+
+
+.review-switch{display:flex;gap:3px;pointer-events:auto}.review-switch button{font-size:11px;padding:3px 7px}.review-switch button[aria-pressed=true]{background:#2c3a42;color:#9dcbe0}
+.canvas-label{z-index:15;pointer-events:auto}.review-3d{position:absolute;inset:0;z-index:12;background:#1c1f23}.review-3d>canvas{width:100%;height:100%;display:block;touch-action:none}/* 3D 도구줄: 모든 항목 높이 30px·같은 글자·같은 테두리. 펼침 메뉴는 줄 아래로 떠서 열려 줄 높이가 바뀌지 않는다. 상태 글자는 줄 아래. */.review-settings{position:absolute;left:10px;right:10px;top:10px;display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:flex-start;gap:6px;font-size:12px;pointer-events:none}.review-settings>*{pointer-events:auto}.review-settings>button,.review-settings>label,.review-settings>details>summary{box-sizing:border-box;height:30px;display:inline-flex;align-items:center;gap:6px;margin:0;padding:0 10px;font-size:12px;line-height:1;white-space:nowrap;border:1px solid #383f48;border-radius:6px;background:#25292f;color:#dbe4ea}.review-settings>label select{height:22px;font-size:12px}.review-settings>details{position:relative}.review-settings>details>summary{cursor:pointer;list-style:none}.review-settings>details>summary::-webkit-details-marker{display:none}.review-settings>details>summary::after{content:'▾';font-size:10px;color:#a2b2bd}.review-settings>details[open]>summary{border-color:#9dcbe0}.review-settings .r-design-label{order:1}.review-settings .r-wall-label{order:2}.review-settings .r-fit{order:3}.review-settings .r-walk{order:3}.review-settings .r-walk[aria-pressed=true]{border-color:#9dcbe0;color:#9dcbe0}.review-settings .r-settings-menu{order:4}.review-settings .r-edit-menu{order:5}.review-settings .r-law-menu{order:6}.review-settings .r-storeys{order:7}.review-settings .r-export{order:8}.review-settings .r-ifc{order:9}.review-settings .r-wall-label{border-color:#9dcbe0}.review-empty{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;display:flex;flex-direction:column;gap:8px;max-width:420px;padding:18px 22px;text-align:center;font-size:13px;line-height:1.6;color:#c7d6dd;background:#25292fee;border:1px solid #383f48;border-radius:10px}.review-empty strong{font-size:15px;color:#e4edf1}.review-empty b{color:#9dcbe0}.review-empty[hidden]{display:none}.review-menu{position:absolute;right:0;top:34px;z-index:2;box-sizing:border-box;width:250px;max-height:70vh;overflow:auto;padding:6px 10px;background:#25292fee;border:1px solid #383f48;border-radius:8px;box-shadow:0 6px 18px #0006}.review-menu label{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:8px 0;font-size:12px}.review-menu label:has(>input[type=checkbox]){justify-content:flex-start}.review-menu input[type=number],.review-menu select{box-sizing:border-box;width:100px;min-width:0;height:26px}.review-menu textarea{width:100px}.review-menu button{height:28px;padding:0 10px;margin:4px 0;font-size:12px}.review-menu p{color:#a2b2bd;font-size:11px;line-height:1.5;margin:6px 0}.review-settings .r-status,.review-settings .r-law-status{order:99;flex-basis:100%;text-align:right;font-size:11px;line-height:1.4;color:#a2b2bd;padding:0;max-width:none}.review-settings .r-law-status:empty,.review-settings .r-status:empty{display:none}.review-settings>fieldset{order:98}
+/* 3D 일조 띠(review-3d-sun.js): 아래쪽 한 줄, 3D 도구줄과 같은 30px·테두리. 기준일 3개는 붙은 단추, 켠 것은 강조색. */
+.review-sun{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;max-width:calc(100% - 20px);flex-wrap:wrap;justify-content:center;font-size:12px;color:#dbe4ea}
+.review-sun button,.review-sun .rs-time{box-sizing:border-box;height:30px;display:inline-flex;align-items:center;gap:8px;margin:0;padding:0 10px;font-size:12px;line-height:1;white-space:nowrap;border:1px solid #383f48;border-radius:6px;background:#25292f;color:#dbe4ea;cursor:pointer}
+.review-sun .rs-days{display:inline-flex}.review-sun .rs-days button{border-radius:0;margin-left:-1px}.review-sun .rs-days button:first-child{border-radius:6px 0 0 6px;margin-left:0}.review-sun .rs-days button:last-child{border-radius:0 6px 6px 0}
+.review-sun .rs-days button[aria-checked=true],.review-sun .rs-grid[aria-pressed=true]{border-color:#9dcbe0;color:#9dcbe0;position:relative}
+.review-sun .rs-time{cursor:default}.review-sun .rs-slider{width:min(260px,32vw);accent-color:#9dcbe0}.review-sun .rs-clock{min-width:38px;font-variant-numeric:tabular-nums}
+.review-sun .rs-play{width:30px;justify-content:center;padding:0}
+.review-sun .rs-info{flex-basis:100%;text-align:center;font-size:11px;color:#a2b2bd}
+
+.livecheck-status{font-size:10px;padding:2px 5px;max-width:60vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.livecheck-panel{width:310px;flex-shrink:0;overflow:auto;background:#25292f;padding:12px;border-left:1px solid #383f48}.livecheck-panel p,.livecheck-panel label{font-size:11px;line-height:1.6}.livecheck-panel button{font-size:11px;margin:4px 0;white-space:normal;text-align:left}.lc-list{display:flex;flex-direction:column}.livecheck-toggle{writing-mode:vertical-rl;align-self:flex-start;padding:12px 6px}.livecheck-settings{max-width:95vw;max-height:88vh;overflow:auto}.lc-layer-row{display:flex;gap:5px;align-items:center;margin:8px 0}.lc-layer-row>span{width:150px;overflow:hidden;text-overflow:ellipsis}.lc-layer-row input[type=number]{width:80px}.lc-preview-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lc-preview-pair svg{width:100%;height:auto}
+
+/* One narrow vertical rail shared by the auxiliary panels. */
+.sidebar-tabs{display:flex;flex-direction:column;align-items:stretch;gap:6px;flex:0 0 32px;width:32px;padding-top:4px;background:#1c1f23;border-left:1px solid #383f48;}
+.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{align-self:stretch;writing-mode:vertical-rl;width:31px;min-width:0;height:96px;flex:0 0 96px;padding:9px 6px;font-size:12px;letter-spacing:1px;border-radius:6px 0 0 6px;}
+
+.aux-panel{width:290px;flex-shrink:0;overflow:auto;background:#25292f;border-left:1px solid #383f48;padding:12px;min-height:0}.aux-panel[hidden]{display:none}.aux-panel>strong{display:block;font-size:13px;color:#9dcbe0;margin-bottom:14px}.aux-panel section{padding:0;border:0}.aux-panel p{font-size:11px;line-height:1.6;color:#9db0bc}.sidebar-tabs{overflow-y:auto}.sidebar-tabs>button{writing-mode:vertical-rl;width:31px;min-width:0;height:96px;flex:0 0 96px;padding:9px 6px;font-size:12px;letter-spacing:1px;border-radius:6px 0 0 6px}.sidebar-tabs>button[aria-expanded=true]{background:#2c3a42;color:#9dcbe0}.building-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}.building-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;background:#1c1f23;border:1px solid #383f48;border-radius:8px;font-size:12px}.building-card:hover{border-color:#9dcbe0;background:#20303a}.building-card svg{width:100%;height:72px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round;color:#b7d8d1}
+.building-assist-launcher{grid-column:1/-1;display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;gap:10px;width:100%;padding:10px 12px;text-align:left;border-color:#4a6c7d;background:linear-gradient(135deg,#24392f,#202b27)}.building-assist-launcher:hover,.building-assist-launcher:focus-visible{border-color:#9dcbe0;background:linear-gradient(135deg,#2f3f47,#283034)}.building-assist-launcher svg{width:44px;height:44px;fill:none;stroke:#9dcbe0;stroke-width:1.7}.building-assist-launcher svg.library-card-icon{width:48px;height:36px}.building-assist-launcher span{display:flex;flex-direction:column;gap:4px;min-width:0}.building-assist-launcher strong{color:#e7eff4;font-size:12px}.building-assist-launcher small{color:#a9bdaf;font-size:9px;line-height:1.45;white-space:normal}
+
+.layer-review-dialog{width:min(1200px,95vw);max-height:92vh;overflow:auto}.layer-review-dialog>p{font-size:12px;color:#afbfca}.layer-review-body{display:grid;grid-template-columns:minmax(0,2fr) minmax(230px,1fr);gap:12px}.layer-review-body canvas{width:100%;height:auto;background:#1c1f23;border:1px solid #383f48}.layer-review-list{max-height:560px;overflow:auto}.layer-review-item{display:grid;grid-template-columns:20px 1fr;gap:5px;padding:8px;border-bottom:1px solid #383f48}.layer-review-item small{grid-column:1/-1;color:#a9bac6}.layer-review-item.selected{background:#294039}.layer-review-item select{width:100%;min-width:0}
+
+.layer-review-dialog{width:min(1500px,96vw)}.layer-review-body{grid-template-columns:minmax(0,1fr) 270px}.layer-review-body canvas{touch-action:none;cursor:crosshair}.lr-toolbar{display:flex;gap:8px;align-items:center;margin:12px 0}.lr-toolbar span{font-size:11px;color:#a2b5c0}.lr-side{max-height:65vh;overflow:auto}.lr-groups{display:flex;flex-direction:column;gap:5px}.lr-category{display:flex;align-items:center;gap:8px;text-align:left;padding:10px}.lr-category i{width:10px;height:10px;border-radius:50%;flex-shrink:0}.lr-category small{margin-left:auto;font-size:10px}.lr-category[aria-pressed=true]{background:#29473f;border-color:#91c9b6}.lr-group-actions,.lr-object{padding-top:14px;margin-top:14px;border-top:1px solid #383f48}.lr-group-actions button,.lr-object button,.lr-object select{width:100%;margin-top:6px;font-size:12px}.lr-side p{font-size:12px;line-height:1.5}.lr-object strong{font-size:12px}
+
+.building-inline-editor{margin-top:16px;padding-top:12px;border-top:1px solid #383f48}.building-inline-editor>strong{font-size:13px;color:#9dcbe0}.building-inline-editor label{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:9px;font-size:11px}.building-inline-editor input{width:100px;min-width:0;font-size:12px;padding:5px}.building-card[aria-pressed=true]{background:#29473f;border-color:#91c9b6}
+.building-card .architecture-command-icon.compact{width:52px;height:60px}
+
+.realtime-settings{max-width:540px}.realtime-settings p{font-size:12px;line-height:1.6}.realtime-settings label{display:flex;flex-direction:column;gap:6px;margin:14px 0}.realtime-settings input,.realtime-settings select{width:100%}.realtime-settings button{margin:6px 6px 0 0}
+
+/* Drafting controls stay accessible independently of ribbon popovers. */
+.drafting-dialog{width:min(440px,92vw);max-height:88vh;padding:20px;overflow:auto;border:1px solid #496170;border-radius:12px;background:#25292f;color:#dce7eb;}
+.drafting-dialog::backdrop{background:#0007;}
+.drafting-dialog .inspector{display:block!important;overflow:visible;border:0;height:auto;}
+.drafting-dialog h2{font-size:18px;margin:0 0 10px;}
+.drafting-dialog .inspector section{padding:12px 0;}
+.drafting-quick{display:flex;gap:4px;flex-wrap:wrap;}
+#top-ribbon .drafting-quick button{font-size:11px;padding:5px 7px;white-space:nowrap;}
+.drafting-quick button[aria-pressed=true]{background:#2f4854;color:#dbf2fd;border-color:#69b493;}
+#top-ribbon .ribbon-tabs{flex-wrap:wrap;}
+
+.sidebar-tabs{scrollbar-width:thin;}
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{height:76px;flex:0 0 76px;}
+
+/* Usability audit: clear mode, reachable controls, and consistent editors. */
+#ai-dock #ai-stop:not([hidden]){display:inline-block!important;background:#623b35;color:#fff;padding:6px 10px;font-size:12px}
+#ai-dock #ai-stop[hidden]{display:none!important}
+.ai-mode-tabs{display:flex;gap:6px;margin:8px 0}.ai-mode-tabs button{flex:1;padding:8px;font-size:12px}.ai-mode-tabs button[aria-pressed=true]{background:#2f4854;border-color:#6bc4a3;color:#dbfff0}
+.ai-mode-hint{font-size:11px;line-height:1.5;color:#afc9c0;margin:5px 0 8px}.ai-preferences{font-size:11px;margin-top:8px}.ai-preferences summary{cursor:pointer;padding:5px}.ai-preferences .ai-controls{display:flex;flex-wrap:wrap;gap:8px}.ai-examples{display:flex;flex-direction:column;gap:5px;margin-top:8px}.ai-examples button{font-size:11px;text-align:left}
+#ai-dock .ai-compose{display:flex;flex-wrap:wrap;gap:5px}#ai-dock .ai-compose textarea{flex:1 0 100%;width:100%;min-height:65px;box-sizing:border-box}#ai-dock .ai-compose button{min-height:30px}
+#ai-history-panel #ai-dock{overflow:auto;max-height:48vh}.ai-controls [hidden]{display:none!important}
+#form-dialog{max-height:90vh;box-sizing:border-box}#property-form{display:flex;flex-direction:column}#property-form .dialog-actions{position:sticky;bottom:-1px;background:#25292f;padding:12px 0;z-index:3}#form-dialog .dialog-header{position:sticky;top:0;background:#25292f;z-index:3}
+/* 창이 화면을 거의 다 덮을 만큼 컸다. 미리보기는 남기고 전체를 줄인다. */
+#form-dialog.architectural-detail{width:min(760px,90vw)}.architectural-detail #form-fields{display:grid;grid-template-columns:minmax(190px,0.9fr) minmax(230px,1fr);gap:4px 14px}.architectural-detail #form-fields>canvas{grid-column:1;grid-row:1 / span 9;position:sticky;top:70px;height:230px!important;max-height:230px!important;align-self:start}.architectural-detail #form-fields>.form-row{grid-column:2;margin:0;grid-template-columns:96px 1fr;gap:8px}.architectural-detail #form-fields>.form-row input,.architectural-detail #form-fields>.form-row select{padding:5px 6px}.architectural-detail #form-fields{font-size:13px}.architectural-detail .detail-direction{grid-column:1;grid-row:10;font-size:11px;line-height:1.5}
+.architecture-catalog{width:min(850px,94vw);max-height:88vh}.architecture-catalog>input{width:65%}.architecture-catalog>select{width:30%;margin-left:3%}.architecture-catalog>p{font-size:13px;line-height:1.6}.architecture-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;max-height:55vh;overflow:auto}.architecture-tool-grid>div{display:flex;gap:3px}.architecture-tool-grid>div>button:first-child{flex:1;text-align:left;font-size:12px;padding:12px}
+.architecture-catalog{width:min(1080px,95vw);max-height:92vh;box-sizing:border-box;overflow:hidden}.architecture-catalog-controls{display:grid;grid-template-columns:minmax(260px,1fr) minmax(170px,.35fr) auto;gap:10px}.architecture-catalog-controls :is(input,select){width:100%;margin:0}.architecture-shortcut-feedback{min-height:18px;margin:6px 0 0!important;color:#d8c68e!important;font-size:12px!important}.architecture-catalog-count{margin:5px 0 8px!important;color:#9fb0bb!important}.architecture-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-height:62vh;margin-top:0;padding:2px 5px 2px 2px}.architecture-tool-card{position:relative;display:flex!important;flex-wrap:wrap;min-width:0;border:1px solid #3f4a54;border-radius:8px;background:#1d2228;overflow:hidden}.architecture-tool-card[data-availability=native]{border-color:#4a5d66}.architecture-tool-launch{display:grid;grid-template-columns:68px minmax(0,1fr);align-items:center;gap:9px;width:100%;min-width:0;padding:9px!important;border:0!important;border-radius:0!important;background:transparent!important;text-align:left!important}.architecture-tool-launch:hover{background:#2b3238!important}.architecture-command-icon{display:block;width:52px;height:52px;color:#a9d8cb}.architecture-command-icon text{font:700 9px Consolas,monospace;fill:currentColor;stroke:none}.architecture-command-icon.compact{width:30px;height:30px}.architecture-command-icon.compact text{display:none}.architecture-tool-copy{display:flex;flex-direction:column;gap:3px;min-width:0;padding-right:22px}.architecture-tool-copy strong{overflow:hidden;color:#e0e6ea;font-size:12px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}.architecture-tool-copy small{overflow:hidden;color:#98a7b2;font-size:10px;text-overflow:ellipsis;white-space:nowrap}.architecture-tool-copy em{width:max-content;padding:2px 6px;border-radius:10px;background:#3b4148;color:#aeb8c1;font-size:9px;font-style:normal}.architecture-tool-card[data-availability=native] .architecture-tool-copy em{background:#2f3c43;color:#b9d9e9}.architecture-tool-favorite{position:absolute;right:5px;top:5px;z-index:2;min-width:26px!important;width:26px;height:26px;min-height:26px!important;padding:0!important;border:0!important;background:transparent!important;color:#d9b35d!important}.architecture-favorite-order{display:flex;gap:4px;padding:0 8px 8px}.architecture-favorite-order button{min-width:30px;padding:3px 8px}.architecture-hotkey-editor{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:8px;width:100%;padding:0 9px 9px;color:#aeb8c1;font-size:11px}.architecture-hotkey-editor input{min-width:0;width:100%;box-sizing:border-box;padding:5px 7px}.architecture-catalog-empty{grid-column:1/-1;padding:30px;text-align:center}.architecture-reference-guide{width:min(620px,92vw)}.architecture-reference-head{display:flex;align-items:center;gap:16px;padding-bottom:12px;border-bottom:1px solid #3d444d}.architecture-reference-icon{flex:0 0 76px}.architecture-reference-icon .architecture-command-icon{width:76px;height:76px}.architecture-reference-head h2{margin:0!important}.architecture-reference-head p{margin:4px 0 0!important}.architecture-reference-status{margin:14px 0;padding:14px;border:1px solid #4a535c;border-radius:8px;background:#1d2228}.architecture-reference-status strong{color:#d9bd79}.architecture-reference-status p:last-child{margin-bottom:0!important}#tool-buttons b .architecture-command-icon{width:27px;height:27px;margin:auto}#tool-buttons b .architecture-command-icon text{display:none}.beta-badge{display:inline-flex;align-items:center;margin-left:7px;padding:2px 7px;border:1px solid #78abc3;border-radius:999px;color:#a4d4eb;font:700 10px/1.2 system-ui,sans-serif;vertical-align:middle}html[data-beta="4"] header{box-shadow:inset 0 -1px 0 #477287}
+.baseline-preview canvas{width:100%;height:auto;background:#1c1f23;cursor:crosshair}.baseline-preview p,.north-table p{font-size:12px;line-height:1.6}.baseline-preview select{width:130px}.north-row{display:flex;align-items:end;gap:10px;margin:8px 0}.north-row label{font-size:12px;flex:1}.north-row input{width:100%;box-sizing:border-box}.north-row button{font-size:11px}.lc-steps{padding-left:20px;font-size:12px;line-height:1.8}.livecheck-panel .lc-scope{color:#b6c7ce}.livecheck-settings p{font-size:13px;line-height:1.6}.lc-layer-row{flex-wrap:wrap}
+/* 켜진 단추는 색으로 알려 준다. 예전에는 눌러도 모양이 그대로라 켜졌는지 알 수 없었다. */
+button.insulation-action[aria-pressed="true"]{background:#2c7a5e;border-color:#6fe0b4;color:#eafff6;font-weight:600}
+.sidebar-tabs{min-height:0;max-height:100%;overflow-y:auto}.canvas-view-tools{flex-wrap:wrap;justify-content:flex-end;max-width:95%}
+@media(max-width:1100px){body>header{flex-wrap:wrap;height:auto;min-height:40px}.file-actions{flex-wrap:wrap;min-width:0;max-width:100%;margin-left:auto}header .file-actions button{padding:5px 7px;font-size:11px}header>.tool-tabs{flex-wrap:wrap}.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{height:60px;flex-basis:60px}}
+@media(max-width:1000px){.architecture-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.architectural-detail #form-fields{display:block}.architectural-detail #form-fields>canvas{position:static;max-height:170px!important}.architecture-tool-grid{grid-template-columns:1fr}.architecture-catalog-controls{grid-template-columns:1fr}.ai-mode-tabs button{padding:5px}.lc-layer-row>span{width:100%}}
+
+/* Keep the existing tab dimensions; center a single vertical text column. */
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{writing-mode:horizontal-tb;display:flex;align-items:center;justify-content:center;padding:3px 0;}
+.sidebar-tab-label{display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:14px;letter-spacing:0;white-space:nowrap;}
+.sidebar-tab-label>span{display:block;line-height:14px;}
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{height:auto;flex:1 0 68px;min-height:68px;padding:4px 0;font-size:12px;}
+.design-workspace{width:360px;max-width:calc(100vw - 75px);box-sizing:border-box;}
+.design-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#b6ebd8;}
+.design-heading button{font-size:12px;}
+.design-brief-form label,.plan-delivery-dialog label{display:flex;flex-direction:column;gap:6px;margin:12px 0;font-size:13px;}
+.design-brief-form input,.design-brief-form textarea,.design-brief-form select,.plan-delivery-dialog input,.plan-delivery-dialog textarea{width:100%;box-sizing:border-box;padding:9px;border:1px solid #496171;border-radius:6px;background:#1c1f23;color:#e4f0f6;font:inherit;}
+.design-brief-form textarea,.plan-delivery-dialog textarea{resize:vertical;}
+.design-brief-form>button{width:100%;margin-top:8px;}
+.design-links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0;}
+.design-links button{font-size:12px;line-height:1.6;}
+.design-result{padding:14px 0;border-top:1px solid #496171;font-size:13px;line-height:1.8;overflow-wrap:anywhere;}
+.design-proposal{margin-top:10px;user-select:text;}
+.plan-delivery-dialog{width:min(640px,92vw);max-height:90vh;overflow:auto;box-sizing:border-box;}
+.plan-delivery-dialog p{font-size:13px;line-height:1.7;}
+.plan-delivery-dialog>button{margin:6px 6px 6px 0;}
+.plan-sms-preview{border:1px solid #8bc6b0;background:#152d29;padding:12px;}
+.plan-sms-preview pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.7;}
+.drawing-tabs-bar{display:flex;align-items:center;gap:6px;flex:0 0 40px;min-height:40px;min-width:0;padding:3px 8px;box-sizing:border-box;background:#25292f;border-bottom:1px solid #354955;}
+.drawing-tabs-list{display:flex;flex:1;gap:4px;min-width:0;overflow-x:auto;scrollbar-width:thin;}
+.drawing-tab{display:flex;flex:0 0 auto;max-width:210px;border:1px solid #364d5a;border-radius:6px 6px 0 0;background:#1a2c36;}
+.drawing-tab.active{background:#2c3a42;border-color:#9dcbe0;}
+.drawing-tab button{border:0;background:transparent;padding:7px 10px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.drawing-tab [role=tab]{max-width:175px;text-align:left;}
+.drawing-tab .drawing-tab-close{padding:5px 8px;flex-shrink:0;font-size:16px;}
+.drawing-tab.active [role=tab]{color:#c6f6e4;}
+.drawing-tabs-bar>.drawing-tab-new,.drawing-tabs-bar>.drawing-save-all{flex-shrink:0;font-size:12px;padding:6px 9px;}
+.drawing-tabs-count{color:#a3b8c2;font-size:11px;white-space:nowrap;}
+.drawing-close-dialog{max-width:480px;}
+.drawing-close-dialog p{line-height:1.7;}
+.drawing-close-dialog button{margin:6px;}
+.command-search{width:100%;margin:8px 0;padding:10px;}
+[hidden]{display:none!important;}
+.lr-side{display:flex;flex-direction:column}.lr-object{order:-1;position:sticky;top:0;z-index:2;background:#182833;padding:12px;border:1px solid #55716c;border-radius:6px;}
+.lr-object select{width:100%;margin:6px 0}.lr-groups{max-height:270px;overflow:auto;flex-shrink:0;}
+/* 레이어 정리 — 이름 묶음으로 확인(2026-10-21) */
+.lr-summary{font-size:12.5px;color:#d7e2ea;background:#1d2b35;border:1px solid #3a4d58;border-radius:6px;padding:6px 10px;margin:6px 0 0}
+.lr-tabs{display:flex;gap:4px;margin-bottom:8px}.lr-tab{flex:1;font-size:12px}.lr-tab[aria-pressed="true"]{background:#2f4552;border-color:#7c95a3;font-weight:600}
+.lr-names{display:flex;flex-direction:column;gap:6px;max-height:560px;overflow:auto}
+.lr-names-section{font-size:11.5px;color:#98a9b4;margin:6px 2px 0}
+.lr-name-row{display:grid;grid-template-columns:1fr auto;gap:4px 8px;align-items:center;background:#1a252d;border:1px solid #344651;border-radius:6px;padding:7px 9px}
+.lr-name-row:hover{border-color:#9b7cf0;box-shadow:inset 0 0 0 1px #9b7cf0}.lr-name-row[data-status="confirmed"]{border-color:#2f7a4d}.lr-name-row[data-status="kept"]{opacity:.7}
+.lr-name-head{grid-column:1/-1;display:flex;gap:6px;align-items:baseline;background:none;border:0;padding:0;text-align:left;color:inherit;cursor:zoom-in}
+.lr-name-head small,.lr-name-pick small{color:#98a9b4;font-size:11px}
+.lr-name-pick{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:12px}.lr-name-pick select{max-width:150px}
+.lr-core{font-size:10.5px;color:#ffd27a;border:1px solid #6b5a2a;border-radius:4px;padding:0 4px}
+.lr-name-actions{display:flex;gap:6px;align-items:center;justify-self:end;font-size:12px}.lr-name-actions .yes{background:#234a33;border-color:#2f7a4d;color:#c9f2d8}
+.lr-remember{grid-column:1/-1;font-size:11.5px;color:#98a9b4}.lr-warn{grid-column:1/-1;font-size:11.5px;color:#ffb27a;margin:0}
+#lisp-dialog{width:min(820px,94vw);max-height:92vh;box-sizing:border-box}#lisp-dialog>label{display:block;margin:12px 0}#lisp-dialog textarea,#lisp-dialog>label input{display:block;width:100%;box-sizing:border-box;margin-top:6px}#lisp-dialog textarea{font:14px/1.5 Consolas,monospace;min-height:70px;background:#1c1f23;color:#e4f0f6;border:1px solid #496171;border-radius:5px;padding:10px}.lp-toolbar{display:flex;gap:8px;flex-wrap:wrap}.lp-maintenance,.lp-library-details{margin:10px 0;padding:8px 10px;border:1px solid #465762;border-radius:6px;background:#202830}.lp-maintenance>summary,.lp-library-details>summary{cursor:pointer;color:#cbd8df}.lp-maintenance .lp-toolbar{margin-top:8px}.lp-library-count{margin-left:8px;color:#9edbc8;font-size:12px}.lp-library{border:1px solid #496171;border-radius:5px;padding:10px;max-height:220px;overflow:auto;margin:12px 0 0}.lp-library>div{display:flex;align-items:center;gap:8px;padding:6px 0}.lp-library label{display:flex;align-items:center;gap:8px;flex:1;min-width:260px}.lp-autoload{flex:0 0 auto;padding:2px 6px;border:1px solid #648174;border-radius:999px;color:#b8e8d7;font-size:11px}.lp-input-help,.lp-hints{font-size:12px;line-height:1.6}.lp-results{display:grid;grid-template-columns:1fr 1fr;gap:12px}.lp-results[hidden]{display:none}.lp-results svg{width:100%;height:auto;max-height:280px;background:white}.lp-results>p{grid-column:1 / -1;font-size:12px}.lp-log{white-space:pre-wrap;max-height:230px;overflow:auto;font-size:12px}.lp-status{font-weight:600;color:#9edbc8}#lisp-dialog .dialog-actions{position:sticky;bottom:0;background:#25292f;padding:12px 0;z-index:5;flex-wrap:wrap}.lp-editor{width:min(950px,92vw)}.lp-editor textarea{box-sizing:border-box;width:100%;height:55vh;white-space:pre;font:14px/1.5 Consolas,monospace;background:#1c1f23;color:#e4f0f6;padding:12px}.lp-history{max-height:150px;overflow:auto}.lp-search{width:100%;box-sizing:border-box;margin-top:12px}@media(max-width:760px){.lp-results{grid-template-columns:1fr}.lp-library>div{flex-wrap:wrap}}
+/* Keep the native colour swatch large enough to pick in property dialogs. */
+#form-fields input[type="color"] { min-height: 40px; padding: 4px; cursor: pointer; }
+#prompt:empty { display: none; }
+
+.drafting-actions { display:flex; flex-wrap:wrap; gap:6px; padding:8px 0; }
+.drafting-dialog > .ribbon-quick { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+.drafting-file-actions { margin:10px 0; }
+
+.cad-statusbar{display:flex;gap:6px;flex-wrap:wrap;padding:5px 10px;border-top:1px solid var(--border,#394955);background:var(--panel,#182631)}.cad-statusbar button{font-size:12px;padding:4px 8px}.cad-statusbar button[aria-pressed=true]{color:#9dcbe0;border-color:#6b9db5}
+footer .cad-statusbar{flex-wrap:nowrap;padding:0;border:0;background:transparent;flex-shrink:0;}
+footer .cad-statusbar button{font-size:11px;line-height:18px;padding:2px 8px;white-space:nowrap;}
+@media(max-width:900px){footer{height:auto;min-height:31px;flex-wrap:wrap;gap:6px 12px;padding-top:4px;padding-bottom:4px;}}
+
+.plot-live{width:100%;max-height:300px;overflow:auto;background:#dde3e8;border:1px solid #8a9baa;padding:8px}.plot-live svg{width:100%;max-height:280px;height:auto}
+
+/* The drawing tab already displays the active filename and dirty state. */
+.canvas-toolbar{display:none!important}
+
+
+/* 화면 아래쪽 빈칸 줄이기 ─ 도면이 그만큼 넓어진다. */
+.input-dock .command-panel{height:118px;}
+.input-dock #history{height:auto;flex:1;min-height:34px;overflow:auto;}
+footer{flex-wrap:nowrap;height:28px;gap:10px;overflow:hidden;}
+footer>span{white-space:nowrap;}
+footer .cad-statusbar{flex:0 0 auto;gap:4px;flex-wrap:nowrap;}
+footer .cad-statusbar button{font-size:10px;padding:3px 7px;white-space:nowrap;}
+@media (max-width:1200px){footer .unit-note{display:none;}}
+
+
+/* 저장 창 — 이름과 형식을 한눈에. */
+.save-dialog{width:min(560px,94vw);}
+.update-dialog{width:min(440px,92vw);padding:16px 18px}.update-dialog .dialog-header{padding-bottom:10px}.update-dialog .dialog-header h2{font-size:18px}.update-dialog .update-close{padding:6px 9px}.update-dialog .update-versions{display:flex;align-items:center;gap:8px;margin:12px 0 10px;padding:9px 11px;border:1px solid #46515d;border-radius:7px;background:#1c2228;color:#aab5c0;font-size:12px}.update-dialog .update-versions i{font-style:normal;color:#65717c}.update-dialog .update-versions strong{margin-left:4px;color:#e7edf2;font-size:13px}.update-dialog .update-latest{color:#90c7e1!important}.update-dialog .update-changes{margin:0 0 10px;padding:9px 11px;border-radius:7px;background:#20272e}.update-dialog .update-changes b{font-size:12px}.update-dialog .update-changes p{white-space:pre-line;color:#b9c3cc;font-size:11px;line-height:1.45;margin:4px 0 0}.update-dialog .update-state{display:block;margin:0 0 8px;font-size:13px}.update-dialog progress{display:block;width:100%;height:9px;accent-color:#90c7e1}.update-dialog .update-size{text-align:right;color:#aab5c0;font-size:11px;min-height:14px;margin:4px 0 0}.update-dialog .update-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}.update-dialog .update-note{color:#aab5c0;font-size:11px;margin:0}.update-dialog .update-apply{padding:7px 12px;white-space:nowrap}
+.save-dialog .save-name{width:100%;margin-top:4px;}
+.save-dialog .save-format{border:1px solid #3b5261;border-radius:6px;padding:8px 10px;margin:10px 0;display:flex;flex-direction:column;gap:6px;}
+.save-dialog .save-format label{display:flex;gap:7px;align-items:flex-start;font-size:12px;line-height:1.5;}
+.save-dialog .save-note{font-size:11px;color:#91aab9;}
+
+
+/* 설정 창: 같은 별칭·단축키를 쓴 칸 표시 */
+#alias-rows input.clash{border-color:#d98a6a;background:#3a2a24;color:#ffd9c8;}
+#settings-error[data-clash] button{margin-left:8px;}
+
+.save-dialog .save-format legend{font-size:11px;color:#91aab9;}
+.save-dialog .save-format label span{color:#91aab9;font-size:11px;}
+.save-dialog .save-format label b{white-space:nowrap;flex:none;}
+.save-dialog .save-format .save-dwg-version{font-size:11px;padding:0 4px;height:20px;flex:none;}
+.save-dialog .save-format label:has(input:disabled){opacity:.5;}
+/* ── 화면 테두리(위 두 줄·도면 탭·명령창·상태줄)의 글자 크기를 하나로 통일한다 ──
+   10·11·12·13px 이 섞여 있어 들쭉날쭉했다. 전부 11px 로 맞춘다.
+   도구 탭(작도·편집·…)은 #top-ribbon 이 아니라 header 안으로 옮겨져 있다. 선택자를 그에 맞춘다. */
+body>header,body>header *,
+#top-ribbon,#top-ribbon *,
+.drawing-tabs-bar,.drawing-tabs-bar *,
+.input-dock .command-panel,.input-dock .command-panel *,
+.sidebar-tabs,.sidebar-tabs *,
+#ai-history-panel,#ai-history-panel *,
+.aux-panel,.aux-panel *,
+.livecheck-panel,.livecheck-panel *,
+body>footer,body>footer *{font-size:11px!important;}
+header .logo{font-size:13px!important;}
+
+/* 높이는 글자 11px 에 맞춰 잰 값이다. 이보다 줄이면 글자가 잘린다. */
+header .tool-tabs button{padding:2px 8px!important;}
+header .tool-tabs .ribbon-design-group{margin-left:14px!important;padding-left:14px!important;}
+header .file-actions button{padding:2px 6px!important;}
+#top-ribbon{padding:0 10px!important;}
+#top-ribbon .ribbon-tabs{min-height:0!important;gap:8px!important;}
+#top-ribbon .ribbon-tabs button{padding:2px 6px!important;}
+#top-ribbon .current-layer-control select{height:18px!important;padding:0 3px!important;}
+.drawing-tabs-bar>button,.drawing-tab>button,.drawing-tab>.drawing-tab-close{font-size:11px!important;padding:2px 6px!important;}
+/* 레이어 줄의 단추가 30px 이라 줄이 안 줄었다. 글자 11px 에 맞춰 높이도 맞춘다. */
+#top-ribbon .ribbon-tabs button{height:20px!important;min-height:0!important;line-height:16px!important;}
+
+/* 옆 창·오른쪽 탭도 같은 크기로. 여기만 13px 이라 위아래가 들쭉날쭉했다. */
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{min-height:56px!important;flex:1 0 56px!important;}
+#ai-history-panel>strong,.aux-panel>strong{padding:6px 10px!important;margin-bottom:8px!important;}
+#ai-history-panel #ai-history{padding:8px!important;}
+.aux-panel{padding:8px!important;}
+
+/* AI 입력줄이 290px 창을 넘어 '보내기' 가 오른쪽에서 잘렸다.
+   글상자가 한 줄을 다 쓰고, 단추는 그 아래 오른쪽으로 내려오게 한다. */
+#ai-history-panel .ai-compose{flex-wrap:wrap!important;gap:4px!important;align-items:center!important;}
+#ai-history-panel .ai-compose textarea{flex:1 1 100%!important;width:100%!important;min-width:0!important;min-height:44px!important;box-sizing:border-box!important;}
+#ai-history-panel .ai-compose button{flex:0 0 auto!important;width:auto!important;min-width:0!important;height:24px!important;min-height:24px!important;padding:2px 10px!important;}
+#ai-history-panel .ai-compose #ai-send{margin-left:auto!important;}
+
+/* Aligned drawing controls, command dock and panel rail. */
+.input-dock .command-panel{
+  height:132px!important;padding:8px!important;
+  display:grid;grid-template-rows:20px minmax(0,1fr) 18px 32px;gap:4px;
+  overflow:hidden;
+}
+.input-dock .command-title{min-width:0;height:20px;gap:8px;}
+.input-dock .command-title button{height:20px;padding:0 8px;line-height:18px;border-radius:3px;}
+.input-dock #history{height:auto;min-height:0;overflow:auto;scrollbar-width:thin;}
+.input-dock #prompt{min-height:0;line-height:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.input-dock .command-input{display:grid;grid-template-columns:12px minmax(0,1fr) auto auto auto;align-items:stretch;gap:4px;min-width:0;}
+.input-dock .command-input input,.input-dock .command-input button{
+  height:32px;min-height:32px;margin:0;border-radius:3px;line-height:18px;padding:6px 10px;
+}
+.input-dock .command-input input{width:100%;min-width:0;}
+.input-dock .command-input label{align-self:center;text-align:center;}
+.input-dock .command-input input:focus-visible{outline:2px solid #9dcbe0;outline-offset:-2px;}
+.viewport>.canvas-view-tools{right:8px;bottom:8px;gap:4px;padding:4px;border-radius:4px;max-width:calc(100% - 16px);flex-wrap:wrap;justify-content:flex-end;}
+.viewport>.canvas-view-tools>button,.viewport>.canvas-view-tools .canvas-zoom{height:28px;min-height:28px;border-radius:3px;}
+.viewport>.canvas-view-tools .canvas-zoom button{height:26px;min-height:26px;}
+.sidebar-tabs{gap:0;padding:0;overflow-x:hidden;}
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{
+  width:100%;margin:0;border:0;border-bottom:1px solid #383f48;border-radius:0;
+  min-height:56px!important;flex:1 0 56px!important;
+}
+body>footer{height:34px;min-height:34px;padding:4px 8px;gap:8px;align-items:center;}
+body>footer button,footer .cad-statusbar button{height:26px;min-height:26px;margin:0;padding:3px 8px;line-height:18px;border-radius:3px;}
+
+/* Compact, consistently aligned primary navigation. */
+header .tool-tabs{align-items:center;gap:4px!important;}
+header .tool-tabs>button,header .tool-tabs .ribbon-design-group>button{height:28px!important;min-height:28px!important;min-width:48px;padding:3px 12px!important;border-radius:3px;line-height:20px;white-space:nowrap;}
+header .tool-tabs .ribbon-design-group{display:flex;align-items:center;margin-left:8px!important;padding-left:8px!important;}
+#top-ribbon .ribbon-tabs{align-items:center;gap:6px!important;padding:4px 0;}
+#top-ribbon .current-layer-control{display:flex;align-items:center;gap:8px;white-space:nowrap;}
+#top-ribbon .current-layer-control select{height:24px!important;min-height:24px;}
+#top-ribbon .ribbon-tabs>button{height:24px!important;min-width:44px;line-height:18px!important;padding:2px 10px!important;border-radius:3px;}
+
+/* Barun CAD charcoal / sky-blue brand (barunarc.co.kr CAD color #9dcbe0). Drawing entity colors remain data-driven. */
+:root{--barun-accent:#9dcbe0;--panel:#25292f;--border:#383f48;}
+header .logo{width:30px!important;height:30px!important;font:800 27px/1 Arial,sans-serif!important;letter-spacing:-2px;background:#25292f!important;color:#9dcbe0!important;border-radius:7px!important;}
+:root[data-theme=dark] :is(header,footer,.command-panel,.input-dock,.canvas-toolbar,#top-ribbon,.drawing-tabs-bar,.sidebar-tabs,.aux-panel,dialog):not(.aw-dialog):not(.aw-dialog *){background-color:#25292f;color:#d8dce1;border-color:#383f48;}
+:root[data-theme=dark] .viewport{background-color:#1c1f23;}
+:root[data-theme=dark] :is(button.active,button[aria-pressed=true],.drawing-tab.active):not(.aw-dialog):not(.aw-dialog *){color:#9dcbe0;border-color:#6b9db5;background-color:#2c3a42;}
+:root[data-theme=dark] button.primary{background:#9dcbe0;color:#25292f;border-color:#9dcbe0;}
+header .logo{font-size:0!important;background:#25292f url('barun-cad-brand.png') center/contain no-repeat!important;}
+
+/* Dock finishing: explicit rows prevent an empty prompt from lifting the input. */
+.input-dock{border-top:1px solid #383f48;align-items:stretch;}
+.input-dock .command-panel{grid-template-rows:20px minmax(0,1fr) 18px 32px!important;align-content:stretch;padding:8px!important;border:0;border-radius:0;}
+.input-dock .command-title{grid-row:1;}
+.input-dock #history{grid-row:2;margin:0;scrollbar-color:#59616a #25292f;}
+.input-dock #prompt{grid-row:3;margin:0;}
+.input-dock .command-input{grid-row:4;align-self:end;height:32px;align-items:stretch;margin:0;}
+.input-dock .command-input :is(input,button){box-sizing:border-box;height:32px!important;min-height:32px!important;max-height:32px;margin:0!important;border:1px solid #444c56;border-radius:4px;}
+
+/* 결과와 오류를 읽을 수 있도록 기록 영역을 확보하고 입력줄 높이는 통일한다. */
+.input-dock .command-panel{height:124px!important;grid-template-rows:16px minmax(54px,1fr) 12px 28px!important;gap:2px!important;padding:4px 8px!important;}
+.input-dock .command-title,.input-dock .command-title button{height:16px!important;line-height:14px!important;}
+.input-dock #history{max-height:none!important;min-height:54px!important;line-height:16px!important;overflow:auto!important;white-space:normal!important;overflow-wrap:anywhere;}
+.input-dock #history>*{margin:0 0 2px!important;line-height:16px!important;}
+.input-dock #prompt{height:12px!important;line-height:12px!important;}
+.input-dock .command-input{height:28px!important;}
+.input-dock .command-input :is(input,button){box-sizing:border-box;height:28px!important;min-height:28px!important;max-height:28px!important;padding:3px 8px!important;line-height:20px!important;}
+.input-dock .command-input{position:relative;grid-template-columns:minmax(0,1fr) auto auto auto!important;}
+.input-dock .command-input label{position:absolute;left:8px;top:50%;z-index:1;transform:translateY(-50%);pointer-events:none;}
+.input-dock .command-input input{grid-column:1;padding-left:26px!important;}
+.input-dock .command-input input{background:#1c1f23;color:#d8dce1;}
+.input-dock .command-input button{padding:4px 10px!important;}
+.sidebar-tabs{align-self:stretch;border:0;border-left:1px solid #383f48;border-radius:0;gap:0!important;padding:0!important;}
+.sidebar-tabs>button,.sidebar-tabs #ai-sidebar-toggle,.sidebar-tabs .livecheck-toggle{box-sizing:border-box;border-radius:0!important;border:0!important;border-bottom:1px solid #383f48!important;width:100%;}
+.sidebar-tabs>button:last-child{border-bottom:0!important;}
+.viewport>.canvas-view-tools{background:#25292f;border:1px solid #383f48;right:8px;bottom:8px;border-radius:4px;}
+.viewport>.canvas-view-tools :is(button,.canvas-zoom){box-sizing:border-box;border-color:#444c56;background:#25292f;}
+body>footer{box-sizing:border-box;border-top:1px solid #383f48!important;border-radius:0;margin:0;}
+/* Neutral interface text; layer/entity colors are not selected here. */
+:root[data-theme=dark] :is(header,footer,.command-panel,.input-dock,.sidebar-tabs,.aux-panel,.inspector,dialog,#top-ribbon,.drawing-tabs-bar):not(.aw-dialog):not(.aw-dialog *) {color:#d8dce1;}
+:root[data-theme=dark] :is(header,footer,.command-panel,.sidebar-tabs,.aux-panel,.inspector,dialog,#top-ribbon,.drawing-tabs-bar) :is(button,input,select,textarea,summary):not(.aw-dialog):not(.aw-dialog *):not(.ap *){color:#d8dce1;}
+:root[data-theme=dark] :is(.canvas-label,.canvas-label small,.navigation,#history,#history .result,#prompt,#active-command,#coords,#zoom,.unit-note,.command-title){color:#aeb5bf!important;}
+:root[data-theme=dark] :is(.command-title strong,header button.active,.drawing-tab.active button,.cad-statusbar button[aria-pressed=true],.sidebar-tabs button[aria-expanded=true]){color:#9dcbe0!important;}
+:root[data-theme=dark] :is(button.primary,header button.primary){color:#25292f!important;background:#9dcbe0!important;}
+header .brand{flex-shrink:0;align-items:center;}
+header .logo{display:block!important;flex:0 0 30px!important;width:30px!important;height:30px!important;min-width:30px;}
+header .logo{background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACQcSURBVHhe7d1PqF3luT/wO+yww84iZJ+cfQ51L7mVVixVsdRILOUgrRiLkiqGtNRiJiqUQhAkIJQMMtCBKIJYpFAngtTBzagIndhJcfAbOMwwwwzz49nJ0eRZ+/zZf9bea73v5wsfuNx7zVlr7b3X+6x3vX/+539ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERAaeE7u7Pzi53Tx2t63t5tzWTnMJqNB2cy7fE7a3m/vyvUNEepppQz6ePBs/6NF48unWzuTaaDz5amunuQWwrNFO83XcV7bGzed3Fw4nTpz4Xr4ficiKs//0frtyn1y582O8nn+oAGs1nty4cz96J+5PJ3cnT+pFEFkiJ5rm+9On+nHzzu3qe8YPD6CnRjuTb0Y7kw+ityAeYPI9TkTuJLrSonKOp3vd90Bppg8y4+adUzvNXjzg5HugSFU5deqH4zuDcb7MPxaAkt1+0Jlc2dptHsj3RpEiE5XvaGdywVM+wG3ROzAaT94wdkCKTLzPH+00f8tffADuNrk2HTfgNYEMOaPx/Q9NR8ZOR8nmLzkAh7gZD00xZiDfW0V6m6heYwTsjC80APMaN9dH4+ZV6w5ILxNfTA0/QIdu96Ze8npAepFo+KMytSgPwJrsFwLWF5BNZLpQT0zh0/ADbMrNmEqoEJC15LuG38A+gJ5QCEi3me6c54kfoJ/GkxuxnkC+d4ssnNsr9k2utb5sAPROLLQW07DzvVzk2LnT3X85f7kA6L/YjMhrAZk7d3bi090PMGTT1wLNq/keL9LKtLt/3Hze+hIBMGRfei0gByY26bk9mrT1xQGgDJfyvV8qzu0d+mzUA1CHyTVjA+R/Yi/q2Iqy/QUBoFjj5vrJ7eax3CZIJdHlD1A9rwRqii5/AL7jlUAV0eUPQItXAmVnupSvLn8ADmAp4QIz3bJ3xocNAPeaXMltiAw08WG2P2AAmG26jPCJE9/L7YkMJPHhxYeYP1gAONK4+TwGjee2RXqeaPwt6QvAMmJn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')!important;}
+
+
+/* Single aligned brand and quiet navigation. */
+body>header{height:42px!important;min-height:42px!important;padding:0 12px!important;gap:14px!important;align-items:center!important;border-bottom:1px solid #383f48!important;}
+header .brand{display:flex!important;align-items:center!important;gap:7px!important;margin:0!important;padding:0!important;min-width:0;white-space:nowrap;letter-spacing:0;}
+header .brand>div{font-size:13px!important;line-height:28px!important;font-weight:600;}
+header .brand .logo{width:28px!important;height:28px!important;min-width:28px!important;flex:0 0 28px!important;margin:0!important;border:0!important;}
+header .brand small,header .brand .badge{display:none!important;}
+header .tool-tabs{height:42px!important;align-self:center;display:flex;align-items:stretch!important;gap:2px!important;margin:0!important;padding:0!important;border:0!important;}
+header .tool-tabs>button,header .tool-tabs .ribbon-design-group>button{height:42px!important;min-height:42px!important;min-width:44px!important;padding:0 12px!important;margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none;line-height:normal!important;}
+header .tool-tabs button.active{color:#9dcbe0!important;box-shadow:inset 0 -2px #9dcbe0!important;background:transparent!important;}
+header .tool-tabs button:hover{background:#30352b!important;}
+header .tool-tabs .ribbon-design-group{align-items:stretch!important;height:42px;gap:2px!important;border:0!important;margin:0 0 0 6px!important;padding:0 0 0 6px!important;}
+#top-ribbon{min-height:36px!important;padding:0 12px!important;border-bottom:1px solid #383f48!important;}
+#top-ribbon .ribbon-tabs{min-height:36px!important;padding:4px 0!important;gap:8px!important;align-items:center!important;}
+#top-ribbon .current-layer-control{gap:8px!important;color:#aeb5bf;}
+#top-ribbon .current-layer-control select{height:26px!important;min-height:26px!important;width:170px;max-width:30vw;background:#1c1f23!important;border:1px solid #444c56!important;border-radius:4px!important;padding:2px 8px!important;color:#d8dce1!important;}
+#top-ribbon .ribbon-tabs>button{height:26px!important;min-height:26px!important;padding:2px 10px!important;border:0!important;background:transparent!important;}
+@media(max-width:1200px){body>header{height:auto!important;flex-wrap:wrap!important;}header .tool-tabs>button,header .tool-tabs .ribbon-design-group>button{padding:0 8px!important;}}
+
+/* Separate project creation from drawing tools. */
+header .tool-tabs{gap:5px!important;align-items:center!important;}
+header .tool-tabs>button{height:30px!important;min-height:30px!important;padding:0 13px!important;border-radius:4px!important;border-left:3px solid transparent!important;color:#c9cdd3!important;}
+header .tool-tabs>button.active{background:#2a3942!important;border-left-color:#9dcbe0!important;color:#c4e2ef!important;box-shadow:none!important;}
+header .tool-tabs>button:hover{background:#30353b!important;border-left-color:#66717d!important;}
+header .file-actions{align-items:center;gap:6px;}
+header .file-actions .ribbon-design-group{display:flex;align-items:center;flex:0 0 auto;margin:0 8px 0 0!important;padding:0 14px 0 0!important;border-right:1px solid #49505a;}
+header .file-actions .ribbon-design-group>button{height:30px!important;min-height:30px!important;padding:0 14px!important;border:1px solid #4a6b7c!important;border-left:3px solid #9dcbe0!important;border-radius:4px!important;background:#29333a!important;color:#c4e2ef!important;font-weight:600;white-space:nowrap;}
+header .file-actions .ribbon-design-group>button::before{content:'+';margin-right:7px;color:#9dcbe0;}
+
+header .ai-design-menu{position:relative;flex:0 0 auto;margin-right:12px;color:#d8dce1;}
+header .ai-design-menu>summary{list-style:none;cursor:pointer;padding:7px 14px;border:1px solid #4a6b7c;border-left:3px solid #9dcbe0;border-radius:4px;background:#29333a;color:#c4e2ef;white-space:nowrap;}
+header .ai-design-menu>summary::after{content:' ▾';margin-left:8px;}
+header .ai-design-items{position:absolute;right:0;top:calc(100% + 6px);z-index:1000;width:190px;display:flex;flex-direction:column;gap:4px;padding:8px;background:#25292f;border:1px solid #444c56;border-radius:6px;box-shadow:0 8px 24px #0005;}
+header .ai-design-items button{width:100%;text-align:left;padding:8px 12px!important;min-height:30px;border:0;border-radius:3px;background:transparent;color:#d8dce1;}
+header .ai-design-items button:hover{background:#2c3a42;color:#9dcbe0;}
+
+header .ai-design-center{display:flex;flex:1 1 auto;min-width:110px;justify-content:center;align-items:center;align-self:stretch;}
+header .ai-design-center .ai-design-menu{margin:0;}
+header .ai-design-center .ai-design-items{left:50%;right:auto;transform:translateX(-50%);}
+header .file-actions{margin-left:0!important;flex:0 1 auto;}
+header .ai-design-items [data-command="NEWBUILD"]{border-bottom:1px solid #444c56;border-radius:0;padding-bottom:10px!important;margin-bottom:4px;}
+
+/* Product name belongs to the window title; toolbar uses only the monogram. */
+header .brand>div{display:none!important;}
+header .brand{gap:0!important;margin:0!important;padding:0!important;flex:0 0 28px!important;}
+
+
+/* Subtle outlines distinguish individual toolbar actions without changing spacing. */
+header .tool-tabs>button,
+header .tool-tabs .ribbon-design-group>button,
+header .file-actions>button,
+#top-ribbon .ribbon-tabs>button,
+header .ai-design-items>button{
+  box-shadow:inset 0 0 0 1px #48505a!important;
+  border-radius:4px!important;
+}
+header .tool-tabs>button:hover,
+header .file-actions>button:hover,
+#top-ribbon .ribbon-tabs>button:hover,
+header .ai-design-items>button:hover{
+  box-shadow:inset 0 0 0 1px #727c88!important;
+}
+header .tool-tabs>button.active,
+header .tool-tabs>button[aria-pressed=true]{
+  box-shadow:inset 0 0 0 1px #6b9db5!important;
+  border-left-color:#9dcbe0!important;
+}
+:root[data-theme=dark] #prompt,:root[data-theme=dark] #history .result{color:#9dcbe0!important;}
+:root[data-theme=dark] .drawing-tab.active button{color:#9dcbe0!important;}
+
+/* AI design dialog: one reading column, aligned fields and restrained branding. */
+#new-build-dialog{width:min(640px,calc(100vw - 40px));max-height:calc(100vh - 48px);padding:28px;border:1px solid #41474f;border-radius:12px;background:#25292f;color:#d8dce1;box-shadow:0 24px 90px #0006;overflow:auto;}
+#new-build-dialog::backdrop{background:#090c1080;}
+#new-build-dialog .dialog-header{margin:0 0 12px;padding:0;border:0;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+#new-build-dialog .dialog-header h2{font-size:22px!important;font-weight:600;letter-spacing:-.5px;margin:0;}
+#new-build-dialog .dialog-header button{font-size:12px!important;min-height:30px;padding:4px 9px;background:transparent;color:#aeb5bf;border:1px solid #41474f;}
+#new-build-dialog>p{font-size:13px!important;line-height:1.7;color:#aeb5bf;margin:0 0 24px;}
+#new-build-dialog .nb-start{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:10px 12px;align-items:end;}
+#new-build-dialog label{display:flex;flex-direction:column;gap:8px;font-size:12px!important;color:#c6ccd4;min-width:0;}
+#new-build-dialog :is(input,textarea,select){box-sizing:border-box;width:100%;min-width:0;background:#1c1f23;color:#e0e4e9;border:1px solid #4b525c;border-radius:6px;padding:11px 12px;font:13px/1.5 'Segoe UI','Malgun Gothic',sans-serif!important;}
+#new-build-dialog input{height:42px;}
+#new-build-dialog :is(input,textarea,select):focus-visible{outline:1px solid #9dcbe0;outline-offset:2px;border-color:#6b9db5;}
+#new-build-dialog ::placeholder{color:#89929e;opacity:1;}
+#new-build-dialog button{min-height:36px;font-size:13px!important;border-radius:6px;}
+#new-build-dialog #nb-begin{height:42px;padding:0 12px;white-space:nowrap;background:#9dcbe0;color:#25292f;border:1px solid #9dcbe0;}
+#new-build-dialog .nb-limits{grid-column:1/-1;margin:0 0 22px;font-size:12px!important;line-height:1.6;color:#aeb5bf;}
+#new-build-dialog .nb-compose{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:end;padding-top:20px;border-top:1px solid #3d444d;}
+#new-build-dialog .nb-compose:before{content:'설계 요청';grid-column:1/-1;font-size:12px;color:#c6ccd4;}
+#new-build-dialog .nb-compose textarea{grid-column:1/-1;min-height:100px;resize:vertical;}
+#new-build-dialog .nb-compose button{grid-column:2;padding:6px 20px;border:1px solid #4a5a62;background:#29333a;color:#9dcbe0;}
+#new-build-dialog .nb-talk:empty,#new-build-dialog #nb-status:empty{display:none;}
+#new-build-dialog .nb-talk:not(:empty){margin:0 0 20px;padding:14px;background:#1c1f23;border:1px solid #3d444d;border-radius:6px;max-height:220px;overflow:auto;line-height:1.7;}
+#new-build-dialog .nb-step:not([hidden]){display:grid;gap:14px;margin-top:22px;}
+#new-build-dialog .nb-proposal:not([hidden]){padding:16px;margin-top:20px;background:#1c1f23;border:1px solid #3d444d;border-radius:6px;line-height:1.7;}
+#new-build-dialog #nb-status:not(:empty){margin:16px 0 0;font-size:12px!important;line-height:1.6;color:#9dcbe0;}
+@media(max-width:540px){#new-build-dialog{padding:20px;}#new-build-dialog .nb-start{grid-template-columns:1fr;}#new-build-dialog #nb-begin{width:100%;}}
+/* Shared compact dialog system. Keep native controls and existing behavior. */
+html body dialog:not(.aw-dialog){
+  width:min(780px,calc(100vw - 40px))!important;
+  max-width:calc(100vw - 40px)!important;
+  max-height:calc(100dvh - 48px)!important;
+  box-sizing:border-box;padding:20px 24px!important;
+  background:#25292f!important;color:#d8dce1!important;
+  border:1px solid #454b54!important;border-radius:10px!important;
+  box-shadow:0 18px 64px #0006!important;overflow:auto;
+  font:13px/1.5 'Segoe UI','Malgun Gothic',sans-serif;
+  scrollbar-width:thin;scrollbar-color:#59616a #25292f;
+}
+html body dialog:not(.aw-dialog)::backdrop{background:#0b0e126e;}
+html body dialog:not(.aw-dialog) :is(h2,h3){font-size:18px!important;line-height:1.4;margin:0 0 12px;font-weight:600;letter-spacing:-.3px;color:#e2e5e9;}
+html body dialog:not(.aw-dialog) .dialog-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 14px;padding:0 0 12px;border-bottom:1px solid #3d444d;background:#25292f;}
+html body dialog:not(.aw-dialog) .dialog-header :is(h2,h3){margin:0;}
+html body dialog:not(.aw-dialog) p{font-size:12px!important;line-height:1.6;margin:8px 0 12px;color:#aeb5bf;overflow-wrap:anywhere;}
+html body dialog:not(.aw-dialog) :is(input,select,textarea,button){box-sizing:border-box;font-family:inherit;font-size:13px!important;border-radius:5px;}
+html body dialog:not(.aw-dialog) :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),select){min-height:34px;padding:6px 9px;background:#1c1f23!important;color:#e0e4e9!important;border:1px solid #4b525c;max-width:100%;}
+html body dialog:not(.aw-dialog) textarea{display:block;width:100%;min-width:0;min-height:76px;padding:9px 11px;background:#1c1f23!important;color:#e0e4e9!important;border:1px solid #4b525c;resize:vertical;line-height:1.5;}
+html body dialog:not(.aw-dialog) ::placeholder{color:#89939f;opacity:1;}
+html body dialog:not(.aw-dialog) :is(input,select,textarea):focus-visible{outline:1px solid #9dcbe0;outline-offset:2px;border-color:#6b9db5;}
+html body dialog:not(.aw-dialog) :is(input[type=checkbox],input[type=radio]){accent-color:#9dcbe0;}
+html body dialog:not(.aw-dialog) button{min-height:32px;padding:5px 12px;background:#2b3037;color:#d8dce1;border:1px solid #48515b;line-height:1.4;}
+html body dialog:not(.aw-dialog) button:hover:not(:disabled){background:#343b42;border-color:#75808c;}
+html body dialog:not(.aw-dialog) button.primary{background:#9dcbe0!important;color:#25292f!important;border-color:#9dcbe0!important;font-weight:600;}
+html body dialog:not(.aw-dialog) button:disabled{opacity:.45;cursor:default;}
+html body dialog:not(.aw-dialog) :is(.dialog-actions,.account-actions,.plot-actions){display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px;padding-top:12px;margin-top:14px;border-top:1px solid #3d444d;background:#25292f;}
+html body dialog:not(.aw-dialog) .dialog-actions button{margin:0;}
+html body dialog.close-confirm{width:min(520px,calc(100vw - 32px));padding:16px 18px;border:1px solid #46515b;border-radius:10px;background:#25292f;color:#e8edf1;box-shadow:0 18px 50px #0009;}
+html body dialog.close-confirm .dialog-header{margin:0 0 12px;padding:0 0 10px;}
+html body dialog.close-confirm h2{font-size:16px;letter-spacing:-.2px;}
+html body dialog.close-confirm .close-question{margin:0;font-size:15px;font-weight:650;color:#f2f5f7;}
+html body dialog.close-confirm .close-note{margin:5px 0 0;font-size:12px;color:#98a4ad;}
+html body dialog.close-confirm .dialog-actions{margin-top:14px;padding-top:12px;flex-wrap:nowrap;}
+html body dialog.close-confirm button{min-height:30px;padding:5px 12px;font-size:12px;white-space:nowrap;}
+html body dialog:not(.aw-dialog) :is(label,.form-row){font-size:12px!important;line-height:1.5;color:#c5ccd4;min-width:0;}
+html body dialog:not(.aw-dialog) .form-row{display:grid;grid-template-columns:minmax(90px,.7fr) minmax(0,1fr);align-items:center;gap:8px;margin:0;padding:3px 0;}
+html body dialog:not(.aw-dialog) .form-row :is(input,select){width:100%;min-width:0;}
+html body #form-dialog:not(.architectural-detail) #form-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;align-items:start;}
+html body #form-dialog:not(.architectural-detail) #form-fields>:not(.form-row){grid-column:1/-1;}
+html body #form-dialog .dialog-header{top:-20px;padding-top:8px;}
+html body dialog:not(.aw-dialog) :is(table,.settings-scroll){font-size:12px;}
+html body dialog:not(.aw-dialog) :is(th,td){padding:6px 8px;border-color:#3d444d;}
+html body dialog:not(.aw-dialog) th{background:#2c3239;color:#cbd2da;}
+html body dialog:not(.aw-dialog) details{margin:10px 0;}
+html body dialog:not(.aw-dialog) summary{cursor:pointer;color:#cbd2da;padding:5px 0;}
+html body :is(#account-dialog,#chatgpt-login-dialog,.drawing-close-dialog,.save-dialog){width:min(620px,calc(100vw - 40px))!important;}
+html body .account-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+html body .account-fields label{margin:0;}
+html body .account-fields>button{grid-column:1/-1;justify-self:end;width:auto;padding-inline:20px;background:#9dcbe0;color:#25292f;}
+html body :is(#parcel-dialog,#new-build-dialog,.plan-delivery-dialog){width:min(820px,calc(100vw - 40px))!important;}
+html body #parcel-dialog .parcel-search-row{display:flex;align-items:end;gap:10px;margin:10px 0;}
+html body #parcel-dialog .parcel-search-row>input{flex:1;min-width:0;}
+html body #parcel-dialog .parcel-search-row>label{flex:1;min-width:0;margin:0;}
+html body #parcel-dialog .parcel-search-row>button{flex:0 0 auto;min-height:34px;}
+html body #new-build-dialog .nb-start{grid-template-columns:minmax(0,1fr) 140px;gap:8px 12px;}
+html body #new-build-dialog .nb-limits{margin-bottom:12px;}
+html body #new-build-dialog .nb-compose{grid-template-columns:minmax(0,1fr) 100px;gap:8px 12px;padding-top:12px;}
+html body #new-build-dialog .nb-compose textarea{grid-column:1;grid-row:2;min-height:76px;}
+html body #new-build-dialog .nb-compose button{grid-column:2;grid-row:2;align-self:end;}
+html body #new-build-dialog .nb-compose:before{grid-column:1/-1;}
+html body :is(#lisp-dialog,#design-cases-dialog,#site-plan-dialog,#miriboda-dialog,.layer-review-dialog,.architecture-catalog,.plot-preview,.lp-editor){width:min(1080px,calc(100vw - 40px))!important;}
+html body .drafting-dialog{width:min(520px,calc(100vw - 40px))!important;} /* 2026-09-21 주석·건축 기본값 묶음을 숨겨 한 열로 */
+html body .drafting-dialog .inspector{display:grid!important;grid-template-columns:minmax(0,1fr);gap:10px 22px;padding:0;background:transparent;}
+html body .drafting-dialog .inspector section{padding:10px 0;min-width:0;}
+html body .lp-editor textarea{height:280px;max-height:55dvh;font-family:Consolas,monospace;}
+html body :is(.lp-library,.settings-scroll){max-height:320px;}
+html body .layer-review-body{grid-template-columns:minmax(0,1fr) 260px;gap:16px;}
+html body .layer-review-dialog .layer-review-body{grid-template-columns:minmax(0,1fr) 380px;}
+html body .layer-review-dialog .lr-name-head{background:none;border:0;box-shadow:none;padding:0;min-height:0}
+/* 사용성 비평 반영(2026-10-21): 적용 단추 줄은 늘 창 아래에, 탭은 늘 오른쪽 맨 위에, 좁은 창에서도 단추 글자가 끊기지 않게 */
+.layer-review-dialog .lr-footer{position:sticky;bottom:-24px;z-index:4;background:#16212a;border-top:1px solid #344651;margin:8px -24px -24px;padding:8px 24px 24px}
+.layer-review-dialog .lr-footer .dialog-actions{display:flex;gap:8px;justify-content:flex-end}.layer-review-dialog .lr-dict-open{margin-right:auto}
+.layer-review-dialog .lr-tabs{order:-2}.layer-review-dialog .lr-toolbar button{white-space:nowrap}
+.layer-review-dialog .lr-changes-box summary{cursor:pointer;font-size:12px;color:#98a9b4;margin:6px 0}
+.lr-name-row.picked{border-color:#9b7cf0;box-shadow:inset 0 0 0 1px #9b7cf0}.lr-dot{display:inline-block;width:10px;height:10px;border-radius:2px}
+.lr-hint-row{grid-column:1/-1;font-size:11px;color:#98a9b4}.lr-split{font-size:11.5px}
+.lr-dict{background:#182833;border:1px solid #55716c;border-radius:6px;padding:8px 10px;margin:8px 0;font-size:12px}.lr-dict-row{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-top:1px solid #2b3a44}
+/* 재비평 반영: 한 줄 = 이름 줄(+단면·법규 표시·펼치기) / 분류·단추 한 줄 / 근거·기억. 창 높이에 맞춰 목록만 스크롤 */
+.lr-name-top{grid-column:1/-1;display:flex;gap:6px;align-items:center}.lr-name-top .lr-name-head{flex:1;min-width:0}.lr-name-top .lr-name-head b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lr-name-pick{flex-wrap:nowrap}.lr-name-pick select{max-width:130px}.lr-name-actions{flex-wrap:nowrap}.lr-name-actions button{white-space:nowrap}
+.layer-review-dialog .layer-review-body canvas{max-height:calc(92vh - 300px)}.layer-review-dialog .lr-names{max-height:calc(92vh - 330px)}
+@media (max-width: 1000px){html body .layer-review-dialog .layer-review-body{grid-template-columns:1fr}.layer-review-dialog .layer-review-body canvas{max-height:34vh}.layer-review-dialog .lr-names{max-height:none}}
+html body .layer-review-list{max-height:420px;}
+html body .plot-page{padding:10px;}
+html body .plot-page svg{max-height:55dvh;}
+html body .livecheck-settings{width:min(860px,calc(100vw - 40px))!important;}
+html body dialog:not(.aw-dialog) [hidden]{display:none!important;}
+@media(max-width:680px){
+ html body dialog:not(.aw-dialog){padding:16px!important;width:calc(100vw - 24px)!important;max-width:calc(100vw - 24px)!important;}
+ html body #form-dialog:not(.architectural-detail) #form-fields,html body .account-fields,html body .drafting-dialog .inspector,html body .layer-review-body{grid-template-columns:1fr!important;}
+ html body #new-build-dialog .nb-start{grid-template-columns:1fr;}
+ html body #parcel-dialog .parcel-search-row{flex-wrap:wrap;}
+ html body #new-build-dialog .nb-compose textarea{grid-column:1/-1;}
+ html body #new-build-dialog .nb-compose button{grid-row:3;}
+ html body #new-build-dialog :is(.nb-c3,.nb-c2){grid-template-columns:1fr;}
+}
+/* AI 설계 + 아파트(10/21): 아파트 같이 켜기, 결과 두 줄(소규모 3안 · 아파트 2안). 우물 #1c1f23 · 선 #3d444d · 강조 #9dcbe0 · 통과 #bedb71. */
+html body #new-build-dialog label.nb-apt-toggle{grid-column:1/-1;flex-direction:row;align-items:center;gap:8px;color:#dce1e7;}
+html body #new-build-dialog .nb-apt-toggle input{width:16px;height:16px;flex:0 0 auto;}
+html body #new-build-dialog .nb-apt-toggle small{color:#7d858f;font-size:11px;}
+html body #new-build-dialog .nb-results:not([hidden]){display:flex;flex-direction:column;gap:14px;margin-top:12px;}
+html body #new-build-dialog .nb-sec-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+html body #new-build-dialog .nb-sec-h strong{font-size:13px;font-weight:600;color:#dce1e7;}
+html body #new-build-dialog .nb-sec-h span{font-size:11px;color:#7d858f;}
+html body #new-build-dialog .nb-cards{display:grid;gap:8px;}
+html body #new-build-dialog .nb-c3{grid-template-columns:repeat(3,minmax(0,1fr));}
+html body #new-build-dialog .nb-c2{grid-template-columns:repeat(2,minmax(0,1fr));}
+html body #new-build-dialog .nb-card{background:#1c1f23;border:1px solid #3d444d;border-radius:10px;padding:11px 12px;display:flex;flex-direction:column;gap:5px;min-width:0;}
+html body #new-build-dialog .nb-card strong{font-size:13px;color:#e5e9ee;}
+html body #new-build-dialog .nb-card span{font-size:11.5px;line-height:1.45;color:#abb3bd;}
+html body #new-build-dialog .nb-big{font-size:20px;font-weight:700;color:#e5e9ee;}
+html body #new-build-dialog .nb-big small{font-size:12px;font-weight:400;color:#7d858f;}
+html body #new-build-dialog .nb-tag{align-self:flex-start;font-size:10.5px;padding:1px 6px;border-radius:4px;}
+html body #new-build-dialog .nb-tag.ok{background:rgba(190,219,113,.14);color:#cfe79a;}
+html body #new-build-dialog .nb-tag.warn{background:rgba(240,195,140,.16);color:#f0c38c;}
+html body #new-build-dialog .nb-apt-steps{background:#1c1f23;border:1px solid #3d444d;border-radius:8px;padding:6px 12px;}
+html body #new-build-dialog .nb-apt-step{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:8px;font-size:12px;padding:3px 0;color:#7d858f;}
+html body #new-build-dialog .nb-apt-step.is-done{color:#bedb71;}
+html body #new-build-dialog .nb-apt-step.is-now{color:#9dcbe0;}
+html body #new-build-dialog .nb-apt-step span:nth-child(2){color:#dce1e7;}
+html body #new-build-dialog .nb-apt-blocked{background:#1c1f23;border:1px dashed #4b525c;border-radius:10px;padding:12px;font-size:12px;color:#f0a08c;}
+html body #new-build-dialog .nb-plan-actions{display:flex;justify-content:flex-end;gap:8px;}
+
+html body #settings-dialog{width:min(960px,calc(100vw - 40px))!important;}
+html body #settings-dialog .settings-scroll{max-height:240px!important;}
+html body #settings-dialog td :is(input,select){min-height:28px;padding:3px 7px;}
+html body #settings-dialog :is(td,th){padding:4px 8px;}
+html body #settings-dialog>p{margin:6px 0 10px;}
+
+/* Neutral navigation: no colored fills, stripes, or selected text. */
+html body>header .tool-tabs>button,
+html body>header .tool-tabs>button.active,
+html body>header .tool-tabs>button[aria-pressed=true],
+html body>header .tool-tabs>button:hover{
+ background:#25292f!important;color:#d8dce1!important;
+ border:1px solid #48505a!important;box-shadow:none!important;
+}
+html body>header .tool-tabs>button.active{border-color:#89929d!important;}
+html body>header .ai-design-menu>summary,
+html body>header .ai-design-menu[open]>summary{
+ background:#25292f!important;color:#d8dce1!important;
+ border:1px solid #48505a!important;box-shadow:none!important;
+}
+html body .drawing-tab.active{background:#25292f!important;border-color:#737d89!important;}
+html body .drawing-tab.active button{background:transparent!important;color:#d8dce1!important;}
+html body>header .ai-design-items>button:hover{background:#323840!important;color:#d8dce1!important;}
+
+/* Drawing navigation occupies the bottom dock row, outside the drawing canvas. */
+.input-dock>.view-tools-row{grid-column:1/-1;display:flex;justify-content:flex-end;align-items:center;min-width:0;min-height:34px;padding:3px 8px;box-sizing:border-box;border-top:1px solid #383f48;background:var(--panel);}
+.view-tools-row>.canvas-view-tools{position:static!important;display:flex!important;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:4px;margin:0;padding:0;border:0;border-radius:0;background:transparent;max-width:100%;}
+.view-tools-row .canvas-view-tools>button,.view-tools-row .canvas-zoom{height:26px!important;min-height:26px!important;box-sizing:border-box;border:1px solid #444c56;border-radius:4px;background:#25292f;color:#d8dce1;}
+.view-tools-row .canvas-view-tools>button{padding:2px 10px;line-height:20px;white-space:nowrap;}
+.view-tools-row .canvas-zoom{display:flex;align-items:center;gap:6px;padding:0 3px;}
+.view-tools-row .canvas-zoom button{height:24px;min-height:24px;padding:0 6px;border:0;background:transparent;}
+.view-tools-row #zoom{min-width:44px;text-align:center;}
+
+/* Navigation sits on the existing status line immediately beside Ortho. */
+footer>.view-tools-row{display:flex;align-items:center;flex:0 0 auto;margin:0;padding:0;border:0;background:transparent;}
+footer .view-tools-row .canvas-view-tools{flex-wrap:nowrap;gap:4px;}
+footer .view-tools-row .canvas-view-tools>button{font-size:11px;padding:2px 6px;}
+footer .cad-statusbar{flex:0 0 auto;}
+body>footer{overflow-x:auto;flex-wrap:nowrap;}
+#batch-converter{width:min(960px,94vw);max-height:86vh;padding:20px;overflow:auto;}
+#batch-converter .bc-options{display:flex;align-items:end;gap:10px;margin:12px 0;}
+#batch-converter .bc-options label{display:flex;flex-direction:column;gap:5px;font-size:12px;}
+#batch-converter .bc-destination{flex:1;min-width:0;}
+#batch-converter .bc-folder{width:100%;box-sizing:border-box;}
+#batch-converter .bc-drop{display:block;width:100%;height:88px;border:1px dashed #68717b;border-radius:8px;background:#1c1f23;font-size:15px;}
+#batch-converter .bc-drop span{display:block;font-size:12px;color:#9ba3ab;margin-top:8px;}
+#batch-converter .bc-drop.dragover{border-color:#9dcbe0;background:#30372b;}
+#batch-converter .bc-actions{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0;}
+#batch-converter .bc-list{padding-left:24px;max-height:34vh;overflow:auto;}
+#batch-converter .bc-list li{padding:10px 0;border-bottom:1px solid #383f48;}
+#batch-converter .bc-list p{font-size:12px;overflow-wrap:anywhere;margin:6px 0;}
+#batch-converter pre{font-size:11px;white-space:pre-wrap;overflow-wrap:anywhere;max-height:180px;overflow:auto;}
+#batch-converter summary{font-size:12px;color:#abb6c2;cursor:pointer;}
+#batch-converter .bc-failure{color:#e9af9f;}
+#batch-converter .bc-save{margin:12px 0;padding:12px 14px;border:1px solid #3e4854;border-radius:8px;background:#20242a;}
+#batch-converter .bc-save-choices{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0;}
+#batch-converter .bc-save .bc-folder{margin:6px 0;color:#c7d0d9;font-size:12px;overflow-wrap:anywhere;}
+#batch-converter .bc-open{margin-top:4px;}
+
+/* Compact workspace header: all navigation matches the small file-action controls. */
+html body>header{
+ height:32px!important;min-height:32px!important;padding:0 8px!important;gap:8px!important;
+}
+html body>header .brand{flex-basis:22px!important;}
+html body>header .brand .logo{
+ width:22px!important;height:22px!important;min-width:22px!important;flex-basis:22px!important;border-radius:4px!important;
+}
+html body>header .tool-tabs{
+ height:32px!important;min-height:32px!important;gap:3px!important;align-items:center!important;
+}
+html body>header .tool-tabs>button,
+html body>header .file-actions>button{
+ box-sizing:border-box;height:24px!important;min-height:24px!important;min-width:0!important;
+ padding:1px 8px!important;font-size:11px!important;line-height:20px!important;border-radius:4px!important;
+}
+
+/* 계정 연결과 업데이트를 한눈에 보는 작은 공통 창 */
+.account-update-dialog{
+ width:min(720px,calc(100vw - 32px));max-height:min(760px,calc(100vh - 32px));
+ box-sizing:border-box;padding:0!important;overflow:auto;border:1px solid #4a535e;border-radius:12px;
+ background:#25292f;color:#e4e8ec;font-family:"NanumGothic","Malgun Gothic",sans-serif;
+ box-shadow:0 20px 70px #0009;
+}
+.account-update-dialog .au-shell{padding:20px;display:flex;flex-direction:column;gap:14px;}
+.account-update-dialog .au-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding-bottom:14px;border-bottom:1px solid #3d444d;}
+.account-update-dialog .au-header h2{margin:0 0 5px!important;font-size:21px!important;line-height:1.3;font-weight:700;letter-spacing:-.4px;}
+.account-update-dialog .au-header p,.account-update-dialog p{margin:0;color:#aeb6bf;font-size:12px;line-height:1.55;}
+.account-update-dialog .au-product{display:flex;align-items:center;gap:9px;min-width:max-content;}
+.account-update-dialog .au-product-mark{display:grid;place-items:center;width:29px;height:29px;border-radius:8px;background:#1c2025;color:#9dcbe0;font-size:17px;font-weight:800;}
+.account-update-dialog .au-product>div{display:flex;flex-direction:column;gap:1px;}.account-update-dialog .au-product strong{font-size:12px;}.account-update-dialog .au-product span{font-size:10px;color:#9ba5af;}
+.account-update-dialog .au-close{width:30px;height:30px;min-height:30px;padding:0;font-size:18px;line-height:28px;}
+.account-update-dialog .au-account-card,.account-update-dialog .au-balance-card,.account-update-dialog .au-update,.account-update-dialog .au-notes{padding:14px;border:1px solid #414a54;border-radius:9px;background:#1d2228;}
+.account-update-dialog .au-account-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.account-update-dialog .au-avatar{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#303740;color:#dfe5ea;font-weight:700;}
+.account-update-dialog .au-account-head>div{display:flex;min-width:0;flex-direction:column;gap:3px;}.account-update-dialog .au-account-name{font-size:14px;}.account-update-dialog .au-state{font-size:11px;color:#aeb7c0;}
+.account-update-dialog .au-coin{font-size:11px;color:#aeb7c0}.account-update-dialog .au-coin strong{color:#e2ecf1;font-size:12px;margin-left:4px}
+.account-update-dialog .au-actions{display:flex;align-items:center;flex-wrap:wrap;gap:6px;}.account-update-dialog button{min-height:30px;padding:5px 10px;font-size:11px;border-radius:6px;}
+.account-update-dialog .shared-account-login.primary{background:#fee500!important;border-color:#fee500!important;color:#191919!important;font-weight:700;}
+.account-update-dialog .shared-account-login.primary:hover{background:#f5dc00!important;border-color:#f5dc00!important;}
+.account-update-dialog .au-balance-card{display:flex;flex-direction:column;gap:6px;}.account-update-dialog .au-balance-label{font-size:11px;color:#aab3bc;}.account-update-dialog .au-balance{font-size:20px;color:#e2ecf1;}.account-update-dialog .au-packs{min-height:19px;}.account-update-dialog .common-account-menu{margin-top:auto;}
+.account-update-dialog .au-update{display:flex;flex-direction:column;gap:9px;}.account-update-dialog .au-update-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}.account-update-dialog .au-update-title{display:flex;align-items:center;gap:9px;}.account-update-dialog .au-update-icon{font-size:18px;color:#9dcbe0;}.account-update-dialog h3{margin:0;font-size:14px;line-height:1.35;}.account-update-dialog .au-versions{font-size:11px;color:#aeb7c0;white-space:nowrap;}.account-update-dialog .au-update-state{font-size:12px;font-weight:600;}.account-update-dialog .au-progress{width:100%;height:8px;accent-color:#9dcbe0;}.account-update-dialog .au-progress-detail{display:flex;justify-content:flex-end;gap:8px;color:#aeb7c0;font-size:10px;}.account-update-dialog .au-update-actions{display:flex;gap:6px;}
+.account-update-dialog .au-notes-head{display:flex;justify-content:space-between;align-items:center;}.account-update-dialog .au-notes ul{margin:8px 0 0;padding-left:18px;color:#c8cfd5;font-size:11px;line-height:1.6;}.account-update-dialog .au-note-kind{margin-right:6px;color:#9dcbe0;font-weight:700;}
+.account-update-dialog .au-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:2px;}.account-update-dialog .au-footer .shared-account-close{margin-left:auto;}
+@media(max-width:680px){.account-update-dialog .au-update-head{display:block}.account-update-dialog .au-versions{margin-top:5px}.account-update-dialog .au-footer{align-items:flex-end}}
+html body>header .tool-tabs>button{border-left-width:1px!important;}
+html body>header .tool-tabs>button.active{box-shadow:none!important;}
+html body>header .ai-design-center{align-self:center;height:24px;}
+html body>header .ai-design-menu{margin:0 6px!important;}
+html body>header .ai-design-menu>summary{
+ box-sizing:border-box;height:24px;min-height:24px;padding:1px 9px!important;
+ font-size:11px;line-height:20px;border-left-width:1px!important;border-radius:4px!important;
+}
+html body>header .ai-design-menu>summary::after{margin-left:5px;}
+html body>header .file-actions{gap:4px!important;}
+#top-ribbon{min-height:30px!important;padding:0 8px!important;}
+#top-ribbon .ribbon-tabs{min-height:30px!important;padding:2px 0!important;gap:5px!important;}
+#top-ribbon .current-layer-control select{height:24px!important;min-height:24px!important;}
+#top-ribbon .ribbon-tabs>button{height:24px!important;min-height:24px!important;padding:1px 8px!important;}
+.drawing-tabs-bar{flex-basis:24px!important;min-height:24px!important;height:24px!important;}
+.drawing-tabs-bar button{min-height:20px!important;height:20px!important;padding-block:0!important;}
+@media(max-width:1200px){html body>header{height:32px!important;min-height:32px!important;flex-wrap:nowrap!important;}}
+
+/* Shared Miri account: same top-right control used by every Barun program. */
+html body>header #shared-account.common-account{
+ display:inline-flex;align-items:center;gap:5px;width:auto;max-width:120px;
+ color:#9dcbe0!important;border-color:#4a6b7c!important;background:#182019!important;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+#shared-account .common-account-dot{width:6px;height:6px;flex:0 0 6px;border-radius:50%;background:#7d8790;}
+#shared-account.connected .common-account-dot{background:#9dcbe0;box-shadow:0 0 6px rgba(157,203,224,.5);}
+#shared-account .common-account-label{overflow:hidden;text-overflow:ellipsis;}
+#shared-account-dialog{width:min(330px,calc(100vw - 28px));padding:14px;border-radius:10px;}
+#shared-account-dialog .dialog-header{margin-bottom:10px;}
+#shared-account-dialog .common-account-summary{display:grid;gap:3px;padding:10px 0 12px;border-bottom:1px solid var(--line,#3e4854);}
+#shared-account-dialog .shared-account-balance{font-size:18px;color:#9dcbe0;}
+#shared-account-dialog .shared-account-name,#shared-account-dialog .shared-account-status{font-size:11px;color:#aab3bc;line-height:1.45;}
+#shared-account-dialog .common-account-menu{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px 0;}
+#shared-account-dialog .common-account-menu button,#shared-account-dialog .common-account-session button{min-height:30px;padding:5px 9px;font-size:12px;}
+#shared-account-dialog .common-account-session{display:flex;justify-content:flex-end;gap:6px;margin-top:8px;}
+
+/* 출력은 왼쪽 설정과 오른쪽 실제 용지 미리보기를 한 화면에서 비교한다. */
+html body #form-dialog.plot-settings-dialog{
+ width:min(1180px,calc(100vw - 28px))!important;max-width:none!important;max-height:calc(100dvh - 28px);
+ padding:16px 18px 14px;overflow:auto;border-color:#465661;border-radius:12px;
+}
+html body #form-dialog.plot-settings-dialog #property-form{min-height:0;}
+html body #form-dialog.plot-settings-dialog #form-fields{
+ display:grid!important;grid-template-columns:minmax(330px,410px) minmax(440px,1fr)!important;
+ gap:16px!important;align-items:stretch!important;min-height:min(640px,calc(100dvh - 168px));
+}
+html body #form-dialog.plot-settings-dialog #form-fields>:not(.form-row){grid-column:auto;}
+.plot-settings-pane{display:flex;min-width:0;flex-direction:column;gap:10px;}
+.plot-settings-section{padding:12px;border:1px solid #3b4852;border-radius:9px;background:#20262c;}
+.plot-settings-section>h3,.plot-preview-heading h3{margin:0 0 9px;font-size:13px;color:#e8edf1;}
+.plot-settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;}
+html body .plot-settings-grid>.form-row{display:flex;min-width:0;flex-direction:column;align-items:stretch;gap:4px;padding:0;}
+.plot-settings-grid>.form-row>span{color:#99a7b1;font-size:10px;}
+.plot-settings-grid>.form-row :is(input,select){box-sizing:border-box;height:34px;min-height:34px;padding:5px 8px;}
+.plot-window-pick{width:100%;margin-top:9px;min-height:32px;}
+.plot-auto-note{margin:10px 0 0;padding:9px 10px;border-left:3px solid #9dcbe0;border-radius:4px;background:#182019;color:#bfc8ce;font-size:10px;line-height:1.55;}
+.plot-ctb-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px 8px;align-items:center;margin-top:9px;padding-top:9px;border-top:1px solid #39444d;}
+.plot-ctb-row input[type=file]{grid-column:1/-1;min-width:0;font-size:10px;}
+.plot-ctb-row>span{min-width:0;overflow:hidden;color:#9fb0ba;font-size:10px;text-overflow:ellipsis;white-space:nowrap;}
+.plot-ctb-row>button{min-height:28px;padding:3px 8px;font-size:10px;}
+.plot-preview-pane{display:flex;min-width:0;min-height:0;flex-direction:column;overflow:hidden;border:1px solid #3d4d57;border-radius:10px;background:#0b151c;}
+.plot-preview-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid #2d3d46;background:#101c24;}
+.plot-preview-heading h3{margin:0 0 2px;}.plot-preview-heading p{margin:0;color:#8295a2;font-size:10px;}
+.plot-preview-heading>strong{padding:3px 7px;border:1px solid #5d7c60;border-radius:999px;color:#9dcbe0;font-size:9px;letter-spacing:.8px;}
+html body #form-dialog.plot-settings-dialog .plot-live{
+ display:grid;place-items:center;flex:1;box-sizing:border-box;width:100%;min-height:430px;max-height:none;overflow:auto;
+ padding:24px;background-color:#0c171e;background-image:radial-gradient(#1d333f 1px,transparent 1px);background-size:18px 18px;border:0;
+}
+html body #form-dialog.plot-settings-dialog .plot-live svg{display:block;width:auto;max-width:100%;height:auto;max-height:calc(100dvh - 275px);background:#fff;box-shadow:0 12px 34px #0009;}
+.plot-preview-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid #2d3d46;background:#101c24;color:#96a8b3;font-size:10px;}
+.plot-preview-summary b{color:#e0e7eb;font-weight:650;}
+html body #form-dialog.plot-settings-dialog #form-error{min-height:0;margin:6px 0 0;}
+html body #form-dialog.plot-settings-dialog .dialog-actions{margin-top:7px;padding-top:10px;}
+@media(max-width:850px){
+ html body #form-dialog.plot-settings-dialog #form-fields{grid-template-columns:1fr!important;min-height:0;}
+ html body #form-dialog.plot-settings-dialog .plot-live{min-height:330px;}
+ html body #form-dialog.plot-settings-dialog .plot-live svg{max-height:440px;}
+}
+@media(max-width:520px){.plot-settings-grid{grid-template-columns:1fr}.plot-preview-summary{align-items:flex-start;flex-direction:column;gap:3px;}}
+
+/* 건축 리습 실행 창: 제목 → 설명 → (충돌 안내) → 실행 단추를 세로로 정렬한다 */
+.lisp-catalog .architecture-tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;max-height:62vh;overflow:auto;padding:4px 2px}
+.lisp-catalog .architecture-tool-card{display:flex;flex-direction:column;align-items:stretch;gap:8px;padding:12px 14px;min-height:0}
+.lisp-catalog .architecture-tool-card>strong{display:block;font-size:15px;line-height:1.35}
+.lisp-catalog .architecture-tool-card>p{margin:0;font-size:13px;line-height:1.55;flex:1 1 auto;opacity:.9}
+.lisp-catalog .architecture-tool-card>small{display:block;font-size:12px;line-height:1.45;opacity:.75}
+.lisp-catalog .architecture-tool-card>button{align-self:flex-end;min-width:72px;padding:6px 16px}
+.lisp-catalog>p{font-size:13px;line-height:1.6;margin:6px 0 12px}
+.lisp-recipe-note{margin:4px 0 0;font-size:12px;line-height:1.5;opacity:.8}
+
+/* 벽 그리기(WAL) 프리셋 창 */
+.wal-dialog{width:min(1180px,96vw);max-height:94vh;box-sizing:border-box;overflow:auto}
+.wal-body{display:grid;grid-template-columns:230px minmax(0,1fr);gap:16px;align-items:start}
+.wal-list{display:flex;flex-direction:column;gap:6px;max-height:66vh;overflow:auto;padding-right:4px}
+.wal-slot{display:flex;align-items:center;gap:8px;padding:6px 8px;text-align:left;border:1px solid var(--border,#383f48);border-radius:8px;background:#1b1f25}
+.wal-slot svg{flex:0 0 auto;border-radius:4px}
+.wal-slot span{font-size:13px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wal-slot.empty span{opacity:.5}
+.wal-slot.active{border-color:var(--barun-accent,#9dcbe0);box-shadow:0 0 0 1px var(--barun-accent,#9dcbe0) inset}
+.wal-editor{display:flex;flex-direction:column;gap:10px;min-width:0}
+.wal-name{display:flex;align-items:center;gap:10px}.wal-name span{white-space:nowrap;font-size:13px}.wal-name input{flex:1;min-width:0}
+.wal-table{width:100%;border-collapse:collapse;font-size:13px}
+.wal-table th{font-weight:600;text-align:left;padding:4px 6px;border-bottom:1px solid var(--border,#383f48);white-space:nowrap}
+.wal-table td{padding:4px 6px;vertical-align:middle}
+.wal-table input[type=number]{width:110px}.wal-table input[type=text]{width:140px}.wal-table input[type=color]{width:44px;height:28px;padding:0;border:0;background:none}
+.wal-table select{min-width:96px}
+.wal-row-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.wal-hint{font-size:12px;opacity:.75}
+.wal-options{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}.wal-options label{display:flex;align-items:center;gap:6px}
+.wal-fixed{flex:1 1 100%;gap:10px}.wal-fixed span{white-space:nowrap}.wal-fixed input{flex:1;min-width:200px}
+.wal-methods{border:1px solid var(--border,#383f48);border-radius:8px;padding:8px 12px;display:flex;flex-direction:column;gap:6px}
+.wal-methods legend{padding:0 6px;font-size:13px}
+.wal-method{display:grid;grid-template-columns:auto auto 1fr;gap:6px 10px;align-items:baseline;font-size:13px}
+.wal-method small{grid-column:3;opacity:.8;line-height:1.45}
+.wal-method input:disabled+strong{opacity:.5}
+.wal-preview{display:flex;flex-direction:column;align-items:flex-start;gap:4px}.wal-preview svg{width:100%;max-width:560px;height:auto}.wal-caption{margin:0;font-size:13px;opacity:.85}
+.wal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+@media (max-width:1100px){.wal-body{grid-template-columns:1fr}.wal-list{flex-direction:row;flex-wrap:wrap;max-height:none}.wal-slot{width:calc(50% - 6px)}}
+
+/* 보조명령 카드 공통(card-kit.js). WAL 창과 같은 틀에 설정 표를 더한다. */
+.card-fields{display:flex;flex-direction:column;gap:8px}
+.card-group{border:1px solid var(--border,#383f48);border-radius:8px;padding:6px 12px 10px;margin:0}
+.card-group legend{padding:0 6px;font-size:13px;font-weight:600}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:6px 14px}
+.card-field{display:flex;flex-direction:column;gap:3px;font-size:13px;min-width:0}
+.card-field>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card-field input[type=number],.card-field input[type=text],.card-field select{width:100%;box-sizing:border-box}
+.card-field.check{flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap}
+.card-field small{opacity:.7;font-size:11px;line-height:1.35}
+.card-field.off{opacity:.45}
+.card-shared{border-top:1px dashed var(--border,#383f48);padding-top:8px}
+.card-dialog .wal-name input[readonly]{opacity:.7}
+
+/* ── 카드 창 조밀화(2026-09-21, 4차): 글자·간격·미리보기를 줄여 한 화면에 들어가게. 칸 하나짜리(card-single)는 목록·이름칸 없음. 조건에 안 맞는 항목(off)은 숨김 ── */
+html body dialog.wal-dialog{padding:10px 14px!important;width:min(1040px,calc(100vw - 32px))!important;font-size:12px}
+html body dialog.wal-dialog.card-single{width:min(720px,calc(100vw - 32px))!important}
+html body dialog.wal-dialog .dialog-header{margin:0 0 8px;padding:0 0 6px;gap:10px}
+html body dialog.wal-dialog :is(h2,h3){font-size:14px!important;letter-spacing:0}
+html body dialog.wal-dialog :is(input,select,button){font-size:12px!important}
+html body dialog.wal-dialog :is(input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),select){min-height:26px;padding:2px 6px}
+html body dialog.wal-dialog button{min-height:26px;padding:3px 10px}
+html body dialog.wal-dialog p{margin:3px 0;font-size:11px!important;line-height:1.4}
+html body dialog.wal-dialog .wal-actions{margin-top:8px;padding-top:8px;gap:6px}
+.wal-dialog .wal-body{gap:10px;grid-template-columns:200px minmax(0,1fr)}
+.wal-dialog.card-single .wal-body{grid-template-columns:minmax(0,1fr)}
+.wal-dialog .wal-list{gap:4px;max-height:60vh}
+.wal-dialog .wal-slot{padding:3px 6px;gap:6px;border-radius:6px}.wal-dialog .wal-slot span{font-size:12px}.wal-dialog .wal-slot svg{width:48px;height:26px}
+.wal-dialog .wal-editor{gap:6px}
+.wal-dialog .wal-name{gap:8px}.wal-dialog .wal-name span{font-size:12px}
+.wal-dialog .wal-preview{gap:2px}.wal-dialog .wal-preview svg{width:auto;max-width:100%;height:100px}.wal-dialog .wal-caption{font-size:11px}
+.wal-dialog .card-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px 8px;align-items:start}
+.wal-dialog .card-group{padding:0 8px 6px;border-radius:6px}.wal-dialog .card-group legend{font-size:12px;padding:0 4px}
+.wal-dialog .card-group[hidden]{display:none}
+.wal-dialog .card-grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2px 10px}
+.wal-dialog .card-field{display:grid;grid-template-columns:minmax(0,1fr) minmax(76px,46%);align-items:center;gap:2px 6px;font-size:12px}
+.wal-dialog .card-field.check{display:flex;gap:5px}
+.wal-dialog .card-field.off{display:none}
+.wal-dialog .card-field small{grid-column:1/-1;font-size:10px;line-height:1.3}
+.wal-dialog .card-shared{padding-top:4px}
+.wal-dialog .wal-methods{flex-direction:row;flex-wrap:wrap;gap:3px 14px;padding:2px 10px 6px;border-radius:6px}
+.wal-dialog .wal-methods legend{font-size:12px;padding:0 4px}
+.wal-dialog .wal-method{display:flex;align-items:center;gap:4px;font-size:12px}.wal-dialog .wal-method small{display:none}
+.wal-dialog .wal-hint{font-size:11px}
+.wal-dialog .wal-table{font-size:12px}.wal-dialog .wal-table :is(th,td){padding:2px 5px}
+.wal-dialog .wal-options{gap:12px;font-size:12px}
+@media (max-width:1100px){.wal-dialog .wal-slot{width:calc(33.3% - 4px)}}
+.wal-dialog .card-field>span{white-space:normal;line-height:1.25}
+.wal-dialog .wal-slot-add{justify-content:center;border-style:dashed;opacity:.8}
+.wal-dialog .card-field[title]>span::after{content:' ⓘ';opacity:.45;font-size:10px}
+.wal-dialog .card-group:has(.card-field:nth-child(6)){grid-column:span 2}
+.wal-dialog .card-group:has(.card-field:nth-child(6)) .card-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+
+/* ── 5.0.4 검토 수정 A: 도움말 분류 제목 · 판 번호 · 기본 명령 아이콘 · 빠른 도구 라벨 ── */
+.help-grid.help-grouped{align-content:start;}
+.help-group-title{grid-column:1 / -1;margin:14px 0 4px;padding:0 0 4px;font-size:12px;font-weight:600;color:#9dcbe0;border-bottom:1px solid #35485a;}
+.help-group-title:first-child{margin-top:2px;}
+.help-group-title[hidden]{display:none;}
+#app-version{margin-left:auto;padding-left:12px;font-size:10px;color:#7f92a2;white-space:nowrap;opacity:.85;}
+:root[data-theme=ivory] #app-version{color:#8c8072;}
+.basic-command-icon{width:22px;height:22px;display:inline-block;vertical-align:middle;}
+aside.quick-tools button span{white-space:normal!important;line-height:1.15;overflow:visible!important;text-overflow:clip!important;word-break:normal;overflow-wrap:anywhere;}
+/* 오른쪽 작업 패널(.right-workspace)은 도면 위에 겹치는 절대 위치 패널이라 접힌 42px 탭 띠가 명령창 오른쪽 단추(완료·취소 Esc·기록 지우기)를 가렸다.
+   명령창(입력 독)만 탭 띠·열린 패널 너비만큼 비워 둔다. 도면 화면은 그대로 패널 아래로 이어진다. */
+.drawing-column>.input-dock{margin-right:42px;}
+body:not(.workspace-focus):has(.right-workspace:not(.is-collapsed)) .drawing-column>.input-dock{margin-right:clamp(300px,24vw,350px);}
+body.workspace-focus .drawing-column>.input-dock{margin-right:0;}
+/* 탭 띠 자동 숨김(rail-autohide): 패널이 닫혀 있으면 가장자리 띠(8px)만 비워 둔다. 마우스로 펼친 탭 띠는 잠깐 겹쳐 보일 뿐 명령창을 밀지 않는다. */
+body:not(.workspace-focus):has(.right-workspace.rail-autohide.is-collapsed) .drawing-column>.input-dock{margin-right:8px;}
+/* 좁은 화면(1180px 이하)에서는 판 번호를 짧게(v5.0.4) 보여 상태 표시줄이 잘리지 않게 한다. */
+@media (max-width:1180px){#app-version{font-size:0;}#app-version::after{content:attr(data-short);font-size:10px;}}
+/* 좁은 화면(1180px 이하)에서는 판 번호를 짧게(v5.0.4) 보여 상태 표시줄이 잘리지 않게 한다. */
+@media (max-width:1180px){#app-version{font-size:0;}#app-version::after{content:attr(data-short);font-size:10px;}}
+/* 1100px 이하에서는 상태 표시줄이 넘치므로 판 번호는 도움말(F1) 제목에서만 보여 준다. */
+@media (max-width:1100px){#app-version{display:none;}}
+/* 명령창을 도면 위에 겹쳐 띄운다: 도면이 명령창 아래까지 이어지고, '배경 농도'를 낮추면 도면이 비친다.
+   명령창의 빈 곳은 마우스를 도면으로 흘려보낸다. 도면 아래쪽 안내 문구는 명령창 높이만큼 올린다. */
+.drawing-column{position:relative;}
+.drawing-column>.input-dock{position:absolute;left:0;right:0;bottom:0;z-index:4;pointer-events:none;border-top:0;}
+.drawing-column>.input-dock>*{pointer-events:auto;}
+.drawing-column .viewport .navigation{bottom:calc(var(--command-dock-h,0px) + 10px);}
+.drawing-column>.input-dock #history,.drawing-column>.input-dock #prompt{text-shadow:0 1px 2px rgba(0,0,0,.85);}
+
+/* 드롭다운 목록(select)은 어느 화면에서든 어두운 바탕·밝은 글자로 연다. 윈도 기본 목록은 창 글자색만 물려받아 흰 바탕에 연한 글자가 되기 쉽다. */
+html:not([data-theme=ivory]) select{color-scheme:dark;}
+html:not([data-theme=ivory]) select :is(option,optgroup){background-color:#22262d;color:#eef0f3;}
+html:not([data-theme=ivory]) select option:checked{background-color:#263d48;color:#fff;}
+html:not([data-theme=ivory]) select option:disabled{color:#8b949c;}
+html[data-theme=ivory] select :is(option,optgroup){background-color:#fbf9f4;color:#403c36;}
+/* 객체 속성 편집 · 색 선택기 */
+.color-picker{display:grid;gap:8px;margin:2px 0 10px;padding:10px;border:1px solid #40596a;border-radius:6px;background:#141c24;}
+.color-picker-current{display:flex;align-items:center;gap:8px;font-size:12px;}
+.color-picker-caption{color:#9fb0bc;}
+.color-picker-chip{width:34px;height:20px;border:1px solid #8fa3b0;border-radius:3px;background-clip:padding-box;}
+.color-picker-chip.is-mixed{background:repeating-linear-gradient(45deg,#52616c 0 4px,#26313a 4px 8px)!important;}
+.color-picker-chip.is-invalid{border-color:#e07a7a;background:repeating-linear-gradient(45deg,#7a3030 0 4px,#26313a 4px 8px)!important;}
+.color-picker-name{color:#eef0f3;}
+.color-picker-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+.color-picker button{width:auto;cursor:pointer;}
+.color-picker .color-by,.color-picker .color-more{padding:5px 12px;border:1px solid #526c7b;border-radius:4px;background:#1f2b35;color:#eef0f3;font-size:12px;}
+.color-picker .color-by:hover,.color-picker .color-more:hover{background:#2a3a47;}
+.color-true-wrap{display:inline-flex!important;align-items:center;gap:6px;margin-left:auto;font-size:12px;}
+.color-true-wrap input[type=color]{width:38px;height:26px;padding:0;border:1px solid #526c7b;border-radius:4px;background:#101a23;cursor:pointer;}
+.color-picker-standard{display:flex;flex-wrap:wrap;gap:6px;}
+.color-picker .color-swatch{width:30px;height:30px;padding:0;border:2px solid #101a23;border-radius:4px;box-shadow:0 0 0 1px #6b8090;}
+.color-picker-standard .color-swatch{width:36px;height:36px;}
+.color-picker-all{display:grid;grid-template-columns:repeat(16,1fr);gap:2px;}
+.color-picker-all[hidden]{display:none;}
+.color-picker-all .color-swatch{width:100%;height:18px;border-width:1px;border-radius:2px;box-shadow:none;}
+.color-picker .color-swatch:hover{box-shadow:0 0 0 2px #cfe0ea;}
+.color-picker .color-swatch[aria-pressed=true]{box-shadow:0 0 0 2px #9ecfe7;}
+.color-picker :is(button,input):focus-visible{outline:2px solid #7cc4ff;outline-offset:2px;}
+/* 속성 창: 구역 제목 · 읽기 전용 줄 · 접이식 고급 */
+.form-heading{margin:10px 0 2px;padding:4px 0;border-bottom:1px solid #35485a;color:#9ecfe7;font-size:12px;font-weight:700;letter-spacing:.02em;}
+/* 납품 전 점검 목록: 통과는 옅게, 문제 있는 줄은 왼쪽 강조 띠 */
+.delivery-check{display:grid;gap:6px;margin-top:8px;min-width:min(520px,80vw);}
+.delivery-check-row{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:8px 10px;border-radius:var(--d2-r-1,6px);background:var(--d2-fill-well,rgba(255,255,255,.03));border-left:3px solid transparent;opacity:.72;}
+.delivery-check-row.has-issue{border-left-color:var(--d2-accent,#9dcbe0);opacity:1;}
+.delivery-check-title{font-weight:600;font-size:13px;color:var(--d2-text,inherit);}
+.delivery-check-why{grid-column:1;font-size:12px;color:var(--d2-text-2,#9fb0bd);}
+.delivery-check-actions{grid-column:2;grid-row:1 / span 2;display:flex;gap:6px;align-items:center;}
+.delivery-check-actions button{font:inherit;font-size:12px;padding:3px 10px;border-radius:var(--d2-r-1,6px);border:1px solid var(--d2-hair,#4a5b68);background:transparent;color:inherit;cursor:pointer;}
+.delivery-check-actions button:hover{background:var(--d2-hover,rgba(255,255,255,.06));}
+.form-row.is-readonly input{background:transparent;border-color:transparent;color:#aab8c2;cursor:default;}
+.form-advanced{margin-top:10px;border:1px solid #35485a;border-radius:6px;padding:0 10px;}
+.form-advanced>summary{cursor:pointer;padding:8px 0;color:#9fb0bc;font-size:12px;}
+.form-advanced[open]>summary{border-bottom:1px solid #35485a;margin-bottom:6px;}
+.form-advanced-body{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px;padding-bottom:8px;}
+.color-picker .color-swatch{background-clip:padding-box;padding:0!important;min-width:0!important;}
+.color-picker-standard .color-swatch{width:36px!important;height:36px!important;}
+.color-picker-all .color-swatch{width:100%!important;height:18px!important;}
+html body #form-dialog .form-row.is-readonly :is(input,textarea){background:transparent!important;border-color:transparent!important;color:#aab8c2!important;box-shadow:none!important;cursor:default;}
+.color-picker{gap:6px;padding:8px 10px;}
+.color-picker-row .color-picker-current{margin-right:6px;}
+.color-picker-standard{gap:5px;}
+.color-picker-standard .color-swatch{width:28px!important;height:28px!important;}
+.color-picker .color-more{margin-left:auto;white-space:nowrap;}
+
+/* 계산기 창(CAL): 도면 위에 떠 있는 비모달 창. 포인트 중에는 십자 커서 */
+#expression-calculator{position:absolute;top:52px;left:12px;width:264px;max-width:calc(100% - 24px);box-sizing:border-box;z-index:13;padding:10px 12px 12px;background:#172b36;border:1px solid #7abda8;border-radius:10px;box-shadow:0 6px 24px #0007;color:#e4edf1}
+#expression-calculator[hidden]{display:none}
+#expression-calculator .ec-heading{display:flex;justify-content:space-between;align-items:center;cursor:move;margin:-2px 0 8px;user-select:none}
+#expression-calculator .ec-close{width:26px;height:26px;padding:0;font-size:18px;line-height:1}
+#expression-calculator .ec-input{width:100%;box-sizing:border-box;height:36px;padding:4px 8px;border:1px solid #496675;border-radius:5px;background:#101c24;color:#e4edf1;font-size:16px}
+#expression-calculator .ec-total{display:block;text-align:right;font-size:28px;line-height:1.4;margin:6px 2px;color:#b9f4df;user-select:text;overflow-wrap:anywhere}
+#expression-calculator .ec-pickrow{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+#expression-calculator .ec-pick{flex:0 0 auto;font-weight:700}
+#expression-calculator .ec-pick[aria-pressed=true]{background:#ffdc9a;color:#2b2110}
+#expression-calculator .ec-pickop{display:flex;gap:3px;flex:1}
+#expression-calculator .ec-pickop button{flex:1;min-width:0;padding:4px 0}
+#expression-calculator .ec-pickop button[aria-pressed=true]{background:#9dcbe0;color:#102a26}
+#expression-calculator .ec-copy{flex:0 0 auto;font-size:12px}
+#expression-calculator .ec-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+#expression-calculator .ec-keys button{height:32px;padding:0;font-size:16px}
+#expression-calculator .ec-keys .ec-op{background:#22404d}
+#expression-calculator .ec-keys .ec-eq{grid-column:span 2;background:#9dcbe0;color:#102a26;font-weight:700}
+#expression-calculator .ec-status{min-height:1.4em;margin:8px 0 2px;font-size:12px;line-height:1.5;color:#ffdc9a}
+#expression-calculator .ec-chooser{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin:4px 0;font-size:12px;color:#c7d6dd}
+#expression-calculator .ec-chooser[hidden]{display:none}
+#expression-calculator .ec-chooser span{flex:1 0 100%}
+#expression-calculator .ec-history{display:flex;flex-direction:column;gap:2px;max-height:120px;overflow:auto}
+#expression-calculator .ec-hist{display:flex;justify-content:space-between;gap:8px;padding:2px 6px;font-size:12px;background:transparent;border:0;color:#aabdc8;text-align:left}
+#expression-calculator .ec-hist span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+#expression-calculator .ec-hist b{flex:0 0 auto;color:#b9f4df}
+.ec-hover{position:absolute;z-index:12;pointer-events:none;box-sizing:border-box;border:2px solid #ffdc9a;background:#ffdc9a33;border-radius:3px}
+.ec-hover[hidden]{display:none}
+canvas.ec-picking{cursor:crosshair!important}
+/* 빠른 작도 띠 끌어 옮기기: 놓일 자리만 연두 선으로 */
+.quick-tools button.is-dragging{opacity:.4}
+.quick-tools button.is-drop-before{box-shadow:inset 0 2px 0 #9dcbe0!important}
+.quick-tools button.is-drop-after{box-shadow:inset 0 -2px 0 #9dcbe0!important}
+.quick-tools>div.is-drop-end{box-shadow:inset 0 -2px 0 #9dcbe0}
+
+/* 블록 제자리 편집 중 표시줄(도면 위 가운데). 강조색은 기본 단추 하나만. */
+.viewport>.block-edit-bar{position:absolute;top:42px;left:16px;z-index:16;display:flex;gap:8px;align-items:center;padding:6px 8px 6px 12px;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:#1d2229;color:#e6e9ee;font-size:12px;max-width:calc(100% - 32px);}
+.viewport>.block-edit-bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.viewport>.block-edit-bar button{height:26px;min-height:0;padding:2px 10px;font-size:12px;white-space:nowrap;}
+/* 패드 원격 수정: [밖에서 보기]·[밖에서 고친 것] 창 */
+.pad-share-dialog,.pad-review-dialog{width:min(560px,94vw);box-sizing:border-box}
+.pad-records-dialog{position:fixed;inset:104px 16px 16px auto;margin:0;width:min(420px,94vw);max-height:none;box-sizing:border-box;display:none;flex-direction:column;gap:10px;z-index:20}
+.pad-records-dialog[open]{display:flex}
+.pad-records-filter{display:flex;flex-wrap:wrap;gap:6px}.pad-records-filter button{border-radius:16px!important}
+.pad-records-list{flex:1 1 40%;min-height:120px;overflow:auto;display:flex;flex-direction:column;gap:2px}
+.pad-records-row{display:grid!important;grid-template-columns:12px 1fr;gap:2px 10px;align-items:center;text-align:left;background:transparent!important;border:1px solid transparent!important;padding:8px 10px!important;border-radius:10px!important}
+.pad-records-row:hover{background:rgba(255,255,255,.06)!important}.pad-records-row.selected{border-color:#9dcbe0!important}
+.pad-records-row small{grid-column:2;color:#a3a9b2;font-size:11.5px}
+.pad-records-dot{width:10px;height:10px;border-radius:50%}
+.pad-records-detail{display:flex;flex-direction:column;gap:8px;border-top:1px solid #3d444d;padding-top:10px}
+.pad-records-detail h3{margin:0;font-size:15px}.pad-records-detail p{margin:0}
+.pad-records-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.pad-records-photo{display:flex;align-items:center;justify-content:center;aspect-ratio:1;border-radius:8px;background:#2c313b;color:#a3a9b2;font-size:11px;overflow:hidden;text-align:center}
+.pad-records-photo img{width:100%;height:100%;object-fit:cover}
+.pad-review-dialog{position:fixed;inset:auto 16px 16px auto;margin:0;max-height:70vh;overflow:auto;z-index:20}
+.pad-share-dialog label{display:inline-flex;align-items:center;gap:6px;margin:4px 12px 4px 0}
+.pad-share-result{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+.pad-share-link{flex:1 1 100%;min-width:0;box-sizing:border-box;font:12px Consolas,monospace}.pad-share-linkrow{display:flex;flex:1 1 100%;min-width:0}.pad-share-linkrow .pad-share-link{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-top-right-radius:0;border-bottom-right-radius:0;cursor:copy}.pad-share-linkrow .pad-share-copy{flex:none;border-top-left-radius:0;border-bottom-left-radius:0;background:#9dcbe0;border-color:#9dcbe0;color:#15171c}
+.pad-share-result img{background:#fff;padding:6px;border-radius:6px}
+.pad-share-row,.pad-review-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border,#383f48)}
+.pad-share-row span{flex:1;min-width:0}
+.pad-review-row em{font-style:normal;font-size:11px;padding:1px 7px;border-radius:10px;background:#2f3c43;color:#b9d9e9}
+.pad-review-row.conflict em{background:#4a3b23;color:#e5c07b}.pad-review-row:is(.missing,.locked,.invalid) em{background:#3b4148;color:#aeb8c1}
+.pad-review-row small{flex-basis:100%;color:#9fb0bb;padding-left:26px}
+.pad-share-note,.pad-review-note{min-height:18px;color:#d8c68e!important;font-size:12px!important}
+header .file-actions button.pad-has-changes{color:#ff9a6a}
+/* 현장 기록 ▾: 바로 앞 [현장 기록](폴더 열기)에 붙은 기록 창 버튼 */
+header .file-actions button.pad-records-more{margin-left:-4px;padding-left:4px;padding-right:4px;min-width:0}
+/* [패드 ▾] 묶음(10/21): 누르면 아래로 펼치는 목록. 우물 #1c1f23 · 선 #3d444d, 흐림·움직임 없음. */
+header .file-actions .pad-menu{position:relative;display:flex}
+header .file-actions .pad-menu-list:not([hidden]){position:fixed;z-index:1000;width:300px;padding:6px;display:flex;flex-direction:column;gap:2px;background:#22262c;border:1px solid #3d444d;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.45)}
+header .file-actions .pad-menu-row{display:flex;flex-direction:column;align-items:stretch;padding:2px 0}
+header .file-actions .pad-menu-row button{width:100%;text-align:left;justify-content:flex-start;background:transparent;border:0;border-radius:6px;padding-top:7px;padding-bottom:1px;margin:0;font-weight:600;min-width:0}
+header .file-actions .pad-menu-row:hover button,header .file-actions .pad-menu-row button:focus-visible{background:#2a3037}
+header .file-actions .pad-menu-row small{padding:0 14px 6px;font-size:11px;line-height:1.4;color:#8b939d;pointer-events:none}
+.storeys-dialog{width:min(760px,94vw)}.storeys-dialog .s-table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:13px}.storeys-dialog .s-table th,.storeys-dialog .s-table td{padding:6px 8px;border-bottom:1px solid #2c3a42;text-align:left;vertical-align:middle}.storeys-dialog .s-table input{width:110px}.storeys-dialog .s-assign{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.storeys-dialog .s-floor{width:70px}.storeys-dialog .s-note{min-height:1.4em;color:#c9d6db}
+.livecheck-panel .lc-zone-field label{display:block}
+.livecheck-panel .lc-zone{display:block;width:100%;min-width:0;box-sizing:border-box;margin-top:4px}
+/* ACAD200 영역 3: 선택·입력 세부 설정(설정 창 › 작도 보조) */
+.input-prefs{margin-top:8px}
+.input-prefs summary{cursor:pointer;font-size:11px;color:#a9bfcc;padding:4px 0}
+.input-prefs .input-pref.check{display:flex;gap:4px;align-items:center;font-size:11px;color:#a9bfcc;margin:8px 0 0}
+
+/* 머리줄 [패드 연결] 하나 + 펼침(사무실에서 수정 · 현장에서 수정 · 기록 열기), 2026-10-19 */
+header .file-actions button.pad-hub-button{position:relative;display:inline-flex;align-items:center;gap:6px}
+header .file-actions button.pad-hub-button.connected{color:#9dcbe0}
+.pad-hub-badge{min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:#ff9a6a;color:#1c1f23;font-size:10px;font-weight:700;line-height:16px;text-align:center;font-variant-numeric:tabular-nums}
+.pad-hub-menu{position:fixed;z-index:1200;display:flex;flex-direction:column;gap:4px;min-width:230px;padding:6px;background:#25292f;border:1px solid #4a6c7d;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.pad-hub-menu[hidden]{display:none}
+.pad-hub-menu button{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;padding:8px 10px;text-align:left;border:1px solid transparent;border-radius:6px;background:transparent;color:inherit}
+.pad-hub-menu button:hover,.pad-hub-menu button:focus-visible{border-color:#9dcbe0;background:#2c3a42}
+.pad-hub-menu strong{font-size:13px}
+.pad-hub-menu small{font-size:11px;color:#9db0bc}
+.pad-hub-menu .pad-hub-sub{flex-direction:row;padding:6px 10px;font-size:11px;color:#9db0bc;border-top:1px solid #383f48;border-radius:0 0 6px 6px}
+/* 로그인하면 계정 이름이 머리줄에 나온다. 길면 줄인다. */
+.common-account-label{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 도면 확인(2026-10-22, 시안 docs/시안-도면확인-2026-10-22) */
+.layer-review-dialog .lr-canvas{position:relative;min-width:0}.layer-review-dialog .lr-canvas canvas{display:block}
+.layer-review-dialog .lr-legend{position:absolute;left:8px;bottom:8px;display:flex;flex-wrap:wrap;gap:10px;background:rgba(20,22,26,.85);padding:4px 10px;border-radius:6px;font-size:11px}
+.layer-review-dialog .lr-legend b{font-weight:500;display:flex;align-items:center;gap:5px}.layer-review-dialog .lr-legend b::before{content:"";width:14px;height:3px;border-radius:2px;background:var(--c)}
+.layer-review-dialog .lr-pick-banner{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:#6b5f12;color:#fff6c2;padding:6px 14px;border-radius:8px;font-weight:600;font-size:13px;white-space:nowrap}
+.layer-review-dialog .lr-pick-pop{position:absolute;width:300px;background:#262b31;border:1px solid #4a515a;border-radius:9px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.45);font-size:12px;display:flex;flex-direction:column;gap:4px;z-index:3}
+.layer-review-dialog .lr-pick-pop>b{color:#ffe45c;font-size:13px}.layer-review-dialog .lr-pick-pop small{color:#98a2ad}
+.layer-review-dialog .lr-radio,.layer-review-dialog .lr-pick-pop .lr-remember{display:grid;grid-template-columns:18px 1fr;align-items:baseline;gap:0 4px}.layer-review-dialog .lr-radio small,.layer-review-dialog .lr-pick-pop .lr-remember small{grid-column:2}
+.layer-review-dialog .lr-pick-pop .dialog-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:6px}
+.layer-review-dialog .lr-check{display:flex;flex-direction:column;gap:10px}.layer-review-dialog .lr-check-group{background:#1b1e23;border:1px solid #2f343b;border-radius:8px;padding:8px 10px}
+.layer-review-dialog .lr-check-head{display:flex;justify-content:space-between;align-items:center}.layer-review-dialog .lr-check-group>small{display:block;color:#7f8995;font-size:11px;margin-bottom:4px}
+.layer-review-dialog .lr-ready{font-size:11px;color:#69d19c;border:1px solid #2e6b4c;border-radius:999px;padding:0 7px}
+.layer-review-dialog .lr-check-row{display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:5px 0;border-top:1px dashed #2c3036}.layer-review-dialog .lr-check-group .lr-check-row:first-of-type{border-top:0}
+.layer-review-dialog .lr-check-row>i{width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;font-style:normal;flex:none;background:#30353c;color:#98a2ad}
+.layer-review-dialog .lr-check-row[data-status=ok]>i{background:#1f4d36;color:#7ee0a9}.layer-review-dialog .lr-check-row[data-status=miss]>i{background:#5a3b10;color:#ffc56b}.layer-review-dialog .lr-check-row[data-status=pick]>i{background:#5b5310;color:#ffe45c}
+.layer-review-dialog .lr-check-row>b{min-width:64px;font-weight:500}.layer-review-dialog .lr-check-row[data-status=miss]>b{color:#ffd28a}.layer-review-dialog .lr-check-row>small{flex:1;color:#8d97a2;font-size:12px;min-width:90px}
+.layer-review-dialog .lr-check-row button,.layer-review-dialog .lr-check-row select{font-size:11px;padding:2px 8px}.layer-review-dialog .lr-more{align-self:flex-start;background:none;border:0;color:#7fb2ec;font-size:12px;padding:0}
+.layer-review-dialog .lr-back{margin-right:auto}
+.layer-review-dialog .lr-check-sug{display:flex;align-items:center;gap:6px;padding:2px 0 4px 24px}.layer-review-dialog .lr-check-sug small{flex:1;color:#c9b27a;font-size:11px}.layer-review-dialog .lr-check-sug button{font-size:11px;padding:1px 10px}
+.layer-review-dialog .lr-note{font-size:12px;color:#a2b5c0;margin:0}
+.layer-review-dialog .lr-canvas{align-self:start}
+html body .layer-review-dialog .lr-check-row button.lr-more-pick{background:none;border:0;color:#7fb2ec;padding:0 2px;font-size:11px}
+/* 도면 확인 + 남의 도면 읽기 합침(2026-10-22, 시안 docs/시안-도면확인합치기-2026-10-22) */
+.layer-review-dialog .lr-strip{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:#1d2a36;border:1px solid #2f4252;color:#cfe3f5;font-size:12px;padding:6px 12px;border-radius:6px;margin:0 0 8px}
+.layer-review-dialog .lr-strip.warn{background:#3a2c12;border-color:#5a4520;color:#ffe3b0}.layer-review-dialog .lr-strip span{flex:1;min-width:200px}.layer-review-dialog .lr-strip button{font-size:12px;padding:2px 10px}
+.layer-review-dialog .lr-floor-tabs{display:flex;gap:4px;flex-wrap:wrap}.layer-review-dialog .lr-floor-tabs button{font-size:12px;padding:3px 10px}.layer-review-dialog .lr-floor-tabs button[aria-pressed=true]{background:#3d7fd1;color:#fff;border-color:#3d7fd1}
+.layer-review-dialog .lr-check-row[data-status=sug]>i{background:#4a3f12;color:#ffe45c}.layer-review-dialog .lr-check-row[data-status=sug]>b{color:#ffe45c}
+.layer-review-dialog .lr-src{font-style:normal;font-size:10px;color:#7f8995;border:1px solid #3a4048;border-radius:4px;padding:0 4px;white-space:nowrap}
+.layer-review-dialog .lr-confirm{border-color:#5a4520}.layer-review-dialog .lr-pick-pop input[type=text]{font-size:12px;padding:2px 6px;min-width:0}
+.layer-review-dialog .lr-pick-pop{max-height:calc(100% - 64px);overflow:auto}
+
+#parcel-reload-dialog{width:min(900px,calc(100vw - 40px));max-height:88vh;overflow:auto;padding:18px}#parcel-reload-dialog table{width:100%;border-collapse:collapse;table-layout:fixed;font-variant-numeric:tabular-nums}#parcel-reload-dialog th,#parcel-reload-dialog td{padding:8px;text-align:left;vertical-align:top;border-bottom:1px solid #46515b;overflow-wrap:anywhere}#parcel-reload-dialog pre{white-space:pre-wrap;margin:8px 0;font:inherit}#parcel-reload-dialog input[type=checkbox]{accent-color:#9dcbe0}
+/* 화면 ▾: 상태줄 화면 단추 묶음(10-25 시안 ②) */
+.view-menu{position:relative;}
+.view-menu>summary{list-style:none;cursor:pointer;height:26px;box-sizing:border-box;padding:2px 10px;line-height:20px;border:1px solid #444c56;border-radius:4px;background:#25292f;color:#d8dce1;font-size:11px;white-space:nowrap;}
+.view-menu>summary::-webkit-details-marker{display:none;}
+.view-menu[open]>summary{border-color:#7fb0ff;}
+.view-menu-list{position:fixed;z-index:1000;display:grid;gap:2px;min-width:170px;padding:6px;border:1px solid #3d4350;border-radius:9px;background:#262a32;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+html body .canvas-view-tools .view-menu-list>button{display:block;width:100%;height:auto!important;min-height:0!important;padding:6px 10px!important;border:0!important;border-radius:6px!important;background:transparent!important;text-align:left;font-size:12px!important;color:#e8ebf0!important;white-space:nowrap;}
+html body .canvas-view-tools .view-menu-list>button:hover{background:#343a44!important;}
+:root[data-theme=ivory] .view-menu-list{background:#fbf8f2;border-color:#d8d1c7;}
+:root[data-theme=ivory] .view-menu>summary{background:#fbf8f2;color:#3a3530;border-color:#d8d1c7;}
+html:root[data-theme=ivory] body .canvas-view-tools .view-menu-list>button{color:#3a3530!important;}
+/* AI 대화 기록 오른쪽 위: 지금 쓰는 Codex 모델·추론 깊이(누르면 계정 창 AI 칸) — 2026-10-26 docs/mockup-codex-model-2026-10-26 */
+#ai-history-panel{position:relative;}
+#ai-history-panel .ai-model-tag{position:absolute;top:7px;right:8px;max-width:58%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 8px;border:1px solid #3c5563;border-radius:8px;background:transparent;color:#9dcbe0;font-size:11px;line-height:1.5;cursor:pointer;}
+#ai-history-panel .ai-model-tag[hidden]{display:none;}
+
+/* 건축 칸 자료 카드(2026-10-24 통과 시안 ⑤): 위쪽 전체가 검은 바탕 CAD 그림, 아래 이름 · 찾기 → · 설명 · 분류 꼬리표 */
+.building-assist-launcher.arch-row-card{grid-template-columns:30px minmax(0,1fr) auto;gap:10px;padding:9px 12px;border:1px solid #3a3f49;border-radius:10px;background:#1f2228}
+.building-assist-launcher.arch-row-card:hover,.building-assist-launcher.arch-row-card:focus-visible{border-color:#9dcbe0;background:#23272e}
+.arch-row-card .arch-row-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#161a1f;border:1px solid #3d4a55}
+.arch-row-card .arch-row-icon svg{width:18px;height:18px;fill:none;stroke:#9dcbe0;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.arch-row-card strong{font-size:13px;color:#e7eff4}
+.arch-row-card em{font-style:normal;font-size:12px;font-weight:600;color:#8fb8ff;white-space:nowrap}
+
+/* 실시 칸(2026-10-24 통과 시안 ⑧) */
+.silsi-panel{display:flex;flex-direction:column;gap:9px}
+.silsi-folder{border:1px solid #3a3f49;border-radius:11px;overflow:hidden;background:#1f2228}
+.silsi-folder>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;background:#262a32;font-weight:600;font-size:12.5px;color:#e7eff4;cursor:pointer}
+.silsi-chip{font-size:10px;font-weight:600;padding:1px 7px;border-radius:999px;border:1px solid #56607066;color:#b9c3d3}
+.silsi-chip.muted{color:#8a929e}
+.silsi-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 8px;padding:7px 12px;border-top:1px solid #2e333c;font-size:12px}
+.silsi-row.is-action{cursor:pointer}
+.silsi-row.is-action:hover,.silsi-row.is-action:focus-visible{background:#262a32;outline:none}
+.silsi-row.is-missing{opacity:.6}
+.silsi-row-text{display:flex;flex-direction:column;gap:1px;min-width:0;flex:1 1 150px}
+.silsi-row-text strong{font-weight:500;color:#e7eff4}
+.silsi-row-text small{font-size:10.5px;color:#8f98a6}
+.silsi-row-buttons{display:flex;gap:4px;flex-shrink:0}
+.silsi-row-buttons button{padding:3px 8px;font-size:11px;border-radius:6px}
+.silsi-card{display:flex;flex-direction:column;align-items:stretch;gap:3px;width:100%;padding:10px 12px;text-align:left;border:1px solid #3a3f49;border-radius:11px;background:linear-gradient(#2a2e36,#1f2229)}
+.silsi-card:hover,.silsi-card:focus-visible{border-color:#9dcbe0}
+.silsi-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.silsi-card-head strong{font-size:12.5px;color:#e7eff4}
+.silsi-card-head em{font-style:normal;font-size:11.5px;font-weight:600;color:#8fb8ff}
+.silsi-card small{font-size:11px;color:#a9b0bb;line-height:1.5}
+.silsi-card.silsi-recognition{border-color:#3f5d6e;background:linear-gradient(#24323b,#1d252c)}
+.silsi-card-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.silsi-chip.ok{color:#7fd19b;border-color:#3e6b4d}
+.silsi-chip.warn{color:#ffb65c;border-color:#7a5a2c}
+
+/* 구조 검토 · 증축·대수선 검토 창(2026-10-24 통과 시안 ⑪⑫) — 띄운 채 도면에서 객체를 고를 수 있게 모달이 아님 */
+.structure-review,.extension-review{position:fixed;inset:70px 352px auto auto;margin:0;width:min(560px,calc(100vw - 380px));max-height:calc(100vh - 110px);overflow:auto;z-index:40;padding:16px 18px;border:1px solid #3a3f49;border-radius:12px;background:#1d2026;color:#e8ebf0;font-size:12.5px;box-shadow:0 12px 32px rgba(0,0,0,.45)}
+.structure-review h2,.extension-review h2{margin:0 0 12px;font-size:15px}
+.extension-review h3{margin:14px 0 6px;font-size:12.5px;color:#9aa3b1}
+.sr-forms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.sr-forms button{display:flex;flex-direction:column;gap:3px;align-items:flex-start;text-align:left;padding:9px;border:1px solid #3a3f49;border-radius:10px;background:#22262e}
+.sr-forms button.on{border-color:#9cc3ff;box-shadow:0 0 0 1px #9cc3ff inset}
+.sr-forms small{font-size:10.5px;color:#9aa3b1;line-height:1.4}
+.sr-inputs,.sr-fill{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin-top:12px}
+.sr-fill{margin:8px 0}.sr-fill .sr-legal{grid-column:1/-1;display:flex;gap:6px;align-items:center;font-size:12px}.sr-fill label>span>select{width:auto;margin-right:6px}
+.sr-inputs label,.sr-fill label:not(.sr-legal){display:flex;flex-direction:column;gap:3px}
+.sr-inputs label>span:first-child,.sr-fill label>span:first-child{font-size:11px;color:#9aa3b1}
+.sr-inputs input,.sr-inputs select,.sr-fill input:not([type=checkbox]),.sr-fill select{width:100%;box-sizing:border-box}
+.sr-scope,.sr-foot{font-size:11px;color:#9aa3b1;margin:10px 0 0}
+.sr-busy,.sr-note,.xr-note{margin:10px 0 0;padding:8px 10px;border-radius:8px;background:#262a32}
+.sr-busy{color:#9cc3ff}
+.sr-result{margin-top:12px}
+.sr-verdict strong{font-size:13.5px}
+.sr-verdict small{color:#9aa3b1}
+.sr-members,.xr-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12px}
+.sr-members th,.sr-members td,.xr-table th,.xr-table td{text-align:left;padding:5px 7px;border-bottom:1px solid #2e333c;vertical-align:middle}
+.sr-members th,.xr-table th{color:#9aa3b1;font-weight:600}
+.sr-checks{margin-top:8px}
+.sr-checks li,.xr-verdict li{margin:3px 0;line-height:1.5}
+.structure-review .r,.extension-review .r{color:#ff8a8a}
+.structure-review .y,.extension-review .y{color:#f2b84b}
+.sr-actions,.xr-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.xr-steps{margin:0;padding-left:18px;display:grid;gap:6px;line-height:1.6}
+.xr-steps button{margin-left:4px;padding:2px 8px;font-size:11.5px}
+.xr-steps small{color:#9aa3b1}
+.xr-floors{display:inline-flex;align-items:center;gap:6px;margin-top:12px}
+.xr-floors input{width:70px}
+.xr-table td input{width:72px}
+.xr-table td button{margin-left:4px;padding:1px 6px;font-size:11px}
+.xr-repairs{display:grid;gap:5px}
+.xr-repairs label{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.xr-repairs select{flex-shrink:0;width:130px}
+.xr-verdict{margin-top:12px;padding:10px 12px;border:1px solid #3a3f49;border-radius:10px;background:#22262e}
+.xr-verdict ul{margin:6px 0 0;padding-left:18px}
+.xr-verdict small{color:#9aa3b1}
+.sr-hint{flex-basis:100%;color:#9aa3b1;font-size:11px}
+/* 건축 설계도구 카드 [▶ 사용법] 과 사용법 창(2026-10-28 시안 승인) */
+.architecture-tool-how{position:absolute;right:6px;bottom:6px;padding:1px 6px!important;border:1px solid #3a4852!important;border-radius:5px!important;background:#26313a!important;color:#cfe0e8!important;font-size:10px!important;line-height:1.5;cursor:pointer}
+.architecture-tool-how:hover{border-color:#3b82f6!important}
+.architecture-howto{width:min(760px,94vw);box-sizing:border-box}
+.architecture-howto-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:14px;align-items:start}
+.architecture-howto-stage{border-radius:8px;overflow:hidden;background:#fff;min-height:120px;display:grid;place-items:center}
+.architecture-howto-stage img{width:100%;display:block;transition:transform 1.2s ease}
+.architecture-howto-stage p{color:#555;font-size:12px;padding:16px;text-align:center}
+.architecture-howto ol{margin:0;padding-left:20px}
+.architecture-howto ol li{margin:4px 0;color:#8fa6b3;transition:color .3s}
+.architecture-howto ol li.on{color:#fff;font-weight:700}
+.architecture-howto-bar{height:3px;background:#2b3842;border-radius:2px;margin:10px 0}
+.architecture-howto-bar b{display:block;height:3px;width:0;background:#3b82f6}
+.architecture-howto .dialog-actions a{align-self:center;color:#8fc1ff}
+@media (max-width:640px){.architecture-howto-body{grid-template-columns:1fr}}

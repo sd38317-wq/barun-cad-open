@@ -1,0 +1,106 @@
+**CAD 검사 테스트 명세서 (Windows 로컬 환경)**
+
+---
+
+### **1) 파일별 작업 흐름**
+
+- **파일 읽기**: `python exchange.import_file_path(path, extension)`로 DWG/DXF/BCAD 파일을 메모리에 불러옴. 원본은 절대 수정되지 않음.
+- **불러오기 성공 여부 확인**: 문서 로드 후 `load(doc)` 호출하여 엔티티 및 레이어 정상 로딩 검증.
+- **렌더링 테스트**:
+  - `draw()`로 화면 갱신 시도.
+  - GPU 사용 여부 (`?gpu-test=1`) 확인: GPU가 없거나 실패하면 Canvas로 대체되었는지 명시적으로 기록.
+- **기본 조작**:
+  - `pan`, `zoom` 명령으로 뷰포트 이동/확대/축소 테스트.
+  - `runCommand(name)`을 통해 `LINE` 생성 및 화면에 표시 확인.
+  - `MOVE`, `COPY`, `ERASE`, `UNDO`, `REDO` 명령 순차적 실행.
+- **테스트 엔티티 생성**: 임시 선분/도형 추가 후, 해당 요소의 존재 여부와 속성 검증.
+- **정리 및 종료**:
+  - 모든 작업 완료 후 문서 저장 없이 `close()` 호출.
+  - 프로세스 종료 시점에 메모리 해제.
+
+---
+
+### **2) 정확성, 오류 수집 및 복구**
+
+- **오류/예외 수집**: 각 단계에서 발생한 예외(예: 파일 읽기 실패, 명령 실행 오류 등)는 `sanitized error`로 기록.
+  - 예: `"error": "Invalid DWG header"` → `"error": "FILE_CORRUPTED"`
+- **GPU 대체 여부**: GPU 렌더링 실패 시 `fallback_to_canvas = true` 필드 추가.
+- **복구 가능성**:
+  - 명령 실패 후 `UNDO/REDO`가 정상 작동하는지 확인.
+  - `state()`로 상태 일관성 검증.
+- **하드 타임아웃**: 각 파일 처리 시간은 최대 30초. 초과 시 `"timeout": true` 기록.
+- **원본 무결성**:
+  - 원본 파일 해시값 비교: `original_hash == current_hash`.
+  - 불일치 시 `"hash_changed": true` 표기.
+- **실패 분류**:
+  - 예상되는 실패(예: 지원되지 않는 확장자)는 별도 `"expected_failure"` 필드에 기록.
+  - 실제 버그는 `"defect_detected": true`로 구분.
+
+---
+
+### **3) 위조 방지 및 제한 사항**
+
+- **명령 건너뛰기 방지**:
+  - `runCommand()` 호출 시 명령이 실제로 실행되었는지 확인. 비어 있는 명령은 `"skipped_command": true` 기록.
+- **파일 접근 제한**:
+  - 읽기 전용 파일만 처리. 쓰기 권한이 있는 경우 `"access_blocked": true`.
+- **중복 파일 방지**:
+  - 동일 경로/해시의 파일은 중복 실행하지 않음. `"duplicate_file": true` 기록.
+- **렌더링 차이 제거**:
+  - 클리핑, 폰트 차이, 렌더러 차이는 무시하고 `rendering_consistency = false` 표기.
+- **입력 방식 구분**:
+  - OS 입력 vs 시뮬레이션 입력은 명확히 구분. `"input_type": "synthetic"` 또는 `"os_input"` 기록.
+- **RAF 및 GPU 사용 감지**:
+  - `requestAnimationFrame` 호출 여부, GPU 사용 유무는 직접 측정하여 `"raf_used": true/false`, `"gpu_used": true/false`로 표기.
+
+---
+
+### **4) 최소 JSON 결과 형식 (개인정보 보호)**
+
+```json
+{
+  "file_id": "opaque_case_id",
+  "filename": "sanitized_filename.dwg",
+  "original_hash": "sha256_hash",
+  "import_success": true,
+  "rendering_method": "gpu/canvas",
+  "fallback_to_canvas": false,
+  "commands_executed": ["pan", "zoom", "line", "move", "copy", "erase", "undo", "redo"],
+  "skipped_command": false,
+  "access_blocked": false,
+  "duplicate_file": false,
+  "hash_changed": false,
+  "timeout": false,
+  "defect_detected": false,
+  "expected_failure": null,
+  "errors": [],
+  "timing_ms": 1200,
+  "gpu_used": true,
+  "raf_used": true
+}
+```
+
+---
+
+### **5) 예외 및 미지원 항목**
+
+- **지원되지 않는 확장자**: `.dwg`, `.dxf`, `.bcad`만 처리. 그 외는 `"unsupported_format": true`.
+- **블록된 파일 접근**: 읽기 권한 없음 → `"access_blocked": true`.
+- **검증 불가능 항목**:
+  - 렌더링 시각적 일치 (AutoCAD와의 비교 제외).
+  - OS 입력과 synthetic 입력 차이.
+  - GPU 사용 여부는 실제 렌더러 기반 측정.
+
+---
+
+### **6) 보안 및 프라이버시**
+
+- 원본 파일은 절대 수정되지 않으며, 모든 작업은 메모리 내에서만 수행됨.
+- 결과에는 파일명, 경로, 내용이 포함되지 않음. 대신 `opaque_case_id`와 해시값만 사용.
+- 오류는 일반화된 형태로 전달 (`FILE_CORRUPTED`, `COMMAND_FAILED`)하여 민감 정보 노출 방지.
+
+---
+
+### **7) 결론**
+
+이 테스트는 로컬 Windows 환경에서 CAD 파일의 기능성과 안정성을 검증하기 위한 견고한 프로세스를 제공합니다. 모든 작업은 독립된 프로세스 내에서 수행되며, 원본 무결성과 보안을 최우선으로 고려합니다. 결과는 간결하고 개인정보가 포함되지 않은 JSON 형식으로 반환됩니다.

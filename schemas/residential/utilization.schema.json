@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["schema_version", "document_id", "source_ids", "capabilities", "requirements", "scale_status", "final_split", "priority_is_probability"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "document_id": {"type": "string"},
+    "source_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "scale_status": {"enum": ["verified", "review"]},
+    "final_split": {"type": "null"},
+    "priority_is_probability": {"const": false},
+    "review_priority": {"type": "number", "minimum": 0, "maximum": 100},
+    "requirements": {"type": "array", "items": {"type": "string"}},
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["image_reference", "annotation_reference", "relative_space_geometry", "physical_geometry", "unit_extraction"],
+      "properties": {"image_reference": {"type": "boolean"}, "annotation_reference": {"type": "boolean"}, "relative_space_geometry": {"type": "boolean"}, "physical_geometry": {"type": "boolean"}, "unit_extraction": {"type": "boolean"}}
+    }
+  }
+}

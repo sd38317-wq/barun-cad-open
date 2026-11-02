@@ -1,0 +1,61 @@
+.account-update-dialog,.common-connection-zone{--line:#383f48;--base:#1c1f23;--ink:#d8dce1;--surface:#25292f;--muted:#9ca6ae;--accent:#a9d3e6;--accent-ink:#172015}
+.account-update-dialog,.account-update-dialog *{box-sizing:border-box}
+.account-update-dialog{width:820px!important;max-width:calc(100vw - 40px)!important;max-height:min(90vh,820px);padding:0!important;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--base);color:var(--ink)}
+.common-connection-zone{display:flex;align-items:center;gap:6px;margin-left:4px}.common-connection-zone .common-link-button,header .file-actions .common-connection-zone .common-link-button{display:inline-flex;align-items:center;justify-content:center;gap:7px;width:auto;min-width:0;height:30px;min-height:30px;margin:0;padding:0 11px;border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--muted);font-size:11px;line-height:1;white-space:nowrap}.common-link-button .common-account-dot{display:block;width:6px;height:6px;margin:0;border-radius:50%;background:#788187;box-shadow:none}.common-link-button:hover{border-color:var(--accent);color:var(--ink)}.common-link-button.connected{border-color:#78a2b6;color:var(--accent);box-shadow:inset 0 0 0 1px #78a2b633}.common-link-button.connected .common-account-dot{background:var(--accent);box-shadow:0 0 8px #a9d3e655}
+.account-update-dialog::backdrop{background:#070b0dcc;backdrop-filter:blur(3px)}
+.au-shell{display:flex;max-height:min(90vh,820px);flex-direction:column;padding:22px;gap:16px}
+.au-header,.au-product,.au-account-head,.au-update-head,.au-actions,.au-footer{display:flex;align-items:center}
+.au-header{justify-content:space-between;gap:16px}.au-header h2{margin:0 0 3px;font-size:23px}.au-header p,.au-copy,.au-muted{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+.au-product{gap:10px}.au-product-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line);border-radius:10px;color:var(--accent);font-size:27px;font-weight:800}.au-product strong,.au-product span{display:block}.au-product span{margin-top:2px;color:var(--muted);font-size:10px}
+.au-close{width:36px;height:36px;padding:0;border:0;background:transparent;font-size:24px}
+.au-account-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}.au-account-card,.au-balance-card{padding:20px}.au-balance-card{border-left:1px solid var(--line)}
+.au-account-head{gap:14px}.au-avatar{display:grid;place-items:center;width:64px;height:64px;flex:none;border:1px solid var(--accent);border-radius:50%;font-size:24px}.au-account-name{display:block;font-size:18px}.au-state{display:block;margin-top:6px;color:var(--muted);font-size:12px}.au-state.connected{color:var(--accent)}
+.au-actions{gap:8px;flex-wrap:wrap;margin-top:16px}.au-actions button{min-height:38px;padding:7px 13px;font-size:12px}.au-actions .danger{color:#f3aaa0}
+.au-balance-label{display:block;color:var(--muted);font-size:12px}.au-balance{display:block;margin:8px 0 3px;color:var(--accent);font-size:30px;letter-spacing:-1px}.au-packs{min-height:18px;margin:8px 0;color:var(--muted);font-size:11px}
+.au-update{padding:18px 20px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}.au-update-head{justify-content:space-between;gap:12px}.au-update-title{display:flex;align-items:center;gap:10px}.au-update-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:23px}.au-update h3{margin:0;font-size:17px}.au-versions{color:var(--muted);font-size:11px}.au-versions strong{color:var(--ink)}
+.au-update-state{margin:13px 0 7px;font-size:13px}.au-progress{display:block;width:100%;height:10px;accent-color:var(--accent)}.au-progress[hidden]{display:none}.au-progress-detail{display:flex;justify-content:space-between;min-height:19px;margin-top:5px;color:var(--muted);font-size:10px}
+.au-update-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}.au-update-actions button{min-height:40px}
+.au-notes{min-height:0;padding:16px 20px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:auto}.au-notes[hidden]{display:none}.au-notes-head{display:flex;justify-content:space-between;align-items:center}.au-notes h3{margin:0;font-size:15px}.au-notes ul{display:grid;gap:7px;margin:11px 0 0;padding:0;list-style:none}.au-notes li{display:grid;grid-template-columns:auto 1fr;gap:8px;color:var(--ink);font-size:12px;line-height:1.55}.au-note-kind{color:var(--accent);font-weight:700}
+.au-footer{justify-content:space-between;gap:12px}.au-footer p{margin:0;color:var(--muted);font-size:10px}.au-footer button{min-width:92px;min-height:40px}
+@media(max-width:680px){.au-shell{padding:15px}.au-account-grid{grid-template-columns:1fr}.au-balance-card{border-left:0;border-top:1px solid var(--line)}.au-header>p{display:none}.au-product{margin-left:auto}.au-account-card,.au-balance-card{padding:15px}.au-update-head{align-items:flex-start;flex-direction:column}.au-footer{align-items:flex-start;flex-direction:column}.au-footer button{align-self:flex-end}}
+/* 공통 계정 팝오버(shared/account-window)는 앱 테마 변수 --accent 로 강조색을 받는다. 바른 CAD 색 = 하늘색 #9dcbe0. */
+#barun-account-popover{--accent:#9dcbe0;--accent-ink:#15171c}
+
+/* CAD 전역 테마가 내부 header/button의 글자색을 덮어쓰지 않도록 공급자 색을 고정한다. */
+#barun-account-popover .ap-btn.ap-kakao{background:#fee500;color:rgba(0,0,0,.85);opacity:1}
+#barun-account-popover .ap-btn.ap-kakao:disabled{background:#fff3a3;color:rgba(0,0,0,.85);opacity:1}
+#barun-account-popover .ap-btn.ap-google{background:#fff;color:#1f1f1f;opacity:1}
+
+/* 내 모델 칸: Codex | Claude 고르기, Claude 앱으로 쓰기(구독), API 키 칸 접기(2026-10-26 시안 docs/mockup-my-model-claude-2026-10-26) */
+#barun-account-popover .ap-ai-custom[hidden],#barun-account-popover .cad-ai-personal [hidden]{display:none}
+#barun-account-popover .cad-ai-personal{margin:2px 0 10px}
+#barun-account-popover .cad-ai-k{margin:8px 0 5px;color:var(--ap-muted);font-size:12px}
+#barun-account-popover .cad-ai-choices{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#barun-account-popover .cad-ai-choice{display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:0;padding:8px 10px;border:1px solid var(--ap-edge);border-radius:10px;background:var(--ap-group);color:var(--ap-ink);text-align:left;cursor:pointer}
+#barun-account-popover .cad-ai-choice b{font-size:13px}
+#barun-account-popover .cad-ai-choice small{color:var(--ap-muted);font-size:11.5px}
+#barun-account-popover .cad-ai-choice.ap-on{border-color:var(--ap-accent);background:color-mix(in srgb,var(--ap-accent) 14%,transparent)}
+#barun-account-popover .cad-ai-box{margin-top:10px;padding:10px;border:1px solid var(--ap-edge);border-radius:10px;background:var(--ap-group)}
+#barun-account-popover .cad-ai-title{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px}
+#barun-account-popover .cad-ai-badge{padding:1px 7px;border-radius:6px;background:#5fd38d;color:#08321b;font-size:11px;font-weight:700}
+#barun-account-popover .cad-ai-apps{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px}
+#barun-account-popover .cad-ai-app{display:inline-flex;align-items:center;gap:6px}
+#barun-account-popover .cad-ai-howto{margin:8px 0 0;padding-left:18px}
+#barun-account-popover .cad-ai-fold{display:flex;justify-content:space-between;gap:8px;width:100%;margin-top:10px;padding:8px 10px;border:1px dashed var(--ap-edge);border-radius:10px;background:transparent;color:var(--ap-ink);font-size:12.5px;text-align:left;cursor:pointer}
+#barun-account-popover .cad-ai-fold-state{flex:none;color:var(--ap-muted)}
+#barun-account-popover .cad-ai-key{padding:4px 2px 2px}
+#barun-account-popover .cad-ai-input{display:block;width:100%;box-sizing:border-box;padding:7px 9px;border:1px solid var(--ap-edge);border-radius:8px;background:rgba(0,0,0,.18);color:var(--ap-ink);font:inherit;font-size:12.5px}
+#barun-account-popover input.cad-ai-input{font-family:ui-monospace,Menlo,Consolas,monospace}
+#barun-account-popover .cad-ai-saved{margin:8px 0 0;color:var(--ap-ok)}
+#barun-account-popover .cad-ai-fold-state{white-space:nowrap}
+/* 내 모델 > Codex: 모델 목록·추론 깊이(2026-10-26 docs/mockup-codex-model-2026-10-26) */
+#barun-account-popover .cad-ai-codex{margin-top:10px}
+#barun-account-popover .cad-ai-models{display:flex;flex-direction:column;border:1px solid var(--ap-edge);border-radius:10px;overflow:hidden}
+#barun-account-popover .cad-ai-model{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;border:0;border-bottom:1px solid var(--ap-hair);background:transparent;color:var(--ap-ink);font-size:12.5px;text-align:left;cursor:pointer}
+#barun-account-popover .cad-ai-model:last-child{border-bottom:0}
+#barun-account-popover .cad-ai-model small{color:var(--ap-muted)}
+#barun-account-popover .cad-ai-model.ap-on{background:color-mix(in srgb,var(--ap-accent) 16%,transparent)}
+#barun-account-popover .cad-ai-model.ap-on b::before{content:"✓ ";color:var(--ap-accent)}
+#barun-account-popover .cad-ai-levels{display:flex;flex-wrap:wrap;gap:4px}
+#barun-account-popover .cad-ai-level{padding:4px 9px;border:1px solid var(--ap-edge);border-radius:8px;background:transparent;color:var(--ap-ink);font-size:12px;cursor:pointer}
+#barun-account-popover .cad-ai-level.ap-on{background:var(--ap-accent);border-color:var(--ap-accent);color:var(--ap-on-accent);font-weight:700}

@@ -1,0 +1,29 @@
+{
+  "package": "barun-shared-account-window",
+  "rendererVersion": "2.1.0-r1+cad.2",
+  "upstreamRendererVersion": "2.1.0-r1",
+  "cadChanges": "로그인 대비·비활성 이유·Google 데스크톱 연결·머리 세로 배치(기존 크기 유지)·AI 자세히 칸 앱 그림 자리(renderAiDetail, cad.2). docs/계정창-바른문서-옮길것.md 참조",
+  "contract": "account-window-contract-v2 (D:\\어플\\미리보다\\output\\Account-Window-JSON-Handoff-v2.zip)",
+  "contractSha256": {
+    "account-window.json": "2c57536b0b2bd544136b7d376af557718e178f38dea3f3c7acab7a8374543803",
+    "self-repair.json": "3596fb06bd3dde624f90b0358f1489abc59ecb033156b96b5354f8d310aefd1f",
+    "sso-contract.json": "566d5d6d99935ea50f4c46c70d420c1d2773900c2effa2a043f1a258eaf1ef8f"
+  },
+  "files": [
+    "model.mjs",
+    "renderer.mjs",
+    "popover.mjs",
+    "popover-model.mjs",
+    "icons.mjs",
+    "account-window.css",
+    "account-popover.css",
+    "contract/",
+    "shared-assets/"
+  ],
+  "fontPolicy": "Pretendard 미포함 — 네 앱 모두 계약의 fallback(Malgun Gothic, sans-serif)으로 같게 표시",
+  "incubatedIn": "D:\\어플\\바른문서 (2026-09-26, 사용자 결정: 바른문서에서 먼저 만들고 나중에 중앙 위치로 옮김)",
+  "kakaoSymbol": {
+    "file": "shared-assets/kakao-symbol-approved.svg",
+    "sha256": "9007f6c6c8c0cb3f9b5b57d384d87c1459e11775a6c625d27c2d9f2800399d88"
+  }
+}

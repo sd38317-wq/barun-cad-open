@@ -1,0 +1,5 @@
+const auditTotals={};const auditWrap=(name,fn)=>function(...args){const t=performance.now();try{return fn.apply(this,args);}finally{const r=auditTotals[name]??={count:0,total:0,max:0};const d=performance.now()-t;r.count++;r.total+=d;r.max=Math.max(r.max,d);}};
+run=auditWrap('run',run);refresh=auditWrap('refresh',refresh);snap=auditWrap('snap',snap);paintFrame=auditWrap('paintFrame',paintFrame);execute=auditWrap('execute',execute);setNearbyObjects=auditWrap('setNearbyObjects',setNearbyObjects);pick=auditWrap('pick',pick);draft=auditWrap('draft',draft);
+globalThis.__audit={reset(){for(const k of Object.keys(auditTotals))delete auditTotals[k];},totals(){return structuredClone(auditTotals);},input(){return {mode,phase,input:document.getElementById('coordinate').value};}};
+
+globalThis.__audit.selectFirst=(type)=>{const e=engine.doc.entities.find(e=>e.type===type&&!layerMap().get(e.layer)?.locked);if(!e)throw Error('no fixture '+type);setSelected([e.id]);return {id:e.id,type:e.type,children:e.entities?.length||0,shared:!!e.sharedBlock};};

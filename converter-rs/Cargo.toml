@@ -1,0 +1,18 @@
+[package]
+name = "barun-dwg2dxf"
+version = "0.1.0"
+edition = "2021"
+description = "DWG -> DXF fallback reader for Barun CAD (acadrust, MPL-2.0, used unmodified as a dependency)"
+publish = false
+
+[dependencies]
+acadrust = "=0.6.4"
+
+[target.'cfg(unix)'.dependencies]
+libc = "=0.2.190"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true

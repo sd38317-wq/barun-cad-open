@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- 맥 hardened runtime 권한. 앱(Electron)과 안쪽 실행 파일(엔진·DWG 변환기) 모두 이 목록으로 서명한다.
+     allow-jit: Electron V8·.NET CoreCLR JIT. allow-unsigned-executable-memory: V8·ctypes.
+     disable-library-validation: PyInstaller 엔진이 묶음 안의 .so/.dylib 를 읽을 때.
+     최소 권한은 서명 뒤 검사(build/verify-signed.cjs)로 실제 실행을 보고 줄인다. -->
+<plist version="1.0">
+<dict>
+  <key>com.apple.security.cs.allow-jit</key>
+  <true/>
+  <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+  <true/>
+  <key>com.apple.security.cs.disable-library-validation</key>
+  <true/>
+</dict>
+</plist>

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Phase 0 classified drawing",
+  "type": "object",
+  "required": ["schema_version", "source_id", "source_ids", "document_id", "doc_type", "doc_subtype", "building_type", "scale_factor", "scale_corrected", "scale", "flags", "status", "eligible_for_phase1"],
+  "properties": {
+    "schema_version": {"type": ["integer", "string"]},
+    "doc_type": {"enum": ["평면도", "단면도", "입면도", "구조도", "UNKNOWN"]},
+    "doc_subtype": {"enum": ["UNIT", "FLOOR", "SITE", "BASEMENT", "ROOF", "CORE_ONLY", "UNKNOWN", null]},
+    "building_type": {"enum": ["APT", "MULTI", "DETACHED", "UNKNOWN"]},
+    "scale_factor": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "scale_corrected": {"type": "boolean"},
+    "scale": {"type": "object", "required": ["status"], "properties": {"status": {"enum": ["verified", "review"]}}},
+    "eligible_for_phase1": {"type": "boolean"},
+    "status": {"enum": ["ready", "review", "deferred"]},
+    "flags": {"type": "array"}
+  },
+  "allOf": [{"if": {"properties": {"eligible_for_phase1": {"const": true}}}, "then": {"properties": {
+    "doc_type": {"const": "평면도"}, "doc_subtype": {"enum": ["UNIT", "FLOOR"]},
+    "building_type": {"enum": ["APT", "MULTI", "DETACHED"]}, "units": {"const": "mm"},
+    "status": {"const": "ready"}, "scale": {"properties": {"status": {"const": "verified"}}}
+  }}}]
+}

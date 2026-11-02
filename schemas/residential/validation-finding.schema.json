@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Drawing validation finding",
+  "type": "object",
+  "required": ["drawing_id", "drawing_revision_or_content_hash", "check_id", "status", "affected_entity_ids", "criterion", "explanation"],
+  "properties": {
+    "drawing_id": {"type": "string", "minLength": 1},
+    "drawing_revision_or_content_hash": {"type": "string", "minLength": 1},
+    "check_id": {"type": "string"},
+    "status": {"enum": ["PASS", "FAIL", "INDETERMINATE", "NOT_APPLICABLE"]},
+    "affected_entity_ids": {"type": "array", "items": {"type": "string"}},
+    "location": {},
+    "criterion": {"type": "string"},
+    "observed_value": {},
+    "tolerance_if_applicable": {"type": ["number", "null"]},
+    "evidence": {},
+    "explanation": {"type": "string"},
+    "kind": {"enum": ["annotation_or_data", "architectural_design", "process"]},
+    "legal_or_structural_claim": {"const": false},
+    "architect_approved": {"const": false}
+  }
+}

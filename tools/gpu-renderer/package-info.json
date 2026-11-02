@@ -1,0 +1,92 @@
+{
+  "bugs": {
+    "url": "https://github.com/mlightcad/cad-viewer/issues"
+  },
+  "dist": {
+    "shasum": "c786c757b2244f3bf69ba62c918a36dfee652657",
+    "tarball": "https://registry.npmjs.org/@mlightcad/three-renderer/-/three-renderer-1.7.1.tgz",
+    "fileCount": 357,
+    "integrity": "sha512-Eg5Dh7ZRjy82pIg8YDRHV+bzd/FXC5JEcQZwS1pALZq21jIREofA4bFLAT4JnAOE2oSrLjGxzO6aKBC0QVUVvw==",
+    "signatures": [
+      {
+        "sig": "MEQCIBt89yHvva2YOfhonWG4aEl8/gQKOOGB6O5isKmMfkDjAiBdFskq7WzJwsJ66Gadl8jjRiGX5ztqnZ194/QEdpAIkQ==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEQCIG8QHLnDhDUypasKf3xIUhyr9HnOgFbe20v1grfib1/QAiBdR9XIvBHoOApP/9P4SFAxUoBFn/B3/GyJLxooZzvxMw==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "unpackedSize": 2477274
+  },
+  "main": "./dist/index.umd.cjs",
+  "name": "@mlightcad/three-renderer",
+  "type": "module",
+  "_from": "file:mlightcad-three-renderer-1.7.1.tgz",
+  "types": "./lib/index.d.ts",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src/",
+    "build": "tsc && vite build",
+    "clean": "rimraf dist lib tsconfig.tsbuildinfo",
+    "lint:fix": "eslint --fix --quiet src/"
+  },
+  "_npmUser": {
+    "name": "mlight.li",
+    "email": "mlight.lee@outlook.com"
+  },
+  "homepage": "https://github.com/mlightcad/cad-viewer#readme",
+  "keywords": [
+    "autocad",
+    "cad",
+    "dwg",
+    "dwg-renderer",
+    "dxf",
+    "dxf-renderer",
+    "mlight",
+    "mlightcad"
+  ],
+  "_resolved": "C:\\Users\\MI\\AppData\\Local\\Temp\\cdb72eebf99823a577f55d579e814ba9\\mlightcad-three-renderer-1.7.1.tgz",
+  "_integrity": "sha512-Eg5Dh7ZRjy82pIg8YDRHV+bzd/FXC5JEcQZwS1pALZq21jIREofA4bFLAT4JnAOE2oSrLjGxzO6aKBC0QVUVvw==",
+  "repository": {
+    "url": "git+https://github.com/mlightcad/cad-viewer.git",
+    "type": "git"
+  },
+  "_npmVersion": "11.11.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\r [![npm version](https://img.shields.io/npm/v/@mlightcad/three-renderer.svg)](https://www.npmjs.com/package/@mlightcad/three-renderer)",
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "mlight.li",
+      "email": "mlight.lee@outlook.com"
+    }
+  ],
+  "_nodeVersion": "24.14.1",
+  "_hasShrinkwrap": false,
+  "devDependencies": {
+    "three": "^0.172.0",
+    "@types/three": "^0.172.0",
+    "@mlightcad/data-model": "^1.14.8",
+    "@mlightcad/mtext-renderer": "^0.12.12"
+  },
+  "peerDependencies": {
+    "three": "^0.172.0",
+    "@velipso/polybool": "^1.1.1",
+    "@mlightcad/data-model": "^1.14.8",
+    "@mlightcad/mtext-renderer": "^0.12.12"
+  },
+  "_npmOperationalInternal": {
+    "tmp": "tmp/three-renderer_1.7.1_1789700745496_0.9591370464001931",
+    "host": "s3://npm-registry-packages-npm-production"
+  },
+  "_id": "@mlightcad/three-renderer@1.7.1",
+  "version": "1.7.1"
+}

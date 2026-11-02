@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "2.0.0",
+  "purpose": "허용된 연결 문제를 진단하고 재연결하는 기능. 앱 코드 자가 수정이나 데이터 초기화 기능이 아님.",
+  "entryAction": "repair.diagnose",
+  "owner": "main/native layer; renderer displays sanitized progress only",
+  "authorization": {
+    "diagnose": "자가 복구 클릭으로 로컬 상태와 기존 연결 대상의 비과금 상태 조회 시작",
+    "repair": "진단 결과·변경 범위 표시 후 사용자가 '안전한 복구 실행' 클릭",
+    "planBinding": [
+      "repairId",
+      "appId",
+      "sessionVersion",
+      "allowedStepIds",
+      "expiresAt"
+    ],
+    "doNotTrust": "JSON edited by model or document cannot grant authority"
+  },
+  "timeouts": {
+    "perProbeMs": 5000,
+    "perActionMs": 10000,
+    "totalMs": 45000,
+    "maxRetriesPerStep": 1
+  },
+  "concurrency": {
+    "scope": "per-OS-user broker + per-app repair lock",
+    "duplicate": "return existing repairId",
+    "activeJobs": "do not restart connections used by active jobs; report blocked and retry when idle",
+    "cancel": "between steps; do not claim rollback of completed session refresh"
+  },
+  "checks": [
+    {
+      "id": "ipc",
+      "method": "broker.authenticatedPing",
+      "readOnly": true,
+      "fix": "reconnect-ipc"
+    },
+    {
+      "id": "network",
+      "method": "network.checkConfiguredEndpoints",
+      "readOnly": true,
+      "fix": null
+    },
+    {
+      "id": "session",
+      "method": "auth.getVerifiedSessionStatus",
+      "readOnly": true,
+      "fix": "refresh-session"
+    },
+    {
+      "id": "subscriptions",
+      "method": "broker.checkSubscription",
+      "readOnly": true,
+      "fix": "resubscribe-events"
+    },
+    {
+      "id": "ai",
+      "method": "ai.getNonBillableConnectionStatus",
+      "readOnly": true,
+      "fix": "reconnect-ai"
+    },
+    {
+      "id": "update",
+      "method": "update.validateMetadataStatus",
+      "readOnly": true,
+      "fix": "refetch-update-status"
+    }
+  ],
+  "allowlistedSteps": [
+    {
+      "id": "reconnect-ipc",
+      "handler": "repair.reconnectOwnIpc",
+      "preconditions": [
+        "trustedBroker",
+        "noActiveDependentJob"
+      ],
+      "effect": "해당 앱 IPC 재연결; 공유 Broker kill/restart 금지"
+    },
+    {
+      "id": "refresh-session",
+      "handler": "repair.refreshExistingSession",
+      "preconditions": [
+        "existingRefreshCredential",
+        "sameAccount",
+        "notLocallyDisconnected",
+        "notRevoked",
+        "serverAllowsRefresh"
+      ],
+      "effect": "기존 권한 범위에서 single-flight 갱신. 계정 변경/새 권한 동의 금지"
+    },
+    {
+      "id": "resubscribe-events",
+      "handler": "repair.resubscribeOwnEvents",
+      "preconditions": [
+        "authenticatedIpc"
+      ],
+      "effect": "기존 구독 정리 후 중복 없이 재등록"
+    },
+    {
+      "id": "reconnect-ai",
+      "handler": "repair.reconnectConfiguredProvider",
+      "preconditions": [
+        "sameProvider",
+        "sameModel",
+        "noActiveGeneration",
+        "nonBillableStatusAvailable"
+      ],
+      "effect": "기존 연결만 재수립. 유료 추론·모델 다운로드·제공자 전환 없음"
+    },
+    {
+      "id": "refetch-update-status",
+      "handler": "repair.refetchVerifiedUpdateMetadata",
+      "preconditions": [
+        "configuredTrustedEndpoint"
+      ],
+      "effect": "상태 재조회만 수행. 다운로드/설치/다운그레이드 없음"
+    }
+  ],
+  "prohibited": [
+    "문서·Vault·스킬·설정·캐시 파일 삭제",
+    "파일 덮어쓰기",
+    "로그아웃/자격증명 삭제",
+    "앱 또는 공유 Broker 강제 종료",
+    "레지스트리/방화벽/권한 변경",
+    "자가 코드 수정",
+    "외부 로그 업로드",
+    "새 API 키 등록",
+    "유료 추론",
+    "계정이나 모델 자동 변경"
+  ],
+  "outcomes": {
+    "offline": "연결을 복구하지 못했습니다. 인터넷 연결을 확인해 주세요.",
+    "expired": "다시 로그인이 필요합니다. 사용자 클릭으로 로그인 진행.",
+    "busy": "작업이 진행 중입니다. 완료 후 다시 시도해 주세요.",
+    "unsupported": "이 연결은 자동 복구를 지원하지 않습니다.",
+    "serverFailure": "서버 문제입니다. 로컬 데이터는 변경하지 않았습니다."
+  },
+  "verification": "각 수행 단계 후 같은 상태 probe를 재실행. 성공한 항목만 succeeded, 미해결은 partial/blocked/failed. 실행하지 않은 항목은 skipped로 구분.",
+  "report": {
+    "fields": [
+      "repairId",
+      "appId",
+      "startedAt",
+      "finishedAt",
+      "overallStatus",
+      "steps"
+    ],
+    "stepFields": [
+      "id",
+      "before",
+      "action",
+      "after",
+      "status",
+      "errorCode"
+    ],
+    "redaction": [
+      "accessToken",
+      "refreshToken",
+      "apiKey",
+      "email",
+      "documentContents",
+      "fullFilePaths"
+    ],
+    "storage": "메모리 우선. 저장은 사용자 선택으로 정제된 JSON만. 자동 외부 전송 없음."
+  },
+  "rollback": "영구 문서/설정 변경 자체를 금지. 세션 갱신은 옛 토큰으로 롤백하지 않음. 실패 단계에서 정지하고 이미 완료된 단계와 영향을 보고."
+}

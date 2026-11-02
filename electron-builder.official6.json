@@ -1,0 +1,95 @@
+{
+  "appId": "kr.barun.cad.v6",
+  "productName": "Barun CAD 6",
+  "extraMetadata": {
+    "name": "barun-cad-6",
+    "version": "7.0.41"
+  },
+  "electronLanguages": ["ko", "en-US"],
+  "artifactName": "Barun CAD 6 Setup 7.0.41.exe",
+  "directories": {
+    "output": "installer-7.0.41"
+  },
+  "files": [
+    "desktop.cjs",
+    "desktop-startup.cjs",
+    "desktop-startup.html",
+    "desktop-http.cjs",
+    "barun-cad-brand.png",
+    "package.json",
+    "desktop-preload.cjs",
+    "desktop-lifecycle.cjs",
+    "desktop-files.cjs",
+    "vendor/electron-updater.cjs",
+    "quality-gate-baseline.json",
+    "quality-probe.js",
+    "quality-gate.cjs",
+    "quality-install.cjs",
+    "quality-verifier.cjs",
+    "quality-policy.cjs",
+    "desktop-print.cjs",
+    "desktop-print-windows.cjs",
+    "desktop-print-windows.ps1",
+    "desktop-docs.cjs",
+    "desktop-shared-settings.cjs",
+    "desktop-shell-preload.cjs",
+    "desktop-shell.html",
+    "desktop-shell.js",
+    "build/release-notes.md"
+  ],
+  "extraResources": [
+    {
+      "from": "desktop-backend-7.0.41/barun-cad-6-server",
+      "to": "backend",
+      "filter": [
+        "**/*"
+      ]
+    },
+    {
+      "from": "build",
+      "to": "file-icons",
+      "filter": [
+        "file-dwg.ico",
+        "file-dxf.ico",
+        "file-bcad.ico"
+      ]
+    }
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "barun-cad.ico",
+    "signExecutable": false,
+    "verifyUpdateCodeSignature": true
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true,
+    "include": "build/installer-official6.nsh",
+    "shortcutName": "바른 CAD 6",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "artifactName": "Barun CAD 6 Setup 7.0.41.exe"
+  },
+  "publish": [
+    {
+      "provider": "generic",
+      "url": "https://barunarc.co.kr/downloads/barun-cad-6/"
+    }
+  ],
+  "afterPack": "build/verify-packaged.cjs",
+  "extraFiles": [
+    {
+      "from": "AI-CONNECT.md",
+      "to": "AI-CONNECT.md"
+    }
+  ],
+  "electronFuses": {
+    "runAsNode": false,
+    "enableCookieEncryption": true,
+    "enableNodeOptionsEnvironmentVariable": false,
+    "enableNodeCliInspectArguments": false,
+    "enableEmbeddedAsarIntegrityValidation": true,
+    "onlyLoadAppFromAsar": true
+  }
+}

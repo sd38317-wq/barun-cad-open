@@ -1,0 +1,16 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import assert from 'node:assert/strict';
+import {sheetJob,tableBlock,flatten} from './studio.js';
+import {DrawingEngine} from './engine.js';
+import {resolveCommand,defaultAliases} from './commands.js';
+const doc=JSON.parse(readFileSync('examples/건축평면_예제.bcad','utf8'));
+const engine=new DrawingEngine();engine.execute({type:'load',document:doc});
+const count=flatten(engine.doc).length;
+engine.execute({type:'visibility',ids:[doc.entities[0].id],hidden:true});assert.ok(flatten(engine.doc).length<count);engine.execute({type:'undo'});assert.equal(flatten(engine.doc).length,count);
+assert.equal(resolveCommand('복사',{aliases:defaultAliases()}),'COPY');assert.equal(resolveCommand('벽',{aliases:defaultAliases()}),'WALL');
+engine.execute({type:'add',entity:tableBlock([['번호','도면명'],['A-001','1층 평면도']])});
+engine.validate(engine.doc);
+const job=sheetJob(doc,[{number:'A-010',title:'건축 평면',paper:'A3',denominator:50},{number:'A-002',title:'한글 도곽',paper:'A1',denominator:50}]);
+assert.equal(job.sheets[0].number,'A-002');
+mkdirSync('tmp/pdfs',{recursive:true});writeFileSync('tmp/pdfs/studio-job.json',JSON.stringify(job));
+console.log('Studio visibility, Korean commands, tables, sheet order passed');

@@ -1,0 +1,351 @@
+You are the installed local Qwen coding advisor. Write a concise Korean error report from the measured test result below. You did not operate any tools: an isolated Electron harness executed these checks. Do not claim computer-wide coverage or that no bugs exist.
+Scope: ONE actual DWG (17,995 entities); a prior internal JSON copy of the same drawing was also tested but is not an independent drawing. More files are being inventoried separately. No original drawing modifications (SHA256 before/after unchanged). Only this sanitized result is supplied, no drawing or filenames/text.
+Limitations: hidden window, synthetic pointer events and app command APIs, disposable LINE fixtures in document, not every original object type; SNAP smoke only; no image-reference validation; window destroyed without testing normal save/close dialog. scenarioMs includes verification overhead including whole-document cloning; do not call it pure command latency or user input latency. gpu.buildMs is a separate renderer build measurement. Do not invent O(N) or exact root cause without source analysis.
+Deliver: confirmed exceptions/assertion failures, observed latency suspects with numeric evidence, what passed, unverified coverage, next regression checks. Especially distinguish overall status completed from comprehensive quality approval. Under 1000 Korean words.
+MEASURED RESULT:{
+  "schemaVersion": 1,
+  "caseId": "dwg-pilot-20260927-01",
+  "format": ".dwg",
+  "status": "completed",
+  "originalUnchanged": true,
+  "importMs": 11121.04,
+  "renderer": {
+    "schemaVersion": 1,
+    "status": "completed",
+    "input": "synthetic-events-and-app-command-api",
+    "visibility": "hidden",
+    "errors": [],
+    "checks": [
+      {
+        "name": "OPEN",
+        "status": "passed",
+        "scenarioMs": 1696.699999999255,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "buildMs": 896.8000000007451,
+          "renderMs": 8.800000000745058,
+          "drawCalls": 1869,
+          "spatialChunks": 1808,
+          "visibleChunks": 1808,
+          "culledChunks": 0,
+          "cullMs": 0.8999999985098839
+        }
+      },
+      {
+        "name": "PAN",
+        "status": "passed",
+        "scenarioMs": 8.199999999254942,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "buildMs": 896.8000000007451,
+          "renderMs": 6.099999997764826,
+          "drawCalls": 1869,
+          "spatialChunks": 1808,
+          "visibleChunks": 1808,
+          "culledChunks": 0,
+          "cullMs": 0.30000000074505806
+        }
+      },
+      {
+        "name": "ZOOM",
+        "status": "passed",
+        "scenarioMs": 6.699999999254942,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "buildMs": 896.8000000007451,
+          "renderMs": 5.5,
+          "drawCalls": 1869,
+          "spatialChunks": 1808,
+          "visibleChunks": 1808,
+          "culledChunks": 0,
+          "cullMs": 0.30000000074505806
+        }
+      },
+      {
+        "name": "LINE_API",
+        "status": "passed",
+        "scenarioMs": 30.600000001490116,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 1,
+          "buildMs": 5.5,
+          "renderMs": 6,
+          "drawCalls": 1869,
+          "spatialChunks": 1809,
+          "visibleChunks": 1808,
+          "culledChunks": 1,
+          "cullMs": 3.800000000745058
+        }
+      },
+      {
+        "name": "SELECT_POINTER",
+        "status": "passed",
+        "scenarioMs": 294.6000000014901,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 1,
+          "buildMs": 5.5,
+          "renderMs": 0.10000000149011612,
+          "drawCalls": 1,
+          "spatialChunks": 1809,
+          "visibleChunks": 1,
+          "culledChunks": 1808,
+          "cullMs": 0
+        }
+      },
+      {
+        "name": "SNAP_POINTER_SMOKE",
+        "status": "passed",
+        "scenarioMs": 19.5,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 1,
+          "buildMs": 5.5,
+          "renderMs": 0.10000000149011612,
+          "drawCalls": 1,
+          "spatialChunks": 1809,
+          "visibleChunks": 1,
+          "culledChunks": 1808,
+          "cullMs": 0
+        }
+      },
+      {
+        "name": "MOVE_API",
+        "status": "passed",
+        "scenarioMs": 118.19999999925494,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 2,
+          "buildMs": 6.399999998509884,
+          "renderMs": 0.19999999925494194,
+          "drawCalls": 1,
+          "spatialChunks": 1809,
+          "visibleChunks": 1,
+          "culledChunks": 1808,
+          "cullMs": 7.699999999254942
+        }
+      },
+      {
+        "name": "COPY_API",
+        "status": "passed",
+        "scenarioMs": 17.800000000745058,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 3,
+          "buildMs": 6.199999999254942,
+          "renderMs": 0.10000000149011612,
+          "drawCalls": 1,
+          "spatialChunks": 1809,
+          "visibleChunks": 1,
+          "culledChunks": 1808,
+          "cullMs": 2.699999999254942
+        }
+      },
+      {
+        "name": "ROTATE_API",
+        "status": "passed",
+        "scenarioMs": 113.80000000074506,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 4,
+          "buildMs": 9.899999998509884,
+          "renderMs": 0.20000000298023224,
+          "drawCalls": 2,
+          "spatialChunks": 1810,
+          "visibleChunks": 2,
+          "culledChunks": 1808,
+          "cullMs": 2
+        }
+      },
+      {
+        "name": "SCALE_API",
+        "status": "passed",
+        "scenarioMs": 113.90000000223517,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 5,
+          "buildMs": 10.199999999254942,
+          "renderMs": 0.30000000074505806,
+          "drawCalls": 2,
+          "spatialChunks": 1810,
+          "visibleChunks": 2,
+          "culledChunks": 1808,
+          "cullMs": 1.9000000022351742
+        }
+      },
+      {
+        "name": "OFFSET_API",
+        "status": "passed",
+        "scenarioMs": 13.5,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 1,
+          "incrementalBuilds": 6,
+          "buildMs": 5.099999997764826,
+          "renderMs": 0.10000000149011612,
+          "drawCalls": 3,
+          "spatialChunks": 1811,
+          "visibleChunks": 3,
+          "culledChunks": 1808,
+          "cullMs": 1.5999999977648258
+        }
+      },
+      {
+        "name": "TRIM_API",
+        "status": "passed",
+        "scenarioMs": 1032.699999999255,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 2,
+          "incrementalBuilds": 6,
+          "buildMs": 783.7000000029802,
+          "renderMs": 0.19999999925494194,
+          "drawCalls": 1,
+          "spatialChunks": 1808,
+          "visibleChunks": 1,
+          "culledChunks": 1807,
+          "cullMs": 3.5
+        }
+      },
+      {
+        "name": "EXTEND_API",
+        "status": "passed",
+        "scenarioMs": 1105,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 3,
+          "incrementalBuilds": 6,
+          "buildMs": 885.3999999985099,
+          "renderMs": 0.19999999925494194,
+          "drawCalls": 1,
+          "spatialChunks": 1808,
+          "visibleChunks": 1,
+          "culledChunks": 1807,
+          "cullMs": 3.800000000745058
+        }
+      },
+      {
+        "name": "ERASE_API",
+        "status": "passed",
+        "scenarioMs": 16.100000001490116,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 3,
+          "incrementalBuilds": 7,
+          "buildMs": 5.400000002235174,
+          "renderMs": 0,
+          "drawCalls": 0,
+          "spatialChunks": 1808,
+          "visibleChunks": 0,
+          "culledChunks": 1808,
+          "cullMs": 1.7999999970197678
+        }
+      },
+      {
+        "name": "UNDO_API",
+        "status": "passed",
+        "scenarioMs": 789.6999999992549,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 4,
+          "incrementalBuilds": 7,
+          "buildMs": 782,
+          "renderMs": 0.30000000074505806,
+          "drawCalls": 1,
+          "spatialChunks": 1808,
+          "visibleChunks": 1,
+          "culledChunks": 1807,
+          "cullMs": 4
+        }
+      },
+      {
+        "name": "REDO_API",
+        "status": "passed",
+        "scenarioMs": 718.3000000007451,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 5,
+          "incrementalBuilds": 7,
+          "buildMs": 711.1000000014901,
+          "renderMs": 0,
+          "drawCalls": 0,
+          "spatialChunks": 1808,
+          "visibleChunks": 0,
+          "culledChunks": 1808,
+          "cullMs": 3.599999997764826
+        }
+      },
+      {
+        "name": "VISUAL_FIDELITY",
+        "status": "unverified",
+        "code": "NO_REFERENCE_IMAGE"
+      },
+      {
+        "name": "FINAL_COUNT",
+        "status": "passed",
+        "scenarioMs": 0.29999999701976776,
+        "timingIncludesVerification": true,
+        "gpu": {
+          "active": true,
+          "builds": 5,
+          "incrementalBuilds": 7,
+          "buildMs": 711.1000000014901,
+          "renderMs": 0,
+          "drawCalls": 0,
+          "spatialChunks": 1808,
+          "visibleChunks": 0,
+          "culledChunks": 1808,
+          "cullMs": 0
+        }
+      }
+    ],
+    "count": 17995,
+    "gpu": {
+      "active": true,
+      "builds": 5,
+      "incrementalBuilds": 7,
+      "buildMs": 711.1000000014901,
+      "renderMs": 0,
+      "drawCalls": 0,
+      "spatialChunks": 1808,
+      "visibleChunks": 0,
+      "culledChunks": 1808,
+      "cullMs": 0
+    },
+    "gpuFallback": false,
+    "limits": [
+      "hidden app: timings are not displayed FPS or end-to-end input latency",
+      "edit commands use app API; PAN/ZOOM/SELECT use synthetic DOM events",
+      "SNAP only smoke-tested, not geometric snap correctness",
+      "original entities were not edited; fixture interactions do not cover every original entity type"
+    ],
+    "closed": true
+  },
+  "totalMs": 22693.04
+}

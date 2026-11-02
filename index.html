@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko" data-theme="dark" data-barun-theme="air">
+  <head>
+    <meta charset="utf-8" />
+    <!-- BC-02 콘텐츠 보안 정책. 인라인 스크립트·외부 스크립트를 막는다. 유일한 예외는 음성 인식 모델
+         (chat.js · 사용자가 동의한 뒤에만 내려받는 @huggingface/transformers 3.7.2 고정 경로와 모델 저장소) 이다.
+         style 속성(unsafe-inline)은 화면 코드가 style="" 을 널리 쓰므로 허용한다. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' blob: 'wasm-unsafe-eval' https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://barunarc.co.kr; font-src 'self' data:; connect-src 'self' https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.7.2/dist/ https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs.hf.co https://cdn-lfs-us-1.hf.co https://cdn-lfs-eu-1.hf.co https://cas-bridge.xethub.hf.co https://transfer.xethub.hf.co; media-src 'self' blob: mediastream:; frame-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>바른 CAD</title><link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACQcSURBVHhe7d1PqF3luT/wO+yww84iZJ+cfQ51L7mVVixVsdRILOUgrRiLkiqGtNRiJiqUQhAkIJQMMtCBKIJYpFAngtTBzagIndhJcfAbOMwwwwzz49nJ0eRZ+/zZf9bea73v5wsfuNx7zVlr7b3X+6x3vX/+539ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERAaeE7u7Pzi53Tx2t63t5tzWTnMJqNB2cy7fE7a3m/vyvUNEepppQz6ePBs/6NF48unWzuTaaDz5amunuQWwrNFO83XcV7bGzed3Fw4nTpz4Xr4ficiKs//0frtyn1y582O8nn+oAGs1nty4cz96J+5PJ3cnT+pFEFkiJ5rm+9On+nHzzu3qe8YPD6CnRjuTb0Y7kw+ityAeYPI9TkTuJLrSonKOp3vd90Bppg8y4+adUzvNXjzg5HugSFU5deqH4zuDcb7MPxaAkt1+0Jlc2dptHsj3RpEiE5XvaGdywVM+wG3ROzAaT94wdkCKTLzPH+00f8tffADuNrk2HTfgNYEMOaPx/Q9NR8ZOR8nmLzkAh7gZD00xZiDfW0V6m6heYwTsjC80APMaN9dH4+ZV6w5ILxNfTA0/QIdu96Ze8npAepFo+KMytSgPwJrsFwLWF5BNZLpQT0zh0/ADbMrNmEqoEJC15LuG38A+gJ5QCEi3me6c54kfoJ/GkxuxnkC+d4ssnNsr9k2utb5sAPROLLQW07DzvVzk2LnT3X85f7kA6L/YjMhrAZk7d3bi090PMGTT1wLNq/keL9LKtLt/3Hze+hIBMGRfei0gByY26bk9mrT1xQGgDJfyvV8qzu0d+mzUA1CHyTVjA+R/Yi/q2Iqy/QUBoFjj5vrJ7eax3CZIJdHlD1A9rwRqii5/AL7jlUAV0eUPQItXAmVnupSvLn8ADmAp4QIz3bJ3xocNAPeaXMltiAw08WG2P2AAmG26jPCJE9/L7YkMJPHhxYeYP1gAONK4+TwGjee2RXqeaPwt6QvAMmJn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" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="common-account-update.css" />
+    <link rel="stylesheet" href="menu-shell.css" />
+    <link rel="stylesheet" href="barun-air.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <span class="logo" aria-label="바른 CAD">c.</span>
+        <span class="brand-copy"><strong class="wordmark" aria-label="바른 CAD">Barun<i>CAD</i></strong></span>
+      </div>
+      <nav class="tool-tabs" aria-label="주 메뉴">
+        <button data-tab="file" class="active" aria-label="파일">File</button>
+      </nav>
+      <div class="command-search">
+        <span aria-hidden="true">⌕</span>
+        <input id="global-command-search" type="search" placeholder="명령 검색" aria-label="명령어·단축키 검색 (F1), Enter 로 실행" autocomplete="off" role="combobox" aria-autocomplete="list" aria-controls="global-command-results" aria-expanded="false" /><kbd class="command-search-key" aria-hidden="true">F1</kbd>
+        <div id="global-command-results" class="command-search-results" role="listbox" aria-label="명령 검색 결과" hidden></div>
+      </div>
+      <div class="file-actions" aria-label="계정과 업데이트"></div>
+    </header>
+    <div class="workspace">
+      <aside class="tools">
+        <div id="tool-buttons"></div>
+        <div class="divider"></div>
+        <button data-command="UNDO">↶ 실행 취소</button
+        ><button data-command="REDO">↷ 다시 실행</button
+        ><button data-command="PDF">PDF 출력</button
+        ><button data-command="SHEET">도곽 지정</button
+        ><button data-command="SHEETS">도곽 관리</button
+        ><button data-command="GLOBAL">전역 설정</button
+        ><button data-command="SCHEDULE">실/창호 수량표</button
+        ><button data-command="EXCEL">엑셀 입출력</button
+        ><button data-command="CHAT">AI 대화 · Codex</button
+        ><button data-command="HELP">명령 목록 · 도움말</button>
+        <div class="tools-bottom">
+          별칭 + Enter로 실행<br /><strong>C = COPY · CI = CIRCLE</strong>
+        </div>
+      </aside>
+      <main>
+        <div class="canvas-toolbar">
+          <div>
+            <span class="dot"></span><strong id="doc-name">새 도면.dxf</strong
+            ><span id="dirty"></span>
+          </div>
+          <div class="canvas-toolbar-actions">
+            <div id="canvas-tools" class="canvas-tools" role="group" aria-label="대지와 배치 도구"></div>
+            <div class="canvas-view-tools" role="group" aria-label="화면 보기">
+              <button data-command="FIT" title="도면 전체를 화면에 맞춤">도면 맞춤</button>
+              <div class="canvas-zoom" role="group" aria-label="확대 축소"><button id="zoom-out" aria-label="축소">−</button><span id="zoom">100%</span><button id="zoom-in" aria-label="확대">＋</button></div>
+              <button id="workspace-fullscreen" title="도면 작업영역을 전체화면으로">전체화면</button>
+            </div>
+          </div>
+        </div>
+        <div class="viewport"><button id="workspace-fullscreen-exit" hidden>전체화면 종료</button>
+          <canvas
+            id="canvas"
+            tabindex="0"
+            aria-label="2D CAD 도면 편집 영역"
+          ></canvas>
+          <div id="drawing-load-overlay" class="drawing-load-overlay" hidden role="status" aria-live="polite">
+            <div class="drawing-load-card">
+              <strong id="drawing-load-title">도면 여는 중</strong>
+              <span id="drawing-load-stage">파일을 준비하고 있습니다.</span>
+              <progress id="drawing-load-progress" max="100"></progress>
+              <small><span id="drawing-load-detail"></span><span id="drawing-load-elapsed">0초</span></small>
+            </div>
+          </div>
+          <div class="canvas-label">평면 <span>위에서 본 도면 · mm</span></div>
+          <div class="navigation">
+            휠 확대 · 가운데 버튼 드래그 이동 · Space 명령 반복/확정 · 왼→오 창 선택 / 오→왼 교차
+            선택
+          </div>
+          <div id="toast" role="status"></div>
+        </div>
+        <div class="command-panel">
+          <div class="command-title">
+            <strong>CAD 명령</strong><span id="active-command">SELECT</span
+            ><button id="clear-history">기록 지우기</button>
+          </div>
+          <div id="history" role="log" aria-live="polite"></div>
+          <div id="prompt">명령 확정: Space / Enter</div>
+          <div class="command-input">
+            <label for="coordinate">❯</label
+            ><input
+              id="coordinate"
+              aria-label="CAD 명령 입력"
+              placeholder="C ↵ 복사 · CI ↵ 원 · X,Y / @DX,DY"
+              autocomplete="off"
+              spellcheck="false"
+            /><button id="enter">실행 ↵</button><button id="finish">완료</button
+            ><button data-command="SELECT">취소 Esc</button>
+          </div>
+        </div>
+      </main>
+      <aside class="inspector">
+        <section>
+          <div class="section-title">작도 보조 <span>mm</span></div>
+          <div class="toggles">
+            <label><input id="grid" type="checkbox" checked />그리드</label
+            ><label
+              ><input id="snap" type="checkbox" />그리드 스냅</label
+            ><label><input id="osnap" type="checkbox" checked />객체 스냅</label
+            ><label><input id="ortho" type="checkbox" />직교 F8</label
+            ><label><input id="polar" type="checkbox" />극좌표 추적 F10</label
+            ><label title="스냅점 위에 잠깐 머물면 추적점이 생기고, 그 점을 지나는 가로·세로선에 커서가 붙습니다."><input id="otrack" type="checkbox" />객체 추적 F11</label
+            ><label><input id="dynamic-input" type="checkbox" checked />동적 입력 F12</label
+            ><label>증분 각도 <select id="polar-angle"><option value="90">90°</option><option value="45">45°</option><option value="30">30°</option><option value="22.5">22.5°</option><option value="15">15°</option><option value="10">10°</option><option value="5">5°</option></select></label>
+          </div>
+          <div class="toggles minor">
+            <label><input id="snap-end" type="checkbox" checked /><span class="snap-icon" aria-hidden="true">□</span>끝점</label
+            ><label><input id="snap-mid" type="checkbox" checked /><span class="snap-icon" aria-hidden="true">△</span>중점</label
+            ><label
+              ><input id="snap-center" type="checkbox" checked /><span class="snap-icon" aria-hidden="true">○</span>중심</label
+            ><label
+              ><input
+                id="snap-intersection"
+                type="checkbox"
+                checked
+              /><span class="snap-icon" aria-hidden="true">×</span>교차점</label
+            >
+          </div>
+          <div class="toggles minor"><label><input id="snap-quadrant" type="checkbox" /><span class="snap-icon" aria-hidden="true">◇</span>사분점</label><label><input id="snap-nearest" type="checkbox" /><span class="snap-icon" aria-hidden="true">⌖</span>근처점 (선·원·호)</label><label><input id="snap-perpendicular" type="checkbox" /><span class="snap-icon" aria-hidden="true">⊥</span>수직점 (직전 점 기준)</label><label><input id="snap-tangent" type="checkbox" /><span class="snap-icon" aria-hidden="true">◯</span>접점 (원·호)</label><label><input id="snap-node" type="checkbox" /><span class="snap-icon" aria-hidden="true">⊗</span>노드 (점)</label><label><input id="snap-insert" type="checkbox" /><span class="snap-icon" aria-hidden="true">⊡</span>삽입점 (문자·블록)</label></div>
+          <label class="field compact">십자선 크기 (% · 100은 전체 화면)<input id="crosshair-size" type="number" min="1" max="100" value="5" /></label><label class="field compact">선택 상자 크기 (px)<input id="pickbox-size" type="number" min="4" max="30" value="10" /></label><label class="field compact">점 잡기 범위 (px)<input id="snap-tolerance" type="number" min="4" max="40" value="16" /></label>
+          <p class="muted">객체를 고를 때는 사각 선택 상자, 점·좌표를 지정할 때는 십자선이 자동으로 표시됩니다. 정확한 끝점이 필요하면 끝점만 켜세요.</p>
+          <label class="field compact"
+            >그리드 간격<input
+              id="spacing"
+              type="number"
+              min="0.001"
+              max="1000000000"
+              step="any"
+              value="100"
+          /></label>
+          <details class="input-prefs"><summary>선택·입력 세부 설정</summary><div id="input-prefs-body"></div></details>
+        </section>
+        <section>
+          <div class="section-title">
+            레이어 <button data-command="LAYER" title="레이어 관리">관리</button
+            ><button id="add-layer" title="레이어 추가">＋</button>
+          </div>
+          <div id="layers"></div>
+        </section>
+        <section id="object-properties-panel">
+          <div class="section-title">
+            객체 속성 <span id="count">0 선택</span>
+          </div>
+          <div id="properties" class="properties"></div>
+          <button id="edit-properties">속성 편집</button>
+        </section>
+        <!-- 2026-09-21 사용자 지시로 설정 창에서 숨김(값은 기본값으로 계속 쓰인다: 문자 높이 150, 해치 100/45, 벽 200) -->
+        <section hidden>
+          <div class="section-title">주석 · 건축 기본값</div>
+          <label class="field compact"
+            >문자/치수 높이<input
+              id="text-height"
+              type="number"
+              min="1"
+              value="150" /></label
+          ><label class="field compact"
+            >해치 간격<input
+              id="hatch-spacing"
+              type="number"
+              min="1"
+              value="100" /></label
+          ><label class="field compact"
+            >해치 각도<input id="hatch-angle" type="number" value="45" /></label
+          ><label class="field compact"
+            >해치 방식<select id="hatch-style">
+              <option value="lines">사선</option>
+              <option value="solid">단색 채움</option>
+            </select></label
+          ><label class="field compact"
+            >벽 두께<input id="wall-width" type="number" min="1" value="200"
+          /></label>
+          <p class="muted">
+            벽은 직선 구간별 객체입니다. 문·창·계단은 2D 기호이며 법규 검토/벽
+            자동 접합은 포함하지 않습니다.
+          </p>
+        </section>
+      </aside>
+    </div>
+    <footer>
+      <span class="engine-state"
+        ><i class="dot"></i
+        ><span id="server-state">로컬 DXF 엔진 연결 중</span></span
+      ><span id="position">X 0.00 · Y 0.00</span><span id="stats">객체 0개</span
+      ><span class="unit-note">1 단위 = 1 mm</span>
+    </footer>
+    <input type="file" id="file" accept=".dxf,.dwg,.bcad,.json" multiple hidden /><input
+      type="file"
+      id="settings-file"
+      accept=".json"
+      hidden
+    />
+    <dialog id="settings-dialog">
+      <div class="dialog-header">
+        <h2>명령 별칭 · 단축키</h2>
+        <button data-close="settings-dialog">닫기 ×</button>
+      </div>
+      <p>
+        별칭은 입력 후 Enter로 실행합니다. 기본값:
+        <strong>COPY = C, CIRCLE = CI</strong>. 정식 명령 이름은 항상 사용할 수
+        있습니다.
+      </p>
+      <p class="muted">
+        단축키 예: Ctrl+Shift+C, Alt+R. 단일 문자는 별칭에서 지정하세요.
+        좌표·문자·설정 입력 중에는 단축키가 개입하지 않습니다.
+      </p>
+      <input id="settings-search" class="command-search" type="search" aria-label="명령 단축키 검색" placeholder="검색: 치수, 창호, 늘리기, STR, Ctrl+S" /><p id="settings-search-count" role="status"></p><div class="settings-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>명령</th>
+              <th>기능</th>
+              <th>별칭 + Enter</th>
+              <th>즉시 단축키</th>
+            </tr>
+          </thead>
+          <tbody id="alias-rows"></tbody>
+        </table>
+      </div>
+      <p id="settings-error" class="error" role="alert"></p>
+      <div class="dialog-actions">
+        <button id="settings-default">기본값 채우기</button
+        ><button id="settings-import">설정 가져오기</button
+        ><button id="settings-export">현재 설정 내보내기</button
+        ><button id="settings-save" class="primary">검사 후 저장</button>
+      </div>
+    </dialog>
+    <dialog id="help-dialog">
+      <div class="dialog-header">
+        <h2>명령 목록 · 사용법</h2>
+        <button data-close="help-dialog">닫기 ×</button>
+      </div>
+      <p>
+        명령을 입력하고 Enter → 화면 아래 안내에 따라 선택/좌표/값 입력. Esc로
+        취소합니다. 명령 중에도 정식 명령/별칭으로 바꿀 수 있지만,
+        <strong>문자 내용·블록 이름 입력 단계에서는 글자를 그대로 입력</strong
+        >합니다.
+      </p>
+      <div class="help-manual"><a class="primary" href="https://barunarc.co.kr/cad/manual/" target="_blank" rel="noopener">📖 설명서 열기</a><a href="https://barunarc.co.kr/cad/manual/download-lisp-shortcuts-2026-10-27/lisp-shortcuts.pdf" target="_blank" rel="noopener">리습 단축키 PDF 내려받기</a><a href="https://barunarc.co.kr/cad/manual/manual-cmd-lisp-2026-10-27/index.html" target="_blank" rel="noopener">그림으로 받기</a><span>인터넷 창으로 열립니다 · 바른 CAD 설명서 45권, 권마다 맨 위에 움직이는 사용법</span></div>
+      <input id="help-search" class="command-search" type="search" aria-label="명령 사용법 검색" placeholder="명령·별칭·기능 검색" /><p id="help-search-count" role="status"></p><div id="help-content"></div>
+      <p class="muted">
+        TRIM/EXTEND: 경계 객체 선택 → 명령 실행 → 잘라낼 부분/연장할 끝 클릭.
+        폴리선 대상은 EXPLODE 후 사용하세요. MIRROR는 원본을 보존한 대칭
+        복사입니다.
+      </p>
+      <p class="muted">
+        좌표: 1000,2000 · 상대 좌표: @3000,0 · 길이/각도: @3000&lt;90 · 폴리선
+        닫기: CLOSE. TEXT에서 \n을 쓰면 여러 줄이 됩니다.
+      </p>
+    </dialog>
+    <dialog id="form-dialog">
+      <div class="dialog-header">
+        <h2 id="form-title"></h2>
+        <button data-close="form-dialog">닫기 ×</button>
+      </div>
+      <form id="property-form">
+        <div id="form-fields"></div>
+        <p class="error" id="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="submit" class="primary">적용</button>
+        </div>
+      </form>
+    </dialog>
+    <script type="module" src="app.js?v=20260921-20"></script>
+</body>
+</html>
+
+

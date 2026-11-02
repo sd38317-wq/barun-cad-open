@@ -1,0 +1,32 @@
+﻿using ACadSharp;
+using ACadSharp.Entities;
+using ACadSharp.Tables;
+using ACadSharp.IO;
+using CSMath;
+using System.Text;
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+var doc=new CadDocument();
+doc.Header.Version=ACadVersion.AC1027;
+var table=new TableEntity(new BlockRecord("*T1")) {
+ InsertPoint=new XYZ(100,200,0), XScale=2,YScale=3,Rotation=Math.PI/6,
+ HorizontalDirection=XYZ.AxisX, Style=ACadSharp.Objects.TableStyle.Default
+};
+for(int c=0;c<2;c++)table.Columns.Add(new TableEntity.Column{Width=20+c*10});
+for(int r=0;r<2;r++) {
+ var row=new TableEntity.Row{Height=10};
+ for(int c=0;c<2;c++) {
+  var cell=new TableEntity.Cell();
+  var content=new TableEntity.CellContent {ContentType=TableEntity.TableCellContentType.Value};
+  content.CadValue.SetValue($"R{r+1} C{c+1}",CadValueType.String);
+  cell.Contents.Add(content);row.Cells.Add(cell);
+ }
+ table.Rows.Add(row);
+}
+table.MergedCellRanges.Add(new TableEntity.CellRange{TopRowIndex=0,BottomRowIndex=0,LeftColumnIndex=0,RightColumnIndex=1});
+doc.Entities.Add(table);
+doc.Entities.Add(new Line(new XYZ(0,0,0),new XYZ(5,5,0)));
+DwgWriter.Write(args[0],doc,notification:(s,e)=>Console.WriteLine(e.Message));
+Console.WriteLine("Wrote: "+args[0]);
+var read=DwgReader.Read(args[0]);
+foreach(var e in read.Entities)Console.WriteLine(e.ObjectName);
+

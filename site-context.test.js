@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createSiteContext,makeSiteContext,compareSiteContext,mergeSiteContext,selectSiteEntities} from './site-context.js';
+test('site context keeps three review values and deductions',()=>{const c=createSiteContext([{parcelRole:'site',closed:true,points:[{x:0,y:0},{x:10000,y:0},{x:10000,y:5000},{x:0,y:5000}]}],{info:{recordAreaM2:50},cornerDeductionM2:2});assert.equal(c.areas.recordAreaM2.value,null);assert.equal(c.areas.polygonAreaM2.value,null);assert.equal(c.deductions.cornerCutM2.value,null);assert.equal(c.areas.polygonAreaM2.sourceRef.raw,50);});
+test('context diff and selective merge preserve designer values',()=>{const a=makeSiteContext({recordAreaM2:10}),b=makeSiteContext({recordAreaM2:12});const rows=compareSiteContext(a,a,b);assert.ok(rows.some(r=>r.key==='recordAreaM2'));const m=mergeSiteContext(a,b,['recordAreaM2']);assert.equal(m.areas.recordAreaM2.sourceRef.raw,12);});
+test('site selection follows defaults and explicit options',()=>{const es=[{parcelRole:'site'},{parcelRole:'road'},{parcelRole:'neighbor'},{parcelRole:'dimension'}];assert.equal(selectSiteEntities(es).length,2);assert.equal(selectSiteEntities(es,{neighbors:true,dimensions:true}).length,4);});

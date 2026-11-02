@@ -1,0 +1,4146 @@
+{
+  "version": 2,
+  "units": "mm",
+  "layers": [
+    {
+      "id": "default",
+      "name": "기본",
+      "color": "#79d4ff",
+      "visible": true,
+      "locked": false,
+      "lineweight": 0.25,
+      "linetype": "CONTINUOUS"
+    }
+  ],
+  "blocks": [],
+  "entities": [
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "COLUMN",
+      "category": "COLUMN",
+      "position": {
+        "x": 0,
+        "y": 0
+      },
+      "attributes": {
+        "mark": "COLUMN",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 0,
+        "y": 0,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "COLUMN",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "COLUMN"
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": -600,
+              "y": -1000
+            },
+            {
+              "x": 600,
+              "y": -1000
+            },
+            {
+              "x": 600,
+              "y": 1000
+            },
+            {
+              "x": -600,
+              "y": 1000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": -840,
+              "y": 0
+            },
+            {
+              "x": 840,
+              "y": 0
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 0,
+              "y": -1400
+            },
+            {
+              "x": 0,
+              "y": 1400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "COLUMN",
+          "position": {
+            "x": 720,
+            "y": 1200
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "171fa564-8359-4577-a1b9-b339719dba69"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "DOOR",
+      "category": "DOOR",
+      "position": {
+        "x": 6500,
+        "y": 0
+      },
+      "attributes": {
+        "mark": "DOOR",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 6500,
+        "y": 0,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "DOOR",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "DOOR"
+      },
+      "entities": [
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6500,
+              "y": 0
+            },
+            {
+              "x": 6500,
+              "y": 1200
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "arc",
+          "center": {
+            "x": 6500,
+            "y": 0
+          },
+          "radius": 1200,
+          "startAngle": 0,
+          "endAngle": 90,
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6460,
+              "y": -60
+            },
+            {
+              "x": 6460,
+              "y": 60
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7740,
+              "y": -60
+            },
+            {
+              "x": 7740,
+              "y": 60
+            }
+          ],
+          "layer": "default"
+        }
+      ],
+      "id": "4613df62-a341-425b-9ecf-b71a8420fe98"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "WINDOW",
+      "category": "WINDOW",
+      "position": {
+        "x": 13000,
+        "y": 0
+      },
+      "attributes": {
+        "mark": "WINDOW",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 13000,
+        "y": 0,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "WINDOW",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "WINDOW"
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 13000,
+              "y": -1000
+            },
+            {
+              "x": 14200,
+              "y": -1000
+            },
+            {
+              "x": 14200,
+              "y": 1000
+            },
+            {
+              "x": 13000,
+              "y": 1000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 0
+            },
+            {
+              "x": 14200,
+              "y": 0
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13050,
+              "y": -1000
+            },
+            {
+              "x": 13050,
+              "y": 1000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 14150,
+              "y": -1000
+            },
+            {
+              "x": 14150,
+              "y": 1000
+            }
+          ],
+          "layer": "default"
+        }
+      ],
+      "id": "b58e2601-fa33-4101-b857-d8255684fa1d"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "CURVESTAIR",
+      "category": "CURVESTAIR",
+      "position": {
+        "x": 19500,
+        "y": 0
+      },
+      "attributes": {
+        "mark": "CURVESTAIR",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 19500,
+        "y": 0,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "CURVESTAIR",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "CURVESTAIR"
+      },
+      "entities": [
+        {
+          "type": "arc",
+          "center": {
+            "x": 19500,
+            "y": 0
+          },
+          "radius": 1000,
+          "startAngle": 0,
+          "endAngle": 120.00000000000001,
+          "layer": "default"
+        },
+        {
+          "type": "arc",
+          "center": {
+            "x": 19500,
+            "y": 0
+          },
+          "radius": 2200,
+          "startAngle": 0,
+          "endAngle": 120.00000000000001,
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20500,
+              "y": 0
+            },
+            {
+              "x": 21700,
+              "y": 0
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20478.147600733806,
+              "y": 207.9116908177593
+            },
+            {
+              "x": 21651.924721614374,
+              "y": 457.4057197990705
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20413.545457642602,
+              "y": 406.73664307580015
+            },
+            {
+              "x": 21509.800006813723,
+              "y": 894.8206147667603
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20309.016994374946,
+              "y": 587.7852522924732
+            },
+            {
+              "x": 21279.837387624884,
+              "y": 1293.127555043441
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20169.13060635886,
+              "y": 743.1448254773942
+            },
+            {
+              "x": 20972.08733398949,
+              "y": 1634.9186160502672
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 20000,
+              "y": 866.0254037844386
+            },
+            {
+              "x": 20600,
+              "y": 1905.255888325765
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19809.016994374946,
+              "y": 951.0565162951535
+            },
+            {
+              "x": 20179.837387624884,
+              "y": 2092.324335849338
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19604.528463267652,
+              "y": 994.5218953682732
+            },
+            {
+              "x": 19729.96261918884,
+              "y": 2187.9481698102013
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19395.471536732348,
+              "y": 994.5218953682734
+            },
+            {
+              "x": 19270.03738081116,
+              "y": 2187.9481698102013
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19190.983005625054,
+              "y": 951.0565162951536
+            },
+            {
+              "x": 18820.162612375116,
+              "y": 2092.3243358493382
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19000,
+              "y": 866.0254037844387
+            },
+            {
+              "x": 18400,
+              "y": 1905.2558883257652
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "UP",
+          "position": {
+            "x": 20980,
+            "y": 100
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "a8225ca0-253f-4a01-8d5e-1dfed74b1654"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "ELEVATOR",
+      "category": "ELEVATOR",
+      "position": {
+        "x": 0,
+        "y": 6500
+      },
+      "attributes": {
+        "mark": "ELEVATOR",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 0,
+        "y": 6500,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "ELEVATOR",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "ELEVATOR"
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 0,
+              "y": 6500
+            },
+            {
+              "x": 1200,
+              "y": 6500
+            },
+            {
+              "x": 1200,
+              "y": 8500
+            },
+            {
+              "x": 0,
+              "y": 8500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 150,
+              "y": 6700
+            },
+            {
+              "x": 1050,
+              "y": 6700
+            },
+            {
+              "x": 1050,
+              "y": 8300
+            },
+            {
+              "x": 150,
+              "y": 8300
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 150,
+              "y": 6700
+            },
+            {
+              "x": 1050,
+              "y": 8300
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 1050,
+              "y": 6700
+            },
+            {
+              "x": 150,
+              "y": 8300
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "ELEVATOR",
+          "position": {
+            "x": 420,
+            "y": 7400
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "a01f60bd-0f6f-4b84-aa41-0437f4a9023a"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "INSULATION",
+      "category": "INSULATION",
+      "position": {
+        "x": 6500,
+        "y": 6500
+      },
+      "attributes": {
+        "mark": "INSULATION",
+        "width": 1200,
+        "depth": 200,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 6500,
+        "y": 6500,
+        "width": 1200,
+        "depth": 200,
+        "count": 10,
+        "mark": "INSULATION",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "INSULATION"
+      },
+      "entities": [
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6500,
+              "y": 6500
+            },
+            {
+              "x": 6550,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6550,
+              "y": 6600
+            },
+            {
+              "x": 6650,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6650,
+              "y": 6400
+            },
+            {
+              "x": 6700,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6700,
+              "y": 6500
+            },
+            {
+              "x": 6750,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6750,
+              "y": 6600
+            },
+            {
+              "x": 6850,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6850,
+              "y": 6400
+            },
+            {
+              "x": 6900,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6900,
+              "y": 6500
+            },
+            {
+              "x": 6950,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6950,
+              "y": 6600
+            },
+            {
+              "x": 7050,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7050,
+              "y": 6400
+            },
+            {
+              "x": 7100,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7100,
+              "y": 6500
+            },
+            {
+              "x": 7150,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7150,
+              "y": 6600
+            },
+            {
+              "x": 7250,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7250,
+              "y": 6400
+            },
+            {
+              "x": 7300,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7300,
+              "y": 6500
+            },
+            {
+              "x": 7350,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7350,
+              "y": 6600
+            },
+            {
+              "x": 7450,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7450,
+              "y": 6400
+            },
+            {
+              "x": 7500,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7500,
+              "y": 6500
+            },
+            {
+              "x": 7550,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7550,
+              "y": 6600
+            },
+            {
+              "x": 7650,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7650,
+              "y": 6400
+            },
+            {
+              "x": 7700,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        }
+      ],
+      "id": "c7b28cbf-6421-4517-83d4-5caf90840d5a"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "RAMP",
+      "category": "RAMP",
+      "position": {
+        "x": 13000,
+        "y": 6500
+      },
+      "attributes": {
+        "mark": "RAMP",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 13000,
+        "y": 6500,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "RAMP",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "RAMP"
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 13000,
+              "y": 6500
+            },
+            {
+              "x": 14200,
+              "y": 6500
+            },
+            {
+              "x": 14200,
+              "y": 8500
+            },
+            {
+              "x": 13000,
+              "y": 8500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13600,
+              "y": 6500
+            },
+            {
+              "x": 13600,
+              "y": 8500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13600,
+              "y": 8500
+            },
+            {
+              "x": 13500,
+              "y": 8300
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13600,
+              "y": 8500
+            },
+            {
+              "x": 13700,
+              "y": 8300
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 6785.714285714285
+            },
+            {
+              "x": 14200,
+              "y": 6785.714285714285
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 7071.428571428572
+            },
+            {
+              "x": 14200,
+              "y": 7071.428571428572
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 7357.142857142857
+            },
+            {
+              "x": 14200,
+              "y": 7357.142857142857
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 7642.857142857143
+            },
+            {
+              "x": 14200,
+              "y": 7642.857142857143
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 7928.571428571428
+            },
+            {
+              "x": 14200,
+              "y": 7928.571428571428
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 13000,
+              "y": 8214.285714285714
+            },
+            {
+              "x": 14200,
+              "y": 8214.285714285714
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "경사 15%",
+          "position": {
+            "x": 14300,
+            "y": 7500
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "9e9deb74-fae2-4234-905a-ef3c1ccf8da5"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "SECTION",
+      "category": "SECTION",
+      "position": {
+        "x": 19500,
+        "y": 6500
+      },
+      "attributes": {
+        "mark": "SECTION",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 19500,
+        "y": 6500,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "SECTION",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "SECTION"
+      },
+      "entities": [
+        {
+          "type": "circle",
+          "center": {
+            "x": 19500,
+            "y": 6500
+          },
+          "radius": 400,
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19100,
+              "y": 6500
+            },
+            {
+              "x": 19900,
+              "y": 6500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19500,
+              "y": 6100
+            },
+            {
+              "x": 19500,
+              "y": 4500
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19500,
+              "y": 4500
+            },
+            {
+              "x": 19740,
+              "y": 4900
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "SECTION",
+          "position": {
+            "x": 19380,
+            "y": 6620
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "text",
+          "text": "A-101",
+          "position": {
+            "x": 19200,
+            "y": 6200
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "799676a4-2271-4a2f-80e4-b1eabfd0dd6c"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "LEVEL",
+      "category": "LEVEL",
+      "position": {
+        "x": 0,
+        "y": 13000
+      },
+      "attributes": {
+        "mark": "LEVEL",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 0,
+        "y": 13000,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "LEVEL",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "LEVEL"
+      },
+      "entities": [
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 0,
+              "y": 13000
+            },
+            {
+              "x": 1200,
+              "y": 13000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 0,
+              "y": 13000
+            },
+            {
+              "x": 240,
+              "y": 13180
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 240,
+              "y": 13180
+            },
+            {
+              "x": 240,
+              "y": 12820
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 240,
+              "y": 12820
+            },
+            {
+              "x": 0,
+              "y": 13000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "LEVEL",
+          "position": {
+            "x": 360,
+            "y": 13100
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "ea1755d6-d643-4e8b-a6ad-791bf0a05b75"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "ARROW",
+      "category": "ARROW",
+      "position": {
+        "x": 6500,
+        "y": 13000
+      },
+      "attributes": {
+        "mark": "ARROW",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 6500,
+        "y": 13000,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "ARROW",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "ARROW"
+      },
+      "entities": [
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 6500,
+              "y": 13000
+            },
+            {
+              "x": 7700,
+              "y": 13000
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7700,
+              "y": 13000
+            },
+            {
+              "x": 7500,
+              "y": 13100
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 7700,
+              "y": 13000
+            },
+            {
+              "x": 7500,
+              "y": 12900
+            }
+          ],
+          "layer": "default"
+        }
+      ],
+      "id": "eb334bf7-b835-4536-8751-9100d271c336"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "BREAKSYMBOL",
+      "category": "BREAKSYMBOL",
+      "position": {
+        "x": 13000,
+        "y": 13000
+      },
+      "attributes": {
+        "mark": "BREAKSYMBOL",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 13000,
+        "y": 13000,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "BREAKSYMBOL",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "BREAKSYMBOL"
+      },
+      "entities": [
+        {
+          "type": "polyline",
+          "points": [
+            {
+              "x": 13000,
+              "y": 13000
+            },
+            {
+              "x": 13420,
+              "y": 13000
+            },
+            {
+              "x": 13540,
+              "y": 13300
+            },
+            {
+              "x": 13660,
+              "y": 12700
+            },
+            {
+              "x": 13780,
+              "y": 13000
+            },
+            {
+              "x": 14200,
+              "y": 13000
+            }
+          ],
+          "closed": false,
+          "layer": "default"
+        }
+      ],
+      "id": "553a74db-dda2-40cb-a4e6-1cd8944312ad"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "TITLE",
+      "category": "TITLE",
+      "position": {
+        "x": 19500,
+        "y": 13000
+      },
+      "attributes": {
+        "mark": "TITLE",
+        "width": 1200,
+        "depth": 2000,
+        "height": 0,
+        "count": 10
+      },
+      "parameters": {
+        "x": 19500,
+        "y": 13000,
+        "width": 1200,
+        "depth": 2000,
+        "count": 10,
+        "mark": "TITLE",
+        "textHeight": 150,
+        "radius": 1000,
+        "sweep": 120,
+        "kind": "TITLE"
+      },
+      "entities": [
+        {
+          "type": "text",
+          "text": "TITLE",
+          "position": {
+            "x": 19500,
+            "y": 13000
+          },
+          "height": 150,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 19500,
+              "y": 12925
+            },
+            {
+              "x": 20700,
+              "y": 12925
+            }
+          ],
+          "layer": "default"
+        }
+      ],
+      "id": "07094f5d-2f29-427e-8885-e4a88b55cd25"
+    },
+    {
+      "type": "text",
+      "layer": "default",
+      "position": {
+        "x": 0,
+        "y": 19500
+      },
+      "text": "건축 요소 / 입력 치수로 생성한 편집 가능한 예제",
+      "height": 300,
+      "id": "bd472726-3431-415f-b77e-99a9674cbf96"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "G1",
+      "category": "STRUCTURE",
+      "structural": {
+        "kind": "beam",
+        "x": 35000,
+        "y": 0,
+        "width": 400,
+        "depth": 600,
+        "cover": 40,
+        "diameter": 22,
+        "count": 4,
+        "spacing": 200,
+        "span": 6000,
+        "mark": "G1",
+        "textHeight": 100,
+        "scope": "사용자 지정 치수의 제도 상세. 내력/정착/이음/법규 검증을 수행하지 않음."
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35000,
+              "y": 0
+            },
+            {
+              "x": 35400,
+              "y": 0
+            },
+            {
+              "x": 35400,
+              "y": 600
+            },
+            {
+              "x": 35000,
+              "y": 600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35040,
+              "y": 40
+            },
+            {
+              "x": 35360,
+              "y": 40
+            },
+            {
+              "x": 35360,
+              "y": 560
+            },
+            {
+              "x": 35040,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 51
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 549
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35150.333333333336,
+            "y": 51
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35150.333333333336,
+            "y": 549
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35249.666666666664,
+            "y": 51
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35249.666666666664,
+            "y": 549
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 51
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 549
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "G1 400×600",
+          "position": {
+            "x": 35000,
+            "y": 700
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "text",
+          "text": "주근 D22 8개",
+          "position": {
+            "x": 35000,
+            "y": -100
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "text",
+          "text": "띠/늑근 @200 피복 40",
+          "position": {
+            "x": 35000,
+            "y": -200
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35900,
+              "y": 0
+            },
+            {
+              "x": 41900,
+              "y": 0
+            },
+            {
+              "x": 41900,
+              "y": 600
+            },
+            {
+              "x": 35900,
+              "y": 600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 51
+            },
+            {
+              "x": 41900,
+              "y": 51
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 549
+            },
+            {
+              "x": 41900,
+              "y": 549
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35940,
+              "y": 40
+            },
+            {
+              "x": 35940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36140,
+              "y": 40
+            },
+            {
+              "x": 36140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36340,
+              "y": 40
+            },
+            {
+              "x": 36340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36540,
+              "y": 40
+            },
+            {
+              "x": 36540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36740,
+              "y": 40
+            },
+            {
+              "x": 36740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36940,
+              "y": 40
+            },
+            {
+              "x": 36940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37140,
+              "y": 40
+            },
+            {
+              "x": 37140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37340,
+              "y": 40
+            },
+            {
+              "x": 37340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37540,
+              "y": 40
+            },
+            {
+              "x": 37540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37740,
+              "y": 40
+            },
+            {
+              "x": 37740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37940,
+              "y": 40
+            },
+            {
+              "x": 37940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38140,
+              "y": 40
+            },
+            {
+              "x": 38140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38340,
+              "y": 40
+            },
+            {
+              "x": 38340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38540,
+              "y": 40
+            },
+            {
+              "x": 38540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38740,
+              "y": 40
+            },
+            {
+              "x": 38740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38940,
+              "y": 40
+            },
+            {
+              "x": 38940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39140,
+              "y": 40
+            },
+            {
+              "x": 39140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39340,
+              "y": 40
+            },
+            {
+              "x": 39340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39540,
+              "y": 40
+            },
+            {
+              "x": 39540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39740,
+              "y": 40
+            },
+            {
+              "x": 39740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39940,
+              "y": 40
+            },
+            {
+              "x": 39940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40140,
+              "y": 40
+            },
+            {
+              "x": 40140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40340,
+              "y": 40
+            },
+            {
+              "x": 40340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40540,
+              "y": 40
+            },
+            {
+              "x": 40540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40740,
+              "y": 40
+            },
+            {
+              "x": 40740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40940,
+              "y": 40
+            },
+            {
+              "x": 40940,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41140,
+              "y": 40
+            },
+            {
+              "x": 41140,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41340,
+              "y": 40
+            },
+            {
+              "x": 41340,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41540,
+              "y": 40
+            },
+            {
+              "x": 41540,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41740,
+              "y": 40
+            },
+            {
+              "x": 41740,
+              "y": 560
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "전개 길이 6000",
+          "position": {
+            "x": 35900,
+            "y": 700
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "3001299c-ec62-4036-a4d9-45771c60e5c4"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "C1",
+      "category": "STRUCTURE",
+      "structural": {
+        "kind": "column",
+        "x": 35000,
+        "y": 2200,
+        "width": 400,
+        "depth": 600,
+        "cover": 40,
+        "diameter": 22,
+        "count": 4,
+        "spacing": 200,
+        "span": 6000,
+        "mark": "C1",
+        "textHeight": 100,
+        "scope": "사용자 지정 치수의 제도 상세. 내력/정착/이음/법규 검증을 수행하지 않음."
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35000,
+              "y": 2200
+            },
+            {
+              "x": 35400,
+              "y": 2200
+            },
+            {
+              "x": 35400,
+              "y": 2800
+            },
+            {
+              "x": 35000,
+              "y": 2800
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35040,
+              "y": 2240
+            },
+            {
+              "x": 35360,
+              "y": 2240
+            },
+            {
+              "x": 35360,
+              "y": 2760
+            },
+            {
+              "x": 35040,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 2251
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 2749
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35150.333333333336,
+            "y": 2251
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35150.333333333336,
+            "y": 2749
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35249.666666666664,
+            "y": 2251
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35249.666666666664,
+            "y": 2749
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 2251
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 2749
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 2417
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 2417
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35051,
+            "y": 2583
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "circle",
+          "center": {
+            "x": 35349,
+            "y": 2583
+          },
+          "radius": 11,
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "C1 400×600",
+          "position": {
+            "x": 35000,
+            "y": 2900
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "text",
+          "text": "주근 D22 12개",
+          "position": {
+            "x": 35000,
+            "y": 2100
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "text",
+          "text": "띠/늑근 @200 피복 40",
+          "position": {
+            "x": 35000,
+            "y": 2000
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35900,
+              "y": 2200
+            },
+            {
+              "x": 41900,
+              "y": 2200
+            },
+            {
+              "x": 41900,
+              "y": 2800
+            },
+            {
+              "x": 35900,
+              "y": 2800
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 2251
+            },
+            {
+              "x": 41900,
+              "y": 2251
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 2749
+            },
+            {
+              "x": 41900,
+              "y": 2749
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35940,
+              "y": 2240
+            },
+            {
+              "x": 35940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36140,
+              "y": 2240
+            },
+            {
+              "x": 36140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36340,
+              "y": 2240
+            },
+            {
+              "x": 36340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36540,
+              "y": 2240
+            },
+            {
+              "x": 36540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36740,
+              "y": 2240
+            },
+            {
+              "x": 36740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36940,
+              "y": 2240
+            },
+            {
+              "x": 36940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37140,
+              "y": 2240
+            },
+            {
+              "x": 37140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37340,
+              "y": 2240
+            },
+            {
+              "x": 37340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37540,
+              "y": 2240
+            },
+            {
+              "x": 37540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37740,
+              "y": 2240
+            },
+            {
+              "x": 37740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37940,
+              "y": 2240
+            },
+            {
+              "x": 37940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38140,
+              "y": 2240
+            },
+            {
+              "x": 38140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38340,
+              "y": 2240
+            },
+            {
+              "x": 38340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38540,
+              "y": 2240
+            },
+            {
+              "x": 38540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38740,
+              "y": 2240
+            },
+            {
+              "x": 38740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38940,
+              "y": 2240
+            },
+            {
+              "x": 38940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39140,
+              "y": 2240
+            },
+            {
+              "x": 39140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39340,
+              "y": 2240
+            },
+            {
+              "x": 39340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39540,
+              "y": 2240
+            },
+            {
+              "x": 39540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39740,
+              "y": 2240
+            },
+            {
+              "x": 39740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39940,
+              "y": 2240
+            },
+            {
+              "x": 39940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40140,
+              "y": 2240
+            },
+            {
+              "x": 40140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40340,
+              "y": 2240
+            },
+            {
+              "x": 40340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40540,
+              "y": 2240
+            },
+            {
+              "x": 40540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40740,
+              "y": 2240
+            },
+            {
+              "x": 40740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40940,
+              "y": 2240
+            },
+            {
+              "x": 40940,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41140,
+              "y": 2240
+            },
+            {
+              "x": 41140,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41340,
+              "y": 2240
+            },
+            {
+              "x": 41340,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41540,
+              "y": 2240
+            },
+            {
+              "x": 41540,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 41740,
+              "y": 2240
+            },
+            {
+              "x": 41740,
+              "y": 2760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "전개 길이 6000",
+          "position": {
+            "x": 35900,
+            "y": 2900
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "c9ca5123-1dfb-42a1-962e-814233f9e204"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "S1",
+      "category": "STRUCTURE",
+      "structural": {
+        "kind": "slab",
+        "x": 35000,
+        "y": 4400,
+        "width": 400,
+        "depth": 600,
+        "cover": 40,
+        "diameter": 22,
+        "count": 4,
+        "spacing": 200,
+        "span": 6000,
+        "mark": "S1",
+        "textHeight": 100,
+        "scope": "사용자 지정 치수의 제도 상세. 내력/정착/이음/법규 검증을 수행하지 않음."
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35000,
+              "y": 4400
+            },
+            {
+              "x": 41000,
+              "y": 4400
+            },
+            {
+              "x": 41000,
+              "y": 4800
+            },
+            {
+              "x": 35000,
+              "y": 4800
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35040,
+              "y": 4440
+            },
+            {
+              "x": 35040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35240,
+              "y": 4440
+            },
+            {
+              "x": 35240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35440,
+              "y": 4440
+            },
+            {
+              "x": 35440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35640,
+              "y": 4440
+            },
+            {
+              "x": 35640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35840,
+              "y": 4440
+            },
+            {
+              "x": 35840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36040,
+              "y": 4440
+            },
+            {
+              "x": 36040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36240,
+              "y": 4440
+            },
+            {
+              "x": 36240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36440,
+              "y": 4440
+            },
+            {
+              "x": 36440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36640,
+              "y": 4440
+            },
+            {
+              "x": 36640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 36840,
+              "y": 4440
+            },
+            {
+              "x": 36840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37040,
+              "y": 4440
+            },
+            {
+              "x": 37040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37240,
+              "y": 4440
+            },
+            {
+              "x": 37240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37440,
+              "y": 4440
+            },
+            {
+              "x": 37440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37640,
+              "y": 4440
+            },
+            {
+              "x": 37640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 37840,
+              "y": 4440
+            },
+            {
+              "x": 37840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38040,
+              "y": 4440
+            },
+            {
+              "x": 38040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38240,
+              "y": 4440
+            },
+            {
+              "x": 38240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38440,
+              "y": 4440
+            },
+            {
+              "x": 38440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38640,
+              "y": 4440
+            },
+            {
+              "x": 38640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 38840,
+              "y": 4440
+            },
+            {
+              "x": 38840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39040,
+              "y": 4440
+            },
+            {
+              "x": 39040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39240,
+              "y": 4440
+            },
+            {
+              "x": 39240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39440,
+              "y": 4440
+            },
+            {
+              "x": 39440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39640,
+              "y": 4440
+            },
+            {
+              "x": 39640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 39840,
+              "y": 4440
+            },
+            {
+              "x": 39840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40040,
+              "y": 4440
+            },
+            {
+              "x": 40040,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40240,
+              "y": 4440
+            },
+            {
+              "x": 40240,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40440,
+              "y": 4440
+            },
+            {
+              "x": 40440,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40640,
+              "y": 4440
+            },
+            {
+              "x": 40640,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 40840,
+              "y": 4440
+            },
+            {
+              "x": 40840,
+              "y": 4760
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35040,
+              "y": 4440
+            },
+            {
+              "x": 40960,
+              "y": 4440
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35040,
+              "y": 4640
+            },
+            {
+              "x": 40960,
+              "y": 4640
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "S1 슬래브 t=600 D22@200 양방향",
+          "position": {
+            "x": 35000,
+            "y": 4900
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "6f5c41c3-06cd-48cb-94b0-bbb01c07f709"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "H1",
+      "category": "STRUCTURE",
+      "structural": {
+        "kind": "steel",
+        "x": 35000,
+        "y": 6600,
+        "width": 400,
+        "depth": 600,
+        "cover": 40,
+        "diameter": 22,
+        "count": 4,
+        "spacing": 200,
+        "span": 6000,
+        "mark": "H1",
+        "textHeight": 100,
+        "scope": "사용자 지정 치수의 제도 상세. 내력/정착/이음/법규 검증을 수행하지 않음."
+      },
+      "entities": [
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35000,
+              "y": 6600
+            },
+            {
+              "x": 35400,
+              "y": 6600
+            },
+            {
+              "x": 35400,
+              "y": 6636
+            },
+            {
+              "x": 35000,
+              "y": 6636
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35000,
+              "y": 7164
+            },
+            {
+              "x": 35400,
+              "y": 7164
+            },
+            {
+              "x": 35400,
+              "y": 7200
+            },
+            {
+              "x": 35000,
+              "y": 7200
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "rectangle",
+          "points": [
+            {
+              "x": 35192,
+              "y": 6636
+            },
+            {
+              "x": 35208,
+              "y": 6636
+            },
+            {
+              "x": 35208,
+              "y": 7164
+            },
+            {
+              "x": 35192,
+              "y": 7164
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 6400
+            },
+            {
+              "x": 41900,
+              "y": 6400
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 6800
+            },
+            {
+              "x": 41900,
+              "y": 6800
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "line",
+          "points": [
+            {
+              "x": 35900,
+              "y": 6600
+            },
+            {
+              "x": 41900,
+              "y": 6600
+            }
+          ],
+          "layer": "default"
+        },
+        {
+          "type": "text",
+          "text": "H1 H-600×400 (플랜지/웹 도식)",
+          "position": {
+            "x": 35000,
+            "y": 7300
+          },
+          "height": 100,
+          "layer": "default",
+          "rotation": 0
+        }
+      ],
+      "id": "c2746ed3-3fb6-4e1a-8f47-16a37a92c36a"
+    },
+    {
+      "type": "text",
+      "layer": "default",
+      "position": {
+        "x": 35000,
+        "y": 8500
+      },
+      "text": "구조 제도 예제 / 입력값 도식화 · 내력 설계 아님",
+      "height": 250,
+      "id": "563cd71f-d9f1-446f-8f14-f38a5dae7a1d"
+    },
+    {
+      "type": "block",
+      "layer": "default",
+      "name": "거푸집 산출 검증",
+      "entities": [
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 19000
+            },
+            {
+              "x": 59488,
+              "y": 19000
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 18516
+            },
+            {
+              "x": 59488,
+              "y": 18516
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 18032
+            },
+            {
+              "x": 59488,
+              "y": 18032
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 17548
+            },
+            {
+              "x": 59488,
+              "y": 17548
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 17064
+            },
+            {
+              "x": 59488,
+              "y": 17064
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 16580
+            },
+            {
+              "x": 59488,
+              "y": 16580
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 16096
+            },
+            {
+              "x": 59488,
+              "y": 16096
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 15612
+            },
+            {
+              "x": 59488,
+              "y": 15612
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 15128
+            },
+            {
+              "x": 59488,
+              "y": 15128
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 14644
+            },
+            {
+              "x": 59488,
+              "y": 14644
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 14160
+            },
+            {
+              "x": 59488,
+              "y": 14160
+            }
+          ]
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 55000,
+              "y": 19000
+            },
+            {
+              "x": 55000,
+              "y": 14160
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 18661.2
+          },
+          "height": 220,
+          "text": "항목"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 18177.2
+          },
+          "height": 220,
+          "text": "길이"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 17693.2
+          },
+          "height": 220,
+          "text": "높이"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 17209.2
+          },
+          "height": 220,
+          "text": "경사계수"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 16725.2
+          },
+          "height": 220,
+          "text": "벽면"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 16241.199999999999
+          },
+          "height": 220,
+          "text": "계단"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 15757.199999999999
+          },
+          "height": 220,
+          "text": "개구부 공제"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 15273.199999999999
+          },
+          "height": 220,
+          "text": "순면적"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 14789.2
+          },
+          "height": 220,
+          "text": "할증"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 55110,
+            "y": 14305.2
+          },
+          "height": 220,
+          "text": "할증 포함"
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 56496,
+              "y": 19000
+            },
+            {
+              "x": 56496,
+              "y": 14160
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 18661.2
+          },
+          "height": 220,
+          "text": "값"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 18177.2
+          },
+          "height": 220,
+          "text": "10"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 17693.2
+          },
+          "height": 220,
+          "text": "3"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 17209.2
+          },
+          "height": 220,
+          "text": "1.25"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 16725.2
+          },
+          "height": 220,
+          "text": "37.5"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 16241.199999999999
+          },
+          "height": 220,
+          "text": "4.5"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 15757.199999999999
+          },
+          "height": 220,
+          "text": "2"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 15273.199999999999
+          },
+          "height": 220,
+          "text": "40"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 14789.2
+          },
+          "height": 220,
+          "text": "5"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 56606,
+            "y": 14305.2
+          },
+          "height": 220,
+          "text": "42"
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 57992,
+              "y": 19000
+            },
+            {
+              "x": 57992,
+              "y": 14160
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 18661.2
+          },
+          "height": 220,
+          "text": "단위"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 18177.2
+          },
+          "height": 220,
+          "text": "m"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 17693.2
+          },
+          "height": 220,
+          "text": "m"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 17209.2
+          },
+          "height": 220,
+          "text": ""
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 16725.2
+          },
+          "height": 220,
+          "text": "㎡"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 16241.199999999999
+          },
+          "height": 220,
+          "text": "㎡"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 15757.199999999999
+          },
+          "height": 220,
+          "text": "㎡"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 15273.199999999999
+          },
+          "height": 220,
+          "text": "㎡"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 14789.2
+          },
+          "height": 220,
+          "text": "%"
+        },
+        {
+          "type": "text",
+          "layer": "default",
+          "position": {
+            "x": 58102,
+            "y": 14305.2
+          },
+          "height": 220,
+          "text": "㎡"
+        },
+        {
+          "type": "line",
+          "layer": "default",
+          "points": [
+            {
+              "x": 59488,
+              "y": 19000
+            },
+            {
+              "x": 59488,
+              "y": 14160
+            }
+          ]
+        }
+      ],
+      "table": {
+        "rows": [
+          [
+            "항목",
+            "값",
+            "단위"
+          ],
+          [
+            "길이",
+            10,
+            "m"
+          ],
+          [
+            "높이",
+            3,
+            "m"
+          ],
+          [
+            "경사계수",
+            1.25,
+            ""
+          ],
+          [
+            "벽면",
+            37.5,
+            "㎡"
+          ],
+          [
+            "계단",
+            4.5,
+            "㎡"
+          ],
+          [
+            "개구부 공제",
+            2,
+            "㎡"
+          ],
+          [
+            "순면적",
+            40,
+            "㎡"
+          ],
+          [
+            "할증",
+            5,
+            "%"
+          ],
+          [
+            "할증 포함",
+            42,
+            "㎡"
+          ]
+        ],
+        "height": 220,
+        "widths": [
+          1496,
+          1496,
+          1496
+        ],
+        "formulas": [
+          {
+            "cell": "B5",
+            "formula": "=B2*B3*B4"
+          },
+          {
+            "cell": "B8",
+            "formula": "=B5+B6-B7"
+          },
+          {
+            "cell": "B10",
+            "formula": "=B8*(1+B9/100)"
+          }
+        ]
+      },
+      "id": "3d186192-daf2-489c-a5a5-66495108b2e2"
+    }
+  ],
+  "sheets": [
+    {
+      "id": "a",
+      "number": "A-001",
+      "title": "건축 요소",
+      "paper": "A1",
+      "denominator": 50,
+      "bounds": {
+        "minX": -2000,
+        "minY": -1000,
+        "maxX": 26000,
+        "maxY": 20500
+      }
+    },
+    {
+      "id": "s",
+      "number": "S-001",
+      "title": "구조 제도 예제",
+      "paper": "A1",
+      "denominator": 20,
+      "bounds": {
+        "minX": 34000,
+        "minY": -500,
+        "maxX": 44000,
+        "maxY": 9000
+      }
+    },
+    {
+      "id": "q",
+      "number": "Q-001",
+      "title": "거푸집 산출",
+      "paper": "A3",
+      "denominator": 50,
+      "bounds": {
+        "minX": 54500,
+        "minY": 13000,
+        "maxX": 65000,
+        "maxY": 20000
+      }
+    }
+  ]
+}

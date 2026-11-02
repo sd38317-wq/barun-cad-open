@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AssemblyName>BarunConverter</AssemblyName></PropertyGroup>
+  <ItemGroup><PackageReference Include="ACadSharp" Version="3.8.0" /></ItemGroup>
+  <!-- Windows publish only (macOS runtimes are untouched): trim the .NET framework assemblies
+       (partial = ACadSharp and this program are kept whole, so reflection in LineSplit.cs and the
+       anonymous-object JSON output keep working), then precompile (ReadyToRun) so start-up is not slower.
+       73MB/191 files -> 27MB/45 files (with DropDiagnostics below); identical outputs on 40 real DWGs (진행메모/2026-10-17_설치본줄이기_714_f876770c.md). -->
+  <PropertyGroup Condition="$(RuntimeIdentifier.StartsWith('win'))"><PublishTrimmed>true</PublishTrimmed><TrimMode>partial</TrimMode><PublishReadyToRun>true</PublishReadyToRun><JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault><DebugType>none</DebugType></PropertyGroup>
+  <ItemGroup Condition="$(RuntimeIdentifier.StartsWith('win'))"><TrimmerRootAssembly Include="ACadSharp" /></ItemGroup>
+  <!-- Debugger and crash-dump helpers (6MB) are never used by the converter; conversion and error JSON work without them. -->
+  <Target Name="DropDiagnostics" AfterTargets="Publish" Condition="$(RuntimeIdentifier.StartsWith('win'))">
+    <Delete Files="$(PublishDir)createdump.exe;$(PublishDir)mscordbi.dll;$(PublishDir)Microsoft.DiaSymReader.Native.amd64.dll" />
+    <ItemGroup><DacFiles Include="$(PublishDir)mscordaccore*.dll" /></ItemGroup>
+    <Delete Files="@(DacFiles)" />
+  </Target>
+  <!-- macOS: the same helpers (createdump is a debugger-style Mach-O that complicates Developer ID signing and notarization).
+       Trimming/ReadyToRun stay Windows-only; build_mac_runtimes.py still runs the converter after publish. -->
+  <Target Name="DropDiagnosticsMac" AfterTargets="Publish" Condition="$(RuntimeIdentifier.StartsWith('osx'))">
+    <ItemGroup><MacDiagnostics Include="$(PublishDir)createdump;$(PublishDir)libmscordbi.dylib;$(PublishDir)libmscordaccore*.dylib;$(PublishDir)libdbgshim.dylib" /></ItemGroup>
+    <Delete Files="@(MacDiagnostics)" />
+  </Target>
+</Project>

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "suiteId": "barun-required-ui-v1",
+  "runId": "7d3b3b32-3381-42c2-a3f1-bb7a275d97c9",
+  "appVersion": "6.0.2",
+  "startedAt": "2026-09-27T04:51:55.060Z",
+  "status": "passed",
+  "checks": [
+    {
+      "id": "SELECT_CLICK_RELEASE",
+      "status": "passed",
+      "durationMs": 1122.199999988079,
+      "probeIds": [
+        "current"
+      ]
+    },
+    {
+      "id": "DRAFTING_CONTEXT_SETTINGS",
+      "status": "passed",
+      "durationMs": 23.5,
+      "probeIds": [
+        "current"
+      ]
+    },
+    {
+      "id": "DIALOG_HALF_SCALE",
+      "status": "passed",
+      "durationMs": 2,
+      "probeIds": [
+        "current"
+      ]
+    },
+    {
+      "id": "FILLET_TWO_CLICK_UNDO",
+      "status": "passed",
+      "durationMs": 13.5,
+      "probeIds": [
+        "current"
+      ]
+    },
+    {
+      "id": "FILLET_RADIUS",
+      "status": "passed",
+      "durationMs": 6.299999997019768,
+      "probeIds": [
+        "current"
+      ]
+    },
+    {
+      "id": "OSNAP_INTERSECTION_ORTHO",
+      "status": "passed",
+      "durationMs": 14.5,
+      "probeIds": [
+        "current"
+      ]
+    }
+  ],
+  "errors": [],
+  "finishedAt": "2026-09-27T04:51:57.985Z",
+  "durationMs": 2924
+}
